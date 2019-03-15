@@ -1,0 +1,11 @@
+Actualmente existen 2 scrapers, los que imprimen informacion por consola de las paginas de llegadas y salidas.
+
+Librerias usadas:
+ - urllib
+ - bs4
+
+Llegadas (formato output):
+(hora) - (origen), (terminal), (estado)
+
+Salidas (formato output):
+(hora - (destino), (terminal), (estado)
