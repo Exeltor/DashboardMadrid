@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- ===============================================-->
+    <!--    Document Title-->
+    <!-- ===============================================-->
+    <title>Falcon | Dashboard &amp; WebApp Template</title>
+
+
+    <!-- ===============================================-->
+    <!--    Favicons-->
+    <!-- ===============================================-->
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/img/favicons/favicon.ico">
+    <link rel="manifest" href="../assets/img/favicons/manifest.json">
+    <meta name="msapplication-TileImage" content="../assets/img/favicons/mstile-150x150.png">
+    <meta name="theme-color" content="#ffffff">
+
+
+    <!-- ===============================================-->
+    <!--    Stylesheets-->
+    <!-- ===============================================-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700%7cPoppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="../assets/css/theme.css" rel="stylesheet">
+
+  </head>
+
+
+  <body>
+
+    <!-- ===============================================-->
+    <!--    Main Content-->
+    <!-- ===============================================-->
+    <main class="main" id="top">
+
+
+      <div class="container">
+        <nav class="navbar navbar-vertical navbar-expand-lg navbar-light navbar-glass"><a class="navbar-brand text-left" href="../index.html">
+            <div class="d-flex align-items-center text-primary py-3">
+              <div class="d-inline-flex flex-center"><img class="mr-2" src="../assets/img/illustrations/falcon.png" alt="" width="40" /><span class="text-sans-serif">falcon</span></div>
+            </div>
+          </a>
+          <div class="collapse navbar-collapse" id="navbarVerticalCollapse">
+            <ul class="navbar-nav flex-column">
+              <li class="nav-item"><a class="nav-link dropdown-indicator" href="#home" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="home">
+                  <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-chart-pie"></span></span><span>Home</span>
+                  </div>
+                </a>
+                <ul class="nav collapse" id="home" data-parent="#navbarVerticalCollapse">
+                  <li class="nav-item"><a class="nav-link" href="../index.html">Dashboard</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../home/feed.html">Feed</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../home/landing.html">Landing</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item"><a class="nav-link dropdown-indicator" href="#pages" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="pages">
+                  <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-copy"></span></span><span>Pages</span>
+                  </div>
+                </a>
+                <ul class="nav collapse show" id="pages" data-parent="#navbarVerticalCollapse">
+                  <li class="nav-item"><a class="nav-link" href="../pages/activity.html">Activity</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/associations.html">Associations</a>
+                  </li>
+                  <li class="nav-item active"><a class="nav-link" href="../pages/checkout.html">Checkout</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/customer-details.html">Customer details</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/event-detail.html">Event detail</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/event-create.html">Event create</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/events.html">Events</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/faq.html">Faq</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/invoice.html">Invoice</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/invite-people.html">Invite people</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/notifications.html">Notifications</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/people.html">People</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/pricing.html">Pricing</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/pricing-alt.html">Pricing alt</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/profile.html">Profile</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/settings.html">Settings</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/starter.html">Starter</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link dropdown-indicator" href="#pages-errors" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="pages-errors">Errors<span class="badge badge-soft-success badge-pill ml-2"></span></a>
+                    <ul class="nav collapse" id="pages-errors">
+                      <li class="nav-item"><a class="nav-link" href="../pages/errors/404.html">404</a>
+                      </li>
+                      <li class="nav-item"><a class="nav-link" href="../pages/errors/500.html">500</a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item"><a class="nav-link dropdown-indicator" href="#email" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="email">
+                  <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-envelope-open"></span></span><span>Email</span><span class="badge badge-soft-success badge-pill ml-2">upcoming</span>
+                  </div>
+                </a>
+                <ul class="nav collapse" id="email" data-parent="#navbarVerticalCollapse">
+                  <li class="nav-item"><a class="nav-link" href="../email/inbox.html">Inbox</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../email/email-detail.html">Email detail</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../email/compose.html">Compose</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item"><a class="nav-link dropdown-indicator" href="#authentication" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="authentication">
+                  <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-unlock-alt"></span></span><span>Authentication</span>
+                  </div>
+                </a>
+                <ul class="nav collapse" id="authentication" data-parent="#navbarVerticalCollapse">
+                  <li class="nav-item"><a class="nav-link" href="../authentication/log-in.html">Log in</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../authentication/log-out.html">Log out</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../authentication/register.html">Register</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../authentication/forget-password.html">Forget password</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../authentication/password-reset.html">Password reset</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../authentication/confirm-mail.html">Confirm mail</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../authentication/lock-screen.html">Lock screen</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <hr class="border-300 my-2" />
+            <ul class="navbar-nav flex-column">
+              <li class="nav-item"><a class="nav-link dropdown-indicator" href="#layouts" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="layouts">
+                  <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-qrcode"></span></span><span>Layouts</span>
+                  </div>
+                </a>
+                <ul class="nav collapse" id="layouts" data-parent="#navbarVerticalCollapse">
+                  <li class="nav-item"><a class="nav-link" href="../layouts/standard.html">Standard</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../layouts/fluid.html">Fluid</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../layouts/RTL.html">RTL</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item"><a class="nav-link dropdown-indicator" href="#components" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="components">
+                  <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-puzzle-piece"></span></span><span>Components</span>
+                  </div>
+                </a>
+                <ul class="nav collapse" id="components" data-parent="#navbarVerticalCollapse">
+                  <li class="nav-item"><a class="nav-link" href="../components/accordion.html">Accordion</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/alerts.html">Alerts</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/avatar.html">Avatar</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/background.html">Background</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/badges.html">Badges</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/borders.html">Borders</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/breadcrumb.html">Breadcrumb</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/buttons.html">Buttons</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/cards.html">Cards</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/carousel.html">Carousel</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/charts.html">Charts</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/colors.html">Colors</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/collapse.html">Collapse</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/countdown.html">Countdown</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/countup.html">Countup</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/data-table.html">Data table</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/date-picker.html">Date picker</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/dropdowns.html">Dropdowns</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/fancybox.html">Fancybox</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/fancytab.html">Fancytab</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/forms.html">Forms</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/google-map.html">Google map</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/grid.html">Grid</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/hoverbox.html">Hoverbox</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/icons.html">Icons</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/inline-player.html">Inline player</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/jqvmap.html">Jqvmap</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/lightbox.html">Lightbox</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/list-group.html">List group</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/modals.html">Modals</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/media-object.html">Media object</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/navs.html">Navs</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/navbar.html">Navbar</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/notifications.html">Notifications</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/page-headers.html">Page headers</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/pagination.html">Pagination</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/popovers.html">Popovers</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/progress.html">Progress</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/remodal.html">Remodal</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/scrollspy.html">Scrollspy</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/select2.html">Select2</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/sizing.html">Sizing</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/spacing.html">Spacing</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/tables.html">Tables</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/tabs.html">Tabs</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/tooltips.html">Tooltips</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/typed-text.html">Typed text</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/typography.html">Typography</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <hr class="border-300 my-2" />
+            <ul class="navbar-nav flex-column">
+              <li class="nav-item"><a class="nav-link dropdown-indicator" href="#documentation" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="documentation">
+                  <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-book"></span></span><span>Documentation</span>
+                  </div>
+                </a>
+                <ul class="nav collapse" id="documentation" data-parent="#navbarVerticalCollapse">
+                  <li class="nav-item"><a class="nav-link" href="../documentation/getting-started.html">Getting started</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../documentation/file-structure.html">File structure</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../documentation/customization.html">Customization</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../documentation/fluid-layout.html">Fluid layout</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../documentation/gulp.html">Gulp</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../documentation/RTL.html">RTL</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../documentation/plugins.html">Plugins</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="../changelog.html">
+                  <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-code-branch"></span></span><span>Changelog</span><span class="badge badge-soft-success badge-pill ml-2">v1.4.0</span>
+                  </div>
+                </a></li>
+            </ul><a class="btn btn-primary btn-sm m-3" href="https://themewagon.com/themes/falcon/" target="_blank">Purchase</a>
+          </div>
+        </nav>
+        <div class="content">
+          <nav class="navbar navbar-light navbar-glass fs--1 font-weight-semi-bold row navbar-top sticky-kit navbar-expand">
+            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarVerticalCollapse" aria-controls="navbarVerticalCollapse" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><a class="navbar-brand text-left ml-3" href="../index.html">
+              <div class="d-flex align-items-center text-primary">
+                <div class="d-inline-flex flex-center"><img class="mr-2" src="../assets/img/illustrations/falcon.png" alt="" width="40" /><span class="text-sans-serif">falcon</span></div>
+              </div>
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown1">
+              <ul class="navbar-nav align-items-center d-none d-lg-block">
+                <li class="nav-item">
+                  <form class="form-inline search-box">
+                    <input class="form-control rounded-pill search-input" type="search" placeholder="Search..." aria-label="Search" /><span class="position-absolute fas fa-search text-400 search-box-icon"></span>
+                  </form>
+                </li>
+              </ul>
+              <ul class="navbar-nav align-items-center ml-auto">
+                <li class="nav-item dropdown"><a class="nav-link unread-indicator px-0" id="navbarDropdownNotification" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="fas fa-bell fs-4" data-fa-transform="shrink-6"></span></a>
+                  <div class="dropdown-menu dropdown-menu-right dropdown-menu-card" aria-labelledby="navbarDropdownNotification">
+                    <div class="card card-notification shadow-none" style="max-width: 20rem">
+                      <div class="card-header">
+                        <div class="row justify-content-between align-items-center">
+                          <div class="col-auto">
+                            <h6 class="card-header-title mb-0">Notifications</h6>
+                          </div>
+                          <div class="col-auto"><a class="card-link font-weight-normal" href="#">Mark all as read</a></div>
+                        </div>
+                      </div>
+                      <div class="list-group list-group-flush font-weight-normal fs--1">
+                        <div class="list-group-title">NEW</div>
+                        <div class="list-group-item">
+                          <a class="notification notification-flush bg-200" href="#!">
+                            <div class="notification-avatar">
+                              <div class="avatar avatar-2xl mr-3">
+                                <img class="rounded-circle" src="../assets/img/team/1.jpg" alt="" />
+
+                              </div>
+                            </div>
+                            <div class="notification-body">
+                              <p class="mb-1"><strong>Emma Watson</strong> replied to your comment : "Hello world 😍"</p>
+                              <span class="notification-time"><span class="mr-1" role="img" aria-label="Emoji">💬</span>Just now</span>
+
+                            </div>
+                          </a>
+
+                        </div>
+                        <div class="list-group-item">
+                          <a class="notification notification-flush bg-200" href="#!">
+                            <div class="notification-avatar">
+                              <div class="avatar avatar-2xl mr-3">
+                                <div class="avatar-name rounded-circle"><span>AB</span></div>
+                              </div>
+                            </div>
+                            <div class="notification-body">
+                              <p class="mb-1"><strong>Albert Brooks</strong> reacted to <strong>Mia Khalifa's</strong> status</p>
+                              <span class="notification-time"><span class="mr-1 fab fa-gratipay text-danger"></span>9hr</span>
+
+                            </div>
+                          </a>
+
+                        </div>
+                        <div class="list-group-title">EARLIER</div>
+                        <div class="list-group-item">
+                          <a class="notification notification-flush" href="#!">
+                            <div class="notification-avatar">
+                              <div class="avatar avatar-2xl mr-3">
+                                <img class="rounded-circle" src="../assets/img/icons/weather.jpg" alt="" />
+
+                              </div>
+                            </div>
+                            <div class="notification-body">
+                              <p class="mb-1">The forecast today shows a low of 20&#8451; in California. See today's weather.</p>
+                              <span class="notification-time"><span class="mr-1" role="img" aria-label="Emoji">🌤️</span>1d</span>
+
+                            </div>
+                          </a>
+
+                        </div>
+                      </div>
+                      <div class="card-footer text-center border-top-0"><a class="card-link d-block" href="../pages/notifications.html">View all</a></div>
+                    </div>
+                  </div>
+                </li>
+                <li class="nav-item dropdown"><a class="nav-link pr-0" id="navbarDropdownUser" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div class="avatar avatar-xl">
+                      <img class="rounded-circle" src="../assets/img/team/3.jpg" alt="" />
+
+                    </div>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-right py-0" aria-labelledby="navbarDropdownUser">
+                    <div class="bg-white rounded-soft py-2">
+                      <a class="dropdown-item font-weight-bold text-warning" href="#!"><span class="fas fa-crown mr-1"></span><span>Go Pro</span></a>
+
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#!">Set status</a>
+                      <a class="dropdown-item" href="../pages/profile.html">Profile &amp; account</a>
+                      <a class="dropdown-item" href="#!">Feedback</a>
+
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="../pages/settings.html">Settings</a>
+                      <a class="dropdown-item" href="../authentication/log-out.html">Logout</a>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </nav>
+          <div class="card mb-3">
+            <div class="bg-holder d-none d-lg-block bg-card" style="background-image:url(../assets/img/illustrations/corner-4.png);">
+            </div>
+            <!--/.bg-holder-->
+
+            <div class="card-body">
+              <div class="row">
+                <div class="col-lg-8">
+                  <h3 class="mb-0">Get started with your free trial</h3>
+                  <p class="mt-2">Premium team - 5 Seats. Free for 30 days, cancel at any time. <br>$6.25 / seat month after a trial</p>
+                  <div class="dropdown">
+                    <button class="btn btn-link dropdown-toggle pl-0 btn-sm" id="change-plan" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Change plan</button>
+                    <div class="dropdown-menu py-0" aria-labelledby="change-plan" style="min-width: 15rem;">
+                      <div class="bg-white py-3 rounded-soft">
+                        <div class="dropdown-item text-base px-3"><span class="d-flex justify-content-between fs--1 text-black"><span class="font-weight-semi-bold">Standard License</span><span>$59.00</span></span>
+                          <ul class="list-unstyled pl-1 my-2 fs--1">
+                            <li> <span class="fas fa-circle" data-fa-transform="shrink-11"></span><span class="ml-1">Use for a single product</span></li>
+                            <li><span class="fas fa-circle" data-fa-transform="shrink-11"></span><span class="ml-1">Non-paying users only</span></li>
+                          </ul>
+                          <p class="fs--2 mb-0">Read the full <a href="#!">Standard License </a></p>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <div class="dropdown-item text-base px-3"><span class="d-flex justify-content-between fs--1 text-black"><span class="font-weight-semi-bold">Extended License</span><span>$99.00</span></span>
+                          <ul class="list-unstyled pl-1 my-2 fs--1">
+                            <li> <span class="fas fa-circle" data-fa-transform="shrink-11"></span><span class="ml-1">Unlimited websites</span></li>
+                            <li> <span class="fas fa-circle" data-fa-transform="shrink-11"></span><span class="ml-1">Paying users allowed</span></li>
+                          </ul>
+                          <p class="fs--2 mb-0">Read the full <a href="#!">Extended License</a></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row no-gutters">
+            <div class="col-lg-8 pr-lg-2 mb-3">
+              <div class="card h-100">
+                <div class="card-header">
+                  <h5 class="mb-0">Billing Details</h5>
+                </div>
+                <div class="card-body bg-light">
+                  <form class="row">
+                    <div class="col-12">
+                      <div class="row">
+                        <div class="col-12">
+                          <div class="custom-control custom-radio">
+                            <input class="custom-control-input" type="radio" name="billing" id="paypal" />
+                            <label class="custom-control-label" for="paypal"><img class="pull-right" src="../assets/img/icons/icon-paypal-full.png" height="20" alt="">
+                            </label>
+                          </div>
+                          <p class="fs--1 mb-0">Pay with PayPal, Apple Pay, PayPal Credit and much more</p>
+                        </div>
+                      </div>
+                      <div class="form-row mt-4">
+                        <div class="col-12">
+                          <div class="custom-control custom-radio">
+                            <input class="custom-control-input" type="radio" name="billing" id="credit-card" />
+                            <label class="custom-control-label" for="credit-card"><span class="d-flex align-items-center"><span class="fs-1 text-nowrap">Credit Card</span><img class="d-none d-sm-inline-block ml-2 mt-lg-0" src="../assets/img/icons/icon-payment-methods.png" height="20" alt=""></span>
+                            </label>
+                          </div>
+                          <p class="fs--1 mb-4">Safe money transfer using your bank accounts. Visa, maestro, discover, american express.</p>
+                        </div>
+                        <div class="col-12">
+                          <div class="form-row align-items-center">
+                            <div class="col">
+                              <div class="form-group">
+                                <label class="ls text-uppercase text-600 font-weight-semi-bold mb-0">Card Number</label>
+                                <input class="form-control" type="text" placeholder="XXXX XXXX XXXX XXXX">
+                              </div>
+                            </div>
+                            <div class="col">
+                              <div class="form-group">
+                                <label class="ls text-uppercase text-600 font-weight-semi-bold mb-0">Name of Card</label>
+                                <input class="form-control" type="text" placeholder="John Doe">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-row align-items-center">
+                            <div class="col-6 col-sm-3">
+                              <div class="form-group">
+                                <label class="ls text-uppercase text-600 font-weight-semi-bold mb-0">Country</label>
+                                <select class="form-control">
+                                  <option>Afghanistan</option>
+                                  <option selected>Albania</option>
+                                  <option>Algeria</option>
+                                  <option>American Samoa</option>
+                                  <option>Andorra</option>
+                                  <option>Angola</option>
+                                  <option>Anguilla</option>
+                                  <option>Antarctica</option>
+                                  <option>Antigua and Barbuda</option>
+                                  <option>Argentina</option>
+                                  <option>Armenia</option>
+                                  <option>Aruba</option>
+                                  <option>Australia</option>
+                                  <option>Austria</option>
+                                  <option>Azerbaijan</option>
+                                  <option>Bahamas</option>
+                                  <option>Bahrain</option>
+                                  <option>Bangladesh</option>
+                                  <option>Barbados</option>
+                                  <option>Belarus</option>
+                                  <option>Belgium</option>
+                                  <option>Belize</option>
+                                  <option>Benin</option>
+                                  <option>Bermuda</option>
+                                  <option>Bhutan</option>
+                                  <option>Bolivia</option>
+                                  <option>Bosnia and Herzegowina</option>
+                                  <option>Botswana</option>
+                                  <option>Bouvet Island</option>
+                                  <option>Brazil</option>
+                                  <option>British Indian Ocean Territory</option>
+                                  <option>Brunei Darussalam</option>
+                                  <option>Bulgaria</option>
+                                  <option>Burkina Faso</option>
+                                  <option>Burundi</option>
+                                  <option>Cambodia</option>
+                                  <option>Cameroon</option>
+                                  <option>Canada</option>
+                                  <option>Cape Verde</option>
+                                  <option>Cayman Islands</option>
+                                  <option>Central African Republic</option>
+                                  <option>Chad</option>
+                                  <option>Chile</option>
+                                  <option>China</option>
+                                  <option>Christmas Island</option>
+                                  <option>Cocos (Keeling) Islands</option>
+                                  <option>Colombia</option>
+                                  <option>Comoros</option>
+                                  <option>Congo</option>
+                                  <option>Congo, the Democratic Republic of the</option>
+                                  <option>Cook Islands</option>
+                                  <option>Costa Rica</option>
+                                  <option>Cote d'Ivoire</option>
+                                  <option>Croatia (Hrvatska)</option>
+                                  <option>Cuba</option>
+                                  <option>Cyprus</option>
+                                  <option>Czech Republic</option>
+                                  <option>Denmark</option>
+                                  <option>Djibouti</option>
+                                  <option>Dominica</option>
+                                  <option>Dominican Republic</option>
+                                  <option>East Timor</option>
+                                  <option>Ecuador</option>
+                                  <option>Egypt</option>
+                                  <option>El Salvador</option>
+                                  <option>Equatorial Guinea</option>
+                                  <option>Eritrea</option>
+                                  <option>Estonia</option>
+                                  <option>Ethiopia</option>
+                                  <option>Falkland Islands (Malvinas)</option>
+                                  <option>Faroe Islands</option>
+                                  <option>Fiji</option>
+                                  <option>Finland</option>
+                                  <option>France</option>
+                                  <option>France Metropolitan</option>
+                                  <option>French Guiana</option>
+                                  <option>French Polynesia</option>
+                                  <option>French Southern Territories</option>
+                                  <option>Gabon</option>
+                                  <option>Gambia</option>
+                                  <option>Georgia</option>
+                                  <option>Germany</option>
+                                  <option>Ghana</option>
+                                  <option>Gibraltar</option>
+                                  <option>Greece</option>
+                                  <option>Greenland</option>
+                                  <option>Grenada</option>
+                                  <option>Guadeloupe</option>
+                                  <option>Guam</option>
+                                  <option>Guatemala</option>
+                                  <option>Guinea</option>
+                                  <option>Guinea-Bissau</option>
+                                  <option>Guyana</option>
+                                  <option>Haiti</option>
+                                  <option>Heard and Mc Donald Islands</option>
+                                  <option>Holy See (Vatican City State)</option>
+                                  <option>Honduras</option>
+                                  <option>Hong Kong</option>
+                                  <option>Hungary</option>
+                                  <option>Iceland</option>
+                                  <option>India</option>
+                                  <option>Indonesia</option>
+                                  <option>Iran (Islamic Republic of)</option>
+                                  <option>Iraq</option>
+                                  <option>Ireland</option>
+                                  <option>Israel</option>
+                                  <option>Italy</option>
+                                  <option>Jamaica</option>
+                                  <option>Japan</option>
+                                  <option>Jordan</option>
+                                  <option>Kazakhstan</option>
+                                  <option>Kenya</option>
+                                  <option>Kiribati</option>
+                                  <option>Korea, Democratic People's Republic of</option>
+                                  <option>Korea, Republic of</option>
+                                  <option>Kuwait</option>
+                                  <option>Kyrgyzstan</option>
+                                  <option>Lao, People's Democratic Republic</option>
+                                  <option>Latvia</option>
+                                  <option>Lebanon</option>
+                                  <option>Lesotho</option>
+                                  <option>Liberia</option>
+                                  <option>Libyan Arab Jamahiriya</option>
+                                  <option>Liechtenstein</option>
+                                  <option>Lithuania</option>
+                                  <option>Luxembourg</option>
+                                  <option>Macau</option>
+                                  <option>Macedonia, The Former Yugoslav Republic of</option>
+                                  <option>Madagascar</option>
+                                  <option>Malawi</option>
+                                  <option>Malaysia</option>
+                                  <option>Maldives</option>
+                                  <option>Mali</option>
+                                  <option>Malta</option>
+                                  <option>Marshall Islands</option>
+                                  <option>Martinique</option>
+                                  <option>Mauritania</option>
+                                  <option>Mauritius</option>
+                                  <option>Mayotte</option>
+                                  <option>Mexico</option>
+                                  <option>Micronesia, Federated States of</option>
+                                  <option>Moldova, Republic of</option>
+                                  <option>Monaco</option>
+                                  <option>Mongolia</option>
+                                  <option>Montserrat</option>
+                                  <option>Morocco</option>
+                                  <option>Mozambique</option>
+                                  <option>Myanmar</option>
+                                  <option>Namibia</option>
+                                  <option>Nauru</option>
+                                  <option>Nepal</option>
+                                  <option>Netherlands</option>
+                                  <option>Netherlands Antilles</option>
+                                  <option>New Caledonia</option>
+                                  <option>New Zealand</option>
+                                  <option>Nicaragua</option>
+                                  <option>Niger</option>
+                                  <option>Nigeria</option>
+                                  <option>Niue</option>
+                                  <option>Norfolk Island</option>
+                                  <option>Northern Mariana Islands</option>
+                                  <option>Norway</option>
+                                  <option>Oman</option>
+                                  <option>Pakistan</option>
+                                  <option>Palau</option>
+                                  <option>Panama</option>
+                                  <option>Papua New Guinea</option>
+                                  <option>Paraguay</option>
+                                  <option>Peru</option>
+                                  <option>Philippines</option>
+                                  <option>Pitcairn</option>
+                                  <option>Poland</option>
+                                  <option>Portugal</option>
+                                  <option>Puerto Rico</option>
+                                  <option>Qatar</option>
+                                  <option>Reunion</option>
+                                  <option>Romania</option>
+                                  <option>Russian Federation</option>
+                                  <option>Rwanda</option>
+                                  <option>Saint Kitts and Nevis</option>
+                                  <option>Saint Lucia</option>
+                                  <option>Saint Vincent and the Grenadines</option>
+                                  <option>Samoa</option>
+                                  <option>San Marino</option>
+                                  <option>Sao Tome and Principe</option>
+                                  <option>Saudi Arabia</option>
+                                  <option>Senegal</option>
+                                  <option>Seychelles</option>
+                                  <option>Sierra Leone</option>
+                                  <option>Singapore</option>
+                                  <option>Slovakia (Slovak Republic)</option>
+                                  <option>Slovenia</option>
+                                  <option>Solomon Islands</option>
+                                  <option>Somalia</option>
+                                  <option>South Africa</option>
+                                  <option>South Georgia and the South Sandwich Islands</option>
+                                  <option>Spain</option>
+                                  <option>Sri Lanka</option>
+                                  <option>St. Helena</option>
+                                  <option>St. Pierre and Miquelon</option>
+                                  <option>Sudan</option>
+                                  <option>Suriname</option>
+                                  <option>Svalbard and Jan Mayen Islands</option>
+                                  <option>Swaziland</option>
+                                  <option>Sweden</option>
+                                  <option>Switzerland</option>
+                                  <option>Syrian Arab Republic</option>
+                                  <option>Taiwan, Province of China</option>
+                                  <option>Tajikistan</option>
+                                  <option>Tanzania, United Republic of</option>
+                                  <option>Thailand</option>
+                                  <option>Togo</option>
+                                  <option>Tokelau</option>
+                                  <option>Tonga</option>
+                                  <option>Trinidad and Tobago</option>
+                                  <option>Tunisia</option>
+                                  <option>Turkey</option>
+                                  <option>Turkmenistan</option>
+                                  <option>Turks and Caicos Islands</option>
+                                  <option>Tuvalu</option>
+                                  <option>Uganda</option>
+                                  <option>Ukraine</option>
+                                  <option>United Arab Emirates</option>
+                                  <option>United Kingdom</option>
+                                  <option>United States</option>
+                                  <option>United States Minor Outlying Islands</option>
+                                  <option>Uruguay</option>
+                                  <option>Uzbekistan</option>
+                                  <option>Vanuatu</option>
+                                  <option>Venezuela</option>
+                                  <option>Vietnam</option>
+                                  <option>Virgin Islands (British)</option>
+                                  <option>Virgin Islands (U.S.)</option>
+                                  <option>Wallis and Futuna Islands</option>
+                                  <option>Western Sahara</option>
+                                  <option>Yemen</option>
+                                  <option>Yugoslavia</option>
+                                  <option>Zambia</option>
+                                  <option>Zimbabwe</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="col-6 col-sm-3">
+                              <div class="form-group">
+                                <label class="ls text-uppercase text-600 font-weight-semi-bold mb-0">Zip Code</label>
+                                <input class="form-control" type="text" placeholder="1234">
+                              </div>
+                            </div>
+                            <div class="col-6 col-sm-3">
+                              <div class="form-group">
+                                <label class="ls text-uppercase text-600 font-weight-semi-bold mb-0">Exp Date</label>
+                                <input class="form-control" type="text" placeholder="mm/yy">
+                              </div>
+                            </div>
+                            <div class="col-6 col-sm-3">
+                              <div class="form-group">
+                                <label class="ls text-uppercase text-600 font-weight-semi-bold mb-0">CVV<a class="d-inline-block" href="#"><span class="fa fa-question-circle ml-2" data-toggle="tooltip" data-placement="top" title="Card verification value"></span></a></label>
+                                <input class="form-control" type="text" placeholder="123">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 pl-lg-2 mb-3">
+              <div class="card h-100">
+                <div class="card-header">
+                  <h5 class="mb-0">Billing</h5>
+                </div>
+                <div class="card-body bg-light">
+                  <select class="form-control mb-3">
+                    <option>Annual Plan</option>
+                    <option>Monthly Plan </option>
+                  </select>
+                  <div class="d-flex justify-content-between fs--1 mb-1">
+                    <p class="mb-0">Due in 30 days</p><span>$375.00</span>
+                  </div>
+                  <div class="d-flex justify-content-between fs--1 mb-1 text-success">
+                    <p class="mb-0">Annual saving</p><span>$75.00/yr</span>
+                  </div>
+                  <hr>
+                  <h5 class="d-flex justify-content-between"><span>Due today</span><span>$0.00</span></h5>
+                  <p class="fs--1 text-600">Once you start your trial, you will have 30 days to use Falcon Premium for free. After 30 days you’ll be charged based on your selected plan.</p>
+                  <button class="btn btn-primary btn-block" type="submit"><span class="fa fa-lock mr-2"></span>Start free trial</button>
+                  <div class="text-center mt-2"><small class="d-inline-block">By continuing, you are agreeing to our subscriber <a href="#">terms</a> and will be charged at the end of the trial.</small></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">
+              <h5 class="mb-0">Frequently asked questions</h5>
+            </div>
+            <div class="card-body bg-light">
+              <div class="row">
+                <div class="col-lg-6">
+                  <h5 class="fs-0">How does Falcon's pricing work?</h5>
+                  <p class="fs--1">The free version of Falcon is available for teams of up to 15 people. Our Falcon Premium plans of 15 or fewer qualify for a small team discount. As your team grows to 20 users or more and gets more value out of Falcon, you'll get closer to our standard monthly price per seat. The price of a paid Falcon plan is tiered, starting in groups of 5 and 10 users, based on the number of people you have in your Team or Organization.</p>
+                  <h5 class="fs-0">What forms of payment do you accept?</h5>
+                  <p class="fs--1">You can purchase Falcon with any major credit card. For annual subscriptions, we can issue an invoice payable by bank transfer or check. Please contact us to arrange an invoice purchase. Monthly purchases must be paid for by credit card.</p>
+                  <h5 class="fs-0">We need to add more people to our team. How will that be billed?</h5>
+                  <p class="fs--1">You can add as many new teammates as you need before changing your subscription. We will subsequently ask you to correct your subscription to cover current usage.</p>
+                  <h5 class="fs-0">How secure is Falcon?</h5>
+                  <p class="fs--1 mb-lg-0">Protecting the data you trust to Falcon is our first priority. Falcon uses physical, procedural, and technical safeguards to preserve the integrity and security of your information. We regularly back up your data to prevent data loss and aid in recovery. Additionally, we host data in secure SSAE 16 / SOC1 certified data centers, implement firewalls and access restrictions on our servers to better protect your information, and work with third-party security researchers to ensure our practices are secure.</p>
+                </div>
+                <div class="col-lg-6">
+                  <h5 class="fs-0">Will I be charged sales tax?</h5>
+                  <p class="fs--1">As of May 2016, state and local sales tax will be applied to fees charged to customers with a billing address in the State of New York.</p>
+                  <h5 class="fs-0">Do you offer discounts?</h5>
+                  <p class="fs--1">We've built in discounts at each tier for teams smaller than 15 members. We also offer two months for free in exchange for an annual subscription.</p>
+                  <h5 class="fs-0">Do you offer academic pricing?</h5>
+                  <p class="fs--1">We're happy to work with student groups using Falcon. Contact Us</p>
+                  <h5 class="fs-0">Is there an on-premise version of Falcon?</h5>
+                  <p class="fs--1">We are passionate about the web. We don't plan to offer an internally hosted version of Falcon. We hope you trust us to provide a robust and secure service so you can do the work only your team can do.</p>
+                  <h5 class="fs-0">What is your refund policy?</h5>
+                  <p class="fs--1 mb-0">We do not offer refunds apart from exceptions listed below. If you cancel your plan before the next renewal cycle, you will retain access to paid features until the end of your subscription period. When your subscription expires, you will lose access to paid features and all data associated with those features. Exceptions to our refund policy: canceling within 48 hours of initial charge will result in a full refund. If you cancel within this timeframe, you will lose access to paid features and associated data immediately upon canceling.</p>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer">
+              <div class="col-12 text-center py-3">
+                <h6 class="fs-0 font-weight-normal">Have more questions?</h6><a class="btn btn-falcon-primary btn-sm" href="#" data-toggle="modal" data-target="#exampleModal">Ask us anything</a>
+              </div>
+              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header bg-light">
+                      <h5 class="modal-title" id="exampleModalLabel">Ask your question</h5>
+                      <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span class="font-weight-light" aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                      <form>
+                        <div class="form-group">
+                          <label for="name">Name</label>
+                          <input class="form-control" id="name" type="text">
+                        </div>
+                        <div class="form-group">
+                          <label for="emailModal">Email</label>
+                          <input class="form-control" id="emailModal" type="email">
+                        </div>
+                        <div class="form-group">
+                          <label for="question">Question</label>
+                          <textarea class="form-control" id="question" rows="4"></textarea>
+                        </div>
+                      </form>
+                    </div>
+                    <div class="modal-footer bg-light rounded">
+                      <button class="btn btn-secondary btn-sm" type="button" data-dismiss="modal">Close</button>
+                      <button class="btn btn-primary btn-sm" type="submit">Send</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <footer>
+            <div class="row no-gutters justify-content-between fs--1 mt-4 mb-3">
+              <div class="col-12 col-sm-auto text-center">
+                <p class="mb-0 text-600">Thank you for creating with Falcon <span class="d-none d-sm-inline-block">| </span><br class="d-sm-none" /> 2018 &copy; <a href="https://themewagon.com">Themewagon</a></p>
+              </div>
+              <div class="col-12 col-sm-auto text-center">
+                <p class="mb-0 text-600">v1.4.0</p>
+              </div>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </main>
+    <!-- ===============================================-->
+    <!--    End of Main Content-->
+    <!-- ===============================================-->
+
+
+
+
+    <!-- ===============================================-->
+    <!--    JavaScripts-->
+    <!-- ===============================================-->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/popper.min.js"></script>
+    <script src="../assets/js/bootstrap.js"></script>
+    <script src="../assets/js/plugins.js"></script>
+    <script src="../assets/lib/stickyfilljs/stickyfill.min.js"></script>
+    <script src="../assets/lib/sticky-kit/sticky-kit.min.js"></script>
+    <script src="../assets/js/theme.js"></script>
+
+  </body>
+
+</html>

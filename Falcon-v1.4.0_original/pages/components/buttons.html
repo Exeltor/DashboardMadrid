@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- ===============================================-->
+    <!--    Document Title-->
+    <!-- ===============================================-->
+    <title>Falcon | Dashboard &amp; WebApp Template</title>
+
+
+    <!-- ===============================================-->
+    <!--    Favicons-->
+    <!-- ===============================================-->
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/img/favicons/favicon.ico">
+    <link rel="manifest" href="../assets/img/favicons/manifest.json">
+    <meta name="msapplication-TileImage" content="../assets/img/favicons/mstile-150x150.png">
+    <meta name="theme-color" content="#ffffff">
+
+
+    <!-- ===============================================-->
+    <!--    Stylesheets-->
+    <!-- ===============================================-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700%7cPoppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="../assets/lib/prismjs/prism-okaidia.css" rel="stylesheet">
+    <link href="../assets/css/theme.css" rel="stylesheet">
+
+  </head>
+
+
+  <body>
+
+    <!-- ===============================================-->
+    <!--    Main Content-->
+    <!-- ===============================================-->
+    <main class="main" id="top">
+
+
+      <div class="container">
+        <nav class="navbar navbar-vertical navbar-expand-lg navbar-light navbar-glass"><a class="navbar-brand text-left" href="../index.html">
+            <div class="d-flex align-items-center text-primary py-3">
+              <div class="d-inline-flex flex-center"><img class="mr-2" src="../assets/img/illustrations/falcon.png" alt="" width="40" /><span class="text-sans-serif">falcon</span></div>
+            </div>
+          </a>
+          <div class="collapse navbar-collapse" id="navbarVerticalCollapse">
+            <ul class="navbar-nav flex-column">
+              <li class="nav-item"><a class="nav-link dropdown-indicator" href="#home" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="home">
+                  <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-chart-pie"></span></span><span>Home</span>
+                  </div>
+                </a>
+                <ul class="nav collapse" id="home" data-parent="#navbarVerticalCollapse">
+                  <li class="nav-item"><a class="nav-link" href="../index.html">Dashboard</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../home/feed.html">Feed</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../home/landing.html">Landing</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item"><a class="nav-link dropdown-indicator" href="#pages" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="pages">
+                  <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-copy"></span></span><span>Pages</span>
+                  </div>
+                </a>
+                <ul class="nav collapse" id="pages" data-parent="#navbarVerticalCollapse">
+                  <li class="nav-item"><a class="nav-link" href="../pages/activity.html">Activity</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/associations.html">Associations</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/checkout.html">Checkout</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/customer-details.html">Customer details</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/event-detail.html">Event detail</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/event-create.html">Event create</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/events.html">Events</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/faq.html">Faq</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/invoice.html">Invoice</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/invite-people.html">Invite people</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/notifications.html">Notifications</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/people.html">People</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/pricing.html">Pricing</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/pricing-alt.html">Pricing alt</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/profile.html">Profile</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/settings.html">Settings</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/starter.html">Starter</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link dropdown-indicator" href="#pages-errors" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="pages-errors">Errors<span class="badge badge-soft-success badge-pill ml-2"></span></a>
+                    <ul class="nav collapse" id="pages-errors">
+                      <li class="nav-item"><a class="nav-link" href="../pages/errors/404.html">404</a>
+                      </li>
+                      <li class="nav-item"><a class="nav-link" href="../pages/errors/500.html">500</a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item"><a class="nav-link dropdown-indicator" href="#email" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="email">
+                  <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-envelope-open"></span></span><span>Email</span><span class="badge badge-soft-success badge-pill ml-2">upcoming</span>
+                  </div>
+                </a>
+                <ul class="nav collapse" id="email" data-parent="#navbarVerticalCollapse">
+                  <li class="nav-item"><a class="nav-link" href="../email/inbox.html">Inbox</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../email/email-detail.html">Email detail</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../email/compose.html">Compose</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item"><a class="nav-link dropdown-indicator" href="#authentication" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="authentication">
+                  <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-unlock-alt"></span></span><span>Authentication</span>
+                  </div>
+                </a>
+                <ul class="nav collapse" id="authentication" data-parent="#navbarVerticalCollapse">
+                  <li class="nav-item"><a class="nav-link" href="../authentication/log-in.html">Log in</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../authentication/log-out.html">Log out</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../authentication/register.html">Register</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../authentication/forget-password.html">Forget password</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../authentication/password-reset.html">Password reset</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../authentication/confirm-mail.html">Confirm mail</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../authentication/lock-screen.html">Lock screen</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <hr class="border-300 my-2" />
+            <ul class="navbar-nav flex-column">
+              <li class="nav-item"><a class="nav-link dropdown-indicator" href="#layouts" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="layouts">
+                  <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-qrcode"></span></span><span>Layouts</span>
+                  </div>
+                </a>
+                <ul class="nav collapse" id="layouts" data-parent="#navbarVerticalCollapse">
+                  <li class="nav-item"><a class="nav-link" href="../layouts/standard.html">Standard</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../layouts/fluid.html">Fluid</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../layouts/RTL.html">RTL</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item"><a class="nav-link dropdown-indicator" href="#components" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="components">
+                  <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-puzzle-piece"></span></span><span>Components</span>
+                  </div>
+                </a>
+                <ul class="nav collapse show" id="components" data-parent="#navbarVerticalCollapse">
+                  <li class="nav-item"><a class="nav-link" href="../components/accordion.html">Accordion</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/alerts.html">Alerts</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/avatar.html">Avatar</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/background.html">Background</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/badges.html">Badges</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/borders.html">Borders</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/breadcrumb.html">Breadcrumb</a>
+                  </li>
+                  <li class="nav-item active"><a class="nav-link" href="../components/buttons.html">Buttons</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/cards.html">Cards</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/carousel.html">Carousel</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/charts.html">Charts</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/colors.html">Colors</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/collapse.html">Collapse</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/countdown.html">Countdown</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/countup.html">Countup</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/data-table.html">Data table</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/date-picker.html">Date picker</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/dropdowns.html">Dropdowns</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/fancybox.html">Fancybox</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/fancytab.html">Fancytab</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/forms.html">Forms</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/google-map.html">Google map</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/grid.html">Grid</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/hoverbox.html">Hoverbox</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/icons.html">Icons</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/inline-player.html">Inline player</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/jqvmap.html">Jqvmap</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/lightbox.html">Lightbox</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/list-group.html">List group</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/modals.html">Modals</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/media-object.html">Media object</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/navs.html">Navs</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/navbar.html">Navbar</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/notifications.html">Notifications</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/page-headers.html">Page headers</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/pagination.html">Pagination</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/popovers.html">Popovers</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/progress.html">Progress</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/remodal.html">Remodal</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/scrollspy.html">Scrollspy</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/select2.html">Select2</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/sizing.html">Sizing</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/spacing.html">Spacing</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/tables.html">Tables</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/tabs.html">Tabs</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/tooltips.html">Tooltips</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/typed-text.html">Typed text</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/typography.html">Typography</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <hr class="border-300 my-2" />
+            <ul class="navbar-nav flex-column">
+              <li class="nav-item"><a class="nav-link dropdown-indicator" href="#documentation" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="documentation">
+                  <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-book"></span></span><span>Documentation</span>
+                  </div>
+                </a>
+                <ul class="nav collapse" id="documentation" data-parent="#navbarVerticalCollapse">
+                  <li class="nav-item"><a class="nav-link" href="../documentation/getting-started.html">Getting started</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../documentation/file-structure.html">File structure</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../documentation/customization.html">Customization</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../documentation/fluid-layout.html">Fluid layout</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../documentation/gulp.html">Gulp</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../documentation/RTL.html">RTL</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../documentation/plugins.html">Plugins</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="../changelog.html">
+                  <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-code-branch"></span></span><span>Changelog</span><span class="badge badge-soft-success badge-pill ml-2">v1.4.0</span>
+                  </div>
+                </a></li>
+            </ul><a class="btn btn-primary btn-sm m-3" href="https://themewagon.com/themes/falcon/" target="_blank">Purchase</a>
+          </div>
+        </nav>
+        <div class="content">
+          <nav class="navbar navbar-light navbar-glass fs--1 font-weight-semi-bold row navbar-top sticky-kit navbar-expand">
+            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarVerticalCollapse" aria-controls="navbarVerticalCollapse" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><a class="navbar-brand text-left ml-3" href="../index.html">
+              <div class="d-flex align-items-center text-primary">
+                <div class="d-inline-flex flex-center"><img class="mr-2" src="../assets/img/illustrations/falcon.png" alt="" width="40" /><span class="text-sans-serif">falcon</span></div>
+              </div>
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown1">
+              <ul class="navbar-nav align-items-center d-none d-lg-block">
+                <li class="nav-item">
+                  <form class="form-inline search-box">
+                    <input class="form-control rounded-pill search-input" type="search" placeholder="Search..." aria-label="Search" /><span class="position-absolute fas fa-search text-400 search-box-icon"></span>
+                  </form>
+                </li>
+              </ul>
+              <ul class="navbar-nav align-items-center ml-auto">
+                <li class="nav-item dropdown"><a class="nav-link unread-indicator px-0" id="navbarDropdownNotification" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="fas fa-bell fs-4" data-fa-transform="shrink-6"></span></a>
+                  <div class="dropdown-menu dropdown-menu-right dropdown-menu-card" aria-labelledby="navbarDropdownNotification">
+                    <div class="card card-notification shadow-none" style="max-width: 20rem">
+                      <div class="card-header">
+                        <div class="row justify-content-between align-items-center">
+                          <div class="col-auto">
+                            <h6 class="card-header-title mb-0">Notifications</h6>
+                          </div>
+                          <div class="col-auto"><a class="card-link font-weight-normal" href="#">Mark all as read</a></div>
+                        </div>
+                      </div>
+                      <div class="list-group list-group-flush font-weight-normal fs--1">
+                        <div class="list-group-title">NEW</div>
+                        <div class="list-group-item">
+                          <a class="notification notification-flush bg-200" href="#!">
+                            <div class="notification-avatar">
+                              <div class="avatar avatar-2xl mr-3">
+                                <img class="rounded-circle" src="../assets/img/team/1.jpg" alt="" />
+
+                              </div>
+                            </div>
+                            <div class="notification-body">
+                              <p class="mb-1"><strong>Emma Watson</strong> replied to your comment : "Hello world 😍"</p>
+                              <span class="notification-time"><span class="mr-1" role="img" aria-label="Emoji">💬</span>Just now</span>
+
+                            </div>
+                          </a>
+
+                        </div>
+                        <div class="list-group-item">
+                          <a class="notification notification-flush bg-200" href="#!">
+                            <div class="notification-avatar">
+                              <div class="avatar avatar-2xl mr-3">
+                                <div class="avatar-name rounded-circle"><span>AB</span></div>
+                              </div>
+                            </div>
+                            <div class="notification-body">
+                              <p class="mb-1"><strong>Albert Brooks</strong> reacted to <strong>Mia Khalifa's</strong> status</p>
+                              <span class="notification-time"><span class="mr-1 fab fa-gratipay text-danger"></span>9hr</span>
+
+                            </div>
+                          </a>
+
+                        </div>
+                        <div class="list-group-title">EARLIER</div>
+                        <div class="list-group-item">
+                          <a class="notification notification-flush" href="#!">
+                            <div class="notification-avatar">
+                              <div class="avatar avatar-2xl mr-3">
+                                <img class="rounded-circle" src="../assets/img/icons/weather.jpg" alt="" />
+
+                              </div>
+                            </div>
+                            <div class="notification-body">
+                              <p class="mb-1">The forecast today shows a low of 20&#8451; in California. See today's weather.</p>
+                              <span class="notification-time"><span class="mr-1" role="img" aria-label="Emoji">🌤️</span>1d</span>
+
+                            </div>
+                          </a>
+
+                        </div>
+                      </div>
+                      <div class="card-footer text-center border-top-0"><a class="card-link d-block" href="../pages/notifications.html">View all</a></div>
+                    </div>
+                  </div>
+                </li>
+                <li class="nav-item dropdown"><a class="nav-link pr-0" id="navbarDropdownUser" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div class="avatar avatar-xl">
+                      <img class="rounded-circle" src="../assets/img/team/3.jpg" alt="" />
+
+                    </div>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-right py-0" aria-labelledby="navbarDropdownUser">
+                    <div class="bg-white rounded-soft py-2">
+                      <a class="dropdown-item font-weight-bold text-warning" href="#!"><span class="fas fa-crown mr-1"></span><span>Go Pro</span></a>
+
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#!">Set status</a>
+                      <a class="dropdown-item" href="../pages/profile.html">Profile &amp; account</a>
+                      <a class="dropdown-item" href="#!">Feedback</a>
+
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="../pages/settings.html">Settings</a>
+                      <a class="dropdown-item" href="../authentication/log-out.html">Logout</a>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </nav>
+          <div class="card mb-3">
+            <div class="bg-holder d-none d-lg-block bg-card" style="background-image:url(../assets/img/illustrations/corner-4.png);">
+            </div>
+            <!--/.bg-holder-->
+
+            <div class="card-body">
+              <div class="row">
+                <div class="col-lg-8">
+                  <h3 class="mb-0">Buttons</h3>
+                  <p class="mt-2">Use Falcon’s custom button styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.</p><a class="btn btn-link pl-0 btn-sm" href="https://getbootstrap.com/docs/4.3/components/buttons/" target="_blank"> Buttons on Bootstrap<span class="fas fa-chevron-right ml-1 fs--2"></span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-3">
+            <div class="card-header">
+              <h5 class="mb-0">Falcon Buttons</h5>
+            </div>
+            <div class="card-body bg-light">
+              <div class="row">
+                <div class="col-12">
+                  <button class="btn btn-falcon-primary mr-1 mb-1" type="button">Primary
+                  </button>
+
+                  <button class="btn btn-falcon-success mr-1 mb-1" type="button">Success
+                  </button>
+
+                  <button class="btn btn-falcon-info mr-1 mb-1" type="button">Info
+                  </button>
+
+                  <button class="btn btn-falcon-warning mr-1 mb-1" type="button">Warning
+                  </button>
+
+                  <button class="btn btn-falcon-danger mr-1 mb-1" type="button">Danger
+                  </button>
+
+                  <button class="btn btn-falcon-default mr-1 mb-1" type="button">Default
+                  </button>
+
+                </div>
+                <div class="col-12">
+                  <pre class="rounded mt-2"><code class="language-html">&lt;button class=&quot;btn btn-falcon-primary mr-1 mb-1&quot; type=&quot;button&quot;&gt;Primary
+&lt;/button&gt;
+&lt;button class=&quot;btn btn-falcon-success mr-1 mb-1&quot; type=&quot;button&quot;&gt;Success
+&lt;/button&gt;
+&lt;button class=&quot;btn btn-falcon-info mr-1 mb-1&quot; type=&quot;button&quot;&gt;Info
+&lt;/button&gt;
+&lt;button class=&quot;btn btn-falcon-warning mr-1 mb-1&quot; type=&quot;button&quot;&gt;Warning
+&lt;/button&gt;
+&lt;button class=&quot;btn btn-falcon-danger mr-1 mb-1&quot; type=&quot;button&quot;&gt;Danger
+&lt;/button&gt;
+&lt;button class=&quot;btn btn-falcon-default mr-1 mb-1&quot; type=&quot;button&quot;&gt;Default
+&lt;/button&gt;</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-3">
+            <div class="card-header">
+              <h5 class="mb-0">Examples</h5>
+            </div>
+            <div class="card-body bg-light">
+              <div class="row">
+                <div class="col-12">
+                  <button class="btn btn-primary mr-1 mb-1" type="button">Primary
+                  </button>
+
+                  <button class="btn btn-secondary mr-1 mb-1" type="button">Secondary
+                  </button>
+
+                  <button class="btn btn-success mr-1 mb-1" type="button">Success
+                  </button>
+
+                  <button class="btn btn-info mr-1 mb-1" type="button">Info
+                  </button>
+
+                  <button class="btn btn-warning mr-1 mb-1" type="button">Warning
+                  </button>
+
+                  <button class="btn btn-danger mr-1 mb-1" type="button">Danger
+                  </button>
+
+                  <button class="btn btn-light mr-1 mb-1" type="button">Light
+                  </button>
+
+                  <button class="btn btn-dark mr-1 mb-1" type="button">Dark
+                  </button>
+
+                </div>
+                <div class="col-12">
+                  <pre class="rounded mt-2"><code class="language-html">&lt;button class=&quot;btn btn-primary mr-1 mb-1&quot; type=&quot;button&quot;&gt;Primary
+&lt;/button&gt;
+&lt;button class=&quot;btn btn-secondary mr-1 mb-1&quot; type=&quot;button&quot;&gt;Secondary
+&lt;/button&gt;
+&lt;button class=&quot;btn btn-success mr-1 mb-1&quot; type=&quot;button&quot;&gt;Success
+&lt;/button&gt;
+&lt;button class=&quot;btn btn-info mr-1 mb-1&quot; type=&quot;button&quot;&gt;Info
+&lt;/button&gt;
+&lt;button class=&quot;btn btn-warning mr-1 mb-1&quot; type=&quot;button&quot;&gt;Warning
+&lt;/button&gt;
+&lt;button class=&quot;btn btn-danger mr-1 mb-1&quot; type=&quot;button&quot;&gt;Danger
+&lt;/button&gt;
+&lt;button class=&quot;btn btn-light mr-1 mb-1&quot; type=&quot;button&quot;&gt;Light
+&lt;/button&gt;
+&lt;button class=&quot;btn btn-dark mr-1 mb-1&quot; type=&quot;button&quot;&gt;Dark
+&lt;/button&gt;</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-3">
+            <div class="card-header">
+              <h5 class="mb-0">Outline buttons</h5>
+            </div>
+            <div class="card-body bg-light">
+              <div class="row">
+                <div class="col-12">
+                  <button class="btn btn-outline-primary mr-1 mb-1" type="button">Primary
+                  </button>
+
+                  <button class="btn btn-outline-secondary mr-1 mb-1" type="button">Secondary
+                  </button>
+
+                  <button class="btn btn-outline-success mr-1 mb-1" type="button">Success
+                  </button>
+
+                  <button class="btn btn-outline-info mr-1 mb-1" type="button">Info
+                  </button>
+
+                  <button class="btn btn-outline-warning mr-1 mb-1" type="button">Warning
+                  </button>
+
+                  <button class="btn btn-outline-danger mr-1 mb-1" type="button">Danger
+                  </button>
+
+                  <button class="btn btn-outline-light mr-1 mb-1" type="button">Light
+                  </button>
+
+                  <button class="btn btn-outline-dark mr-1 mb-1" type="button">Dark
+                  </button>
+
+                </div>
+                <div class="col-12">
+                  <pre class="rounded mt-2"><code class="language-html">&lt;button class=&quot;btn btn-outline-primary mr-1 mb-1&quot; type=&quot;button&quot;&gt;Primary
+&lt;/button&gt;
+&lt;button class=&quot;btn btn-outline-secondary mr-1 mb-1&quot; type=&quot;button&quot;&gt;Secondary
+&lt;/button&gt;
+&lt;button class=&quot;btn btn-outline-success mr-1 mb-1&quot; type=&quot;button&quot;&gt;Success
+&lt;/button&gt;
+&lt;button class=&quot;btn btn-outline-info mr-1 mb-1&quot; type=&quot;button&quot;&gt;Info
+&lt;/button&gt;
+&lt;button class=&quot;btn btn-outline-warning mr-1 mb-1&quot; type=&quot;button&quot;&gt;Warning
+&lt;/button&gt;
+&lt;button class=&quot;btn btn-outline-danger mr-1 mb-1&quot; type=&quot;button&quot;&gt;Danger
+&lt;/button&gt;
+&lt;button class=&quot;btn btn-outline-light mr-1 mb-1&quot; type=&quot;button&quot;&gt;Light
+&lt;/button&gt;
+&lt;button class=&quot;btn btn-outline-dark mr-1 mb-1&quot; type=&quot;button&quot;&gt;Dark
+&lt;/button&gt;</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-3">
+            <div class="card-header">
+              <h5 class="mb-0">Button sizes</h5>
+            </div>
+            <div class="card-body bg-light">
+              <div class="row">
+                <div class="col-12">
+                  <div class="btn btn-secondary btn-sm">Small</div>
+                  <div class="btn btn-secondary">Regular</div>
+                  <div class="btn btn-secondary btn-lg">Large</div>
+                </div>
+                <div class="col-12">
+                  <pre class="rounded mt-2"><code class="language-html">&lt;div class=&quot;btn btn-secondary btn-sm&quot;&gt;Small&lt;/div&gt;
+&lt;div class=&quot;btn btn-secondary&quot;&gt;Regular&lt;/div&gt;
+&lt;div class=&quot;btn btn-secondary btn-lg&quot;&gt;Large&lt;/div&gt;</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-3">
+            <div class="card-header">
+              <h5 class="mb-0">Icon Buttons</h5>
+            </div>
+            <div class="card-body bg-light">
+              <div class="row">
+                <div class="col-12">
+                  <button class="btn btn-falcon-default btn-sm mr-1 mb-1" type="button">
+                    <span class="fas fa-plus mr-1" data-fa-transform="shrink-3"></span>Small
+
+                  </button>
+
+                  <button class="btn btn-falcon-default mr-1 mb-1" type="button">
+                    <span class="fas fa-plus mr-1" data-fa-transform="shrink-3"></span>Regular
+
+                  </button>
+
+                  <button class="btn btn-falcon-default btn-lg mr-1 mb-1" type="button">
+                    <span class="fas fa-plus mr-1" data-fa-transform="shrink-3"></span>Large
+
+                  </button>
+
+                  <hr>
+
+                  <button class="btn btn-primary mr-1 mb-1" type="button">
+                    <span class="fas fa-plus mr-1" data-fa-transform="shrink-3"></span>Regular
+
+                  </button>
+
+                  <button class="btn btn-outline-primary mr-1 mb-1" type="button">
+                    <span class="fas fa-plus mr-1" data-fa-transform="shrink-3"></span>Outline
+
+                  </button>
+                  <hr>
+
+                  <button class="btn btn-primary mr-1 mb-1" type="button">
+                    Delete<span class="fas fa-trash ml-1" data-fa-transform="shrink-3"></span>
+
+                  </button>
+                </div>
+                <div class="col-12">
+                  <pre class="rounded mt-2"><code class="language-html">&lt;button class=&quot;btn btn-falcon-default btn-sm mr-1 mb-1&quot; type=&quot;button&quot;&gt;
+  &lt;span class=&quot;fas fa-plus mr-1&quot; data-fa-transform=&quot;shrink-3&quot;&gt;&lt;/span&gt;Small
+&lt;/button&gt;
+&lt;button class=&quot;btn btn-falcon-default mr-1 mb-1&quot; type=&quot;button&quot;&gt;
+  &lt;span class=&quot;fas fa-plus mr-1&quot; data-fa-transform=&quot;shrink-3&quot;&gt;&lt;/span&gt;Regular
+&lt;/button&gt;
+&lt;button class=&quot;btn btn-falcon-default btn-lg mr-1 mb-1&quot; type=&quot;button&quot;&gt;
+  &lt;span class=&quot;fas fa-plus mr-1&quot; data-fa-transform=&quot;shrink-3&quot;&gt;&lt;/span&gt;Large
+&lt;/button&gt;
+&lt;hr&gt;
+&lt;button class=&quot;btn btn-primary mr-1 mb-1&quot; type=&quot;button&quot;&gt;
+  &lt;span class=&quot;fas fa-plus mr-1&quot; data-fa-transform=&quot;shrink-3&quot;&gt;&lt;/span&gt;Regular
+&lt;/button&gt;
+&lt;button class=&quot;btn btn-outline-primary mr-1 mb-1&quot; type=&quot;button&quot;&gt;
+  &lt;span class=&quot;fas fa-plus mr-1&quot; data-fa-transform=&quot;shrink-3&quot;&gt;&lt;/span&gt;Outline
+&lt;/button&gt;
+&lt;hr&gt;
+&lt;button class=&quot;btn btn-primary mr-1 mb-1&quot; type=&quot;button&quot;&gt;
+  Delete&lt;span class=&quot;fas fa-trash ml-1&quot; data-fa-transform=&quot;shrink-3&quot;&gt;&lt;/span&gt;
+&lt;/button&gt;</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-3">
+            <div class="card-header">
+              <h5 class="mb-0">Button Capsule</h5>
+            </div>
+            <div class="card-body bg-light">
+              <div class="row">
+                <div class="col-12">
+                  <button class="btn btn-falcon-default rounded-capsule mr-1 mb-1" type="button">Example</button>
+
+                  <button class="btn btn-falcon-default rounded-capsule mr-1 mb-1" type="button">
+                    <span class="fas fa-align-left mr-1" data-fa-transform="shrink-3"></span>Icon Left
+                  </button>
+
+                  <button class="btn btn-falcon-default rounded-capsule mr-1 mb-1" type="button">
+                    Icon Right<span class="fas fa-align-right ml-1" data-fa-transform="shrink-3"></span>
+
+                  </button>
+                  <button class="ml-1 btn btn-outline-primary rounded-capsule mr-1 mb-1" type="button">Outline</button>
+
+                  <hr>
+
+                  <button class="btn btn-sm btn-falcon-default rounded-capsule mr-1 mb-1" type="button">Capsule Small</button>
+
+                  <button class="btn btn-falcon-default rounded-capsule mr-1 mb-1" type="button">Capsule Regular</button>
+
+                  <button class="btn btn-lg btn-falcon-default rounded-capsule mr-1 mb-1" type="button">Capsule Large</button>
+                </div>
+                <div class="col-12">
+                  <pre class="rounded mt-2"><code class="language-html">&lt;button class=&quot;btn btn-falcon-default rounded-capsule mr-1 mb-1&quot; type=&quot;button&quot;&gt;Example&lt;/button&gt;
+&lt;button class=&quot;btn btn-falcon-default rounded-capsule mr-1 mb-1&quot; type=&quot;button&quot;&gt;
+  &lt;span class=&quot;fas fa-align-left mr-1&quot; data-fa-transform=&quot;shrink-3&quot;&gt;&lt;/span&gt;Icon Left
+&lt;/button&gt;
+&lt;button class=&quot;btn btn-falcon-default rounded-capsule mr-1 mb-1&quot; type=&quot;button&quot;&gt;
+  Icon Right&lt;span class=&quot;fas fa-align-right ml-1&quot; data-fa-transform=&quot;shrink-3&quot;&gt;&lt;/span&gt;
+&lt;/button&gt;
+&lt;button class=&quot;ml-1 btn btn-outline-primary rounded-capsule mr-1 mb-1&quot; type=&quot;button&quot;&gt;Outline&lt;/button&gt;
+&lt;hr&gt;
+&lt;button class=&quot;btn btn-sm btn-falcon-default rounded-capsule mr-1 mb-1&quot; type=&quot;button&quot;&gt;Capsule Small&lt;/button&gt;
+&lt;button class=&quot;btn btn-falcon-default rounded-capsule mr-1 mb-1&quot; type=&quot;button&quot;&gt;Capsule Regular&lt;/button&gt;
+&lt;button class=&quot;btn btn-lg btn-falcon-default rounded-capsule mr-1 mb-1&quot; type=&quot;button&quot;&gt;Capsule Large&lt;/button&gt;</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-3">
+            <div class="bg-holder d-none d-lg-block bg-card" style="background-image:url(../assets/img/illustrations/corner-4.png);">
+            </div>
+            <!--/.bg-holder-->
+
+            <div class="card-body">
+              <div class="row">
+                <div class="col-lg-8">
+                  <h3 class="mb-0">Button Group</h3>
+                  <p class="mt-2">Group a series of buttons together on a single line with the button group, and super-power them with JavaScript.</p><a class="btn btn-link pl-0 btn-sm" href="https://getbootstrap.com/docs/4.3/components/button-group/" target="_blank"> Buttons on Bootstrap<span class="fas fa-chevron-right ml-1 fs--2"></span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-3">
+            <div class="card-header">
+              <h5>Basic Example</h5>
+              <p class="mb-0">Wrap a series of buttons with<code>.btn</code> in<code>.btn-group</code>. Add on optional JavaScript radio and checkbox style behavior with</p>
+            </div>
+            <div class="card-body bg-light">
+              <div class="row">
+                <div class="col-12">
+                  <div class="btn-group" role="group" aria-label="Basic example">
+
+                    <button class="btn btn-secondary" type="button">Left</button>
+
+                    <button class="btn btn-secondary" type="button">Middle</button>
+
+                    <button class="btn btn-secondary" type="button">Right</button>
+
+                  </div>
+                </div>
+                <div class="col-12">
+                  <pre class="rounded mt-2"><code class="language-html">&lt;div class=&quot;btn-group&quot; role=&quot;group&quot; aria-label=&quot;Basic example&quot;&gt;
+  &lt;button class=&quot;btn btn-secondary&quot; type=&quot;button&quot;&gt;Left&lt;/button&gt;
+  &lt;button class=&quot;btn btn-secondary&quot; type=&quot;button&quot;&gt;Middle&lt;/button&gt;
+  &lt;button class=&quot;btn btn-secondary&quot; type=&quot;button&quot;&gt;Right&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-3">
+            <div class="card-header">
+              <h5>Button Toolbar</h5>
+              <p class="mb-0">Combine sets of button groups into button toolbars for more complex components. Use utility classes as needed to space out groups, buttons, and more.</p>
+            </div>
+            <div class="card-body bg-light">
+              <div class="row">
+                <div class="col-12">
+                  <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                    <div class="btn-group mr-2 mb-2" role="group" aria-label="First group">
+
+                      <button class="btn btn-secondary" type="button">1</button>
+
+                      <button class="btn btn-secondary" type="button">2</button>
+
+                      <button class="btn btn-secondary" type="button">3</button>
+
+                      <button class="btn btn-secondary" type="button">4</button>
+
+                    </div>
+                    <div class="btn-group mb-2 mr-2" role="group" aria-label="Second group">
+
+                      <button class="btn btn-secondary" type="button">5</button>
+
+                      <button class="btn btn-secondary" type="button">6</button>
+
+                      <button class="btn btn-secondary" type="button">7</button>
+
+                    </div>
+                    <div class="btn-group mb-2" role="group" aria-label="Third group">
+
+                      <button class="btn btn-secondary" type="button">8</button>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <pre class="rounded mt-2"><code class="language-html">&lt;div class=&quot;btn-toolbar&quot; role=&quot;toolbar&quot; aria-label=&quot;Toolbar with button groups&quot;&gt;
+  &lt;div class=&quot;btn-group mr-2 mb-2&quot; role=&quot;group&quot; aria-label=&quot;First group&quot;&gt;
+    &lt;button class=&quot;btn btn-secondary&quot; type=&quot;button&quot;&gt;1&lt;/button&gt;
+    &lt;button class=&quot;btn btn-secondary&quot; type=&quot;button&quot;&gt;2&lt;/button&gt;
+    &lt;button class=&quot;btn btn-secondary&quot; type=&quot;button&quot;&gt;3&lt;/button&gt;
+    &lt;button class=&quot;btn btn-secondary&quot; type=&quot;button&quot;&gt;4&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;btn-group mb-2 mr-2&quot; role=&quot;group&quot; aria-label=&quot;Second group&quot;&gt;
+    &lt;button class=&quot;btn btn-secondary&quot; type=&quot;button&quot;&gt;5&lt;/button&gt;
+    &lt;button class=&quot;btn btn-secondary&quot; type=&quot;button&quot;&gt;6&lt;/button&gt;
+    &lt;button class=&quot;btn btn-secondary&quot; type=&quot;button&quot;&gt;7&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;btn-group mb-2&quot; role=&quot;group&quot; aria-label=&quot;Third group&quot;&gt;
+    &lt;button class=&quot;btn btn-secondary&quot; type=&quot;button&quot;&gt;8&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-3">
+            <div class="card-header">
+              <h5>Button toolbar with input group</h5>
+              <p class="mb-0">Feel free to mix input groups with button groups in your toolbars. Similar to the example above, you'll likely need some utilities though to space things properly.</p>
+            </div>
+            <div class="card-body bg-light">
+              <div class="row">
+                <div class="col-12">
+                  <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
+                    <div class="btn-group mb-2 mr-2" role="group" aria-label="First group">
+
+                      <button class="btn btn-secondary" type="button">1</button>
+
+                      <button class="btn btn-secondary" type="button">2</button>
+
+                      <button class="btn btn-secondary" type="button">3</button>
+
+                      <button class="btn btn-secondary" type="button">4</button>
+
+                    </div>
+                    <div class="input-group mb-2">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text" id="btnGroupAddon">@</div>
+                      </div>
+
+                      <input class="form-control" type="text" placeholder="Input group example" aria-label="Input group example" aria-describedby="btnGroupAddon">
+                    </div>
+                  </div>
+                  <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+                    <div class="btn-group mb-2" role="group" aria-label="First group">
+
+                      <button class="btn btn-secondary" type="button">1</button>
+
+                      <button class="btn btn-secondary" type="button">2</button>
+
+                      <button class="btn btn-secondary" type="button">3</button>
+
+                      <button class="btn btn-secondary" type="button">4</button>
+                    </div>
+                    <div class="input-group mb-2">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text" id="btnGroupAddon2">@</div>
+                      </div>
+
+                      <input class="form-control" type="text" placeholder="Input group example" aria-label="Input group example" aria-describedby="btnGroupAddon2">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <pre class="rounded mt-2"><code class="language-html">&lt;div class=&quot;btn-toolbar mb-3&quot; role=&quot;toolbar&quot; aria-label=&quot;Toolbar with button groups&quot;&gt;
+  &lt;div class=&quot;btn-group mb-2 mr-2&quot; role=&quot;group&quot; aria-label=&quot;First group&quot;&gt;
+    &lt;button class=&quot;btn btn-secondary&quot; type=&quot;button&quot;&gt;1&lt;/button&gt;
+    &lt;button class=&quot;btn btn-secondary&quot; type=&quot;button&quot;&gt;2&lt;/button&gt;
+    &lt;button class=&quot;btn btn-secondary&quot; type=&quot;button&quot;&gt;3&lt;/button&gt;
+    &lt;button class=&quot;btn btn-secondary&quot; type=&quot;button&quot;&gt;4&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;input-group mb-2&quot;&gt;
+    &lt;div class=&quot;input-group-prepend&quot;&gt;
+      &lt;div class=&quot;input-group-text&quot; id=&quot;btnGroupAddon&quot;&gt;@&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;input class=&quot;form-control&quot; type=&quot;text&quot; placeholder=&quot;Input group example&quot; aria-label=&quot;Input group example&quot; aria-describedby=&quot;btnGroupAddon&quot;&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;btn-toolbar justify-content-between&quot; role=&quot;toolbar&quot; aria-label=&quot;Toolbar with button groups&quot;&gt;
+  &lt;div class=&quot;btn-group mb-2&quot; role=&quot;group&quot; aria-label=&quot;First group&quot;&gt;
+    &lt;button class=&quot;btn btn-secondary&quot; type=&quot;button&quot;&gt;1&lt;/button&gt;
+    &lt;button class=&quot;btn btn-secondary&quot; type=&quot;button&quot;&gt;2&lt;/button&gt;
+    &lt;button class=&quot;btn btn-secondary&quot; type=&quot;button&quot;&gt;3&lt;/button&gt;
+    &lt;button class=&quot;btn btn-secondary&quot; type=&quot;button&quot;&gt;4&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;input-group mb-2&quot;&gt;
+    &lt;div class=&quot;input-group-prepend&quot;&gt;
+      &lt;div class=&quot;input-group-text&quot; id=&quot;btnGroupAddon2&quot;&gt;@&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;input class=&quot;form-control&quot; type=&quot;text&quot; placeholder=&quot;Input group example&quot; aria-label=&quot;Input group example&quot; aria-describedby=&quot;btnGroupAddon2&quot;&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-3">
+            <div class="card-header">
+              <h5>Sizing</h5>
+              <p class="mb-0">Insteam of aplying button sizing classes to every button in a group, just add <code>.btn-gorup-*  </code>to each <code>.btn-group</code>, including each one when nesting multiple groups.</p>
+            </div>
+            <div class="card-body bg-light">
+              <div class="row">
+                <div class="col-12">
+                  <div class="btn-group btn-group-lg" role="group" aria-label="...">
+
+                    <button class="btn btn-secondary" type="button">Left</button>
+
+                    <button class="btn btn-secondary" type="button">Middle</button>
+
+                    <button class="btn btn-secondary" type="button">Right</button>
+
+                  </div>
+                  <div class="btn-group mt-2" role="group" aria-label="...">
+
+                    <button class="btn btn-secondary" type="button">Left</button>
+
+                    <button class="btn btn-secondary" type="button">Middle</button>
+
+                    <button class="btn btn-secondary" type="button">Right</button>
+
+                  </div>
+                  <div class="btn-group btn-group-sm mt-2" role="group" aria-label="...">
+
+                    <button class="btn btn-secondary" type="button">Left</button>
+
+                    <button class="btn btn-secondary" type="button">Middle</button>
+
+                    <button class="btn btn-secondary" type="button">Right</button>
+
+                  </div>
+                </div>
+                <div class="col-12">
+                  <pre class="rounded mt-2"><code class="language-html">&lt;div class=&quot;btn-group btn-group-lg&quot; role=&quot;group&quot; aria-label=&quot;...&quot;&gt;
+  &lt;button class=&quot;btn btn-secondary&quot; type=&quot;button&quot;&gt;Left&lt;/button&gt;
+  &lt;button class=&quot;btn btn-secondary&quot; type=&quot;button&quot;&gt;Middle&lt;/button&gt;
+  &lt;button class=&quot;btn btn-secondary&quot; type=&quot;button&quot;&gt;Right&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class=&quot;btn-group mt-2&quot; role=&quot;group&quot; aria-label=&quot;...&quot;&gt;
+  &lt;button class=&quot;btn btn-secondary&quot; type=&quot;button&quot;&gt;Left&lt;/button&gt;
+  &lt;button class=&quot;btn btn-secondary&quot; type=&quot;button&quot;&gt;Middle&lt;/button&gt;
+  &lt;button class=&quot;btn btn-secondary&quot; type=&quot;button&quot;&gt;Right&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class=&quot;btn-group btn-group-sm mt-2&quot; role=&quot;group&quot; aria-label=&quot;...&quot;&gt;
+  &lt;button class=&quot;btn btn-secondary&quot; type=&quot;button&quot;&gt;Left&lt;/button&gt;
+  &lt;button class=&quot;btn btn-secondary&quot; type=&quot;button&quot;&gt;Middle&lt;/button&gt;
+  &lt;button class=&quot;btn btn-secondary&quot; type=&quot;button&quot;&gt;Right&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-3">
+            <div class="card-header">
+              <h5>Vertical variation</h5>
+              <p class="mb-0">Make a set of buttons appear vertically tacked rather than horizontally. Split button dropdowns ae not supported here.</p>
+            </div>
+            <div class="card-body bg-light">
+              <div class="row">
+                <div class="col-12">
+                  <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+
+                    <button class="btn btn-secondary" type="button">Button</button>
+
+                    <button class="btn btn-secondary" type="button">Button</button>
+
+                    <button class="btn btn-secondary" type="button">Button</button>
+
+                    <button class="btn btn-secondary" type="button">Button</button>
+
+                    <button class="btn btn-secondary" type="button">Button</button>
+
+                    <button class="btn btn-secondary" type="button">Button</button>
+
+                  </div>
+                </div>
+                <div class="col-12">
+                  <pre class="rounded mt-2"><code class="language-html">&lt;div class=&quot;btn-group-vertical&quot; role=&quot;group&quot; aria-label=&quot;Vertical button group&quot;&gt;
+  &lt;button class=&quot;btn btn-secondary&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;
+  &lt;button class=&quot;btn btn-secondary&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;
+  &lt;button class=&quot;btn btn-secondary&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;
+  &lt;button class=&quot;btn btn-secondary&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;
+  &lt;button class=&quot;btn btn-secondary&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;
+  &lt;button class=&quot;btn btn-secondary&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-3">
+            <div class="card-header">
+              <h5>Vertical variation with dropdown</h5>
+            </div>
+            <div class="card-body bg-light">
+              <div class="row">
+                <div class="col-12">
+                  <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+
+                    <button class="btn btn-secondary" type="button">Button</button>
+
+                    <button class="btn btn-secondary" type="button">Button</button>
+
+                    <div class="btn-group" role="group">
+
+                      <button class="btn btn-secondary dropdown-toggle" id="btnGroupVerticalDrop1" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</button>
+                      <div class="dropdown-menu" aria-labelledby="btnGroupVerticalDrop1">
+                        <a class="dropdown-item" href="#">Dropdown link</a>
+                        <a class="dropdown-item" href="#">Dropdown</a>
+
+                      </div>
+                    </div>
+
+                    <button class="btn btn-secondary" type="button">Button</button>
+
+                    <button class="btn btn-secondary" type="button">Button</button>
+
+                    <div class="btn-group" role="group">
+
+                      <button class="btn btn-secondary dropdown-toggle" id="btnGroupVerticalDrop2" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</button>
+                      <div class="dropdown-menu" aria-labelledby="btnGroupVerticalDrop2"><a class="dropdown-item" href="#">Dropdown link</a>
+                        <a class="dropdown-item" href="#">Dropdown link</a>
+
+                      </div>
+                    </div>
+                    <div class="btn-group" role="group">
+
+                      <button class="btn btn-secondary dropdown-toggle" id="btnGroupVerticalDrop3" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</button>
+
+                      <div class="dropdown-menu" aria-labelledby="btnGroupVerticalDrop3"><a class="dropdown-item" href="#">Dropdown link</a>
+                        <a class="dropdown-item" href="#">Dropdown link</a>
+
+                      </div>
+                    </div>
+                    <div class="btn-group" role="group">
+
+                      <button class="btn btn-secondary dropdown-toggle" id="btnGroupVerticalDrop4" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</button>
+                      <div class="dropdown-menu" aria-labelledby="btnGroupVerticalDrop4">
+                        <a class="dropdown-item" href="#">Dropdown link</a>
+                        <a class="dropdown-item" href="#">Dropdown link</a>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <pre class="rounded mt-2"><code class="language-html">&lt;div class=&quot;btn-group-vertical&quot; role=&quot;group&quot; aria-label=&quot;Vertical button group&quot;&gt;
+  &lt;button class=&quot;btn btn-secondary&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;
+  &lt;button class=&quot;btn btn-secondary&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;
+  &lt;div class=&quot;btn-group&quot; role=&quot;group&quot;&gt;
+    &lt;button class=&quot;btn btn-secondary dropdown-toggle&quot; id=&quot;btnGroupVerticalDrop1&quot; type=&quot;button&quot; data-toggle=&quot;dropdown&quot; aria-haspopup=&quot;true&quot; aria-expanded=&quot;false&quot;&gt;Dropdown&lt;/button&gt;
+    &lt;div class=&quot;dropdown-menu&quot; aria-labelledby=&quot;btnGroupVerticalDrop1&quot;&gt;
+      &lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Dropdown link&lt;/a&gt;
+      &lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Dropdown&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;button class=&quot;btn btn-secondary&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;
+  &lt;button class=&quot;btn btn-secondary&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;
+  &lt;div class=&quot;btn-group&quot; role=&quot;group&quot;&gt;
+    &lt;button class=&quot;btn btn-secondary dropdown-toggle&quot; id=&quot;btnGroupVerticalDrop2&quot; type=&quot;button&quot; data-toggle=&quot;dropdown&quot; aria-haspopup=&quot;true&quot; aria-expanded=&quot;false&quot;&gt;Dropdown&lt;/button&gt;
+    &lt;div class=&quot;dropdown-menu&quot; aria-labelledby=&quot;btnGroupVerticalDrop2&quot;&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Dropdown link&lt;/a&gt;
+      &lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Dropdown link&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;btn-group&quot; role=&quot;group&quot;&gt;
+    &lt;button class=&quot;btn btn-secondary dropdown-toggle&quot; id=&quot;btnGroupVerticalDrop3&quot; type=&quot;button&quot; data-toggle=&quot;dropdown&quot; aria-haspopup=&quot;true&quot; aria-expanded=&quot;false&quot;&gt;Dropdown&lt;/button&gt;
+    &lt;div class=&quot;dropdown-menu&quot; aria-labelledby=&quot;btnGroupVerticalDrop3&quot;&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Dropdown link&lt;/a&gt;
+      &lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Dropdown link&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;btn-group&quot; role=&quot;group&quot;&gt;
+    &lt;button class=&quot;btn btn-secondary dropdown-toggle&quot; id=&quot;btnGroupVerticalDrop4&quot; type=&quot;button&quot; data-toggle=&quot;dropdown&quot; aria-haspopup=&quot;true&quot; aria-expanded=&quot;false&quot;&gt;Dropdown&lt;/button&gt;
+    &lt;div class=&quot;dropdown-menu&quot; aria-labelledby=&quot;btnGroupVerticalDrop4&quot;&gt;
+      &lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Dropdown link&lt;/a&gt;
+      &lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Dropdown link&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+          <footer>
+            <div class="row no-gutters justify-content-between fs--1 mt-4 mb-3">
+              <div class="col-12 col-sm-auto text-center">
+                <p class="mb-0 text-600">Thank you for creating with Falcon <span class="d-none d-sm-inline-block">| </span><br class="d-sm-none" /> 2018 &copy; <a href="https://themewagon.com">Themewagon</a></p>
+              </div>
+              <div class="col-12 col-sm-auto text-center">
+                <p class="mb-0 text-600">v1.4.0</p>
+              </div>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </main>
+    <!-- ===============================================-->
+    <!--    End of Main Content-->
+    <!-- ===============================================-->
+
+
+
+
+    <!-- ===============================================-->
+    <!--    JavaScripts-->
+    <!-- ===============================================-->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/popper.min.js"></script>
+    <script src="../assets/js/bootstrap.js"></script>
+    <script src="../assets/js/plugins.js"></script>
+    <script src="../assets/lib/stickyfilljs/stickyfill.min.js"></script>
+    <script src="../assets/lib/sticky-kit/sticky-kit.min.js"></script>
+    <script src="../assets/lib/prismjs/prism.js"></script>
+    <script src="../assets/js/theme.js"></script>
+
+  </body>
+
+</html>

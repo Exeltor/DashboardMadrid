@@ -1,0 +1,42 @@
+/*-----------------------------------------------
+|   Notification
+-----------------------------------------------*/
+.notification{
+  color: $gray-1000;
+  text-decoration: none;
+  display: flex;
+  font-size: map_get($font-sizes, '-1');
+  font-family: $font-family-base;
+  transition: $transition-base;
+  &:not(.notification-flush){
+    border: 1px solid $light;
+    background-color: $white;
+    box-shadow: $box-shadow-sm;
+    border-radius: $border-radius-soft;
+    padding: map_get($spacers, 3);
+  }
+  @include hover-focus{
+    color: $dark;
+    text-decoration: none;
+  }
+}
+.notification-body{ margin-bottom: map_get($spacers, 1); }
+.notification-time{
+  margin-bottom: 0;
+  color: $gray-600;
+  font-size: map_get($font-sizes, '-1');
+}
+.unread-indicator{
+  position: relative;
+  &::before{
+    position: absolute;
+    content: '';
+    right: 0.125rem;
+    top: 0.5rem;
+    height: 0.875rem;
+    width: 0.875rem;
+    border-radius: 50%;
+    background: linear-gradient($info,$primary);
+    border: 2px solid map-get($grays, '200' );
+  }
+}

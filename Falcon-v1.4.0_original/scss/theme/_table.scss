@@ -1,0 +1,15 @@
+/*-----------------------------------------------
+|   Table
+-----------------------------------------------*/
+td:last-child{
+  width: 1px;
+  white-space: nowrap;
+}
+th{ font-weight: $font-weight-semi-bold; }
+td .dropdown-toggle:after{
+  display: none;
+}
+.table-dashboard{
+  overflow: hidden;
+  th{border-bottom-width: 1px !important; }
+}

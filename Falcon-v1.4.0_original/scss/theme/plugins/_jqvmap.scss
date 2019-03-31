@@ -1,0 +1,11 @@
+/*-----------------------------------------------
+|   jqvmap
+-----------------------------------------------*/
+.jqvmap-label {
+  border-radius: $border-radius;
+  color: $dark;
+  font-family: $font-family-sans-serif;
+  padding: map_get($spacers, 2) map_get($spacers, 3);
+  background-color: $light;
+  transform: translate3d(-1.5rem, -0.5rem, 0);
+}

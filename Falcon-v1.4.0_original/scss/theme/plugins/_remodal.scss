@@ -1,0 +1,33 @@
+/*-----------------------------------------------
+|   Remodal [video lightbox]
+-----------------------------------------------*/
+.remodal-video{
+  padding: 0;
+  min-width: 75%;
+}
+.remodal-overlay{ background-color: rgba($gray-1100, 0.9); }
+.remodal-close{
+  top: -2rem;
+  right: -2rem;
+  left: auto;
+  @include hover-focus { color: $white; }
+}
+.lb-data .lb-caption,.lb-data .lb-number{ font-family: $font-family-sans-serif; }
+.remodal-video .embed-responsive{ background-color: $black; }
+
+
+/*-----------------------------------------------
+|   Remodal [Language selection]
+-----------------------------------------------*/
+.remodal-select-language{
+  max-width: 12.5rem;
+  padding: 0;
+  .remodal-close{
+    position: absolute;
+    right: 0;
+    top: 0;
+    left: auto;
+    padding: 0.5rem;
+    cursor: pointer;
+  }
+}

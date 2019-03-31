@@ -1,0 +1,29 @@
+.flatpickr-input{
+  &:disabled,
+  &[readonly]{
+    background-color: #fff;
+  }
+}
+.flatpickr-day{
+  &.inRange, 
+  &.prevMonthDay.inRange, 
+  &.nextMonthDay.inRange, 
+  &.today.inRange, 
+  &.prevMonthDay.today.inRange, 
+  &.nextMonthDay.today.inRange, 
+  &:hover, 
+  &.prevMonthDay:hover, 
+  &.nextMonthDay:hover, 
+  &:focus, 
+  &.prevMonthDay:focus, 
+  &.nextMonthDay:focus{
+    background-color: $white;
+  }
+  &.today{
+    &:hover,
+    &:focus{
+      background-color: $white;
+      color: $black;
+    }
+  }
+}

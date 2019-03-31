@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- ===============================================-->
+    <!--    Document Title-->
+    <!-- ===============================================-->
+    <title>Falcon | Dashboard &amp; WebApp Template</title>
+
+
+    <!-- ===============================================-->
+    <!--    Favicons-->
+    <!-- ===============================================-->
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/img/favicons/favicon.ico">
+    <link rel="manifest" href="../assets/img/favicons/manifest.json">
+    <meta name="msapplication-TileImage" content="../assets/img/favicons/mstile-150x150.png">
+    <meta name="theme-color" content="#ffffff">
+
+
+    <!-- ===============================================-->
+    <!--    Stylesheets-->
+    <!-- ===============================================-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700%7cPoppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="../assets/lib/prismjs/prism-okaidia.css" rel="stylesheet">
+    <link href="../assets/css/theme.css" rel="stylesheet">
+
+  </head>
+
+
+  <body>
+
+    <!-- ===============================================-->
+    <!--    Main Content-->
+    <!-- ===============================================-->
+    <main class="main" id="top">
+
+
+      <div class="container">
+        <nav class="navbar navbar-vertical navbar-expand-lg navbar-light navbar-glass"><a class="navbar-brand text-left" href="../index.html">
+            <div class="d-flex align-items-center text-primary py-3">
+              <div class="d-inline-flex flex-center"><img class="mr-2" src="../assets/img/illustrations/falcon.png" alt="" width="40" /><span class="text-sans-serif">falcon</span></div>
+            </div>
+          </a>
+          <div class="collapse navbar-collapse" id="navbarVerticalCollapse">
+            <ul class="navbar-nav flex-column">
+              <li class="nav-item"><a class="nav-link dropdown-indicator" href="#home" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="home">
+                  <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-chart-pie"></span></span><span>Home</span>
+                  </div>
+                </a>
+                <ul class="nav collapse" id="home" data-parent="#navbarVerticalCollapse">
+                  <li class="nav-item"><a class="nav-link" href="../index.html">Dashboard</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../home/feed.html">Feed</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../home/landing.html">Landing</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item"><a class="nav-link dropdown-indicator" href="#pages" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="pages">
+                  <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-copy"></span></span><span>Pages</span>
+                  </div>
+                </a>
+                <ul class="nav collapse" id="pages" data-parent="#navbarVerticalCollapse">
+                  <li class="nav-item"><a class="nav-link" href="../pages/activity.html">Activity</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/associations.html">Associations</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/checkout.html">Checkout</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/customer-details.html">Customer details</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/event-detail.html">Event detail</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/event-create.html">Event create</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/events.html">Events</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/faq.html">Faq</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/invoice.html">Invoice</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/invite-people.html">Invite people</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/notifications.html">Notifications</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/people.html">People</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/pricing.html">Pricing</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/pricing-alt.html">Pricing alt</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/profile.html">Profile</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/settings.html">Settings</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/starter.html">Starter</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link dropdown-indicator" href="#pages-errors" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="pages-errors">Errors<span class="badge badge-soft-success badge-pill ml-2"></span></a>
+                    <ul class="nav collapse" id="pages-errors">
+                      <li class="nav-item"><a class="nav-link" href="../pages/errors/404.html">404</a>
+                      </li>
+                      <li class="nav-item"><a class="nav-link" href="../pages/errors/500.html">500</a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item"><a class="nav-link dropdown-indicator" href="#email" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="email">
+                  <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-envelope-open"></span></span><span>Email</span><span class="badge badge-soft-success badge-pill ml-2">upcoming</span>
+                  </div>
+                </a>
+                <ul class="nav collapse" id="email" data-parent="#navbarVerticalCollapse">
+                  <li class="nav-item"><a class="nav-link" href="../email/inbox.html">Inbox</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../email/email-detail.html">Email detail</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../email/compose.html">Compose</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item"><a class="nav-link dropdown-indicator" href="#authentication" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="authentication">
+                  <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-unlock-alt"></span></span><span>Authentication</span>
+                  </div>
+                </a>
+                <ul class="nav collapse" id="authentication" data-parent="#navbarVerticalCollapse">
+                  <li class="nav-item"><a class="nav-link" href="../authentication/log-in.html">Log in</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../authentication/log-out.html">Log out</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../authentication/register.html">Register</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../authentication/forget-password.html">Forget password</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../authentication/password-reset.html">Password reset</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../authentication/confirm-mail.html">Confirm mail</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../authentication/lock-screen.html">Lock screen</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <hr class="border-300 my-2" />
+            <ul class="navbar-nav flex-column">
+              <li class="nav-item"><a class="nav-link dropdown-indicator" href="#layouts" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="layouts">
+                  <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-qrcode"></span></span><span>Layouts</span>
+                  </div>
+                </a>
+                <ul class="nav collapse" id="layouts" data-parent="#navbarVerticalCollapse">
+                  <li class="nav-item"><a class="nav-link" href="../layouts/standard.html">Standard</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../layouts/fluid.html">Fluid</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../layouts/RTL.html">RTL</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item"><a class="nav-link dropdown-indicator" href="#components" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="components">
+                  <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-puzzle-piece"></span></span><span>Components</span>
+                  </div>
+                </a>
+                <ul class="nav collapse show" id="components" data-parent="#navbarVerticalCollapse">
+                  <li class="nav-item"><a class="nav-link" href="../components/accordion.html">Accordion</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/alerts.html">Alerts</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/avatar.html">Avatar</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/background.html">Background</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/badges.html">Badges</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/borders.html">Borders</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/breadcrumb.html">Breadcrumb</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/buttons.html">Buttons</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/cards.html">Cards</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/carousel.html">Carousel</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/charts.html">Charts</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/colors.html">Colors</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/collapse.html">Collapse</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/countdown.html">Countdown</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/countup.html">Countup</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/data-table.html">Data table</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/date-picker.html">Date picker</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/dropdowns.html">Dropdowns</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/fancybox.html">Fancybox</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/fancytab.html">Fancytab</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/forms.html">Forms</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/google-map.html">Google map</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/grid.html">Grid</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/hoverbox.html">Hoverbox</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/icons.html">Icons</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/inline-player.html">Inline player</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/jqvmap.html">Jqvmap</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/lightbox.html">Lightbox</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/list-group.html">List group</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/modals.html">Modals</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/media-object.html">Media object</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/navs.html">Navs</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/navbar.html">Navbar</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/notifications.html">Notifications</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/page-headers.html">Page headers</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/pagination.html">Pagination</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/popovers.html">Popovers</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/progress.html">Progress</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/remodal.html">Remodal</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/scrollspy.html">Scrollspy</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/select2.html">Select2</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/sizing.html">Sizing</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/spacing.html">Spacing</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/tables.html">Tables</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/tabs.html">Tabs</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/tooltips.html">Tooltips</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/typed-text.html">Typed text</a>
+                  </li>
+                  <li class="nav-item active"><a class="nav-link" href="../components/typography.html">Typography</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <hr class="border-300 my-2" />
+            <ul class="navbar-nav flex-column">
+              <li class="nav-item"><a class="nav-link dropdown-indicator" href="#documentation" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="documentation">
+                  <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-book"></span></span><span>Documentation</span>
+                  </div>
+                </a>
+                <ul class="nav collapse" id="documentation" data-parent="#navbarVerticalCollapse">
+                  <li class="nav-item"><a class="nav-link" href="../documentation/getting-started.html">Getting started</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../documentation/file-structure.html">File structure</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../documentation/customization.html">Customization</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../documentation/fluid-layout.html">Fluid layout</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../documentation/gulp.html">Gulp</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../documentation/RTL.html">RTL</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../documentation/plugins.html">Plugins</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="../changelog.html">
+                  <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-code-branch"></span></span><span>Changelog</span><span class="badge badge-soft-success badge-pill ml-2">v1.4.0</span>
+                  </div>
+                </a></li>
+            </ul><a class="btn btn-primary btn-sm m-3" href="https://themewagon.com/themes/falcon/" target="_blank">Purchase</a>
+          </div>
+        </nav>
+        <div class="content">
+          <nav class="navbar navbar-light navbar-glass fs--1 font-weight-semi-bold row navbar-top sticky-kit navbar-expand">
+            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarVerticalCollapse" aria-controls="navbarVerticalCollapse" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><a class="navbar-brand text-left ml-3" href="../index.html">
+              <div class="d-flex align-items-center text-primary">
+                <div class="d-inline-flex flex-center"><img class="mr-2" src="../assets/img/illustrations/falcon.png" alt="" width="40" /><span class="text-sans-serif">falcon</span></div>
+              </div>
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown1">
+              <ul class="navbar-nav align-items-center d-none d-lg-block">
+                <li class="nav-item">
+                  <form class="form-inline search-box">
+                    <input class="form-control rounded-pill search-input" type="search" placeholder="Search..." aria-label="Search" /><span class="position-absolute fas fa-search text-400 search-box-icon"></span>
+                  </form>
+                </li>
+              </ul>
+              <ul class="navbar-nav align-items-center ml-auto">
+                <li class="nav-item dropdown"><a class="nav-link unread-indicator px-0" id="navbarDropdownNotification" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="fas fa-bell fs-4" data-fa-transform="shrink-6"></span></a>
+                  <div class="dropdown-menu dropdown-menu-right dropdown-menu-card" aria-labelledby="navbarDropdownNotification">
+                    <div class="card card-notification shadow-none" style="max-width: 20rem">
+                      <div class="card-header">
+                        <div class="row justify-content-between align-items-center">
+                          <div class="col-auto">
+                            <h6 class="card-header-title mb-0">Notifications</h6>
+                          </div>
+                          <div class="col-auto"><a class="card-link font-weight-normal" href="#">Mark all as read</a></div>
+                        </div>
+                      </div>
+                      <div class="list-group list-group-flush font-weight-normal fs--1">
+                        <div class="list-group-title">NEW</div>
+                        <div class="list-group-item">
+                          <a class="notification notification-flush bg-200" href="#!">
+                            <div class="notification-avatar">
+                              <div class="avatar avatar-2xl mr-3">
+                                <img class="rounded-circle" src="../assets/img/team/1.jpg" alt="" />
+
+                              </div>
+                            </div>
+                            <div class="notification-body">
+                              <p class="mb-1"><strong>Emma Watson</strong> replied to your comment : "Hello world 😍"</p>
+                              <span class="notification-time"><span class="mr-1" role="img" aria-label="Emoji">💬</span>Just now</span>
+
+                            </div>
+                          </a>
+
+                        </div>
+                        <div class="list-group-item">
+                          <a class="notification notification-flush bg-200" href="#!">
+                            <div class="notification-avatar">
+                              <div class="avatar avatar-2xl mr-3">
+                                <div class="avatar-name rounded-circle"><span>AB</span></div>
+                              </div>
+                            </div>
+                            <div class="notification-body">
+                              <p class="mb-1"><strong>Albert Brooks</strong> reacted to <strong>Mia Khalifa's</strong> status</p>
+                              <span class="notification-time"><span class="mr-1 fab fa-gratipay text-danger"></span>9hr</span>
+
+                            </div>
+                          </a>
+
+                        </div>
+                        <div class="list-group-title">EARLIER</div>
+                        <div class="list-group-item">
+                          <a class="notification notification-flush" href="#!">
+                            <div class="notification-avatar">
+                              <div class="avatar avatar-2xl mr-3">
+                                <img class="rounded-circle" src="../assets/img/icons/weather.jpg" alt="" />
+
+                              </div>
+                            </div>
+                            <div class="notification-body">
+                              <p class="mb-1">The forecast today shows a low of 20&#8451; in California. See today's weather.</p>
+                              <span class="notification-time"><span class="mr-1" role="img" aria-label="Emoji">🌤️</span>1d</span>
+
+                            </div>
+                          </a>
+
+                        </div>
+                      </div>
+                      <div class="card-footer text-center border-top-0"><a class="card-link d-block" href="../pages/notifications.html">View all</a></div>
+                    </div>
+                  </div>
+                </li>
+                <li class="nav-item dropdown"><a class="nav-link pr-0" id="navbarDropdownUser" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div class="avatar avatar-xl">
+                      <img class="rounded-circle" src="../assets/img/team/3.jpg" alt="" />
+
+                    </div>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-right py-0" aria-labelledby="navbarDropdownUser">
+                    <div class="bg-white rounded-soft py-2">
+                      <a class="dropdown-item font-weight-bold text-warning" href="#!"><span class="fas fa-crown mr-1"></span><span>Go Pro</span></a>
+
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#!">Set status</a>
+                      <a class="dropdown-item" href="../pages/profile.html">Profile &amp; account</a>
+                      <a class="dropdown-item" href="#!">Feedback</a>
+
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="../pages/settings.html">Settings</a>
+                      <a class="dropdown-item" href="../authentication/log-out.html">Logout</a>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </nav>
+          <div class="card mb-3">
+            <div class="bg-holder d-none d-lg-block bg-card" style="background-image:url(../assets/img/illustrations/corner-4.png);">
+            </div>
+            <!--/.bg-holder-->
+
+            <div class="card-body">
+              <div class="row">
+                <div class="col-lg-8">
+                  <h3 class="mb-0">Typography</h3>
+                  <p class="mt-2">Documentation and examples for Falcon typography, including global settings, headings, body text, lists, and special typographic element.</p><a class="btn btn-link pl-0 btn-sm" href="https://getbootstrap.com/docs/4.3/content/typography">Typography on Bootstrap<span class="fas fa-chevron-right ml-1 fs--2"></span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-3">
+            <div class="card-header">
+              <h5>Font Family</h5>
+              <p class="mb-0">You have three <code>font-family </code> helper classes available to use.</p>
+            </div>
+            <div class="card-body bg-light">
+              <div class="row">
+                <div class="col-12">
+                  <div class="text-sans-serif">Poppins</div>
+
+                  <div class="text-base">Open Sans</div>
+                  <code class="text-monospace">Monospace</code>
+                </div>
+                <div class="col-12">
+                  <pre class="rounded mt-2"><code class="language-html">&lt;div class=&quot;text-sans-serif&quot;&gt;Poppins&lt;/div&gt;
+&lt;div class=&quot;text-base&quot;&gt;Open Sans&lt;/div&gt;
+&lt;code class=&quot;text-monospace&quot;&gt;Monospace&lt;/code&gt;</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-3">
+            <div class="card-header">
+              <h5>Headings</h5>
+              <p class="mb-0"><strong>theme</strong> has all the html headings, <code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code>, styled for you. Also you can use <code>.h1</code> through <code>.h6</code> classes when you want to match the font styling of a heading but still want your text to be displayed inline.</p>
+            </div>
+            <div class="card-body bg-light">
+              <div class="row">
+                <div class="col-12">
+                  <h1>Heading 1</h1>
+                  <h2>Heading 2</h2>
+                  <h3>Heading 3</h3>
+                  <h4>Heading 4</h4>
+                  <h5>Heading 5</h5>
+                  <h6>Heading 6</h6>
+                </div>
+                <div class="col-12">
+                  <pre class="rounded mt-2"><code class="language-html">&lt;h1&gt;Heading 1&lt;/h1&gt;
+&lt;h2&gt;Heading 2&lt;/h2&gt;
+&lt;h3&gt;Heading 3&lt;/h3&gt;
+&lt;h4&gt;Heading 4&lt;/h4&gt;
+&lt;h5&gt;Heading 5&lt;/h5&gt;
+&lt;h6&gt;Heading 6&lt;/h6&gt;</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-3">
+            <div class="card-header">
+              <h5>Paragraphs</h5>
+              <p class="mb-0">This is a paragraph text. Following text are dummy copy text. Donec feugiat lorem dolor, eu fringilla urna tincidunt quis. In vitae dignissim lectus. Maecenas varius libero non metus rhoncus sagittis. Proin posuere iaculis auctor. Vivamus orci lorem, sollicitudin at convallis in, feugiat eget felis. Integer maximus, metus sit amet imperdiet semper, erat felis vulputate odio, nec malesuada metus.</p>
+            </div>
+            <div class="card-body bg-light">
+              <div class="row">
+                <div class="col-12">
+                  <p>Your paragraph text goes here.</p>
+                </div>
+                <div class="col-12">
+                  <pre class="rounded mt-2"><code class="language-html">&lt;p&gt;Your paragraph text goes here.&lt;/p&gt;</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-3">
+            <div class="card-header">
+              <h5>Lead Paragraph and Drop cap</h5>
+              <p class="mb-0">Make a paragraph stand out by adding <code>.lead</code> and for drop cap, use <code>.dropcap</code> class.</p>
+            </div>
+            <div class="card-body bg-light">
+              <div class="row">
+                <div class="col-12">
+                  <p class="dropcap lead">Morem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus at cumque deleniti dolores, est fugiat harum impedit ipsam, itaque iusto magnam natus neque, nulla placeat quis quod recusandae sapiente. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto atque consectetur culpa eos est exercitationem harum impedit iusto magnam molestiae neque non officia, pariatur possimus rem sapiente, sequi! Beatae, quae.</p>
+                </div>
+                <div class="col-12">
+                  <pre class="rounded mt-2"><code class="language-html">&lt;p class=&quot;dropcap lead&quot;&gt;Morem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus at cumque deleniti dolores, est fugiat harum impedit ipsam, itaque iusto magnam natus neque, nulla placeat quis quod recusandae sapiente. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto atque consectetur culpa eos est exercitationem harum impedit iusto magnam molestiae neque non officia, pariatur possimus rem sapiente, sequi! Beatae, quae.&lt;/p&gt;</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-3">
+            <div class="card-header">
+              <h5 class="mb-0">Font Weights</h5>
+            </div>
+            <div class="card-body bg-light">
+              <pre class="mt-2"><code class="language-html">&lt;div class=&quot;font-weight-thin&quot;&gt;{font-weight: 100 !important;}&lt;/div&gt;
+&lt;div class=&quot;font-weight-extra-light&quot;&gt;{font-weight: 200 !important;}&lt;/div&gt;
+&lt;div class=&quot;font-weight-light&quot;&gt;{font-weight: 300 !important;}&lt;/div&gt;
+&lt;div class=&quot;font-weight-normal&quot;&gt;{font-weight: 400 !important;}&lt;/div&gt;
+&lt;div class=&quot;font-weight-medium&quot;&gt;{font-weight: 500 !important;}&lt;/div&gt;
+&lt;div class=&quot;font-weight-semi-bold&quot;&gt;{font-weight: 600 !important;}&lt;/div&gt;
+&lt;div class=&quot;font-weight-bold&quot;&gt;{font-weight: 700 !important;}&lt;/div&gt;
+&lt;div class=&quot;font-weight-extra-bold&quot;&gt;{font-weight: 800 !important;}&lt;/div&gt;
+&lt;div class=&quot;font-weight-black&quot;&gt;{font-weight: 900 !important;}&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+          <div class="card mb-3">
+            <div class="card-header">
+              <h5>Colors</h5>
+              <p class="mb-0">Use the following colors to change the text color</p>
+            </div>
+            <div class="card-body bg-light">
+              <div class="row">
+                <div class="col-12">
+                  <h5 class="text-primary">.text-primary</h5>
+                  <h5 class="text-info">.text-info</h5>
+                  <h5 class="text-success">.text-success</h5>
+                  <h5 class="text-warning">.text-warning</h5>
+                  <h5 class="text-danger">.text-danger</h5>
+                  <h5 class="text-black">.text-black</h5>
+                  <h5 class="text-dark">.text-dark</h5>
+                  <h5 class="text-1000">.text-1000</h5>
+                  <h5 class="text-900">.text-900</h5>
+                  <h5 class="text-800">.text-800</h5>
+                  <h5 class="text-700">.text-700</h5>
+                  <h5 class="text-600">.text-600</h5>
+                  <h5 class="text-500">.text-500</h5>
+                  <h5 class="text-400">.text-400</h5>
+                  <h5 class="text-300"><span class="bg-black">.text-300</span></h5>
+                  <h5 class="text-200"><span class="bg-dark">.text-200</span></h5>
+                  <h5 class="text-light"><span class="bg-1000">.text-light</span></h5>
+                  <h5 class="text-white"><span class="bg-900">.text-white</span></h5>
+                </div>
+                <div class="col-12">
+                  <pre class="rounded mt-2"><code class="language-html">&lt;h5 class=&quot;text-primary&quot;&gt;.text-primary&lt;/h5&gt;
+&lt;h5 class=&quot;text-info&quot;&gt;.text-info&lt;/h5&gt;
+&lt;h5 class=&quot;text-success&quot;&gt;.text-success&lt;/h5&gt;
+&lt;h5 class=&quot;text-warning&quot;&gt;.text-warning&lt;/h5&gt;
+&lt;h5 class=&quot;text-danger&quot;&gt;.text-danger&lt;/h5&gt;
+&lt;h5 class=&quot;text-black&quot;&gt;.text-black&lt;/h5&gt;
+&lt;h5 class=&quot;text-dark&quot;&gt;.text-dark&lt;/h5&gt;
+&lt;h5 class=&quot;text-1000&quot;&gt;.text-1000&lt;/h5&gt;
+&lt;h5 class=&quot;text-900&quot;&gt;.text-900&lt;/h5&gt;
+&lt;h5 class=&quot;text-800&quot;&gt;.text-800&lt;/h5&gt;
+&lt;h5 class=&quot;text-700&quot;&gt;.text-700&lt;/h5&gt;
+&lt;h5 class=&quot;text-600&quot;&gt;.text-600&lt;/h5&gt;
+&lt;h5 class=&quot;text-500&quot;&gt;.text-500&lt;/h5&gt;
+&lt;h5 class=&quot;text-400&quot;&gt;.text-400&lt;/h5&gt;
+&lt;h5 class=&quot;text-300&quot;&gt;&lt;span class=&quot;bg-black&quot;&gt;.text-300&lt;/span&gt;&lt;/h5&gt;
+&lt;h5 class=&quot;text-200&quot;&gt;&lt;span class=&quot;bg-dark&quot;&gt;.text-200&lt;/span&gt;&lt;/h5&gt;
+&lt;h5 class=&quot;text-light&quot;&gt;&lt;span class=&quot;bg-1000&quot;&gt;.text-light&lt;/span&gt;&lt;/h5&gt;
+&lt;h5 class=&quot;text-white&quot;&gt;&lt;span class=&quot;bg-900&quot;&gt;.text-white&lt;/span&gt;&lt;/h5&gt;</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-3">
+            <div class="card-header">
+              <h5>Sizes</h5>
+              <p class="mb-0">If you want different sizes of fonts, you may use the following classes.</p>
+            </div>
+            <div class="card-body bg-light">
+              <div class="row">
+                <div class="col-12">
+                  <h6 class="fs--2">.fs--2</h6>
+                  <h6 class="fs--1">.fs--1</h6>
+                  <h6 class="fs-0">.fs-0</h6>
+                  <h6 class="fs-1">.fs-1</h6>
+                  <h6 class="fs-2">.fs-2</h6>
+                  <h6 class="fs-4">.fs-4</h6>
+                  <h6 class="fs-5">.fs-5</h6>
+                  <h6 class="fs-6">.fs-6</h6>
+                  <h6 class="fs-7">.fs-7</h6>
+                  <h6 class="fs-8">.fs-8</h6>
+                </div>
+                <div class="col-12">
+                  <pre class="rounded mt-2"><code class="language-html">&lt;h6 class=&quot;fs--2&quot;&gt;.fs--2&lt;/h6&gt;
+&lt;h6 class=&quot;fs--1&quot;&gt;.fs--1&lt;/h6&gt;
+&lt;h6 class=&quot;fs-0&quot;&gt;.fs-0&lt;/h6&gt;
+&lt;h6 class=&quot;fs-1&quot;&gt;.fs-1&lt;/h6&gt;
+&lt;h6 class=&quot;fs-2&quot;&gt;.fs-2&lt;/h6&gt;
+&lt;h6 class=&quot;fs-4&quot;&gt;.fs-4&lt;/h6&gt;
+&lt;h6 class=&quot;fs-5&quot;&gt;.fs-5&lt;/h6&gt;
+&lt;h6 class=&quot;fs-6&quot;&gt;.fs-6&lt;/h6&gt;
+&lt;h6 class=&quot;fs-7&quot;&gt;.fs-7&lt;/h6&gt;
+&lt;h6 class=&quot;fs-8&quot;&gt;.fs-8&lt;/h6&gt;</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="card mb-3">
+                <div class="card-header">
+                  <h5 class="mb-0">Left Alignment</h5>
+                </div>
+                <div class="card-body bg-light">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="text-left">Pellentesque cursus placerat hendrerit. Donec sed erat nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce vitae consequat erat. Quisque faucibus felis et fringilla imperdiet. Etiam at porttitor elit, quis convallis massa. Ut id risus sapien. Praesent sit amet arcu a eros laoreet facilisis id eget risus.</div>
+                    </div>
+                    <div class="col-12">
+                      <pre class="rounded mt-2"><code class="language-html">&lt;div class=&quot;text-left&quot;&gt;Pellentesque cursus placerat hendrerit. Donec sed erat nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce vitae consequat erat. Quisque faucibus felis et fringilla imperdiet. Etiam at porttitor elit, quis convallis massa. Ut id risus sapien. Praesent sit amet arcu a eros laoreet facilisis id eget risus.&lt;/div&gt;</code></pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="card mb-3">
+                <div class="card-header">
+                  <h5 class="mb-0">Right Alignment</h5>
+                </div>
+                <div class="card-body bg-light">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="text-right">Pellentesque cursus placerat hendrerit. Donec sed erat nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce vitae consequat erat. Quisque faucibus felis et fringilla imperdiet. Etiam at porttitor elit, quis convallis massa. Ut id risus sapien. Praesent sit amet arcu a eros laoreet facilisis id eget risus.</div>
+                    </div>
+                    <div class="col-12">
+                      <pre class="rounded mt-2"><code class="language-html">&lt;div class=&quot;text-right&quot;&gt;Pellentesque cursus placerat hendrerit. Donec sed erat nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce vitae consequat erat. Quisque faucibus felis et fringilla imperdiet. Etiam at porttitor elit, quis convallis massa. Ut id risus sapien. Praesent sit amet arcu a eros laoreet facilisis id eget risus.&lt;/div&gt;</code></pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="card mb-3">
+                <div class="card-header">
+                  <h5 class="mb-0">Center Aligned</h5>
+                </div>
+                <div class="card-body bg-light">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="text-center">Pellentesque cursus placerat hendrerit. Donec sed erat nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce vitae consequat erat. Quisque faucibus felis et fringilla imperdiet. Etiam at porttitor elit, quis convallis massa. Ut id risus sapien. Praesent sit amet arcu a eros laoreet facilisis id eget risus.</div>
+                    </div>
+                    <div class="col-12">
+                      <pre class="rounded mt-2"><code class="language-html">&lt;div class=&quot;text-center&quot;&gt;Pellentesque cursus placerat hendrerit. Donec sed erat nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce vitae consequat erat. Quisque faucibus felis et fringilla imperdiet. Etiam at porttitor elit, quis convallis massa. Ut id risus sapien. Praesent sit amet arcu a eros laoreet facilisis id eget risus.&lt;/div&gt;</code></pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="card mb-3">
+                <div class="card-header">
+                  <h5 class="mb-0">Justified</h5>
+                </div>
+                <div class="card-body bg-light">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="text-justify">Pellentesque cursus placerat hendrerit. Donec sed erat nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce vitae consequat erat. Quisque faucibus felis et fringilla imperdiet. Etiam at porttitor elit, quis convallis massa. Ut id risus sapien. Praesent sit amet arcu a eros laoreet facilisis id eget risus.</div>
+                    </div>
+                    <div class="col-12">
+                      <pre class="rounded mt-2"><code class="language-html">&lt;div class=&quot;text-justify&quot;&gt;Pellentesque cursus placerat hendrerit. Donec sed erat nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce vitae consequat erat. Quisque faucibus felis et fringilla imperdiet. Etiam at porttitor elit, quis convallis massa. Ut id risus sapien. Praesent sit amet arcu a eros laoreet facilisis id eget risus.&lt;/div&gt;</code></pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-3">
+            <div class="card-header">
+              <h5 class="mb-0">Transformation</h5>
+            </div>
+            <div class="card-body bg-light">
+              <div class="row">
+                <div class="col-12">
+                  <div class="text-lowercase">Lowercased text</div>
+                  <div class="text-uppercase">Uppercased text</div>
+                  <div class="text-capitalize">Capitalized text</div>
+                </div>
+                <div class="col-12">
+                  <pre class="rounded mt-2"><code class="language-html">&lt;div class=&quot;text-lowercase&quot;&gt;Lowercased text&lt;/div&gt;
+&lt;div class=&quot;text-uppercase&quot;&gt;Uppercased text&lt;/div&gt;
+&lt;div class=&quot;text-capitalize&quot;&gt;Capitalized text&lt;/div&gt;</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-3">
+            <div class="card-header">
+              <h5>Inline styles</h5>
+              <p class="mb-0">
+                Use these tags for inline styling. Feel free to use <code>&lt;b&gt;</code> and <code>&lt;em&gt;</code> tags insted of <code>&lt;strong&gt;</code> and <code>&lt;i&gt;</code> tags.</p>
+            </div>
+            <div class="card-body bg-light">
+              <div class="row">
+                <div class="col-12">
+                  <p>
+                    <mark>Highlight text</mark>
+                  </p>
+                  <p>
+                    <del>Deleted text</del>
+                  </p>
+                  <p>
+                    <u>Underlined text</u>
+                  </p>
+                  <p><small>Small text</small></p>
+                  <p><strong>Bold text</strong></p>
+                  <p><i>Italic text</i></p>
+                </div>
+                <div class="col-12">
+                  <pre class="rounded mt-2"><code class="language-html">&lt;p&gt;
+  &lt;mark&gt;Highlight text&lt;/mark&gt;
+&lt;/p&gt;
+&lt;p&gt;
+  &lt;del&gt;Deleted text&lt;/del&gt;
+&lt;/p&gt;
+&lt;p&gt;
+  &lt;u&gt;Underlined text&lt;/u&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;small&gt;Small text&lt;/small&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Bold text&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;i&gt;Italic text&lt;/i&gt;&lt;/p&gt;</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-3">
+            <div class="card-header">
+              <h5 class="mb-0">Blockquotes</h5>
+            </div>
+            <div class="card-body bg-light">
+              <div class="row">
+                <div class="col-12">
+                  <blockquote class="blockquote my-3">
+                    <p class="fs-2 text-800 font-italic">Racing is life, everything before or after is just waiting.”</p>
+                    <footer class="blockquote-footer">Frank Zappa</footer>
+                  </blockquote>
+                </div>
+                <div class="col-12">
+                  <pre class="rounded mt-2"><code class="language-html">&lt;blockquote class=&quot;blockquote my-3&quot;&gt;
+  &lt;p class=&quot;fs-2 text-800 font-italic&quot;&gt;Racing is life, everything before or after is just waiting.”&lt;/p&gt;
+  &lt;footer class=&quot;blockquote-footer&quot;&gt;Frank Zappa&lt;/footer&gt;
+&lt;/blockquote&gt;</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="card mb-3">
+                <div class="card-header">
+                  <h5 class="mb-0">Unordered List</h5>
+                  <p class="mb-0">A list of items in which the order does not explicitly matter.</p>
+                </div>
+                <div class="card-body bg-light">
+                  <div class="row">
+                    <div class="col-12">
+                      <ul>
+                        <li>Lorem ipsum dolor sit amet</li>
+                        <li>Consectetur adipiscing elit</li>
+                        <li>Nulla volutpat aliquam velit
+                          <ul>
+                            <li>Phasellus iaculis neque</li>
+                            <li>Purus sodales ultricies</li>
+                          </ul>
+                        </li>
+                        <li>Faucibus porta lacus fringilla vel</li>
+                      </ul>
+                    </div>
+                    <div class="col-12">
+                      <pre class="rounded mt-2"><code class="language-html">&lt;ul&gt;
+  &lt;li&gt;Lorem ipsum dolor sit amet&lt;/li&gt;
+  &lt;li&gt;Consectetur adipiscing elit&lt;/li&gt;
+  &lt;li&gt;Nulla volutpat aliquam velit
+    &lt;ul&gt;
+      &lt;li&gt;Phasellus iaculis neque&lt;/li&gt;
+      &lt;li&gt;Purus sodales ultricies&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Faucibus porta lacus fringilla vel&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="card mb-3">
+                <div class="card-header">
+                  <h5>Ordered List</h5>
+                  <p class="mb-0">A list of items in which the order does explicitly matter.</p>
+                </div>
+                <div class="card-body bg-light">
+                  <div class="row">
+                    <div class="col-12">
+                      <ol>
+                        <li>Lorem ipsum dolor sit amet</li>
+                        <li>Consectetur adipiscing elit</li>
+                        <li>Nulla volutpat aliquam velit
+                          <ol>
+                            <li>Phasellus iaculis neque</li>
+                            <li>Purus sodales ultricies</li>
+                          </ol>
+                        </li>
+                        <li>Faucibus porta lacus fringilla vel</li>
+                      </ol>
+                    </div>
+                    <div class="col-12">
+                      <pre class="rounded mt-2"><code class="language-html">&lt;ol&gt;
+  &lt;li&gt;Lorem ipsum dolor sit amet&lt;/li&gt;
+  &lt;li&gt;Consectetur adipiscing elit&lt;/li&gt;
+  &lt;li&gt;Nulla volutpat aliquam velit
+    &lt;ol&gt;
+      &lt;li&gt;Phasellus iaculis neque&lt;/li&gt;
+      &lt;li&gt;Purus sodales ultricies&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Faucibus porta lacus fringilla vel&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="card mb-3">
+                <div class="card-header">
+                  <h5>Unstyled List</h5>
+                  <p class="mb-0">Adding <code>list-unstyled</code> class to <code>ul</code> element will produce the following list style:</p>
+                </div>
+                <div class="card-body bg-light">
+                  <div class="row">
+                    <div class="col-12">
+                      <ul class="list-unstyled">
+                        <li>Lorem ipsum dolor sit amet</li>
+                        <li>Consectetur adipiscing elit</li>
+                        <li>Nulla volutpat aliquam velit
+
+                          <ul class="list-unstyled pl-4">
+                            <li>Phasellus iaculis neque</li>
+                            <li>Purus sodales ultricies</li>
+                          </ul>
+                        </li>
+                        <li>Faucibus porta lacus fringilla vel</li>
+                      </ul>
+                    </div>
+                    <div class="col-12">
+                      <pre class="rounded mt-2"><code class="language-html">&lt;ul class=&quot;list-unstyled&quot;&gt;
+  &lt;li&gt;Lorem ipsum dolor sit amet&lt;/li&gt;
+  &lt;li&gt;Consectetur adipiscing elit&lt;/li&gt;
+  &lt;li&gt;Nulla volutpat aliquam velit
+    &lt;ul class=&quot;list-unstyled pl-4&quot;&gt;
+      &lt;li&gt;Phasellus iaculis neque&lt;/li&gt;
+      &lt;li&gt;Purus sodales ultricies&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Faucibus porta lacus fringilla vel&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="card mb-3">
+                <div class="card-header">
+                  <h5>Checkmarked List</h5>
+                  <p class="mb-0">Adding <code>style-check</code> class to <code>ul</code> element will produce the following list style:</p>
+                </div>
+                <div class="card-body bg-light">
+                  <div class="row">
+                    <div class="col-12">
+                      <ul class="style-check">
+                        <li>Lorem ipsum dolor sit amet</li>
+                        <li>Consectetur adipiscing elit</li>
+                        <li>Nulla volutpat aliquam velit
+
+                          <ul>
+                            <li>Phasellus iaculis neque</li>
+                            <li>Purus sodales ultricies</li>
+                          </ul>
+                        </li>
+                        <li>Faucibus porta lacus fringilla vel </li>
+                      </ul>
+                    </div>
+                    <div class="col-12">
+                      <pre class="rounded mt-2"><code class="language-html">&lt;ul class=&quot;style-check&quot;&gt;
+  &lt;li&gt;Lorem ipsum dolor sit amet&lt;/li&gt;
+  &lt;li&gt;Consectetur adipiscing elit&lt;/li&gt;
+  &lt;li&gt;Nulla volutpat aliquam velit
+    &lt;ul&gt;
+      &lt;li&gt;Phasellus iaculis neque&lt;/li&gt;
+      &lt;li&gt;Purus sodales ultricies&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Faucibus porta lacus fringilla vel &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <footer>
+            <div class="row no-gutters justify-content-between fs--1 mt-4 mb-3">
+              <div class="col-12 col-sm-auto text-center">
+                <p class="mb-0 text-600">Thank you for creating with Falcon <span class="d-none d-sm-inline-block">| </span><br class="d-sm-none" /> 2018 &copy; <a href="https://themewagon.com">Themewagon</a></p>
+              </div>
+              <div class="col-12 col-sm-auto text-center">
+                <p class="mb-0 text-600">v1.4.0</p>
+              </div>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </main>
+    <!-- ===============================================-->
+    <!--    End of Main Content-->
+    <!-- ===============================================-->
+
+
+
+
+    <!-- ===============================================-->
+    <!--    JavaScripts-->
+    <!-- ===============================================-->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/popper.min.js"></script>
+    <script src="../assets/js/bootstrap.js"></script>
+    <script src="../assets/js/plugins.js"></script>
+    <script src="../assets/lib/stickyfilljs/stickyfill.min.js"></script>
+    <script src="../assets/lib/sticky-kit/sticky-kit.min.js"></script>
+    <script src="../assets/lib/prismjs/prism.js"></script>
+    <script src="../assets/js/theme.js"></script>
+
+  </body>
+
+</html>

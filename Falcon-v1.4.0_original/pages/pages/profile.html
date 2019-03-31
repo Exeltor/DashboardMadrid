@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- ===============================================-->
+    <!--    Document Title-->
+    <!-- ===============================================-->
+    <title>Falcon | Dashboard &amp; WebApp Template</title>
+
+
+    <!-- ===============================================-->
+    <!--    Favicons-->
+    <!-- ===============================================-->
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/img/favicons/favicon.ico">
+    <link rel="manifest" href="../assets/img/favicons/manifest.json">
+    <meta name="msapplication-TileImage" content="../assets/img/favicons/mstile-150x150.png">
+    <meta name="theme-color" content="#ffffff">
+
+
+    <!-- ===============================================-->
+    <!--    Stylesheets-->
+    <!-- ===============================================-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700%7cPoppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="../assets/lib/fancybox/jquery.fancybox.min.css" rel="stylesheet">
+    <link href="../assets/css/theme.css" rel="stylesheet">
+
+  </head>
+
+
+  <body>
+
+    <!-- ===============================================-->
+    <!--    Main Content-->
+    <!-- ===============================================-->
+    <main class="main" id="top">
+
+
+      <div class="container">
+        <nav class="navbar navbar-vertical navbar-expand-lg navbar-light navbar-glass"><a class="navbar-brand text-left" href="../index.html">
+            <div class="d-flex align-items-center text-primary py-3">
+              <div class="d-inline-flex flex-center"><img class="mr-2" src="../assets/img/illustrations/falcon.png" alt="" width="40" /><span class="text-sans-serif">falcon</span></div>
+            </div>
+          </a>
+          <div class="collapse navbar-collapse" id="navbarVerticalCollapse">
+            <ul class="navbar-nav flex-column">
+              <li class="nav-item"><a class="nav-link dropdown-indicator" href="#home" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="home">
+                  <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-chart-pie"></span></span><span>Home</span>
+                  </div>
+                </a>
+                <ul class="nav collapse" id="home" data-parent="#navbarVerticalCollapse">
+                  <li class="nav-item"><a class="nav-link" href="../index.html">Dashboard</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../home/feed.html">Feed</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../home/landing.html">Landing</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item"><a class="nav-link dropdown-indicator" href="#pages" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="pages">
+                  <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-copy"></span></span><span>Pages</span>
+                  </div>
+                </a>
+                <ul class="nav collapse show" id="pages" data-parent="#navbarVerticalCollapse">
+                  <li class="nav-item"><a class="nav-link" href="../pages/activity.html">Activity</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/associations.html">Associations</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/checkout.html">Checkout</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/customer-details.html">Customer details</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/event-detail.html">Event detail</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/event-create.html">Event create</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/events.html">Events</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/faq.html">Faq</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/invoice.html">Invoice</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/invite-people.html">Invite people</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/notifications.html">Notifications</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/people.html">People</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/pricing.html">Pricing</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/pricing-alt.html">Pricing alt</a>
+                  </li>
+                  <li class="nav-item active"><a class="nav-link" href="../pages/profile.html">Profile</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/settings.html">Settings</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/starter.html">Starter</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link dropdown-indicator" href="#pages-errors" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="pages-errors">Errors<span class="badge badge-soft-success badge-pill ml-2"></span></a>
+                    <ul class="nav collapse" id="pages-errors">
+                      <li class="nav-item"><a class="nav-link" href="../pages/errors/404.html">404</a>
+                      </li>
+                      <li class="nav-item"><a class="nav-link" href="../pages/errors/500.html">500</a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item"><a class="nav-link dropdown-indicator" href="#email" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="email">
+                  <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-envelope-open"></span></span><span>Email</span><span class="badge badge-soft-success badge-pill ml-2">upcoming</span>
+                  </div>
+                </a>
+                <ul class="nav collapse" id="email" data-parent="#navbarVerticalCollapse">
+                  <li class="nav-item"><a class="nav-link" href="../email/inbox.html">Inbox</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../email/email-detail.html">Email detail</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../email/compose.html">Compose</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item"><a class="nav-link dropdown-indicator" href="#authentication" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="authentication">
+                  <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-unlock-alt"></span></span><span>Authentication</span>
+                  </div>
+                </a>
+                <ul class="nav collapse" id="authentication" data-parent="#navbarVerticalCollapse">
+                  <li class="nav-item"><a class="nav-link" href="../authentication/log-in.html">Log in</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../authentication/log-out.html">Log out</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../authentication/register.html">Register</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../authentication/forget-password.html">Forget password</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../authentication/password-reset.html">Password reset</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../authentication/confirm-mail.html">Confirm mail</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../authentication/lock-screen.html">Lock screen</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <hr class="border-300 my-2" />
+            <ul class="navbar-nav flex-column">
+              <li class="nav-item"><a class="nav-link dropdown-indicator" href="#layouts" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="layouts">
+                  <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-qrcode"></span></span><span>Layouts</span>
+                  </div>
+                </a>
+                <ul class="nav collapse" id="layouts" data-parent="#navbarVerticalCollapse">
+                  <li class="nav-item"><a class="nav-link" href="../layouts/standard.html">Standard</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../layouts/fluid.html">Fluid</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../layouts/RTL.html">RTL</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item"><a class="nav-link dropdown-indicator" href="#components" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="components">
+                  <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-puzzle-piece"></span></span><span>Components</span>
+                  </div>
+                </a>
+                <ul class="nav collapse" id="components" data-parent="#navbarVerticalCollapse">
+                  <li class="nav-item"><a class="nav-link" href="../components/accordion.html">Accordion</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/alerts.html">Alerts</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/avatar.html">Avatar</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/background.html">Background</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/badges.html">Badges</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/borders.html">Borders</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/breadcrumb.html">Breadcrumb</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/buttons.html">Buttons</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/cards.html">Cards</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/carousel.html">Carousel</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/charts.html">Charts</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/colors.html">Colors</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/collapse.html">Collapse</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/countdown.html">Countdown</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/countup.html">Countup</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/data-table.html">Data table</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/date-picker.html">Date picker</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/dropdowns.html">Dropdowns</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/fancybox.html">Fancybox</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/fancytab.html">Fancytab</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/forms.html">Forms</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/google-map.html">Google map</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/grid.html">Grid</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/hoverbox.html">Hoverbox</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/icons.html">Icons</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/inline-player.html">Inline player</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/jqvmap.html">Jqvmap</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/lightbox.html">Lightbox</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/list-group.html">List group</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/modals.html">Modals</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/media-object.html">Media object</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/navs.html">Navs</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/navbar.html">Navbar</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/notifications.html">Notifications</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/page-headers.html">Page headers</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/pagination.html">Pagination</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/popovers.html">Popovers</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/progress.html">Progress</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/remodal.html">Remodal</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/scrollspy.html">Scrollspy</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/select2.html">Select2</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/sizing.html">Sizing</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/spacing.html">Spacing</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/tables.html">Tables</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/tabs.html">Tabs</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/tooltips.html">Tooltips</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/typed-text.html">Typed text</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/typography.html">Typography</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <hr class="border-300 my-2" />
+            <ul class="navbar-nav flex-column">
+              <li class="nav-item"><a class="nav-link dropdown-indicator" href="#documentation" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="documentation">
+                  <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-book"></span></span><span>Documentation</span>
+                  </div>
+                </a>
+                <ul class="nav collapse" id="documentation" data-parent="#navbarVerticalCollapse">
+                  <li class="nav-item"><a class="nav-link" href="../documentation/getting-started.html">Getting started</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../documentation/file-structure.html">File structure</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../documentation/customization.html">Customization</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../documentation/fluid-layout.html">Fluid layout</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../documentation/gulp.html">Gulp</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../documentation/RTL.html">RTL</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../documentation/plugins.html">Plugins</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="../changelog.html">
+                  <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-code-branch"></span></span><span>Changelog</span><span class="badge badge-soft-success badge-pill ml-2">v1.4.0</span>
+                  </div>
+                </a></li>
+            </ul><a class="btn btn-primary btn-sm m-3" href="https://themewagon.com/themes/falcon/" target="_blank">Purchase</a>
+          </div>
+        </nav>
+        <div class="content">
+          <nav class="navbar navbar-light navbar-glass fs--1 font-weight-semi-bold row navbar-top sticky-kit navbar-expand">
+            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarVerticalCollapse" aria-controls="navbarVerticalCollapse" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><a class="navbar-brand text-left ml-3" href="../index.html">
+              <div class="d-flex align-items-center text-primary">
+                <div class="d-inline-flex flex-center"><img class="mr-2" src="../assets/img/illustrations/falcon.png" alt="" width="40" /><span class="text-sans-serif">falcon</span></div>
+              </div>
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown1">
+              <ul class="navbar-nav align-items-center d-none d-lg-block">
+                <li class="nav-item">
+                  <form class="form-inline search-box">
+                    <input class="form-control rounded-pill search-input" type="search" placeholder="Search..." aria-label="Search" /><span class="position-absolute fas fa-search text-400 search-box-icon"></span>
+                  </form>
+                </li>
+              </ul>
+              <ul class="navbar-nav align-items-center ml-auto">
+                <li class="nav-item dropdown"><a class="nav-link unread-indicator px-0" id="navbarDropdownNotification" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="fas fa-bell fs-4" data-fa-transform="shrink-6"></span></a>
+                  <div class="dropdown-menu dropdown-menu-right dropdown-menu-card" aria-labelledby="navbarDropdownNotification">
+                    <div class="card card-notification shadow-none" style="max-width: 20rem">
+                      <div class="card-header">
+                        <div class="row justify-content-between align-items-center">
+                          <div class="col-auto">
+                            <h6 class="card-header-title mb-0">Notifications</h6>
+                          </div>
+                          <div class="col-auto"><a class="card-link font-weight-normal" href="#">Mark all as read</a></div>
+                        </div>
+                      </div>
+                      <div class="list-group list-group-flush font-weight-normal fs--1">
+                        <div class="list-group-title">NEW</div>
+                        <div class="list-group-item">
+                          <a class="notification notification-flush bg-200" href="#!">
+                            <div class="notification-avatar">
+                              <div class="avatar avatar-2xl mr-3">
+                                <img class="rounded-circle" src="../assets/img/team/1.jpg" alt="" />
+
+                              </div>
+                            </div>
+                            <div class="notification-body">
+                              <p class="mb-1"><strong>Emma Watson</strong> replied to your comment : "Hello world 😍"</p>
+                              <span class="notification-time"><span class="mr-1" role="img" aria-label="Emoji">💬</span>Just now</span>
+
+                            </div>
+                          </a>
+
+                        </div>
+                        <div class="list-group-item">
+                          <a class="notification notification-flush bg-200" href="#!">
+                            <div class="notification-avatar">
+                              <div class="avatar avatar-2xl mr-3">
+                                <div class="avatar-name rounded-circle"><span>AB</span></div>
+                              </div>
+                            </div>
+                            <div class="notification-body">
+                              <p class="mb-1"><strong>Albert Brooks</strong> reacted to <strong>Mia Khalifa's</strong> status</p>
+                              <span class="notification-time"><span class="mr-1 fab fa-gratipay text-danger"></span>9hr</span>
+
+                            </div>
+                          </a>
+
+                        </div>
+                        <div class="list-group-title">EARLIER</div>
+                        <div class="list-group-item">
+                          <a class="notification notification-flush" href="#!">
+                            <div class="notification-avatar">
+                              <div class="avatar avatar-2xl mr-3">
+                                <img class="rounded-circle" src="../assets/img/icons/weather.jpg" alt="" />
+
+                              </div>
+                            </div>
+                            <div class="notification-body">
+                              <p class="mb-1">The forecast today shows a low of 20&#8451; in California. See today's weather.</p>
+                              <span class="notification-time"><span class="mr-1" role="img" aria-label="Emoji">🌤️</span>1d</span>
+
+                            </div>
+                          </a>
+
+                        </div>
+                      </div>
+                      <div class="card-footer text-center border-top-0"><a class="card-link d-block" href="../pages/notifications.html">View all</a></div>
+                    </div>
+                  </div>
+                </li>
+                <li class="nav-item dropdown"><a class="nav-link pr-0" id="navbarDropdownUser" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div class="avatar avatar-xl">
+                      <img class="rounded-circle" src="../assets/img/team/3.jpg" alt="" />
+
+                    </div>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-right py-0" aria-labelledby="navbarDropdownUser">
+                    <div class="bg-white rounded-soft py-2">
+                      <a class="dropdown-item font-weight-bold text-warning" href="#!"><span class="fas fa-crown mr-1"></span><span>Go Pro</span></a>
+
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#!">Set status</a>
+                      <a class="dropdown-item" href="../pages/profile.html">Profile &amp; account</a>
+                      <a class="dropdown-item" href="#!">Feedback</a>
+
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="../pages/settings.html">Settings</a>
+                      <a class="dropdown-item" href="../authentication/log-out.html">Logout</a>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </nav>
+          <div class="card mb-3">
+            <div class="card-header position-relative min-vh-25 mb-7">
+              <div class="bg-holder rounded-soft rounded-bottom-0" style="background-image:url(../assets/img/generic/4.jpg);">
+              </div>
+              <!--/.bg-holder-->
+
+              <div class="avatar avatar-5xl avatar-profile"><img class="rounded-circle img-thumbnail shadow-sm" src="../assets/img/team/2.jpg" width="200" alt="" /></div>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-lg-8">
+                  <h4 class="mb-1"> Anthony Hopkins<small class="fas fa-check-circle text-primary ml-1" data-toggle="tooltip" data-placement="right" title="Verified" data-fa-transform="shrink-4 down-2"></small>
+                  </h4>
+                  <h5 class="fs-0 font-weight-normal">Senior Software Engineer at Technext Limited</h5>
+                  <p class="text-500">New York, USA</p>
+                  <button class="btn btn-falcon-primary btn-sm px-3" type="button">Following</button>
+                  <button class="btn btn-falcon-default btn-sm px-3 ml-2" type="button">Message</button>
+                  <hr class="border-dashed my-4 d-lg-none" />
+                </div>
+                <div class="col pl-2 pl-lg-3"><a class="media align-items-center mb-2" href="#"><span class="fas fa-user-circle fs-4 mr-2 text-700"></span>
+                    <div class="media-body">
+                      <h6 class="mb-0">See followers (330)</h6>
+                    </div></a><a class="media align-items-center mb-2" href="#"><img class="d-flex align-self-center mr-2" src="../assets/img/logos/g.png" alt="Generic placeholder image" width="30" />
+                    <div class="media-body">
+                      <h6 class="mb-0">Google</h6>
+                    </div>
+                  </a><a class="media align-items-center mb-2" href="#"><img class="d-flex align-self-center mr-2" src="../assets/img/logos/apple.png" alt="Generic placeholder image" width="30" />
+                    <div class="media-body">
+                      <h6 class="mb-0">Apple</h6>
+                    </div>
+                  </a><a class="media align-items-center mb-2" href="#"><img class="d-flex align-self-center mr-2" src="../assets/img/logos/hp.png" alt="Generic placeholder image" width="30" />
+                    <div class="media-body">
+                      <h6 class="mb-0">Hewlett Packard</h6>
+                    </div>
+                  </a></div>
+              </div>
+            </div>
+          </div>
+          <div class="row no-gutters">
+            <div class="col-xl-8 pr-xl-2">
+              <div class="card mb-3">
+                <div class="card-header bg-light">
+                  <h5 class="mb-0">Intro</h5>
+                </div>
+                <div class="card-body text-justify">
+                  <p class="text-1000">Dedicated, passionate, and accomplished Full Stack Developer with 9+ years of progressive experience working as an Independent Contractor for Google and developing and growing my educational social network that helps others learn programming, web design, game development, networking.</p>
+                  <p class="text-1000">I’ve acquired a wide depth of knowledge and expertise in using my technical skills in programming, computer science, software development, and mobile app development to developing solutions to help organizations increase productivity, and accelerate business performance. </p>
+                  <p class="text-1000">It’s great that we live in an age where we can share so much with technology but I’m but I’m ready for the next phase of my career, with a healthy balance between the virtual world and a workplace where I help others face-to-face.</p>
+                  <p class="text-1000">There’s always something new to learn, especially in IT-related fields. People like working with me because I can explain technology to everyone, from staff to executives who need me to tie together the details and the big picture. I can also implement the technologies that successful projects need.</p>
+                </div>
+                <div class="card-footer bg-light py-0 border-top">
+                  <button class="btn btn-link btn-block" type="button">Show less<span class="fas fa-chevron-up ml-2 fs--2"></span></button>
+                </div>
+              </div>
+              <div class="card mb-3">
+                <div class="card-header bg-light d-flex justify-content-between">
+                  <h5 class="mb-0">Associations</h5><a class="text-sans-serif" href="../pages/associations.html">All Associations</a>
+                </div>
+                <div class="card-body fs--1">
+                  <div class="row">
+                    <div class="col-sm-6 mb-3"><a class="media align-items-center mb-2" href="#"><img class="d-flex align-self-center mr-2" src="../assets/img/logos/apple.png" alt="" width="50" />
+                        <div class="media-body">
+                          <h6 class="fs-0 mb-0">Apple</h6>
+                          <p class="mb-1">3243 associates</p>
+                        </div>
+                      </a></div>
+                    <div class="col-sm-6 mb-3"><a class="media align-items-center mb-2" href="#"><img class="d-flex align-self-center mr-2" src="../assets/img/logos/g.png" alt="" width="50" />
+                        <div class="media-body">
+                          <h6 class="fs-0 mb-0">Google</h6>
+                          <p class="mb-1">34598 associates</p>
+                        </div>
+                      </a></div>
+                    <div class="col-sm-6 mb-3"><a class="media align-items-center mb-2" href="#"><img class="d-flex align-self-center mr-2" src="../assets/img/logos/intel.png" alt="" width="50" />
+                        <div class="media-body">
+                          <h6 class="fs-0 mb-0">Intel</h6>
+                          <p class="mb-1">7652 associates</p>
+                        </div>
+                      </a></div>
+                    <div class="col-sm-6 mb-3"><a class="media align-items-center mb-2" href="#"><img class="d-flex align-self-center mr-2" src="../assets/img/logos/nike.png" alt="" width="50" />
+                        <div class="media-body">
+                          <h6 class="fs-0 mb-0">Nike</h6>
+                          <p class="mb-1">765 associates</p>
+                        </div>
+                      </a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="card mb-3">
+                <div class="card-header bg-light d-flex justify-content-between">
+                  <h5 class="mb-0">Activity log</h5><a class="text-sans-serif" href="../pages/activity.html">All logs</a>
+                </div>
+                <div class="card-body fs--1 p-0">
+                  <a class="border-bottom-0 notification rounded-0 border-x-0 border border-300" href="#!">
+                    <div class="notification-avatar">
+                      <div class="avatar avatar-xl mr-3">
+                        <div class="avatar-emoji rounded-circle"><span role="img" aria-label="Emoji">🎁</span></div>
+                      </div>
+                    </div>
+                    <div class="notification-body">
+                      <p class="mb-1"><strong>Jennifer Kent</strong> Congratulated <strong>Anthony Hopkins</strong></p>
+                      <span class="notification-time">November 13, 5:00 Am</span>
+
+                    </div>
+                  </a>
+
+                  <a class="border-bottom-0 notification rounded-0 border-x-0 border border-300" href="#!">
+                    <div class="notification-avatar">
+                      <div class="avatar avatar-xl mr-3">
+                        <div class="avatar-emoji rounded-circle"><span role="img" aria-label="Emoji">🏷️</span></div>
+                      </div>
+                    </div>
+                    <div class="notification-body">
+                      <p class="mb-1"><strong>California Institute of Technology</strong> tagged <strong>Anthony Hopkins</strong> in a post.</p>
+                      <span class="notification-time">November 8, 5:00 PM</span>
+
+                    </div>
+                  </a>
+
+                  <a class="border-bottom-0 notification rounded-0 border-x-0 border border-300" href="#!">
+                    <div class="notification-avatar">
+                      <div class="avatar avatar-xl mr-3">
+                        <div class="avatar-emoji rounded-circle"><span role="img" aria-label="Emoji">📋️</span></div>
+                      </div>
+                    </div>
+                    <div class="notification-body">
+                      <p class="mb-1"><strong>Anthony Hopkins</strong> joined <strong>Victory day cultural Program</strong> with <strong>Tony Stark</strong></p>
+                      <span class="notification-time">November 01, 11:30 AM</span>
+
+                    </div>
+                  </a>
+
+                  <a class="notification border-x-0 border-bottom-0 border-300 rounded-top-0" href="#!">
+                    <div class="notification-avatar">
+                      <div class="avatar avatar-xl mr-3">
+                        <div class="avatar-emoji rounded-circle"><span role="img" aria-label="Emoji">📅️</span></div>
+                      </div>
+                    </div>
+                    <div class="notification-body">
+                      <p class="mb-1"><strong>Massachusetts Institute of Technology</strong> invited <strong>Anthony Hopkin</strong> to an event</p>
+                      <span class="notification-time">October 28, 12:00 PM</span>
+
+                    </div>
+                  </a>
+
+                </div>
+              </div>
+              <div class="card mb-3 mb-xl-0">
+                <div class="card-header bg-light">
+                  <h5 class="mb-0">Photos</h5>
+                </div>
+                <div class="card-body overflow-hidden">
+                  <div class="row no-gutters">
+                    <div class="col-6 p-1"><a href="../assets/img/generic/4.jpg" data-fancybox="gallery" data-caption="Image caption"><img class="rounded w-100" src="../assets/img/generic/4.jpg" alt="" /></a>
+                    </div>
+                    <div class="col-6 p-1"><a href="../assets/img/generic/5.jpg" data-fancybox="gallery" data-caption="Image caption"><img class="rounded w-100" src="../assets/img/generic/5.jpg" alt="" /></a>
+                    </div>
+                    <div class="col-4 p-1"><a href="../assets/img/gallery/4.jpg" data-fancybox="gallery" data-caption="Image caption"><img class="rounded w-100" src="../assets/img/gallery/4.jpg" alt="" /></a>
+                    </div>
+                    <div class="col-4 p-1"><a href="../assets/img/gallery/5.jpg" data-fancybox="gallery" data-caption="Image caption"><img class="rounded w-100" src="../assets/img/gallery/5.jpg" alt="" /></a>
+                    </div>
+                    <div class="col-4 p-1"><a href="../assets/img/gallery/3.jpg" data-fancybox="gallery" data-caption="Image caption"><img class="rounded w-100" src="../assets/img/gallery/3.jpg" alt="" /></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-4 pl-xl-2">
+              <div class="sticky-top sticky-sidebar">
+                <div class="card mb-3">
+                  <div class="card-header bg-light">
+                    <h5 class="mb-0">Experience</h5>
+                  </div>
+                  <div class="card-body fs--1">
+                    <div class="media"><a href="#!"> <img class="img-fluid" src="../assets/img/logos/g.png" alt="" width="50" /></a>
+                      <div class="media-body position-relative pl-3">
+                        <h6 class="fs-0 mb-0">Big Data Engineer<small class="fas fa-check-circle text-primary ml-1" data-toggle="tooltip" data-placement="top" title="Verified" data-fa-transform="shrink-4 down-2"></small>
+                        </h6>
+                        <p class="mb-1"> <a href="#!">Google</a></p>
+                        <p class="text-1000 mb-0">Apr 2012 - Present &bull; 6 yrs 9 mos</p>
+                        <p class="text-1000 mb-0">California, USA</p>
+                        <hr class="border-dashed border-bottom-0" />
+                      </div>
+                    </div>
+                    <div class="media"><a href="#!"> <img class="img-fluid" src="../assets/img/logos/apple.png" alt="" width="50" /></a>
+                      <div class="media-body position-relative pl-3">
+                        <h6 class="fs-0 mb-0">Software Engineer<small class="fas fa-check-circle text-primary ml-1" data-toggle="tooltip" data-placement="top" title="Verified" data-fa-transform="shrink-4 down-2"></small>
+                        </h6>
+                        <p class="mb-1"> <a href="#!">Apple</a></p>
+                        <p class="text-1000 mb-0">Jan 2012 - Apr 2012 &bull; 4 mos</p>
+                        <p class="text-1000 mb-0">California, USA</p>
+                        <hr class="border-dashed border-bottom-0" />
+                      </div>
+                    </div>
+                    <div class="media"><a href="#!"> <img class="img-fluid" src="../assets/img/logos/nike.png" alt="" width="50" /></a>
+                      <div class="media-body position-relative pl-3">
+                        <h6 class="fs-0 mb-0">Mobile App Developer<small class="fas fa-check-circle text-primary ml-1" data-toggle="tooltip" data-placement="top" title="Verified" data-fa-transform="shrink-4 down-2"></small>
+                        </h6>
+                        <p class="mb-1"> <a href="#!">Nike</a></p>
+                        <p class="text-1000 mb-0">Jan 2011 - Apr 2012 &bull; 1 yr 4 mos</p>
+                        <p class="text-1000 mb-0">Beaverton, USA</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card mb-3">
+                  <div class="card-header bg-light">
+                    <h5 class="mb-0">Education</h5>
+                  </div>
+                  <div class="card-body fs--1">
+                    <div class="media"><a href="#!"> <img class="img-fluid" src="../assets/img/logos/stanford.png" alt="" width="50" /></a>
+                      <div class="media-body position-relative pl-3">
+                        <h6 class="fs-0 mb-0"> <a href="#!">Stanford University<small class="fas fa-check-circle text-primary ml-1" data-toggle="tooltip" data-placement="top" title="Verified" data-fa-transform="shrink-4 down-2"></small></a></h6>
+                        <p class="mb-1">Computer Science and Engineering</p>
+                        <p class="text-1000 mb-0">2010 - 2014 • 4 yrs</p>
+                        <p class="text-1000 mb-0">California, USA</p>
+                        <hr class="border-dashed border-bottom-0" />
+                      </div>
+                    </div>
+                    <div class="media"><a href="#!"> <img class="img-fluid" src="../assets/img/logos/staten.png" alt="" width="50" /></a>
+                      <div class="media-body position-relative pl-3">
+                        <h6 class="fs-0 mb-0"> <a href="#!">Staten Island Technical High School<small class="fas fa-check-circle text-primary ml-1" data-toggle="tooltip" data-placement="top" title="Verified" data-fa-transform="shrink-4 down-2"></small></a></h6>
+                        <p class="mb-1">Higher Secondary School Certificate, Science</p>
+                        <p class="text-1000 mb-0">2008 - 2010 &bull; 2 yrs</p>
+                        <p class="text-1000 mb-0">New York, USA</p>
+                        <hr class="border-dashed border-bottom-0" />
+                      </div>
+                    </div>
+                    <div class="media"><a href="#!"> <img class="img-fluid" src="../assets/img/logos/tj-heigh-school.png" alt="" width="50" /></a>
+                      <div class="media-body position-relative pl-3">
+                        <h6 class="fs-0 mb-0"> <a href="#!">Thomas Jefferson High School for Science and Technology<small class="fas fa-check-circle text-primary ml-1" data-toggle="tooltip" data-placement="top" title="Verified" data-fa-transform="shrink-4 down-2"></small></a></h6>
+                        <p class="mb-1">Secondary School Certificate, Science</p>
+                        <p class="text-1000 mb-0">2003 - 2008 &bull; 5 yrs</p>
+                        <p class="text-1000 mb-0">Alexandria, USA</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card mb-3 mb-lg-0">
+                  <div class="card-header bg-light">
+                    <h5 class="mb-0">Events</h5>
+                  </div>
+                  <div class="card-body fs--1">
+                    <div class="media btn-reveal-trigger">
+                      <div class="calendar"><span class="calendar-month">Feb</span><span class="calendar-day">21</span></div>
+                      <div class="media-body position-relative pl-3">
+                        <h6 class="fs-0 mb-0"><a href="../pages/event-detail.html">Newmarket Nights</a></h6>
+                        <p class="mb-1">Organized by University of Oxford</p>
+                        <p class="text-1000 mb-0">Time: 6:00AM</p>
+                        <p class="text-1000 mb-0">Duration: 6:00AM - 5:00PM</p>Place: Cambridge Boat Club, Cambridge
+                        <hr class="border-dashed border-bottom-0" />
+                      </div>
+                    </div>
+                    <div class="media btn-reveal-trigger">
+                      <div class="calendar"><span class="calendar-month">Dec</span><span class="calendar-day">31</span></div>
+                      <div class="media-body position-relative pl-3">
+                        <h6 class="fs-0 mb-0"><a href="../pages/event-detail.html">31st Night Celebration</a></h6>
+                        <p class="mb-1">Organized by Chamber Music Society</p>
+                        <p class="text-1000 mb-0">Time: 11:00PM</p>
+                        <p class="text-1000 mb-0">280 people interested</p>Place: Tavern on the Greend, New York
+                        <hr class="border-dashed border-bottom-0" />
+                      </div>
+                    </div>
+                    <div class="media btn-reveal-trigger">
+                      <div class="calendar"><span class="calendar-month">Dec</span><span class="calendar-day">16</span></div>
+                      <div class="media-body position-relative pl-3">
+                        <h6 class="fs-0 mb-0"><a href="../pages/event-detail.html">Folk Festival</a></h6>
+                        <p class="mb-1">Organized by <a href="#!" class="text-700">Harvard University</a></p>
+                        <p class="text-1000 mb-0">Time: 9:00AM</p>
+                        <p class="text-1000 mb-0">Location: Cambridge Masonic Hall Association</p>Place: Porter Square, North Cambridge
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-footer bg-light py-0 border-top"><a class="btn btn-link btn-block" href="../pages/events.html">All Events<span class="fas fa-chevron-right ml-1 fs--2"></span></a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mt-3">
+            <div class="card-header bg-light">
+              <div class="row align-items-center">
+                <div class="col">
+                  <h5 class="mb-0" id="followers">Followers <span class="d-none d-sm-inline-block">(233)</span></h5>
+                </div>
+                <div class="col text-right"><a class="text-sans-serif" href="../pages/people.html">All Members</a>
+                </div>
+              </div>
+            </div>
+            <div class="card-body bg-light p-0">
+              <div class="row no-gutters text-center fs--1">
+                <div class="col-6 col-md-4 col-xl-3 col-xxl-2 mb-1">
+                  <div class="bg-white p-3 h-100"><a href="../pages/profile.html"><img class="img-thumbnail img-fluid rounded-circle mb-3 shadow-sm" src="../assets/img/team/1.jpg" alt="" width="100" /></a>
+                    <h6 class="mb-1"><a href="../pages/profile.html">Emilia Clarke</a>
+                    </h6>
+                    <p class="fs--2 mb-1"><a class="text-700" href="#!">Technext limited</a></p>
+                  </div>
+                </div>
+                <div class="col-6 col-md-4 col-xl-3 col-xxl-2 mb-1">
+                  <div class="bg-white p-3 h-100"><a href="../pages/profile.html"><img class="img-thumbnail img-fluid rounded-circle mb-3 shadow-sm" src="../assets/img/team/2.jpg" alt="" width="100" /></a>
+                    <h6 class="mb-1"><a href="../pages/profile.html">Kit Harington</a>
+                    </h6>
+                    <p class="fs--2 mb-1"><a class="text-700" href="#!">Harvard Korea Society</a></p>
+                  </div>
+                </div>
+                <div class="col-6 col-md-4 col-xl-3 col-xxl-2 mb-1">
+                  <div class="bg-white p-3 h-100"><a href="../pages/profile.html"><img class="img-thumbnail img-fluid rounded-circle mb-3 shadow-sm" src="../assets/img/team/3.jpg" alt="" width="100" /></a>
+                    <h6 class="mb-1"><a href="../pages/profile.html">Sophie Turner</a>
+                    </h6>
+                    <p class="fs--2 mb-1"><a class="text-700" href="#!">Graduate Student Council</a></p>
+                  </div>
+                </div>
+                <div class="col-6 col-md-4 col-xl-3 col-xxl-2 mb-1">
+                  <div class="bg-white p-3 h-100"><a href="../pages/profile.html"><img class="img-thumbnail img-fluid rounded-circle mb-3 shadow-sm" src="../assets/img/team/4.jpg" alt="" width="100" /></a>
+                    <h6 class="mb-1"><a href="../pages/profile.html">Peter Dinklage</a>
+                    </h6>
+                    <p class="fs--2 mb-1"><a class="text-700" href="#!">Art Club, MIT</a></p>
+                  </div>
+                </div>
+                <div class="col-6 col-md-4 col-xl-3 col-xxl-2 mb-1">
+                  <div class="bg-white p-3 h-100"><a href="../pages/profile.html"><img class="img-thumbnail img-fluid rounded-circle mb-3 shadow-sm" src="../assets/img/team/5.jpg" alt="" width="100" /></a>
+                    <h6 class="mb-1"><a href="../pages/profile.html">Nikolaj Coster</a>
+                    </h6>
+                    <p class="fs--2 mb-1"><a class="text-700" href="#!">Archery Club, MIT</a></p>
+                  </div>
+                </div>
+                <div class="col-6 col-md-4 col-xl-3 col-xxl-2 mb-1">
+                  <div class="bg-white p-3 h-100"><a href="../pages/profile.html"><img class="img-thumbnail img-fluid rounded-circle mb-3 shadow-sm" src="../assets/img/team/6.jpg" alt="" width="100" /></a>
+                    <h6 class="mb-1"><a href="../pages/profile.html">Isaac Hempstead</a>
+                    </h6>
+                    <p class="fs--2 mb-1"><a class="text-700" href="#!">Asymptones</a></p>
+                  </div>
+                </div>
+                <div class="col-6 col-md-4 col-xl-3 col-xxl-2 mb-1">
+                  <div class="bg-white p-3 h-100"><a href="../pages/profile.html"><img class="img-thumbnail img-fluid rounded-circle mb-3 shadow-sm" src="../assets/img/team/7.jpg" alt="" width="100" /></a>
+                    <h6 class="mb-1"><a href="../pages/profile.html">Alfie Allen</a>
+                    </h6>
+                    <p class="fs--2 mb-1"><a class="text-700" href="#!">Brain Trust</a></p>
+                  </div>
+                </div>
+                <div class="col-6 col-md-4 col-xl-3 col-xxl-2 mb-1">
+                  <div class="bg-white p-3 h-100"><a href="../pages/profile.html"><img class="img-thumbnail img-fluid rounded-circle mb-3 shadow-sm" src="../assets/img/team/8.jpg" alt="" width="100" /></a>
+                    <h6 class="mb-1"><a href="../pages/profile.html">Iain Glen</a>
+                    </h6>
+                    <p class="fs--2 mb-1"><a class="text-700" href="#!">GSAS Action Coalition</a></p>
+                  </div>
+                </div>
+                <div class="col-6 col-md-4 col-xl-3 col-xxl-2 mb-1">
+                  <div class="bg-white p-3 h-100"><a href="../pages/profile.html"><img class="img-thumbnail img-fluid rounded-circle mb-3 shadow-sm" src="../assets/img/team/9.jpg" alt="" width="100" /></a>
+                    <h6 class="mb-1"><a href="../pages/profile.html">Liam Cunningham</a>
+                    </h6>
+                    <p class="fs--2 mb-1"><a class="text-700" href="#!">Caving Club, MIT</a></p>
+                  </div>
+                </div>
+                <div class="col-6 col-md-4 col-xl-3 col-xxl-2 mb-1">
+                  <div class="bg-white p-3 h-100"><a href="../pages/profile.html"><img class="img-thumbnail img-fluid rounded-circle mb-3 shadow-sm" src="../assets/img/team/10.jpg" alt="" width="100" /></a>
+                    <h6 class="mb-1"><a href="../pages/profile.html">John Bradley</a>
+                    </h6>
+                    <p class="fs--2 mb-1"><a class="text-700" href="#!">Chess Club</a></p>
+                  </div>
+                </div>
+                <div class="col-6 col-md-4 col-xl-3 col-xxl-2 mb-1">
+                  <div class="bg-white p-3 h-100"><a href="../pages/profile.html"><img class="img-thumbnail img-fluid rounded-circle mb-3 shadow-sm" src="../assets/img/team/11.jpg" alt="" width="100" /></a>
+                    <h6 class="mb-1"><a href="../pages/profile.html">Rory McCann</a>
+                    </h6>
+                    <p class="fs--2 mb-1"><a class="text-700" href="#!">Chamber Music Society</a></p>
+                  </div>
+                </div>
+                <div class="col-6 col-md-4 col-xl-3 col-xxl-2 mb-1">
+                  <div class="bg-white p-3 h-100"><a href="../pages/profile.html"><img class="img-thumbnail img-fluid rounded-circle mb-3 shadow-sm" src="../assets/img/team/12.jpg" alt="" width="100" /></a>
+                    <h6 class="mb-1"><a href="../pages/profile.html">Joe Dempsie</a>
+                    </h6>
+                    <p class="fs--2 mb-1"><a class="text-700" href="#!">Clubchem</a></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <footer>
+            <div class="row no-gutters justify-content-between fs--1 mt-4 mb-3">
+              <div class="col-12 col-sm-auto text-center">
+                <p class="mb-0 text-600">Thank you for creating with Falcon <span class="d-none d-sm-inline-block">| </span><br class="d-sm-none" /> 2018 &copy; <a href="https://themewagon.com">Themewagon</a></p>
+              </div>
+              <div class="col-12 col-sm-auto text-center">
+                <p class="mb-0 text-600">v1.4.0</p>
+              </div>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </main>
+    <!-- ===============================================-->
+    <!--    End of Main Content-->
+    <!-- ===============================================-->
+
+
+
+
+    <!-- ===============================================-->
+    <!--    JavaScripts-->
+    <!-- ===============================================-->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/popper.min.js"></script>
+    <script src="../assets/js/bootstrap.js"></script>
+    <script src="../assets/js/plugins.js"></script>
+    <script src="../assets/lib/stickyfilljs/stickyfill.min.js"></script>
+    <script src="../assets/lib/sticky-kit/sticky-kit.min.js"></script>
+    <script src="../assets/lib/fancybox/jquery.fancybox.min.js"></script>
+    <script src="../assets/js/theme.js"></script>
+
+  </body>
+
+</html>

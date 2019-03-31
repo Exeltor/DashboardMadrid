@@ -1,0 +1,33 @@
+/*-----------------------------------------------
+|   Object fit and Z-index
+-----------------------------------------------*/
+.fit-cover{ object-fit: cover; }
+.z-index-1{ z-index: 1; }
+
+/*-----------------------------------------------
+|   Sidebar
+-----------------------------------------------*/
+.sticky-sidebar{ top: 85px; }
+
+/*-----------------------------------------------
+|   Custom circle
+-----------------------------------------------*/
+.circle-dashed{
+  border: 1px dashed $primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+/*-----------------------------------------------
+|   Miscellaneous
+-----------------------------------------------*/
+@include hover-focus{
+  .hover-text-decoration-none{
+    text-decoration: none;
+  }
+}
+.resize-none{ resize: none; }

@@ -1,0 +1,39 @@
+/*-----------------------------------------------
+|   Form
+-----------------------------------------------*/
+label{
+  font-size: map_get($font-sizes, '-1');
+  font-weight: $font-weight-bold;
+  letter-spacing: 0.02em;
+}
+
+/*-----------------------------------------------
+|   Input with icon
+-----------------------------------------------*/
+.input-iconic{
+  position: relative;
+  button{
+    outline: 0;
+    background-color: transparent;
+    color: $gray-600;
+    border: 0;
+  }
+  .input-icon{
+    position: absolute;
+    z-index: 99;
+    right: map_get($spacers, 4);
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .form-control{
+    padding-right: map_get($spacers, 5);
+    border-color: $gray-300;
+  }
+}
+.custom-control-label{
+  line-height: 1.45rem;
+}
+//.custom-file-label,
+//.custom-file-label:after{
+//  line-height: 1.625rem;
+//}

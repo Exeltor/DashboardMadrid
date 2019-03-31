@@ -1,0 +1,33 @@
+/*-----------------------------------------------
+|   Accordion [Semantic UI]
+-----------------------------------------------*/
+.ui.styled.accordion {
+  border-radius: $border-radius;
+  box-shadow: none;
+  border: $border-width solid $gray-300;
+
+  .title {
+    color: $gray-1100;
+    border-top: $border-width solid $gray-300;
+    font-family: $font-family-sans-serif;
+    border-radius: 0;
+    padding: map_get($spacers, 2) map_get($spacers, 3);
+    font-weight: $font-weight-bold;
+    font-size: map_get($font-sizes, 1);
+    transition: $transition-base !important;
+    .dropdown {
+      &.icon {
+        margin-right: 0.75em;
+        font-size: $font-size-sm;
+      }
+    }
+    &.active {
+      color: $gray-1100;
+    }
+  }
+
+  .content {
+    padding: map_get($spacers, 3) map_get($spacers, 5);
+    color: $gray-1000;
+  }
+}

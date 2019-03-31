@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- ===============================================-->
+    <!--    Document Title-->
+    <!-- ===============================================-->
+    <title>Falcon | Dashboard &amp; WebApp Template</title>
+
+
+    <!-- ===============================================-->
+    <!--    Favicons-->
+    <!-- ===============================================-->
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/img/favicons/favicon.ico">
+    <link rel="manifest" href="../assets/img/favicons/manifest.json">
+    <meta name="msapplication-TileImage" content="../assets/img/favicons/mstile-150x150.png">
+    <meta name="theme-color" content="#ffffff">
+
+
+    <!-- ===============================================-->
+    <!--    Stylesheets-->
+    <!-- ===============================================-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700%7cPoppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="../assets/lib/select2/select2.min.css" rel="stylesheet">
+    <link href="../assets/lib/flatpickr/flatpickr.min.css" rel="stylesheet">
+    <link href="../assets/css/theme.css" rel="stylesheet">
+
+  </head>
+
+
+  <body>
+
+    <!-- ===============================================-->
+    <!--    Main Content-->
+    <!-- ===============================================-->
+    <main class="main" id="top">
+
+
+      <div class="container">
+        <nav class="navbar navbar-vertical navbar-expand-lg navbar-light navbar-glass"><a class="navbar-brand text-left" href="../index.html">
+            <div class="d-flex align-items-center text-primary py-3">
+              <div class="d-inline-flex flex-center"><img class="mr-2" src="../assets/img/illustrations/falcon.png" alt="" width="40" /><span class="text-sans-serif">falcon</span></div>
+            </div>
+          </a>
+          <div class="collapse navbar-collapse" id="navbarVerticalCollapse">
+            <ul class="navbar-nav flex-column">
+              <li class="nav-item"><a class="nav-link dropdown-indicator" href="#home" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="home">
+                  <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-chart-pie"></span></span><span>Home</span>
+                  </div>
+                </a>
+                <ul class="nav collapse" id="home" data-parent="#navbarVerticalCollapse">
+                  <li class="nav-item"><a class="nav-link" href="../index.html">Dashboard</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../home/feed.html">Feed</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../home/landing.html">Landing</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item"><a class="nav-link dropdown-indicator" href="#pages" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="pages">
+                  <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-copy"></span></span><span>Pages</span>
+                  </div>
+                </a>
+                <ul class="nav collapse show" id="pages" data-parent="#navbarVerticalCollapse">
+                  <li class="nav-item"><a class="nav-link" href="../pages/activity.html">Activity</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/associations.html">Associations</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/checkout.html">Checkout</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/customer-details.html">Customer details</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/event-detail.html">Event detail</a>
+                  </li>
+                  <li class="nav-item active"><a class="nav-link" href="../pages/event-create.html">Event create</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/events.html">Events</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/faq.html">Faq</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/invoice.html">Invoice</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/invite-people.html">Invite people</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/notifications.html">Notifications</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/people.html">People</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/pricing.html">Pricing</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/pricing-alt.html">Pricing alt</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/profile.html">Profile</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/settings.html">Settings</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../pages/starter.html">Starter</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link dropdown-indicator" href="#pages-errors" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="pages-errors">Errors<span class="badge badge-soft-success badge-pill ml-2"></span></a>
+                    <ul class="nav collapse" id="pages-errors">
+                      <li class="nav-item"><a class="nav-link" href="../pages/errors/404.html">404</a>
+                      </li>
+                      <li class="nav-item"><a class="nav-link" href="../pages/errors/500.html">500</a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item"><a class="nav-link dropdown-indicator" href="#email" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="email">
+                  <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-envelope-open"></span></span><span>Email</span><span class="badge badge-soft-success badge-pill ml-2">upcoming</span>
+                  </div>
+                </a>
+                <ul class="nav collapse" id="email" data-parent="#navbarVerticalCollapse">
+                  <li class="nav-item"><a class="nav-link" href="../email/inbox.html">Inbox</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../email/email-detail.html">Email detail</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../email/compose.html">Compose</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item"><a class="nav-link dropdown-indicator" href="#authentication" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="authentication">
+                  <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-unlock-alt"></span></span><span>Authentication</span>
+                  </div>
+                </a>
+                <ul class="nav collapse" id="authentication" data-parent="#navbarVerticalCollapse">
+                  <li class="nav-item"><a class="nav-link" href="../authentication/log-in.html">Log in</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../authentication/log-out.html">Log out</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../authentication/register.html">Register</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../authentication/forget-password.html">Forget password</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../authentication/password-reset.html">Password reset</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../authentication/confirm-mail.html">Confirm mail</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../authentication/lock-screen.html">Lock screen</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <hr class="border-300 my-2" />
+            <ul class="navbar-nav flex-column">
+              <li class="nav-item"><a class="nav-link dropdown-indicator" href="#layouts" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="layouts">
+                  <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-qrcode"></span></span><span>Layouts</span>
+                  </div>
+                </a>
+                <ul class="nav collapse" id="layouts" data-parent="#navbarVerticalCollapse">
+                  <li class="nav-item"><a class="nav-link" href="../layouts/standard.html">Standard</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../layouts/fluid.html">Fluid</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../layouts/RTL.html">RTL</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item"><a class="nav-link dropdown-indicator" href="#components" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="components">
+                  <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-puzzle-piece"></span></span><span>Components</span>
+                  </div>
+                </a>
+                <ul class="nav collapse" id="components" data-parent="#navbarVerticalCollapse">
+                  <li class="nav-item"><a class="nav-link" href="../components/accordion.html">Accordion</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/alerts.html">Alerts</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/avatar.html">Avatar</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/background.html">Background</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/badges.html">Badges</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/borders.html">Borders</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/breadcrumb.html">Breadcrumb</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/buttons.html">Buttons</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/cards.html">Cards</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/carousel.html">Carousel</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/charts.html">Charts</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/colors.html">Colors</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/collapse.html">Collapse</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/countdown.html">Countdown</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/countup.html">Countup</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/data-table.html">Data table</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/date-picker.html">Date picker</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/dropdowns.html">Dropdowns</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/fancybox.html">Fancybox</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/fancytab.html">Fancytab</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/forms.html">Forms</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/google-map.html">Google map</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/grid.html">Grid</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/hoverbox.html">Hoverbox</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/icons.html">Icons</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/inline-player.html">Inline player</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/jqvmap.html">Jqvmap</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/lightbox.html">Lightbox</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/list-group.html">List group</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/modals.html">Modals</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/media-object.html">Media object</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/navs.html">Navs</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/navbar.html">Navbar</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/notifications.html">Notifications</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/page-headers.html">Page headers</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/pagination.html">Pagination</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/popovers.html">Popovers</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/progress.html">Progress</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/remodal.html">Remodal</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/scrollspy.html">Scrollspy</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/select2.html">Select2</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/sizing.html">Sizing</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/spacing.html">Spacing</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/tables.html">Tables</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/tabs.html">Tabs</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/tooltips.html">Tooltips</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/typed-text.html">Typed text</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../components/typography.html">Typography</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <hr class="border-300 my-2" />
+            <ul class="navbar-nav flex-column">
+              <li class="nav-item"><a class="nav-link dropdown-indicator" href="#documentation" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="documentation">
+                  <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-book"></span></span><span>Documentation</span>
+                  </div>
+                </a>
+                <ul class="nav collapse" id="documentation" data-parent="#navbarVerticalCollapse">
+                  <li class="nav-item"><a class="nav-link" href="../documentation/getting-started.html">Getting started</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../documentation/file-structure.html">File structure</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../documentation/customization.html">Customization</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../documentation/fluid-layout.html">Fluid layout</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../documentation/gulp.html">Gulp</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../documentation/RTL.html">RTL</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="../documentation/plugins.html">Plugins</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="../changelog.html">
+                  <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-code-branch"></span></span><span>Changelog</span><span class="badge badge-soft-success badge-pill ml-2">v1.4.0</span>
+                  </div>
+                </a></li>
+            </ul><a class="btn btn-primary btn-sm m-3" href="https://themewagon.com/themes/falcon/" target="_blank">Purchase</a>
+          </div>
+        </nav>
+        <div class="content">
+          <nav class="navbar navbar-light navbar-glass fs--1 font-weight-semi-bold row navbar-top sticky-kit navbar-expand">
+            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarVerticalCollapse" aria-controls="navbarVerticalCollapse" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><a class="navbar-brand text-left ml-3" href="../index.html">
+              <div class="d-flex align-items-center text-primary">
+                <div class="d-inline-flex flex-center"><img class="mr-2" src="../assets/img/illustrations/falcon.png" alt="" width="40" /><span class="text-sans-serif">falcon</span></div>
+              </div>
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown1">
+              <ul class="navbar-nav align-items-center d-none d-lg-block">
+                <li class="nav-item">
+                  <form class="form-inline search-box">
+                    <input class="form-control rounded-pill search-input" type="search" placeholder="Search..." aria-label="Search" /><span class="position-absolute fas fa-search text-400 search-box-icon"></span>
+                  </form>
+                </li>
+              </ul>
+              <ul class="navbar-nav align-items-center ml-auto">
+                <li class="nav-item dropdown"><a class="nav-link unread-indicator px-0" id="navbarDropdownNotification" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="fas fa-bell fs-4" data-fa-transform="shrink-6"></span></a>
+                  <div class="dropdown-menu dropdown-menu-right dropdown-menu-card" aria-labelledby="navbarDropdownNotification">
+                    <div class="card card-notification shadow-none" style="max-width: 20rem">
+                      <div class="card-header">
+                        <div class="row justify-content-between align-items-center">
+                          <div class="col-auto">
+                            <h6 class="card-header-title mb-0">Notifications</h6>
+                          </div>
+                          <div class="col-auto"><a class="card-link font-weight-normal" href="#">Mark all as read</a></div>
+                        </div>
+                      </div>
+                      <div class="list-group list-group-flush font-weight-normal fs--1">
+                        <div class="list-group-title">NEW</div>
+                        <div class="list-group-item">
+                          <a class="notification notification-flush bg-200" href="#!">
+                            <div class="notification-avatar">
+                              <div class="avatar avatar-2xl mr-3">
+                                <img class="rounded-circle" src="../assets/img/team/1.jpg" alt="" />
+
+                              </div>
+                            </div>
+                            <div class="notification-body">
+                              <p class="mb-1"><strong>Emma Watson</strong> replied to your comment : "Hello world 😍"</p>
+                              <span class="notification-time"><span class="mr-1" role="img" aria-label="Emoji">💬</span>Just now</span>
+
+                            </div>
+                          </a>
+
+                        </div>
+                        <div class="list-group-item">
+                          <a class="notification notification-flush bg-200" href="#!">
+                            <div class="notification-avatar">
+                              <div class="avatar avatar-2xl mr-3">
+                                <div class="avatar-name rounded-circle"><span>AB</span></div>
+                              </div>
+                            </div>
+                            <div class="notification-body">
+                              <p class="mb-1"><strong>Albert Brooks</strong> reacted to <strong>Mia Khalifa's</strong> status</p>
+                              <span class="notification-time"><span class="mr-1 fab fa-gratipay text-danger"></span>9hr</span>
+
+                            </div>
+                          </a>
+
+                        </div>
+                        <div class="list-group-title">EARLIER</div>
+                        <div class="list-group-item">
+                          <a class="notification notification-flush" href="#!">
+                            <div class="notification-avatar">
+                              <div class="avatar avatar-2xl mr-3">
+                                <img class="rounded-circle" src="../assets/img/icons/weather.jpg" alt="" />
+
+                              </div>
+                            </div>
+                            <div class="notification-body">
+                              <p class="mb-1">The forecast today shows a low of 20&#8451; in California. See today's weather.</p>
+                              <span class="notification-time"><span class="mr-1" role="img" aria-label="Emoji">🌤️</span>1d</span>
+
+                            </div>
+                          </a>
+
+                        </div>
+                      </div>
+                      <div class="card-footer text-center border-top-0"><a class="card-link d-block" href="../pages/notifications.html">View all</a></div>
+                    </div>
+                  </div>
+                </li>
+                <li class="nav-item dropdown"><a class="nav-link pr-0" id="navbarDropdownUser" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div class="avatar avatar-xl">
+                      <img class="rounded-circle" src="../assets/img/team/3.jpg" alt="" />
+
+                    </div>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-right py-0" aria-labelledby="navbarDropdownUser">
+                    <div class="bg-white rounded-soft py-2">
+                      <a class="dropdown-item font-weight-bold text-warning" href="#!"><span class="fas fa-crown mr-1"></span><span>Go Pro</span></a>
+
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#!">Set status</a>
+                      <a class="dropdown-item" href="../pages/profile.html">Profile &amp; account</a>
+                      <a class="dropdown-item" href="#!">Feedback</a>
+
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="../pages/settings.html">Settings</a>
+                      <a class="dropdown-item" href="../authentication/log-out.html">Logout</a>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </nav>
+          <div class="card mb-3">
+            <div class="card-body">
+              <div class="row justify-content-between align-items-center">
+                <div class="col-md">
+                  <h5 class="mb-2 mb-md-0">Create Event</h5>
+                </div>
+                <div class="col-auto">
+                  <button class="btn btn-falcon-default btn-sm mr-2" role="button">Save</button>
+                  <button class="btn btn-falcon-primary btn-sm" role="button">Make your event live </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card overflow-hidden mb-3">
+            <div class="cover-image overflow-hidden"><img class="card-img-top" src="../assets/img/generic/13.jpg" alt="">
+              <input class="d-none" id="upload-cover-image" type="file">
+              <label class="cover-image-file-input" for="upload-cover-image"><span class="fas fa-camera mr-2"></span><span>Change cover photo</span></label>
+            </div>
+          </div>
+          <div class="row no-gutters">
+            <div class="col-xl-8 pr-xl-2">
+              <div class="card mb-3">
+                <div class="card-header">
+                  <h5 class="mb-0">Event Details</h5>
+                </div>
+                <div class="card-body bg-light">
+                  <form>
+                    <div class="form-row">
+                      <div class="col-12">
+                        <div class="form-group">
+                          <label for="event-name">Event Title</label>
+                          <input class="form-control" id="event-name" type="text" placeholder="Event Title">
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label for="start-date">Start Date</label>
+                          <input class="form-control datetimepicker" id="start-date" type="text">
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label for="start-time">Start Time</label>
+                          <input class="form-control datetimepicker" id="start-time" type="text" data-options='{"enableTime":true,"noCalendar":true,"dateFormat":"H:i"}'>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label for="end-date">End Date</label>
+                          <input class="form-control datetimepicker" id="end-date" type="text">
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label for="end-time">End Time</label>
+                          <input class="form-control datetimepicker" id="end-time" type="text" data-options='{"enableTime":true,"noCalendar":true,"dateFormat":"H:i"}'>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group mb-0">
+                          <label for="registration-deadline">Registration Deadline</label>
+                          <input class="form-control datetimepicker" id="registration-deadline" type="text">
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group mb-0">
+                          <label for="time-zone">Timezone</label>
+                          <select class="form-control" id="time-zone">
+                            <option>GMT-12:00 Etc/GMT-12</option>
+                            <option>GMT-11:00 Etc/GMT-11</option>
+                            <option>GMT-11:00 Pacific/Midway</option>
+                            <option>GMT-10:00 America/Adak</option>
+                            <option>GMT-09:00 America/Anchorage</option>
+                            <option>GMT-09:00 Pacific/Gambier</option>
+                            <option>GMT-08:00 America/Dawson_Creek</option>
+                            <option>GMT-08:00 America/Ensenada</option>
+                            <option>GMT-08:00 America/Los_Angeles</option>
+                            <option>GMT-07:00 America/Chihuahua</option>
+                            <option>GMT-07:00 America/Denver</option>
+                            <option>GMT-06:00 America/Belize</option>
+                            <option>GMT-06:00 America/Cancun</option>
+                            <option>GMT-06:00 America/Chicago</option>
+                            <option>GMT-06:00 Chile/EasterIsland</option>
+                            <option>GMT-05:00 America/Bogota</option>
+                            <option>GMT-05:00 America/Havana</option>
+                            <option>GMT-05:00 America/New_York</option>
+                            <option>GMT-04:30 America/Caracas</option>
+                            <option>GMT-04:00 America/Campo_Grande</option>
+                            <option>GMT-04:00 America/Glace_Bay</option>
+                            <option>GMT-04:00 America/Goose_Bay</option>
+                            <option>GMT-04:00 America/Santiago</option>
+                            <option>GMT-04:00 America/La_Paz</option>
+                            <option>GMT-03:00 America/Argentina/Buenos_Aires</option>
+                            <option>GMT-03:00 America/Montevideo</option>
+                            <option>GMT-03:00 America/Araguaina</option>
+                            <option>GMT-03:00 America/Godthab</option>
+                            <option>GMT-03:00 America/Miquelon</option>
+                            <option>GMT-03:00 America/Sao_Paulo</option>
+                            <option>GMT-03:30 America/St_Johns</option>
+                            <option>GMT-02:00 America/Noronha</option>
+                            <option>GMT-01:00 Atlantic/Cape_Verde</option>
+                            <option>GMT Europe/Belfast</option>
+                            <option>GMT Africa/Abidjan</option>
+                            <option>GMT Europe/Dublin</option>
+                            <option>GMT Europe/Lisbon</option>
+                            <option>GMT Europe/London</option>
+                            <option>UTC UTC</option>
+                            <option>GMT+01:00 Africa/Algiers</option>
+                            <option>GMT+01:00 Africa/Windhoek</option>
+                            <option>GMT+01:00 Atlantic/Azores</option>
+                            <option>GMT+01:00 Atlantic/Stanley</option>
+                            <option>GMT+01:00 Europe/Amsterdam</option>
+                            <option>GMT+01:00 Europe/Belgrade</option>
+                            <option>GMT+01:00 Europe/Brussels</option>
+                            <option>GMT+02:00 Africa/Cairo</option>
+                            <option>GMT+02:00 Africa/Blantyre</option>
+                            <option>GMT+02:00 Asia/Beirut</option>
+                            <option>GMT+02:00 Asia/Damascus</option>
+                            <option>GMT+02:00 Asia/Gaza</option>
+                            <option>GMT+02:00 Asia/Jerusalem</option>
+                            <option>GMT+03:00 Africa/Addis_Ababa</option>
+                            <option>GMT+03:00 Asia/Riyadh89</option>
+                            <option>GMT+03:00 Europe/Minsk</option>
+                            <option>GMT+03:30 Asia/Tehran</option>
+                            <option>GMT+04:00 Asia/Dubai</option>
+                            <option>GMT+04:00 Asia/Yerevan</option>
+                            <option>GMT+04:00 Europe/Moscow</option>
+                            <option>GMT+04:30 Asia/Kabul</option>
+                            <option>GMT+05:00 Asia/Tashkent</option>
+                            <option>GMT+05:30 Asia/Kolkata</option>
+                            <option>GMT+05:45 Asia/Katmandu</option>
+                            <option>GMT+06:00 Asia/Dhaka</option>
+                            <option>GMT+06:00 Asia/Yekaterinburg</option>
+                            <option>GMT+06:30 Asia/Rangoon</option>
+                            <option>GMT+07:00 Asia/Bangkok</option>
+                            <option>GMT+07:00 Asia/Novosibirsk</option>
+                            <option>GMT+08:00 Etc/GMT+8</option>
+                            <option>GMT+08:00 Asia/Hong_Kong</option>
+                            <option>GMT+08:00 Asia/Krasnoyarsk</option>
+                            <option>GMT+08:00 Australia/Perth</option>
+                            <option>GMT+08:45 Australia/Eucla</option>
+                            <option>GMT+09:00 Asia/Irkutsk</option>
+                            <option>GMT+09:00 Asia/Seoul</option>
+                            <option>GMT+09:00 Asia/Tokyo</option>
+                            <option>GMT+09:30 Australia/Adelaide</option>
+                            <option>GMT+09:30 Australia/Darwin</option>
+                            <option>GMT+09:30 Pacific/Marquesas</option>
+                            <option>GMT+10:00 Etc/GMT+10</option>
+                            <option>GMT+10:00 Australia/Brisbane</option>
+                            <option>GMT+10:00 Australia/Hobart</option>
+                            <option>GMT+10:00 Asia/Yakutsk</option>
+                            <option>GMT+10:30 Australia/Lord_Howe</option>
+                            <option>GMT+11:00 Asia/Vladivostok</option>
+                            <option>GMT+11:30 Pacific/Norfolk</option>
+                            <option>GMT+12:00 Etc/GMT+12</option>
+                            <option>GMT+12:00 Asia/Anadyr</option>
+                            <option>GMT+12:00 Asia/Magadan</option>
+                            <option>GMT+12:00 Pacific/Auckland</option>
+                            <option>GMT+12:45 Pacific/Chatham</option>
+                            <option>GMT+13:00 Pacific/Tongatapu</option>
+                            <option>GMT+14:00 Pacific/Kiritimati</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <hr class="border-dashed border-bottom-0">
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label for="event-venue">Venue</label>
+                          <input class="form-control" id="event-venue" type="text" placeholder="Venue">
+                          <button class="btn btn-link btn-sm btn p-0" type="button">Online Event</button>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label for="event-address">Address</label>
+                          <input class="form-control" id="event-address" type="text" placeholder="Address">
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group">
+                          <label for="event-city">City</label>
+                          <input class="form-control" id="event-city" type="text" placeholder="City">
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group">
+                          <label for="event-state">State</label>
+                          <input class="form-control" id="event-state" type="text" placeholder="state">
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group">
+                          <label for="event-country">Country</label>
+                          <input class="form-control" id="event-country" type="text" placeholder="country">
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <div class="form-group">
+                          <label for="event-description">Description</label>
+                          <textarea class="form-control" id="event-description" rows="6"> </textarea>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="card mb-3">
+                <div class="card-header">
+                  <h5 class="mb-0">Ticket Price</h5>
+                </div>
+                <div class="card-body bg-light">
+                  <div class="mb-3">
+                    <button class="btn btn-falcon-default btn-sm" type="button">Free<span class="d-none d-sm-inline"> Ticket</span></button>
+                    <button class="btn btn-falcon-primary btn-sm ml-2" type="button">Paid<span class="d-none d-sm-inline"> Ticket</span></button>
+                    <button class="btn btn-falcon-default btn-sm ml-2" type="button">Donation</button>
+                  </div>
+                  <hr>
+                  <h6>Pricing Options:</h6>
+                  <div class="custom-control custom-checkbox">
+                    <input class="custom-control-input" id="customCheck1" type="checkbox" checked>
+                    <label class="custom-control-label" for="customCheck1">Enable varible pricing</label>
+                  </div>
+                  <div class="custom-control custom-checkbox mt-2">
+                    <input class="custom-control-input" id="customCheck2" type="checkbox">
+                    <label class="custom-control-label" for="customCheck2">Enable multi-option purchase mode.</label>
+                  </div>
+                  <table class="table table-bordered mt-2 bg-white">
+                    <thead>
+                      <tr class="fs--1">
+                        <th>Option Name</th>
+                        <th>Price</th>
+                        <th>Default</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <input class="form-control form-control-sm" type="text" placeholder="Option Name" value="Front desks">
+                        </td>
+                        <td>
+                          <input class="form-control form-control-sm" type="text" placeholder="Price" value="$0.00">
+                        </td>
+                        <td class="text-center align-middle">
+                          <div class="custom-control custom-radio">
+                            <input class="custom-control-input" id="customRadio1" type="radio" name="customRadio" checked>
+                            <label class="custom-control-label" for="customRadio1"></label>
+                          </div>
+                        </td>
+                        <td class="text-center align-middle">
+                          <button class="btn btn-link btn-sm"><span class="fas fa-times-circle text-danger" data-fa-transform="shrink-3"></span></button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <input class="form-control form-control-sm" type="text" placeholder="Option Name" value="Green gallery">
+                        </td>
+                        <td>
+                          <input class="form-control form-control-sm" type="text" placeholder="Price" value="$5.00">
+                        </td>
+                        <td class="text-center align-middle">
+                          <div class="custom-control custom-radio">
+                            <input class="custom-control-input" id="customRadio2" type="radio" name="customRadio">
+                            <label class="custom-control-label" for="customRadio2"></label>
+                          </div>
+                        </td>
+                        <td class="text-center align-middle">
+                          <button class="btn btn-link btn-sm"><span class="fas fa-times-circle text-danger" data-fa-transform="shrink-3"></span></button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <input class="form-control form-control-sm" type="text" placeholder="VIP" value="VIP">
+                        </td>
+                        <td>
+                          <input class="form-control form-control-sm" type="text" placeholder="Price" value="$20.00">
+                        </td>
+                        <td class="text-center align-middle">
+                          <div class="custom-control custom-radio">
+                            <input class="custom-control-input" id="customRadio3" type="radio" name="customRadio">
+                            <label class="custom-control-label" for="customRadio3"></label>
+                          </div>
+                        </td>
+                        <td class="text-center align-middle">
+                          <button class="btn btn-link btn-sm"><span class="fas fa-times-circle text-danger" data-fa-transform="shrink-3"></span></button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="card mb-3">
+                <div class="card-header">
+                  <div class="h5 mb-0">Schedule</div>
+                </div>
+                <div class="card-body bg-light">
+                  <div class="border rounded position-relative bg-white p-3">
+                    <div class="form-row">
+                      <div class="position-absolute r-0 t-0 mt-2 mr-3 z-index-1">
+                        <button class="btn btn-link btn-sm p-0" type="button"><span class="fas fa-times-circle text-danger" data-fa-transform="shrink-1"></span></button>
+                      </div>
+                      <div class="col-12">
+                        <div class="form-group">
+                          <label for="schedule-title">Title</label>
+                          <input class="form-control form-control-sm" id="schedule-title" type="text" placeholder="Title">
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label for="schedule-start-date">Start Date</label>
+                          <input class="form-control form-control-sm datetimepicker" id="schedule-start-date" type="text" data-options='{"dateFormat":"d/m/y","enableTime":false}'>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label for="schedule-start-time">Start Time</label>
+                          <input class="form-control form-control-sm datetimepicker" id="schedule-start-time" type="text" data-options='{"enableTime":true,"noCalendar":true,"dateFormat":"H:i"}'>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label for="schedule-end-date">End Date</label>
+                          <input class="form-control form-control-sm datetimepicker" id="schedule-end-date" type="text" data-options='{"enableTime":true}'>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label for="schedule-end-time">End Time</label>
+                          <input class="form-control form-control-sm datetimepicker" id="schedule-end-time" type="text" data-options='{"enableTime":true,"noCalendar":true,"dateFormat":"H:i"}'>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="btn btn-falcon-default btn-sm mt-2" type="button"><span class="fas fa-plus fs--2 mr-1" data-fa-transform="up-1"></span>Add Item </button>
+                </div>
+              </div>
+              <div class="card mb-3 mb-xl-0">
+                <div class="card-header">
+                  <h5 class="mb-0">Custom Field</h5>
+                </div>
+                <div class="card-body bg-light">
+                  <div class="position-relative rounded border bg-white p-3">
+                    <div class="position-absolute r-0 t-0 mt-2 mr-3 z-index-1">
+                      <button class="btn btn-link btn-sm p-0" type="button"><span class="fas fa-times-circle text-danger" data-fa-transform="shrink-1"></span></button>
+                    </div>
+                    <div class="form-row">
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label for="field-name">Name</label>
+                          <input class="form-control form-control-sm" id="field-name" type="text" placeholder="Name (e.g. T-shirt)">
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label for="field-type">Type</label>
+                          <select class="form-control form-control-sm" id="field-type">
+                            <option>Select a type</option>
+                            <option>Text</option>
+                            <option>Checkboxes</option>
+                            <option>Radio Buttons</option>
+                            <option>Textarea</option>
+                            <option>Date</option>
+                            <option>Dropdowns</option>
+                            <option>File</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <div class="form-group">
+                          <label for="field-options">Field Options</label>
+                          <textarea class="form-control form-control-sm" id="field-options" rows="3"></textarea><small class="form-text fs--1 text-warning">* Seperate your options with comma</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="btn btn-falcon-default btn-sm mt-2" type="submit"><span class="fas fa-plus fs--2 mr-1" data-fa-transform="up-1"></span>Add Item</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-4 pl-xl-2">
+              <div class="sticky-top sticky-sidebar">
+                <div class="card mb-3 mb-lg-0">
+                  <div class="card-header">
+                    <h5 class="mb-0">Other Info</h5>
+                  </div>
+                  <div class="card-body bg-light">
+                    <div class="form-group">
+                      <div class="d-flex justify-content-between align-items-center">
+                        <label class="mb-0" for="organizer">Organizer</label>
+                        <button class="btn btn-link btn-sm pr-0" type="button">Add New</button>
+                      </div>
+                      <select class="form-control selectpicker" id="organizer" multiple size="1" name="organizer" data-options='{"placeholder":"Select Organizer..."}'>
+                        <option>Massachusetts Institute of Technology</option>
+                        <option>University of Chicago</option>
+                        <option>GSAS Open Labs At Harvard</option>
+                        <option>California Institute of Technology</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <div class="d-flex justify-content-between align-items-center">
+                        <label class="mb-0" for="sponsors">Sponsors</label>
+                        <button class="btn btn-link btn-sm pr-0" type="button">Add New</button>
+                      </div>
+                      <select class="form-control selectpicker" id="sponsors" multiple size="1" name="language" data-options='{"placeholder":"Select Sponsors..."}'>
+                        <option>Microsoft Corporation</option>
+                        <option>Technext Limited</option>
+                        <option>Hewlett-Packard</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="event-type">Event Type</label>
+                      <select class="form-control" id="event-type" name="event-type">
+                        <option>Select event type...</option>
+                        <option>Class, Training, or Workshop</option>
+                        <option>Concert or Performance</option>
+                        <option>Conference</option>
+                        <option>Convention</option>
+                        <option>Dinner or Gala</option>
+                        <option>Festival or Fair</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="event-topic">Event Topic</label>
+                      <select class="form-control" id="event-topic" name="even-topic">
+                        <option value="" selected="selected">Select a topic</option>
+                        <option>Auto, Boat &amp; Air</option>
+                        <option>Business &amp; Professional</option>
+                        <option>Charity &amp; Causes</option>
+                        <option>Community &amp; Culture</option>
+                        <option>Family &amp; Education</option>
+                        <option>Fashion &amp; Beauty</option>
+                        <option>Film, Media &amp; Entertainment</option>
+                        <option>Food &amp; Drink</option>
+                        <option>Government &amp; Politics</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <div class="d-flex justify-content-between align-items-center">
+                        <label class="mb-0" for="event-tags">Tags</label>
+                        <button class="btn btn-link btn-sm pr-0" type="button">Add New</button>
+                      </div>
+                      <select class="form-control selectpicker" id="event-tags" multiple size="1" data-options='{"placeholder":"Select tags"}'>
+                        <option>Concert</option>
+                        <option>New Year</option>
+                        <option>Party</option>
+                      </select>
+                    </div>
+                    <hr class="border-dashed border-bottom-0">
+                    <h6>Listing Privacy</h6>
+                    <div class="form-group custom-control custom-radio">
+                      <input class="custom-control-input" id="customRadio4" type="radio" name="listingPrivacy" checked>
+                      <label class="custom-control-label" for="customRadio4"> <strong>Public page:</strong></label><small class="form-text mt-0">Discoverable by anyone on Falcon, our distribution partners, and search engines.</small>
+                    </div>
+                    <div class="form-group custom-control custom-radio">
+                      <input class="custom-control-input" id="customRadio5" type="radio" name="listingPrivacy">
+                      <label class="custom-control-label" for="customRadio5"> <strong>Private page:</strong></label><small class="form-text mt-0">Accessible only by people you specify. </small>
+                    </div>
+                    <hr class="border-dashed border-bottom-0">
+                    <h6>Remaining Tickets</h6>
+                    <div class="form-group custom-control custom-checkbox mb-0">
+                      <input class="custom-control-input" id="customRadio6" type="checkbox">
+                      <label class="custom-control-label" for="customRadio6">Show the number of remaining tickets.</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mt-3">
+            <div class="card-body">
+              <div class="row justify-content-between align-items-center">
+                <div class="col-md">
+                  <h5 class="mb-2 mb-md-0">Nice Job! You're almost done</h5>
+                </div>
+                <div class="col-auto">
+                  <button class="btn btn-falcon-default btn-sm mr-2" role="button">Save</button>
+                  <button class="btn btn-falcon-primary btn-sm" role="button">Make your event live </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <footer>
+            <div class="row no-gutters justify-content-between fs--1 mt-4 mb-3">
+              <div class="col-12 col-sm-auto text-center">
+                <p class="mb-0 text-600">Thank you for creating with Falcon <span class="d-none d-sm-inline-block">| </span><br class="d-sm-none" /> 2018 &copy; <a href="https://themewagon.com">Themewagon</a></p>
+              </div>
+              <div class="col-12 col-sm-auto text-center">
+                <p class="mb-0 text-600">v1.4.0</p>
+              </div>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </main>
+    <!-- ===============================================-->
+    <!--    End of Main Content-->
+    <!-- ===============================================-->
+
+
+
+
+    <!-- ===============================================-->
+    <!--    JavaScripts-->
+    <!-- ===============================================-->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/popper.min.js"></script>
+    <script src="../assets/js/bootstrap.js"></script>
+    <script src="../assets/js/plugins.js"></script>
+    <script src="../assets/lib/stickyfilljs/stickyfill.min.js"></script>
+    <script src="../assets/lib/sticky-kit/sticky-kit.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARdVcREeBK44lIWnv5-iPijKqvlSAVwbw&callback=initMap" async></script>
+    <script src="../assets/lib/select2/select2.min.js"></script>
+    <script src="../assets/lib/flatpickr/flatpickr.min.js"></script>
+    <script src="../assets/js/theme.js"></script>
+
+  </body>
+
+</html>
