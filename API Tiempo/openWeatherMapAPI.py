@@ -4,14 +4,11 @@ import requests, json
 apiKey = '08e1f4015006817428c7c5a12dd13f91'
 idMadrid = '6359304'
 
-url = "http://api.openweathermap.org/data/2.5/forecast?id="+idMadrid+"&APPID=" + apiKey
+getParams = {'id' : idMadrid, 'appid' : apiKey, 'units' : 'metric'}
 
+url = "http://api.openweathermap.org/data/2.5/forecast/"
 
-headers = {
-    'cache-control': "no-cache"
-}
-
-response = requests.get(url)
+response = requests.get(url, params = getParams)
 
 requestJson = json.loads(response.text)
 rawData = []
@@ -19,13 +16,13 @@ formattedData = []
 
 for sublist in requestJson['list']:
     rawData.append(sublist)
-    
+
 for stats in rawData:
     
     #Conversion a Celsius
-    temp = int(stats['main']['temp']) - 273.15
-    minTemp = int(stats['main']['temp_min']) - 273.15
-    maxTemp = int(stats['main']['temp_max']) - 273.15
+    temp = int(stats['main']['temp'])
+    minTemp = int(stats['main']['temp_min'])
+    maxTemp = int(stats['main']['temp_max'])
     humedad = stats['main']['humidity']
     desc = stats['weather'][0]['description']
     viento = stats['wind']['speed']
@@ -41,14 +38,4 @@ for stats in rawData:
         'dia/hora' : diaHora
     }
     
-    formattedData.append(insert)
-    
-    
-
-    
-    
-    
-
-
-
-
+    formattedData.append(insert)    
