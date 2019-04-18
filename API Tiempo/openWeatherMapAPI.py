@@ -27,6 +27,7 @@ for stats in rawData:
     desc = stats['weather'][0]['description']
     viento = stats['wind']['speed']
     diaHora = stats['dt_txt']
+    iconId = stats['weather'][0]['icon']
     
     insert = {
         'temp' : temp,
@@ -35,6 +36,7 @@ for stats in rawData:
         'humedad' : humedad,
         'desc' : desc,
         'viento' : viento,
+        'icono' : iconId,
         'dia/hora' : diaHora
     }
     
