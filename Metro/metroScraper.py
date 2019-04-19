@@ -2,28 +2,32 @@
 from bs4 import BeautifulSoup
 from urllib.request import urlopen
 
-page = urlopen("https://www.metromadrid.es/es")
+mainDom = "https://www.metromadrid.es/es/linea/"
+lineasEndPoint = ['linea-1','linea-2','linea-3','linea-4','linea-5','linea-6-circular','linea-7',
+                'linea-8','linea-9','linea-10','linea-11','linea-12-metrosur','ramal','ml1','ml2','ml3']  
 
-soup = BeautifulSoup(page, "html.parser")
+lineasFormateadas = [] 
 
-lineasLi = soup.find_all("li", class_="list__lineas__element")
-lineasFormateadas = []
+for endPoint in lineasEndPoint:
+    currDom = mainDom + endPoint
+    page = urlopen(currDom)
+    soup = BeautifulSoup(page, 'html.parser')
 
-for linea in lineasLi:
-    if linea.find("span") is not None: 
-        nombreLinea = ''.join(linea.find("img").get("class"))
-        status = ''.join(linea.find("span").get("class")).replace('state--', '')
-        desc = ""
-        
-        if status == "top":
-            desc = linea.find("span").get("title")
-            status = ''.join(linea.find("span").find("span").get("class")).replace("state--", " ")
-    
-        infoLinea = {
-                'nombre' : nombreLinea,
-                'estado' : status,
-                'desc' : desc
-        }
-        
-        lineasFormateadas.append(infoLinea)
-        
+
+    nombre = soup.find('p', class_='tit-line__text color__line').find('span', class_='text-line').text
+    estado = soup.find('div', class_='box__line-state').text
+    img = soup.find('img', class_=endPoint)['src']
+
+    if soup.find('div', {'id': 'line-incidents'}) is not None:
+        desc = soup.find('div', {'id': 'line-incidents'}).find('div', class_='text__incidencia').text
+    else:
+        desc = 'No hay incidencias'
+
+    infoLinea = {
+        'nombre' : nombre.replace('\n', ''),
+        'estado' : estado.strip(),
+        'desc' : desc.strip().replace('\n', ''),
+        'img' : 'https://www.metromadrid.es/' + img
+    }
+
+    lineasFormateadas.append(infoLinea)
