@@ -17,5 +17,8 @@ client = pymongo.MongoClient("mongodb+srv://Master:" + urllib.parse.quote_plus('
 dbEstaciones = client.TPA.estacionesMetro
 dbLineas = client.TPA.lineasMetro
 
+dbLineas.delete_many({})
+dbEstaciones.delete_many({})
+
 dbLineas.insert_many(lineas)
 dbEstaciones.insert_many(estaciones)
