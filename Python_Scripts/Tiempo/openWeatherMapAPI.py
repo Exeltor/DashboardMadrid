@@ -36,7 +36,7 @@ for stats in rawData:
         'humedad' : humedad,
         'desc' : desc,
         'viento' : viento,
-        'icono' : iconId,
+        'icono' : f'http://openweathermap.org/img/w/{iconId}.png',
         'dia/hora' : diaHora
     }
     
