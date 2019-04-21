@@ -7,6 +7,7 @@ Los siguientes elementos son actualizados cada **5 minutos**:
 * EMT
 * Metro
 * Tiempo
+* Cercanias
 
 La API de Uber tiene un funcionamiento **a demanda**, por tanto, no esta implementado **de momento** y tiene que ser implementado en la web
 
