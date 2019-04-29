@@ -1,5 +1,4 @@
-<html lang="en-US" dir="ltr">
-
+<html lang="es-ES" dir="ltr">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,7 +22,7 @@
 
 
     <!-- ===============================================-->
-    <!--    Stylesheets-->
+    <!--    Estilos de la plantilla-->
     <!-- ===============================================-->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700%7cPoppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
     <link href="assets/lib/jqvmap/jqvmap.min.css" rel="stylesheet">
@@ -35,7 +34,7 @@
   <body>
 
     <!-- ===============================================-->
-    <!--    Main Content-->
+    <!--    Contenido -->
     <!-- ===============================================-->
     <main class="main" id="top">
 
@@ -46,14 +45,20 @@
               <div class="d-inline-flex flex-center"><img class="mr-2" src="assets/img/illustrations/Dashboard-Icon.png" alt="" width="40" /><span class="text-info">Madrid</span></div>
             </div>
           </a>
+          <!-- ===============================================-->
+          <!--    Menu lateral -->
+          <!-- ===============================================-->
           <div class="collapse navbar-collapse" id="navbarVerticalCollapse">
             <ul class="navbar-nav flex-column">
               <li class="nav-item"><a class="nav-link dropdown-indicator" href="#home" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="home">
                   <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-chart-pie"></span></span><span>Inicio</span>
                   </div>
                 </a>
+                <!-- ===============================================-->
+                <!--    Categorias -->
+                <!-- ===============================================-->
                 <ul class="nav collapse show" id="home" data-parent="#navbarVerticalCollapse">
-                  <li class="nav-item active"><a class="nav-link" href="index.html">Dashboard<span class="badge badge-soft-success badge-pill ml-2">Selected</span></a>
+                  <li class="nav-item active"><a class="nav-link" href="index.html">Dashboard<span class="badge badge-soft-success badge-pill ml-2">Seleccionado</span></a>
                   </li>
                   <li class="nav-item"><a class="nav-link" href="">Noticias</a>
                   </li>
@@ -65,20 +70,21 @@
                   <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-exchange-alt"></span></span><span>Servicios</span>
                   </div>
                 </a>
+                <!-- ===============================================-->
+                <!--    Servicios -->
+                <!-- ===============================================-->
                 <ul class="nav collapse" id="email" data-parent="#navbarVerticalCollapse">
-                  <li class="nav-item"><a class="nav-link" href="">Metro</a>
+                  <li class="nav-item"><a class="nav-link" href="metro.html">Metro</a>
                   </li>
-                  <li class="nav-item"><a class="nav-link" href="">Autobus</a>
+                  <li class="nav-item"><a class="nav-link" href="cercanias.html">Cercanias</a>
                   </li>
-                  <li class="nav-item"><a class="nav-link" href="">BiciMad</a>
+                  <li class="nav-item"><a class="nav-link" href="autobus.html">Autobus</a>
                   </li>
-                   <li class="nav-item"><a class="nav-link" href="">Vuelos</a>
+                  <li class="nav-item"><a class="nav-link" href="bicimad.html">BiciMad</a>
                   </li>
-                   <li class="nav-item"><a class="nav-link" href="">Uber<span class="badge badge-soft-success badge-pill ml-2">Selected</span></a>
+                   <li class="nav-item"><a class="nav-link" href="vuelos.html">Vuelos</a>
                   </li>
-                   <li class="nav-item"><a class="nav-link" href="">Metro Ligero</a>
-                  </li>
-                  <li class="nav-item"><a class="nav-link" href="">Cercanias</a>
+                   <li class="nav-item"><a class="nav-link" href="uber.html">Uber<span class="badge badge-soft-success badge-pill ml-2">Seleccionado</span></a>
                   </li>
                 </ul>
               </li>
@@ -89,8 +95,11 @@
                   <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-stream"></span></span><span>Ciudades</span><span class="badge badge-soft-warning badge-pill ml-2">W.I.P.</span>
                   </div>
                 </a>
+                <!-- ===============================================-->
+                <!--    Ciudades -->
+                <!-- ===============================================-->
                 <ul class="nav collapse" id="documentation" data-parent="#navbarVerticalCollapse">
-                  <li class="nav-item"><a class="nav-link" href="">Madrid<span class="badge badge-soft-success badge-pill ml-2">Selected</span></a>
+                  <li class="nav-item"><a class="nav-link" href="">Madrid<span class="badge badge-soft-success badge-pill ml-2">Seleccionado</span></a>
                   </li>
                   <li class="nav-item"><a class="nav-link" href="">Barcelona</a>
                   </li>
@@ -112,11 +121,14 @@
 
 
             <!-- ===============================================-->
-            <!--    NavBar-->
+            <!--    inicio-->
             <!-- ===============================================-->
             <div class="collapse navbar-collapse" id="navbarNavDropdown1">
               <ul class="navbar-nav align-items-center d-none d-lg-block">
                 <li class="nav-item">
+                  <!-- ===============================================-->
+                  <!--    Fecha formato pc -->
+                  <!-- ===============================================-->
                   <h5>
                     <script type="text/javascript">
                       function makeArray() {
@@ -127,20 +139,30 @@
                       function madeArray() {
                       for (i = 0; i<madeArray.arguments.length; i++)
                       this[i + 1] = madeArray.arguments[i];}
-                      var week = new makeArray('Lunes','Martes','Miércoles','Jueves','Viernes',
-                      'Sábado','Domingo');
+                      var weekday = new Array(7);
+                        weekday[0] =  "Domingo";
+                        weekday[1] = "Lunes";
+                        weekday[2] = "Martes";
+                        weekday[3] = "Miércoles";
+                        weekday[4] = "Jueves";
+                        weekday[5] = "Viernes";
+                        weekday[6] = "Sábado";
                       var date = new Date();
                       var day = date.getDate();
                       var month = date.getMonth() + 1;
                       var days = date.getDay();
                       var yy = date.getYear();
                       var year = (yy < 1000) ? yy + 1900 : yy;
-                      document.write( week[days] + ", " + day + " de " + months[month] + " de " + year);
+                      document.write( weekday[days] + ", " + day + " de " + months[month] + " de " + year);
                     </script>
                   </h5>
                 </li>
               </ul>
-              <ul class="navbar-nav align-items-center ml-1">
+              <!-- ===============================================-->
+              <!--    Fecha formato movil -->
+              <!-- ===============================================-->
+              <div class = "mostrarmovil">
+              <ul class="navbar-nav align-items-center ml-1 visible-xs" >
                 <li class="nav-item dropdown">
                   <script type="text/javascript">
                     var date = new Date();
@@ -154,7 +176,10 @@
                   </script>
                 </li>
               </ul>
-
+            </div>
+            <!-- ===============================================-->
+            <!--    Reloj -->
+            <!-- ===============================================-->
               <ul class="navbar-nav align-items-center ml-auto">
                 <li class="nav-item dropdown">
                   <h5>
@@ -179,6 +204,9 @@
             </div>
           </nav>
           <div></div>
+          <!-- ===============================================-->
+          <!--    Pie de pagina -->
+          <!-- ===============================================-->
           <footer>
             <div class="row no-gutters justify-content-between fs--1 mt-4 mb-3">
               <div class="col-12 col-sm-auto text-center">
@@ -193,7 +221,7 @@
       </div>
     </main>
     <!-- ===============================================-->
-    <!--    End of Main Content-->
+    <!--    fin del contenido-->
     <!-- ===============================================-->
 
 
