@@ -21,7 +21,7 @@ getParams = {
 	'appId' : appID, 
 	'appKey' : appKey,
 	'utc': False,
-	'numHours': 1
+	'numHours': 3
 }
 
 domainDep = f'https://api.flightstats.com/flex/flightstatus/{restProtocol}/v2/{frmt}/airport/status/{airportID}/dep/{year}/{month}/{day}/{hour}'
@@ -43,15 +43,18 @@ statusDict = {
 def requestToJson(URl, getReqParams):
 	response = requests.get(URl, params = getReqParams)
 
-	return json.loads(reponse.text)
+	return json.loads(response.text)
 
 #Si isDeparture = True, recogemos las salidas, si no, las llegadas
 def getData(isDeparture):
-	for flight in requestToJson(domainDep, getParams)['flightStatuses']:
+	flightList = []
+
+	requestJson = requestToJson(domainDep if isDeparture else domainArr, getParams)
+
+	for flight in requestJson['flightStatuses']:
 		flightId = flight['carrierFsCode'] + flight['flightNumber']
 		otherFs = flight['arrivalAirportFsCode'] if isDeparture else flight['departureAirportFsCode']
 		status = statusDict[flight['status']]
-		terminal = flight['airportResources']
 
 		#Extraccion de hora de salida/llegada
 		depDateTime = flight['departureDate']['dateLocal'] if isDeparture else flight['arrivalDate']['dateLocal']
@@ -67,13 +70,29 @@ def getData(isDeparture):
 			if airport['fs'] == otherFs:
 					otherName = airport['name']
 
-		#TODO terminal y formateo diccionario
+		#Asignacion de terminal
+		try:
+			terminal = flight['airportResources']['departureTerminal'] if isDeparture else flight['airportResources']['arrivalTerminal']
+		except KeyError:
+			terminal = 'Desconocido'
+
+
 		flightF = {
 			'id' : flightId,
 			'aerolinea' : airlineName,
 			'destino' if isDeparture else 'origen' : otherName,
 			'estado': status,
-			'horaSalida' : time
+			'terminal' : terminal,
+			'horaSalida' if isDeparture else 'horaLlegada' : time
 		}
 
-		formattedList.append(flightF)
+		flightList.append(flightF)
+
+	return flightList
+
+
+def getDepartures():
+	return getData(True)
+
+def getArrivals():
+	return getData(False)
