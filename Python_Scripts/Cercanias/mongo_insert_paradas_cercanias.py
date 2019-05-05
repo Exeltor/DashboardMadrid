@@ -9,5 +9,7 @@ def insert():
 	client = pymongo.MongoClient("mongodb+srv://Master:" + urllib.parse.quote_plus('masterP@ss') + "@tpa-whplr.mongodb.net/test?retryWrites=true")
 	db = client.TPA.paradasCercanias
 
-	db.delete_many({})
-	db.insert_many(formattedData)
+	#Funcion preventiva para no sobreescribir los datos existentes si la API esta caida
+	if formattedData:
+		db.delete_many({})
+		db.insert_many(formattedData)

@@ -12,6 +12,7 @@ def insert():
 	salidas = getDepartures()
 	llegadas = getArrivals()
 
+	#Funciones preventivas para no borrar los datos existentes por si la API esta caida
 	if salidas:
 		dbSalidas.delete_many({})
 		dbSalidas.insert_many(salidas)

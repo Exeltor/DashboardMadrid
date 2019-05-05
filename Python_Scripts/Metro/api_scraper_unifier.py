@@ -30,8 +30,10 @@ def insert():
 	dbEstaciones = client.TPA.estacionesMetro
 	dbLineas = client.TPA.lineasMetro
 
-	dbLineas.delete_many({})
-	dbEstaciones.delete_many({})
+	#Funcion preventiva para no sobreescribir los datos si las APIs o pagina web estan caidas
+	if lineas and estaciones:
+		dbLineas.delete_many({})
+		dbEstaciones.delete_many({})
 
-	dbLineas.insert_many(lineas)
-	dbEstaciones.insert_many(estaciones)
+		dbLineas.insert_many(lineas)
+		dbEstaciones.insert_many(estaciones)

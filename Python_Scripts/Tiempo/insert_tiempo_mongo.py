@@ -10,5 +10,7 @@ def insert():
 	db = client.TPA.tiempoPorHora
 
 	#Borrado de datos viejos e insercion de datos nuevos.
-	db.delete_many({})
-	db.insert_many(formattedData)
+	#Funcion preventiva para no sobreescribir los datos si la API esta caida
+	if formattedData:
+		db.delete_many({})
+		db.insert_many(formattedData)
