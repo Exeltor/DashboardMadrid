@@ -234,28 +234,129 @@ main#top.main
                               td= flight.horaLlegada
             
             .col
-              .card.py-3(style='max-width:30rem')
+              .card.py-3(style='max-width:15rem')
                 center
                   img.card.img.top(src= weatherIcon, height='100', width='100')
                 .card-body
                   h6.card-title(align='center', style = 'font-size:200%')= weatherTemp + 'º'
                   h1.card-title(align='center')= weatherDesc
                   p.card-text(align='center')= 'actualizacion: ' + weatherHour
-          .row.pt-3
             .col
+              .card.py-3(style='max-width:25rem')
+                .card-body
+                  h5.card-title Conversor de Moneda
+                  form(action='/convert', method='POST')
+                    .input-group.mb-3
+                      .input-group-prepend
+                        button.btn.btn-primary.dropdown-toggle.shadow-none(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Origen
+                        .dropdown-menu(style='max-height:10rem;overflow-y:auto')
+                          for coinType in coinTypes
+                            button.dropdown-item(type='submit', formaction='/selectCurrency', method='POST')= coinType
+                          
+                      input.form-control(type='number', aria-label='Cantidad', name='conversionQuantity')
+                      .input-group-append
+                        span.input-group-text= chosenCurrencyDropdown
+                  
+                    .input-group.mb-3
+                      input.form-control(id='readonly', type='number', placeholder='Resultado', readonly='')
+                    
+                    center
+                      button.btn.btn-primary.mb-3(type='submit') Convertir
+
+          .row.pt-3
+            .col-md-6
               .card
+                img(src='https://www.metromadrid.es/sites/default/files/web/imagenes/Logomarca_azul.png', style='width:10%')
                 .card-body 
-                    table.table
-                        thead
-                          tr
-                            th(scope='col') Linea
-                            th(scope='col') Estado
-                        tbody
-                          each line in metroLines
+                  .container-fluid
+                    .row
+                      .col
+                        table.table
+                          thead
                             tr
-                              th(scope='row')
-                                img(src=line.img, style='width:25%')
-                              td= line.estado
+                              th(scope='col', width='45%') Linea
+                            
+                          tbody
+                            each line, index in metroLines
+                              if index < 4
+                                tr
+                                  td
+                                    if index < 4
+                                      img(src=line.img, style='width:25%')
+                                  td(align='left')
+                                    if index < 4
+                                      if line.desc == 'No hay incidencias'
+                                        span.badge.bagge-pill.badge-success(data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
+                                      else if line.estado == 'Circulación interrumpida' || line.estado == 'circulación interrumpida'
+                                        span.badge.bagge-pill.badge-danger(data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
+                                      else
+                                        span.badge.bagge-pill.badge-warning(data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
+                      .col
+                        table.table
+                          thead
+                            tr
+                              th(scope='col', width='45%') Linea
+                            
+                          tbody
+                            each line, index in metroLines
+                              if index >= 4 && index < 8
+                                tr
+                                  td
+                                    if index >= 4 && index < 8
+                                      img(src=line.img, style='width:25%')
+                                  td(align='left')
+                                    if index >= 4 && index < 8
+                                      if line.desc == 'No hay incidencias'
+                                        span.badge.bagge-pill.badge-success(data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
+                                      else if line.estado == 'Circulación interrumpida' || line.estado == 'circulación interrumpida'
+                                        span.badge.bagge-pill.badge-danger(data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
+                                      else
+                                        span.badge.bagge-pill.badge-warning(data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
+                      .col
+                        table.table
+                          thead
+                            tr
+                              th(scope='col', width='45%') Linea
+                            
+                          tbody
+                            each line, index in metroLines
+                              if index >= 8 && index < 12
+                                tr
+                                  td
+                                    if index >= 8 && index < 12
+                                      img(src=line.img, style='width:25%')
+                                  td(align='left')
+                                    if index >= 8 && index < 12
+                                      if line.desc == 'No hay incidencias'
+                                        span.badge.bagge-pill.badge-success(data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
+                                      else if line.estado == 'Circulación interrumpida' || line.estado == 'circulación interrumpida'
+                                        span.badge.bagge-pill.badge-danger(data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
+                                      else
+                                        span.badge.bagge-pill.badge-warning(data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado 
+                      .col
+                        table.table
+                          thead
+                            tr
+                              th(scope='col', width='45%') Linea
+                            
+                          tbody
+                            each line, index in metroLines
+                              if index >=12 && index< 16
+                                tr
+                                  td
+                                    if index >=12 && index< 16
+                                      img(src=line.img, style='width:25%')
+                                  td(align='left')
+                                    if index >=12 && index< 16
+                                      if line.desc == 'No hay incidencias'
+                                        span.badge.bagge-pill.badge-success(data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
+                                      else if line.estado == 'Circulación interrumpida' || line.estado == 'circulación interrumpida'
+                                        span.badge.bagge-pill.badge-danger(data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
+                                      else
+                                        span.badge.bagge-pill.badge-warning(data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
+
+
+                    
                                 
 
                 
@@ -263,16 +364,7 @@ main#top.main
       // Pie de pagina
       // ===============================================
       footer
-        .row.no-gutters.justify-content-between.fs--1.mt-4.mb-3
-          .col-12.col-sm-auto.text-center
-            p.mb-0.text-600
-              | Thank you for creating with Falcon 
-              span.d-none.d-sm-inline-block | 
-              br.d-sm-none
-              |  2019 &copy; 
-              a(href='https://themewagon.com') Themewagon
-          .col-12.col-sm-auto.text-center
-            p.mb-0.text-600 v0.1.0
+        
 // ===============================================
 // fin del contenido
 // ===============================================
