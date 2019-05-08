@@ -181,17 +181,17 @@ main#top.main
       // ===============================================
       div
         // Grid principal(Primera fila aeropuerto y tiempo)
-        .container-fluid 
+        .container-fluid-sm-12
           .row
             .col
-              .card.text-center(class='card text-center' style='max-width:45rem; max-height:18rem')
+              .card.text-center(class='card text-center' style='max-height:18rem')
                 .card-header
                   ul.nav.nav-pills.card-header-pills(role='tablist')
                     li.nav-item
                       a.nav-link.active(data-toggle='tab', href='#salidas') Salidas
                     li.nav-item
                       a.nav-link(data-toggle='tab', href='#llegadas') Llegadas
-                .card-body(style='overflow:scroll')
+                .card-body(style='overflow:scroll; overflow-x:hidden;')
                   .tab-content
                     .tab-pane.active(id='salidas', role='tabpanel')
                       table.table
@@ -233,44 +233,140 @@ main#top.main
                               td= flight.terminal
                               td= flight.horaLlegada
             
-            .col
-              .card(style='max-width:30rem')
+            .col-xs
+              .card.py-3
                 center
                   img.card.img.top(src= weatherIcon, height='100', width='100')
                 .card-body
                   h6.card-title(align='center', style = 'font-size:200%')= weatherTemp + 'º'
                   h1.card-title(align='center')= weatherDesc
                   p.card-text(align='center')= 'actualizacion: ' + weatherHour
+            .col-md-4
+              .card.py-3
+                .card-body
+                  h5.card-title Conversor de Moneda
+                  form(action='/convert', method='POST')
+                    .input-group.mb-3
+                      .input-group-prepend
+                        button.btn.btn-primary.dropdown-toggle.shadow-none(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Origen
+                        .dropdown-menu(style='max-height:10rem;overflow-y:auto')
+                          for coinType in coinTypes
+                            a.dropdown-item(id= coinType, onClick='dropdownCurrencySelector(this.id)')= coinType
+                          
+                      input.form-control(type='number', aria-label='Cantidad', id='conversionQuantity')
+                      .input-group-append
+                        span.input-group-text(id='currencyTypeText')
+                  
+                    .input-group.mb-3
+                      input.form-control(id='readonlyCurrency', type='number', placeholder='Resultado', readonly='')
+                      .input-group-append
+                        span.input-group-text €
+                    
+                    center
+                      button.btn.btn-primary.mb-3(type='button', onClick='convertToEur()') Convertir
 
           .row.pt-3
-            .col
+            .col-md-6
               .card
-                .card-body
+                img(src='https://www.metromadrid.es/sites/default/files/web/imagenes/Logomarca_azul.png', style='width:10%')
+                .card-body 
                   .container-fluid
                     .row
-                      each line in metroLines
-                        .col
-                          .container-fluid
-                            .col
-                              .row
-                                img(src=line.img, style='width:15%')
-                              .row
-                                span.badge.badge-primary= line.estado
+                      .col
+                        table.table
+                          thead
+                            tr
+                              th(scope='col', width='45%') Linea
+                            
+                          tbody
+                            each line, index in metroLines
+                              if index < 4
+                                tr
+                                  td
+                                    if index < 4
+                                      img(src=line.img, style='width:25%')
+                                  td(align='left')
+                                    if index < 4
+                                      if line.desc == 'No hay incidencias'
+                                        span.badge.bagge-pill.badge-success(data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
+                                      else if line.estado == 'Circulación interrumpida' || line.estado == 'circulación interrumpida'
+                                        span.badge.bagge-pill.badge-danger(data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
+                                      else
+                                        span.badge.bagge-pill.badge-warning(data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
+                      .col
+                        table.table
+                          thead
+                            tr
+                              th(scope='col', width='45%') Linea
+                            
+                          tbody
+                            each line, index in metroLines
+                              if index >= 4 && index < 8
+                                tr
+                                  td
+                                    if index >= 4 && index < 8
+                                      img(src=line.img, style='width:25%')
+                                  td(align='left')
+                                    if index >= 4 && index < 8
+                                      if line.desc == 'No hay incidencias'
+                                        span.badge.bagge-pill.badge-success(data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
+                                      else if line.estado == 'Circulación interrumpida' || line.estado == 'circulación interrumpida'
+                                        span.badge.bagge-pill.badge-danger(data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
+                                      else
+                                        span.badge.bagge-pill.badge-warning(data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
+                      .col
+                        table.table
+                          thead
+                            tr
+                              th(scope='col', width='45%') Linea
+                            
+                          tbody
+                            each line, index in metroLines
+                              if index >= 8 && index < 12
+                                tr
+                                  td
+                                    if index >= 8 && index < 12
+                                      img(src=line.img, style='width:25%')
+                                  td(align='left')
+                                    if index >= 8 && index < 12
+                                      if line.desc == 'No hay incidencias'
+                                        span.badge.bagge-pill.badge-success(data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
+                                      else if line.estado == 'Circulación interrumpida' || line.estado == 'circulación interrumpida'
+                                        span.badge.bagge-pill.badge-danger(data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
+                                      else
+                                        span.badge.bagge-pill.badge-warning(data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado 
+                      .col
+                        table.table
+                          thead
+                            tr
+                              th(scope='col', width='45%') Linea
+                            
+                          tbody
+                            each line, index in metroLines
+                              if index >=12 && index< 16
+                                tr
+                                  td
+                                    if index >=12 && index< 16
+                                      img(src=line.img, style='width:25%')
+                                  td(align='left')
+                                    if index >=12 && index< 16
+                                      if line.desc == 'No hay incidencias'
+                                        span.badge.bagge-pill.badge-success(data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
+                                      else if line.estado == 'Circulación interrumpida' || line.estado == 'circulación interrumpida'
+                                        span.badge.bagge-pill.badge-danger(data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
+                                      else
+                                        span.badge.bagge-pill.badge-warning(data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
+
+
+                    
+                                
+
                 
       // ===============================================
       // Pie de pagina
       // ===============================================
       footer
-        .row.no-gutters.justify-content-between.fs--1.mt-4.mb-3
-          .col-12.col-sm-auto.text-center
-            p.mb-0.text-600
-              | Thank you for creating with Falcon 
-              span.d-none.d-sm-inline-block | 
-              br.d-sm-none
-              |  2019 &copy; 
-              a(href='https://themewagon.com') Themewagon
-          .col-12.col-sm-auto.text-center
-            p.mb-0.text-600 v0.1.0
+        
 // ===============================================
 // fin del contenido
 // ===============================================
@@ -288,3 +384,33 @@ script(src='assets/lib/jqvmap/jquery.vmap.js')
 script(src='assets/lib/jqvmap/maps/jquery.vmap.world.js' charset='utf-8')
 script(src='assets/lib/jqvmap/maps/jquery.vmap.usa.js' charset='utf-8')
 script(src='assets/js/theme.js')
+
+//Dropdown divisa origen
+script(type='text/javascript').
+  function dropdownCurrencySelector(elemID){
+    var elem = document.getElementById(elemID);
+    document.getElementById('currencyTypeText').innerHTML = elemID;
+  }
+
+script(type='text/javascript').
+  function convertToEur() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+         if (this.readyState == 4 && this.status == 200) {
+             //alert(this.responseText);
+         }
+    };
+    xhttp.open("GET", "https://api.exchangeratesapi.io/latest?base=EUR", false);
+    xhttp.send();
+    
+    var originCurr = document.getElementById('currencyTypeText').innerHTML
+    var quantity = parseInt(document.getElementById('conversionQuantity').value, 10);
+    var rawJson = JSON.parse(xhttp.responseText);
+
+    var originRate = rawJson.rates[originCurr];
+
+    var result = quantity / originRate;
+
+    document.getElementById('readonlyCurrency').value = result;
+
+  }

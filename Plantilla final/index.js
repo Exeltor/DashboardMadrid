@@ -2,7 +2,9 @@ var express = require('express');
 var app = express();
 const MongoClient = require('mongodb').MongoClient;
 const url = "mongodb+srv://webReadOnly:readOnly@tpa-whplr.mongodb.net/test?retryWrites=true";
+var request = require('request')
 var bodyParser=require("body-parser"); 
+var request = require('sync-request');
 
 
 app.set('view engine', 'pug');
@@ -37,12 +39,18 @@ app.get('/', async function(req, res){
 
     //Metro Lineas
     metroLinesDb = await dbo.collection('lineasMetro').find().sort({'nombre': 1}).toArray();
-
     list.metroLines = metroLinesDb;
+
+    //Exchange Rates
+    var response = request('GET', 'https://api.exchangeratesapi.io/latest?base=EUR');
+    var coinTypeBase= JSON.parse(response.getBody('utf8'));
+    list.coinTypes = Object.keys(coinTypeBase.rates);
+    list.conversionRatesJson = coinTypeBase.rates;
 
 
     //Render final de la pagina con los datos
     res.render('index', list);
+    db.close();
   });
 });
 
@@ -58,6 +66,7 @@ app.get('/mongo-test', function(req, res){
     });
   })
 });
+
 
 var port = 8080;
 app.listen(port);
