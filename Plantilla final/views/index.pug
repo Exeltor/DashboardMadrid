@@ -181,17 +181,17 @@ main#top.main
       // ===============================================
       div
         // Grid principal(Primera fila aeropuerto y tiempo)
-        .container-fluid 
+        .container-fluid-sm-6 
           .row
             .col
-              .card.text-center(class='card text-center' style='max-width:45rem; max-height:18rem')
+              .card.text-center(class='card text-center' style='max-height:18rem')
                 .card-header
                   ul.nav.nav-pills.card-header-pills(role='tablist')
                     li.nav-item
                       a.nav-link.active(data-toggle='tab', href='#salidas') Salidas
                     li.nav-item
                       a.nav-link(data-toggle='tab', href='#llegadas') Llegadas
-                .card-body(style='overflow:scroll')
+                .card-body(style='overflow:scroll; overflow-x:hidden;')
                   .tab-content
                     .tab-pane.active(id='salidas', role='tabpanel')
                       table.table
@@ -234,7 +234,7 @@ main#top.main
                               td= flight.horaLlegada
             
             .col
-              .card(style='max-width:30rem')
+              .card.py-3(style='max-width:30rem')
                 center
                   img.card.img.top(src= weatherIcon, height='100', width='100')
                 .card-body
@@ -242,7 +242,7 @@ main#top.main
                   h1.card-title(align='center')= weatherDesc
                   p.card-text(align='center')= 'actualizacion: ' + weatherHour
 
-          .row.pt-3
+          .row.pt-3.md-6
             .col
               .card
                 .card-body
@@ -252,8 +252,8 @@ main#top.main
                         .col
                           .container-fluid
                             .col
-                              .row
-                                img(src=line.img, style='width:15%')
+                              .row.py-3
+                                img(src=line.img, style='width:50%')
                               .row
                                 span.badge.badge-primary= line.estado
                 
