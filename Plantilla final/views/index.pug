@@ -181,7 +181,7 @@ main#top.main
       // ===============================================
       div
         // Grid principal(Primera fila aeropuerto y tiempo)
-        .container-fluid-sm-6 
+        .container-fluid-sm-12
           .row
             .col
               .card.text-center(class='card text-center' style='max-height:18rem')
@@ -241,21 +241,23 @@ main#top.main
                   h6.card-title(align='center', style = 'font-size:200%')= weatherTemp + 'º'
                   h1.card-title(align='center')= weatherDesc
                   p.card-text(align='center')= 'actualizacion: ' + weatherHour
-
-          .row.pt-3.md-6
+          .row.pt-3
             .col
               .card
-                .card-body
-                  .container-fluid
-                    .row
-                      each line in metroLines
-                        .col
-                          .container-fluid
-                            .col
-                              .row.py-3
-                                img(src=line.img, style='width:50%')
-                              .row
-                                span.badge.badge-primary= line.estado
+                .card-body 
+                    table.table
+                        thead
+                          tr
+                            th(scope='col') Linea
+                            th(scope='col') Estado
+                        tbody
+                          each line in metroLines
+                            tr
+                              th(scope='row')
+                                img(src=line.img, style='width:25%')
+                              td= line.estado
+                                
+
                 
       // ===============================================
       // Pie de pagina
