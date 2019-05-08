@@ -35,7 +35,7 @@ app.get('/', async function(req, res){
     list.weatherDesc = weatherCallbacks[0].desc;
     list.weatherHour = weatherCallbacks[0]['dia/hora'];
 
-    //Metro
+    //Metro Lineas
     metroLinesDb = await dbo.collection('lineasMetro').find().sort({'nombre': 1}).toArray();
 
     list.metroLines = metroLinesDb;
