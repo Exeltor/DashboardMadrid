@@ -42,9 +42,10 @@ app.get('/', async function(req, res){
     list.metroLines = metroLinesDb;
 
     //Exchange Rates
-    var response = request('GET', 'https://api.exchangeratesapi.io/latest?base=USD');
+    var response = request('GET', 'https://api.exchangeratesapi.io/latest?base=EUR');
     var coinTypeBase= JSON.parse(response.getBody('utf8'));
     list.coinTypes = Object.keys(coinTypeBase.rates);
+    list.conversionRatesJson = coinTypeBase.rates;
 
 
     //Render final de la pagina con los datos
@@ -66,17 +67,6 @@ app.get('/mongo-test', function(req, res){
   })
 });
 
-
-//post conversion
-app.post('/convert', function(req, res){
-  console.log(req.body.currencySelection);
-  res.redirect('/');
-})
-
-app.post('/selectCurrency', function(req, res){
-  console.log('currency selected');
-  res.redirect('/');
-});
 
 var port = 8080;
 app.listen(port);

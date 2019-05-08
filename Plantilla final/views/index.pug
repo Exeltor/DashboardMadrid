@@ -233,16 +233,16 @@ main#top.main
                               td= flight.terminal
                               td= flight.horaLlegada
             
-            .col
-              .card.py-3(style='max-width:15rem')
+            .col-xs
+              .card.py-3
                 center
                   img.card.img.top(src= weatherIcon, height='100', width='100')
                 .card-body
                   h6.card-title(align='center', style = 'font-size:200%')= weatherTemp + 'º'
                   h1.card-title(align='center')= weatherDesc
                   p.card-text(align='center')= 'actualizacion: ' + weatherHour
-            .col
-              .card.py-3(style='max-width:25rem')
+            .col-md-4
+              .card.py-3
                 .card-body
                   h5.card-title Conversor de Moneda
                   form(action='/convert', method='POST')
@@ -251,17 +251,19 @@ main#top.main
                         button.btn.btn-primary.dropdown-toggle.shadow-none(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Origen
                         .dropdown-menu(style='max-height:10rem;overflow-y:auto')
                           for coinType in coinTypes
-                            button.dropdown-item(type='submit', formaction='/selectCurrency', method='POST')= coinType
+                            a.dropdown-item(id= coinType, onClick='dropdownCurrencySelector(this.id)')= coinType
                           
-                      input.form-control(type='number', aria-label='Cantidad', name='conversionQuantity')
+                      input.form-control(type='number', aria-label='Cantidad', id='conversionQuantity')
                       .input-group-append
-                        span.input-group-text= chosenCurrencyDropdown
+                        span.input-group-text(id='currencyTypeText')
                   
                     .input-group.mb-3
-                      input.form-control(id='readonly', type='number', placeholder='Resultado', readonly='')
+                      input.form-control(id='readonlyCurrency', type='number', placeholder='Resultado', readonly='')
+                      .input-group-append
+                        span.input-group-text €
                     
                     center
-                      button.btn.btn-primary.mb-3(type='submit') Convertir
+                      button.btn.btn-primary.mb-3(type='button', onClick='convertToEur()') Convertir
 
           .row.pt-3
             .col-md-6
@@ -382,3 +384,33 @@ script(src='assets/lib/jqvmap/jquery.vmap.js')
 script(src='assets/lib/jqvmap/maps/jquery.vmap.world.js' charset='utf-8')
 script(src='assets/lib/jqvmap/maps/jquery.vmap.usa.js' charset='utf-8')
 script(src='assets/js/theme.js')
+
+//Dropdown divisa origen
+script(type='text/javascript').
+  function dropdownCurrencySelector(elemID){
+    var elem = document.getElementById(elemID);
+    document.getElementById('currencyTypeText').innerHTML = elemID;
+  }
+
+script(type='text/javascript').
+  function convertToEur() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+         if (this.readyState == 4 && this.status == 200) {
+             //alert(this.responseText);
+         }
+    };
+    xhttp.open("GET", "https://api.exchangeratesapi.io/latest?base=EUR", false);
+    xhttp.send();
+    
+    var originCurr = document.getElementById('currencyTypeText').innerHTML
+    var quantity = parseInt(document.getElementById('conversionQuantity').value, 10);
+    var rawJson = JSON.parse(xhttp.responseText);
+
+    var originRate = rawJson.rates[originCurr];
+
+    var result = quantity / originRate;
+
+    document.getElementById('readonlyCurrency').value = result;
+
+  }
