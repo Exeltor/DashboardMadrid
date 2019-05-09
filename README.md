@@ -1,5 +1,10 @@
-# DashboardMadrid
+# DashboardMadrid http://www.madrid-dashboard.com/
 Dashboard informativa para Madrid
+
+
+# Deployment del servidor Node
+El deployment se hace en otro repositorio aparte. Todos los cambios finales son sincronizados con ese repositorio y subidos
+a la plataforma para su build y deployment.
 
 # Periodicidad de actualizacion de la base de datos
 Los siguientes elementos son actualizados cada **5 minutos**:
