@@ -98,7 +98,5 @@ app.get('/eventos', function(req, res){
   res.render('eventos');
 });
 
-
-var port = 8080;
-app.listen(port);
-console.log('server on' + port);
+app.listen(process.env.PORT || 8080);
+console.log('server on');
