@@ -51,6 +51,8 @@ app.get('/', async function(req, res){
     //Render final de la pagina con los datos
     res.render('index', list);
     db.close();
+  }).catch(function(err){
+    console.log(err);
   });
 });
 
