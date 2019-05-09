@@ -184,7 +184,7 @@ main#top.main
         .container-fluid-sm-12
           .row
             .col
-              .card.text-center(class='card text-center' style='max-height:18rem')
+              .card.text-center(class='card text-center' style='max-height:18rem').py-3
                 .card-header
                   ul.nav.nav-pills.card-header-pills(role='tablist')
                     li.nav-item
@@ -233,7 +233,7 @@ main#top.main
                               td= flight.terminal
                               td= flight.horaLlegada
             
-            .col-xs
+            .col
               .card.py-3
                 center
                   img.card.img.top(src= weatherIcon, height='100', width='100')
@@ -267,7 +267,7 @@ main#top.main
 
           .row.pt-3
             .col-md-6
-              .card
+              .card.py-3
                 img(src='https://www.metromadrid.es/sites/default/files/web/imagenes/Logomarca_azul.png', style='width:10%')
                 .card-body 
                   .container-fluid
@@ -288,11 +288,11 @@ main#top.main
                                   td(align='left')
                                     if index < 4
                                       if line.desc == 'No hay incidencias'
-                                        span.badge.bagge-pill.badge-success(style='cursor:pointer',data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
+                                        span.badge.bagge-pill.badge-success(style='cursor:pointer;display:block',data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
                                       else if line.estado == 'Circulación interrumpida' || line.estado == 'circulación interrumpida'
-                                        span.badge.bagge-pill.badge-danger(style='cursor:pointer',data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
+                                        span.badge.bagge-pill.badge-danger(style='float:left;cursor:pointer;font-size:9.5;display:block',data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
                                       else
-                                        span.badge.bagge-pill.badge-warning(style='cursor:pointer',data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
+                                        span.badge.bagge-pill.badge-warning(style='cursor:pointer;display:block',data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
                       .col
                         table.table
                           thead
@@ -309,11 +309,11 @@ main#top.main
                                   td(align='left')
                                     if index >= 4 && index < 8
                                       if line.desc == 'No hay incidencias'
-                                        span.badge.bagge-pill.badge-success(style='cursor:pointer',data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
+                                        span.badge.bagge-pill.badge-success(style='cursor:pointer;display:block',data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
                                       else if line.estado == 'Circulación interrumpida' || line.estado == 'circulación interrumpida'
-                                        span.badge.bagge-pill.badge-danger(style='cursor:pointer',data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
+                                        span.badge.bagge-pill.badge-danger(style='float:left;cursor:pointer;font-size:9.5;display:block',data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
                                       else
-                                        span.badge.bagge-pill.badge-warning(style='cursor:pointer',data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
+                                        span.badge.bagge-pill.badge-warning(style='cursor:pointer;display:block',data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
                       .col
                         table.table
                           thead
@@ -330,11 +330,11 @@ main#top.main
                                   td(align='left')
                                     if index >= 8 && index < 12
                                       if line.desc == 'No hay incidencias'
-                                        span.badge.bagge-pill.badge-success(style='cursor:pointer', data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
+                                        span.badge.bagge-pill.badge-success(style='cursor:pointer;display:block', data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
                                       else if line.estado == 'Circulación interrumpida' || line.estado == 'circulación interrumpida'
-                                        span.badge.bagge-pill.badge-danger(style='cursor:pointer',data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
+                                        span.badge.bagge-pill.badge-danger(style='float:left;cursor:pointer;font-size:9.5;display:block',data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
                                       else
-                                        span.badge.bagge-pill.badge-warning(style='cursor:pointer',data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado 
+                                        span.badge.bagge-pill.badge-warning(style='cursor:pointer;display:block',data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado 
                       .col
                         table.table
                           thead
@@ -351,11 +351,11 @@ main#top.main
                                   td(align='left')
                                     if index >=12 && index< 16
                                       if line.desc == 'No hay incidencias'
-                                        span.badge.bagge-pill.badge-success(style='cursor:pointer',data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
+                                        span.badge.bagge-pill.badge-success(style='cursor:pointer;display:block',data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
                                       else if line.estado == 'Circulación interrumpida' || line.estado == 'circulación interrumpida'
-                                        span.badge.bagge-pill.badge-danger(style='cursor:pointer',data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
+                                        span.badge.bagge-pill.badge-danger(style='float:left;cursor:pointer;font-size:9.5;display:block',data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
                                       else
-                                        span.badge.bagge-pill.badge-warning(style='cursor:pointer',data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
+                                        span.badge.bagge-pill.badge-warning(style='cursor:pointer;display:block',data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
 
 
                     
