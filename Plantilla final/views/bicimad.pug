@@ -183,21 +183,63 @@ main#top.main
       div
         .container-fluid-sm-12
           .row
-            .col
+            .col-md-6
               .card.text-center(class='card text-center').py-3
-
-                .card-body
-                  .googlemap.min-vh-50(id="map", data-theme="Default")
-                  script(type='text/javascript').
+                .card-header
+                  h5.card-title Posiciones de Bicicletas
+                .card-body.min-vh-50(id='map', style='height:100%')
+                  script.
+                    var data = !{JSON.stringify(bicimadStations)};
+                    var formattedData = JSON.parse(data);
                     var map;
-                    function initMap() {
+                    function initMap(formattedData) {
                       map = new google.maps.Map(document.getElementById('map'), {
                         center: {lat: 40.4165000, lng: -3.7025600},
-                        zoom: 10
+                        zoom: 11
                       });
+                      
+                      data.forEach(function(stat){
+                        var operativoState;
+                        var stateImageUrl;
 
+                        if(stat.operativo == 'Si'){
+                          operativoState = 'Operativa'
+                          stateImageUrl = '/assets/img/icons/bicimadIconAvailable.png'
+                        } else {
+                          operativoState = 'No Operativa'
+                          stateImageUrl = '/assets/img/icons/bicimadIconUnavailable.png'
+                        }
+
+                        var icon
+
+                        var contentString = '<h5 id="firstHeading" class="firstHeading">' + stat.nombre + '</h5>\n' + 
+                        '<h6>Direccion: ' + stat.direccion + '</h6>' + 
+                        '</br>' + 
+                        '<p>Bicis disponibles: ' + stat.ancladas + '</p>' +
+                        '</br>' + 
+                        '<h6>' + operativoState + '</h6>';
+
+                        var infowindow = new google.maps.InfoWindow({
+                          content : contentString
+                        });
+
+                        var marker = new google.maps.Marker({
+                          position: new google.maps.LatLng(stat.lat, stat.lon),
+                          icon: {
+                            url: stateImageUrl,
+                            scaledSize: new google.maps.Size(33,33)
+                          },
+                          map: map,
+                          animation: google.maps.Animation.DROP
+                        });
+
+                        marker.addListener('click', function() {
+                          infowindow.open(map, marker);
+                        });
+
+                      });
                     }
-                  script(async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQXpPnTkWE4KUpN8VjQ-uZ1jhsawzA59Q&callback=initMap" )
+                  
 
 
 
@@ -229,6 +271,7 @@ main#top.main
 // ===============================================
 // JavaScripts
 // ===============================================
+script(async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQXpPnTkWE4KUpN8VjQ-uZ1jhsawzA59Q&callback=initMap" )
 script(src='../assets/js/jquery.min.js')
 script(src='../assets/js/popper.min.js')
 script(src='../assets/js/bootstrap.js')
