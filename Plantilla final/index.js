@@ -67,6 +67,35 @@ app.get('/mongo-test', function(req, res){
   })
 });
 
+//Navegacion paginas y precarga de paginas
+app.get('/servicios/autobus', function(req, res){
+  res.render('autobus');
+});
+
+app.get('/servicios/bicimad', function(req, res){
+  res.render('bicimad');
+});
+
+app.get('/servicios/cercanias', function(req, res){
+  res.render('cercanias');
+});
+
+app.get('/servicios/metro', function(req, res){
+  res.render('metro');
+});
+
+app.get('/servicios/uber', function(req, res){
+  res.render('uber');
+});
+
+app.get('/servicios/vuelos', function(req, res){
+  res.render('vuelos');
+});
+
+app.get('/eventos', function(req, res){
+  res.render('eventos');
+});
+
 
 var port = 8080;
 app.listen(port);

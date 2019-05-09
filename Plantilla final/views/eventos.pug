@@ -1,0 +1,295 @@
+head
+  meta(charset='utf-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  // ===============================================
+  // Document Title
+  // ===============================================
+  title Dashboard
+  // ===============================================
+  // Favicons
+  // ===============================================
+  link(rel='apple-touch-icon' sizes='180x180' href='../assets/img/illustrations/Dashboard-Icon.png')
+  link(rel='shortcut icon' type='image/x-icon' href='../assets/img/illustrations/Dashboard-Icon.png')
+  link(rel='manifest' href='assets/img/favicons/manifest.json')
+  meta(name='msapplication-TileImage' content='../assets/img/favicons/mstile-150x150.png')
+  meta(name='theme-color' content='#ffffff')
+  // ===============================================
+  // Estilos de la plantilla
+  // ===============================================
+  link(href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700%7cPoppins:100,200,300,400,500,600,700,800,900' rel='stylesheet')
+  link(href='../assets/lib/jqvmap/jqvmap.min.css' rel='stylesheet')
+  link(href='../assets/css/theme.css' rel='stylesheet')
+// ===============================================
+// Contenido
+// ===============================================
+main#top.main
+  // añadir -fluid a container para pantalla completa
+  .container-fluid
+    nav.navbar.navbar-vertical.navbar-expand-lg.navbar-light.navbar-glass
+      a.navbar-brand.text-left(href='/')
+        .d-flex.align-items-center.text-primary.py-3
+          .d-inline-flex.flex-center
+            img.mr-2(src='../assets/img/illustrations/Dashboard-Icon.png' alt='' width='40')
+            span.text-info Madrid
+      // ===============================================
+      // Menu lateral
+      // ===============================================
+      #navbarVerticalCollapse.collapse.navbar-collapse
+        ul.navbar-nav.flex-column
+          li.nav-item
+            a.nav-link.dropdown-indicator(href='#home' data-toggle='collapse' role='button' aria-expanded='true' aria-controls='home')
+              .d-flex.align-items-center
+                span.nav-link-icon
+                  span.fas.fa-chart-pie
+                span Inicio
+            // ===============================================
+            // Categorias
+            // ===============================================
+            ul#home.nav.collapse.show(data-parent='#navbarVerticalCollapse')
+              li.nav-item
+                a.nav-link(href='/') Dashboard
+              li.nav-item
+                a.nav-link(href='') Noticias
+              li.nav-item.active
+                a.nav-link(href='/eventos')
+                  | Eventos
+                  span.badge.badge-soft-success.badge-pill.ml-2 Selected
+          li.nav-item
+            a.nav-link.dropdown-indicator(href='#email' data-toggle='collapse' role='button' aria-expanded='false' aria-controls='email')
+              .d-flex.align-items-center
+                span.nav-link-icon
+                  span.fas.fa-exchange-alt
+                span Servicios
+            // ===============================================
+            // Servicios
+            // ===============================================
+            ul#email.nav.collapse(data-parent='#navbarVerticalCollapse')
+              li.nav-item
+                a.nav-link(href='/servicios/metro') Metro
+              li.nav-item
+                a.nav-link(href='/servicios/cercanias') Cercanias
+              li.nav-item
+                a.nav-link(href='/servicios/autobus') Autobus
+              li.nav-item
+                a.nav-link(href='/servicios/bicimad') BiciMad
+              li.nav-item
+                a.nav-link(href='/servicios/vuelos') Vuelos
+              li.nav-item
+                a.nav-link(href='/servicios/uber') Uber
+        hr.border-300.my-2
+        ul.navbar-nav.flex-column
+          li.nav-item
+            a.nav-link.dropdown-indicator(href='#documentation' data-toggle='collapse' role='button' aria-expanded='false' aria-controls='documentation')
+              .d-flex.align-items-center
+                span.nav-link-icon
+                  span.fas.fa-stream
+                span Ciudades
+                span.badge.badge-soft-warning.badge-pill.ml-2 W.I.P.
+            // ===============================================
+            // Ciudades
+            // ===============================================
+            ul#documentation.nav.collapse(data-parent='#navbarVerticalCollapse')
+              li.nav-item
+                a.nav-link(href='')
+                  | Madrid
+                  span.badge.badge-soft-success.badge-pill.ml-2 Selected
+              li.nav-item
+                a.nav-link(href='') Barcelona
+        a.btn.btn-primary.btn-sm.m-3(href='/' target='_blank') Dashboard
+    .content
+      nav.navbar.navbar-light.navbar-glass.fs--1.font-weight-semi-bold.row.navbar-top.sticky-kit.navbar-expand
+        button.navbar-toggler.collapsed(type='button' data-toggle='collapse' data-target='#navbarVerticalCollapse' aria-controls='navbarVerticalCollapse' aria-expanded='false' aria-label='Toggle navigation')
+          span.navbar-toggler-icon
+        a.navbar-brand.text-left.ml-3(href='/')
+          .d-flex.align-items-center.text-primary
+            .d-inline-flex.flex-center
+              img.mr-2(src='../assets/img/illustrations/Dashboard-Icon.png' alt='' width='40')
+              span.text-info Madrid
+        // ===============================================
+        // inicio
+        // ===============================================
+        #navbarNavDropdown1.collapse.navbar-collapse.py-3
+          ul.navbar-nav.align-items-center.d-none.d-lg-block
+            li.nav-item
+              // ===============================================
+              // Fecha formato pc
+              // ===============================================
+              h5
+                script(type='text/javascript').
+                  function makeArray() {
+                  for (i = 0; i<makeArray.arguments.length; i++)
+                  this[i + 1] = makeArray.arguments[i];}
+                  var months = new makeArray('Enero','Febrero','Marzo','Abril','Mayo',
+                  'Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre');
+                  function madeArray() {
+                  for (i = 0; i<madeArray.arguments.length; i++)
+                  this[i + 1] = madeArray.arguments[i];}
+                  var weekday = new Array(7);
+                  weekday[0] =  "Domingo";
+                  weekday[1] = "Lunes";
+                  weekday[2] = "Martes";
+                  weekday[3] = "Miércoles";
+                  weekday[4] = "Jueves";
+                  weekday[5] = "Viernes";
+                  weekday[6] = "Sábado";
+                  var date = new Date();
+                  var day = date.getDate();
+                  var month = date.getMonth() + 1;
+                  var days = date.getDay();
+                  var yy = date.getYear();
+                  var year = (yy < 1000) ? yy + 1900 : yy;
+                  document.write( weekday[days] + ", " + day + " de " + months[month] + " de " + year);
+          // ===============================================
+          // Fecha formato movil
+          // ===============================================
+          .mostrarmovil
+            ul.navbar-nav.align-items-center.ml-1.visible-xs
+              li.nav-item.dropdown
+                script(type='text/javascript').
+                  var date = new Date();
+                  var d  = date.getDate();
+                  var day = (d < 10) ? '0' + d : d;
+                  var m = date.getMonth() + 1;
+                  var month = (m < 10) ? '0' + m : m;
+                  var yy = date.getYear();
+                  var year = (yy < 1000) ? yy + 1900 : yy;
+                  document.write(day + "/" + month + "/" + year);
+          // ===============================================
+          // Reloj
+          // ===============================================
+          ul.navbar-nav.align-items-center.ml-auto
+            li.nav-item.dropdown
+              h5
+                script(type='text/javascript').
+                  function startTime(){
+                  today=new Date();
+                  h=today.getHours();
+                  m=today.getMinutes();
+                  s=today.getSeconds();
+                  m=checkTime(m);
+                  s=checkTime(s);
+                  document.getElementById('reloj').innerHTML=h+":"+m+":"+s;
+                  t=setTimeout('startTime()',500);}
+                  function checkTime(i)
+                  {if (i<10) {i="0" + i;}return i;}
+                  window.onload=function(){startTime();}
+                #reloj(style='font-size:20px;')
+      .card.mb-3.mb-lg-0
+        .card-header.bg-light.d-flex.justify-content-between
+          h5.mb-0 Eventos
+          form.form-inline
+            select.custom-select.custom-select-sm
+              option(selected='selected') Select Category
+              option Health &amp; Wellness
+              option Business &amp; Professional
+              option Performing &amp; Visual Arts
+              option Science &amp; Technology
+              option Sports &amp; Fitness
+              option Charity &amp; Causes
+              option Film &amp; Media
+              option Fashion &amp; Beauty
+              option Travel &amp; Outdoor
+              option Entertainment
+              option Other
+        .card-body.fs--1
+          .row
+            .col-md-6.h-100
+              .media.btn-reveal-trigger
+                .calendar
+                  span.calendar-month Mar
+                  span.calendar-day 26
+                .media-body.position-relative.pl-3
+                  h6.fs-0.mb-0
+                    a(href='../pages/event-detail.html')
+                      | Crain&apos;s New York Business 
+                      span.badge.badge-soft-success.rounded-capsule Free
+                  p.mb-1 Organized by AID MIT
+                  p.text-1000.mb-0 Time: 11:00AM
+                  p.text-1000.mb-0 Duration: Feb 29 - Mar 2
+                  | The Liberty Warehouse, New Yourk
+                  hr.border-dashed.border-bottom-0
+            .col-md-6.h-100
+              .media.btn-reveal-trigger
+                .calendar
+                  span.calendar-month Feb
+                  span.calendar-day 29
+                .media-body.position-relative.pl-3
+                  h6.fs-0.mb-0
+                    a(href='../pages/event-detail.html') Film Festival
+                  p.mb-1 Organized by American Nuclear Society
+                  p.text-1000.mb-0 Time: 11:00AM
+                  p.text-1000.mb-0 Duration: Feb 29 - Mar 2
+                  | Place: Workbar - Central Square, Cambridge
+                  hr.border-dashed.border-bottom-0
+            .col-md-6.h-100
+              .media.btn-reveal-trigger
+                .calendar
+                  span.calendar-month Feb
+                  span.calendar-day 21
+                .media-body.position-relative.pl-3
+                  h6.fs-0.mb-0
+                    a(href='../pages/event-detail.html') Newmarket Nights
+                  p.mb-1 Organized by University of Oxford
+                  p.text-1000.mb-0 Time: 6:00AM
+                  p.text-1000.mb-0 Duration: 6:00AM - 5:00PM
+                  | Place: Cambridge Boat Club, Cambridge
+                  hr.border-dashed.border-bottom-0
+            .col-md-6.h-100
+              .media.btn-reveal-trigger
+                .calendar
+                  span.calendar-month Dec
+                  span.calendar-day 31
+                .media-body.position-relative.pl-3
+                  h6.fs-0.mb-0
+                    a(href='../pages/event-detail.html') 31st Night Celebration
+                  p.mb-1 Organized by Chamber Music Society
+                  p.text-1000.mb-0 Time: 11:00PM
+                  p.text-1000.mb-0 280 people interested
+                  | Place: Tavern on the Greend, New York
+                  hr.border-dashed.border-bottom-0
+            .col-md-6.h-100
+              .media.btn-reveal-trigger
+                .calendar
+                  span.calendar-month Dec
+                  span.calendar-day 16
+                .media-body.position-relative.pl-3
+                  h6.fs-0.mb-0
+                    a(href='../pages/event-detail.html') Folk Festival
+                  p.mb-1
+                    | Organized by 
+                    a.text-700(href='#!') Harvard University
+                  p.text-1000.mb-0 Time: 9:00AM
+                  p.text-1000.mb-0 Location: Cambridge Masonic Hall Association
+                  | Place: Porter Square, North Cambridge
+      // ===============================================
+      // Pie de pagina
+      // ===============================================
+      footer
+        .row.no-gutters.justify-content-between.fs--1.mt-4.mb-3
+          .col-12.col-sm-auto.text-center
+            p.mb-0.text-600
+              | Thank you for creating with Falcon 
+              span.d-none.d-sm-inline-block | 
+              br.d-sm-none
+              |  2019 &copy; 
+              a(href='https://themewagon.com') Themewagon
+          .col-12.col-sm-auto.text-center
+            p.mb-0.text-600 v0.1.0
+// ===============================================
+// fin del contenido
+// ===============================================
+// ===============================================
+// JavaScripts
+// ===============================================
+script(src='../assets/js/jquery.min.js')
+script(src='../assets/js/popper.min.js')
+script(src='../assets/js/bootstrap.js')
+script(src='../assets/js/plugins.js')
+script(src='../assets/lib/stickyfilljs/stickyfill.min.js')
+script(src='../assets/lib/sticky-kit/sticky-kit.min.js')
+script(src='../assets/lib/chart.js/Chart.min.js')
+script(src='../assets/lib/jqvmap/jquery.vmap.js')
+script(src='../assets/lib/jqvmap/maps/jquery.vmap.world.js' charset='utf-8')
+script(src='../assets/lib/jqvmap/maps/jquery.vmap.usa.js' charset='utf-8')
+script(src='../assets/js/theme.js')

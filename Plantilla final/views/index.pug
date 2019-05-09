@@ -27,7 +27,7 @@ main#top.main
   // añadir -fluid a container para pantalla completa
   .container-fluid
     nav.navbar.navbar-vertical.navbar-expand-lg.navbar-light.navbar-glass
-      a.navbar-brand.text-left(href='index.html')
+      a.navbar-brand.text-left(href='/')
         .d-flex.align-items-center.text-primary.py-3
           .d-inline-flex.flex-center
             img.mr-2(src='assets/img/illustrations/Dashboard-Icon.png' alt='' width='40')
@@ -48,13 +48,13 @@ main#top.main
             // ===============================================
             ul#home.nav.collapse.show(data-parent='#navbarVerticalCollapse')
               li.nav-item.active
-                a.nav-link(href='index.html')
+                a.nav-link(href='/')
                   | Dashboard
                   span.badge.badge-soft-success.badge-pill.ml-2 Selected
               li.nav-item
                 a.nav-link(href='') Noticias
               li.nav-item
-                a.nav-link(href='paginas/eventos.html') Eventos
+                a.nav-link(href='/eventos') Eventos
           li.nav-item
             a.nav-link.dropdown-indicator(href='#email' data-toggle='collapse' role='button' aria-expanded='false' aria-controls='email')
               .d-flex.align-items-center
@@ -66,17 +66,17 @@ main#top.main
             // ===============================================
             ul#email.nav.collapse(data-parent='#navbarVerticalCollapse')
               li.nav-item
-                a.nav-link(href='servicios/metro.html') Metro
+                a.nav-link(href='servicios/metro') Metro
               li.nav-item
-                a.nav-link(href='servicios/cercanias.html') Cercanias
+                a.nav-link(href='servicios/cercanias') Cercanias
               li.nav-item
-                a.nav-link(href='servicios/autobus.html') Autobus
+                a.nav-link(href='servicios/autobus') Autobus
               li.nav-item
-                a.nav-link(href='servicios/bicimad.html') BiciMad
+                a.nav-link(href='servicios/bicimad') BiciMad
               li.nav-item
-                a.nav-link(href='servicios/vuelos.html') Vuelos
+                a.nav-link(href='servicios/vuelos') Vuelos
               li.nav-item
-                a.nav-link(href='servicios/uber.html') Uber
+                a.nav-link(href='servicios/uber') Uber
         hr.border-300.my-2
         ul.navbar-nav.flex-column
           li.nav-item
@@ -96,12 +96,12 @@ main#top.main
                   span.badge.badge-soft-success.badge-pill.ml-2 Selected
               li.nav-item
                 a.nav-link(href='') Barcelona
-        a.btn.btn-primary.btn-sm.m-3(href='index.html' target='_blank') Dashboard
+        a.btn.btn-primary.btn-sm.m-3(href='/' target='_blank') Dashboard
     .content
       nav.navbar.navbar-light.navbar-glass.fs--1.font-weight-semi-bold.row.navbar-top.sticky-kit.navbar-expand
         button.navbar-toggler.collapsed(type='button' data-toggle='collapse' data-target='#navbarVerticalCollapse' aria-controls='navbarVerticalCollapse' aria-expanded='false' aria-label='Toggle navigation')
           span.navbar-toggler-icon
-        a.navbar-brand.text-left.ml-3(href='index.html')
+        a.navbar-brand.text-left.ml-3(href='/')
           .d-flex.align-items-center.text-primary
             .d-inline-flex.flex-center
               img.mr-2(src='assets/img/illustrations/Dashboard-Icon.png' alt='' width='50')
