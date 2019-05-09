@@ -181,6 +181,34 @@ main#top.main
                   window.onload=function(){startTime();}
                 #reloj(style='font-size:20px;')
       div
+        .container-fluid-sm-12
+          .row
+            .col
+              .card.text-center(class='card text-center').py-3
+
+                .card-body
+                  .googlemap.min-vh-50(id="map", data-theme="Default")
+                  script(type='text/javascript').
+                    var map;
+                    function initMap() {
+                      map = new google.maps.Map(document.getElementById('map'), {
+                        center: {lat: 40.4165000, lng: -3.7025600},
+                        zoom: 10
+                      });
+
+                    }
+                  script(async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQXpPnTkWE4KUpN8VjQ-uZ1jhsawzA59Q&callback=initMap" )
+
+
+
+
+
+
+
+
+
+
+
       // ===============================================
       // Pie de pagina
       // ===============================================
