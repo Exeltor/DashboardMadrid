@@ -359,83 +359,103 @@ main#top.main
           .col-lg-8.py-3
                 .card.text-center(class='card text-center')
                   .card-header
-                    ul.nav.nav-pills.card-header-pills(role='tablist')
+                    ul.nav.nav-pills.card-header-pills
                       li.nav-item
-                        a.nav-link.active(data-toggle='tab', href='#Metro') Metro
+                        button.btn(onClick='dropMetro()') Metro
                       li.nav-item
-                       a.nav-link(data-toggle='tab', href='#Cercanias') Cercanias
+                       button.btn(onClick='dropdownCurrencySelector(this.id)') Cercanias
                       li.nav-item
-                        a.nav-link(data-toggle='tab', href='#Autobus') Autobus
+                        button.btn(onClick='dropdownCurrencySelector(this.id)') Autobus
                       li.nav-item
-                       a.nav-link(data-toggle='tab', href='#Bicimad') Bicimad
+                       button.btn(onClick='dropBicimad()') Bicimad
                       li.nav-item
-                        a.nav-link(data-toggle='tab', href='#Uber') Uber
+                        button.btn.disabled(href='#Uber') Uber
+                      li.nav-item
+                        button.btn.btn-primary(onClick='clearMarkers()') Clear
                   .card-body
-                    .tab-content.min-vh-50(id='map', style='height:100%')
-                      .tab-pane.active(id='Metro', role='tabpanel')
-                      
+                    .map-canvas.min-vh-50(id='map')
                         script(type='text/javascript').
-                          var map;
-                          function initMap() {
-                            map = new google.maps.Map(document.getElementById('Metro'), {
-                              center: {lat: 40.4165000, lng: -3.7025600},
-                              zoom: 10
-                            });
-                          
-                          }
+                            var dataMetro = !{JSON.stringify(metroStations)};
+                            var dataBicimad = !{JSON.stringify(bicimadStations)};
+                            //var dataBicimadFormatted = JSON.parse(dataBicimad);
+                            
+                            var map;
+                            var markers = [];
+                            function initMap() {
+                              map = new google.maps.Map(document.getElementById('map'), {
+                                center: {lat: 40.4165000, lng: -3.7025600},
+                                zoom: 11
+                              });
+                            }
+                            
+                            function dropMetro(){
+                              clearMarkers();
+                              
+                              dataMetro.forEach(function(stat){
+                                var marker = new google.maps.Marker({
+                                  position: new google.maps.LatLng(stat.lat, stat.lon),
+                                  icon: {
+                                    url: 'https://www.metromadrid.es/sites/default/files/web/imagenes/Logomarca_azul.png',
+                                    scaledSize: new google.maps.Size(50,50)
+                                  },
+                                  map: map,
+                                  animation: google.maps.Animation.DROP
+                                });
+                                markers.push(marker);
+                              });
+                            }
+
+                            function dropCercanias(){
+
+                            }
+
+                            function dropAutobus() {
+
+                            }
+
+                            function dropBicimad() {
+                              clearMarkers();
+                              
+                              dataBicimad.forEach(function(statBici){
+                                var operativoState;
+                                var stateImageUrl;
+
+                                if(statBici.operativo == 'Si'){
+                                  operativoState = 'Operativa';
+                                  stateImageUrl = 'assets/img/icons/bicimadIconAvailable.png';
+                                } else {
+                                  operativoState = 'No Operativa';
+                                  stateImageUrl = 'assets/img/icons/bicimadIconUnavailable.png';
+                                }
+                                var marker = new google.maps.Marker({
+                                  position: new google.maps.LatLng(statBici.lat, statBici.lon),
+                                  icon: {
+                                    url: stateImageUrl,
+                                    scaledSize: new google.maps.Size(50,50)
+                                  },
+                                  map: map,
+                                  animation: google.maps.Animation.DROP
+                                });
+                                markers.push(marker);
+                                console.log('marker created')
+                              });
+                            }
+
+                            function clearMarkers() {
+                              setMapOnAll(null);
+                              markers = [];
+                            }
+
+                            function setMapOnAll(map) {
+                              for (var i = 0; i < markers.length; i++) {
+                                markers[i].setMap(map);
+                              }
+                            }
+
+
+                        script(async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQXpPnTkWE4KUpN8VjQ-uZ1jhsawzA59Q&callback=initMap")
+                        
                     
-                      
-                      .tab-pane(id='Cercanias', role='tabpanel')
-                        .card-body(id='mapaCercanias')
-                        script(type='text/javascript').
-                          var map;
-                          function initMap() {
-                            map = new google.maps.Map(document.getElementById('mapaCercanias'), {
-                              center: {lat: 40.4165000, lng: -3.7025600},
-                              zoom: 10
-                            });
-
-                          }
-                               
-                                          
-                      .tab-pane(id='Autobus', role='tabpanel')
-                        
-                        script(type='text/javascript').
-                          var map;
-                          function initMap() {
-                            map = new google.maps.Map(document.getElementById('Autobus'), {
-                              center: {lat: 40.4165000, lng: -3.7025600},
-                              zoom: 10
-                            });
-
-                          }
-                        
-                                          
-                      .tab-pane(id='Bicimad', role='tabpanel')
-                        
-                        script(type='text/javascript').
-                          var map;
-                          function initMap() {
-                            map = new google.maps.Map(document.getElementById('Bicimad'), {
-                              center: {lat: 40.4165000, lng: -3.7025600},
-                              zoom: 10
-                            });
-
-                          }
-         
-                                          
-                      .tab-pane(id='Uber', role='tabpanel')
-                        
-                        script(type='text/javascript').
-                          var map;
-                          function initMap() {
-                            map = new google.maps.Map(document.getElementById('Uber'), {
-                              center: {lat: 40.4165000, lng: -3.7025600},
-                              zoom: 10
-                            });
-
-                          }
-                  script(async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQXpPnTkWE4KUpN8VjQ-uZ1jhsawzA59Q&callback=initMap" )         
                       
                   
       // ===============================================
@@ -459,8 +479,7 @@ script(src='assets/lib/chart.js/Chart.min.js')
 script(src='assets/lib/jqvmap/jquery.vmap.js')
 script(src='assets/lib/jqvmap/maps/jquery.vmap.world.js' charset='utf-8')
 script(src='assets/lib/jqvmap/maps/jquery.vmap.usa.js' charset='utf-8')
-script(src='assets/js/theme.js')
-script(async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQXpPnTkWE4KUpN8VjQ-uZ1jhsawzA59Q&callback=initMap" ) 
+script(src='assets/js/theme.js') 
 
 //Dropdown divisa origen
 script(type='text/javascript').

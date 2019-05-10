@@ -41,6 +41,12 @@ app.get('/', async function(req, res){
     metroLinesDb = await dbo.collection('lineasMetro').find().sort({'nombre': 1}).toArray();
     list.metroLines = metroLinesDb;
 
+    //Metro Estaciones
+    list.metroStations = await dbo.collection('estacionesMetro').find().toArray();
+
+    //Bicimad Estaciones
+    list.bicimadStations = await dbo.collection('bicimad').find().toArray();
+
     //Exchange Rates
     var response = request('GET', 'https://api.exchangeratesapi.io/latest?base=EUR');
     var coinTypeBase= JSON.parse(response.getBody('utf8'));
