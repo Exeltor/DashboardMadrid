@@ -43,6 +43,10 @@ app.get('/', async function(req, res){
 
     //Metro Estaciones
     list.metroStations = await dbo.collection('estacionesMetro').find().toArray();
+    list.distinctLines = await dbo.collection('estacionesMetro').distinct('linea');
+
+    //Cercanias
+    list.cercaniasStations = await dbo.collection('paradasCercanias').find().toArray();
 
     //Bicimad Estaciones
     list.bicimadStations = await dbo.collection('bicimad').find().toArray();

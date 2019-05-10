@@ -359,11 +359,20 @@ main#top.main
           .col-lg-8.py-3
                 .card.text-center(class='card text-center')
                   .card-header
-                    ul.nav.nav-pills.card-header-pills
+                    ul.nav.card-header
                       li.nav-item
-                        button.btn(onClick='dropMetro()') Metro
+                        .btn-group
+                          button.btn(type='button', onClick='dropMetro()') Metro
+                          button.btn.dropdown-toggle.dropdown-toggle-split(data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                          .dropdown-menu
+                            each line in distinctLines
+                              if line == 'Línea '
+                                a.dropdown-item(id= line, onClick='dropSpecificLine(this.id)') Ramal
+                              else
+                                a.dropdown-item(id= line, onClick='dropSpecificLine(this.id)')= line
+
                       li.nav-item
-                       button.btn(onClick='dropdownCurrencySelector(this.id)') Cercanias
+                       button.btn(onClick='dropCercanias()') Cercanias
                       li.nav-item
                         button.btn(onClick='dropdownCurrencySelector(this.id)') Autobus
                       li.nav-item
@@ -379,6 +388,7 @@ main#top.main
                         script(type='text/javascript').
                             var dataMetro = !{JSON.stringify(metroStations)};
                             var dataBicimad = !{JSON.stringify(bicimadStations)};
+                            var dataCercanias = !{JSON.stringify(cercaniasStations)};
                             //var dataBicimadFormatted = JSON.parse(dataBicimad);
                             
                             var trafficLayer;
@@ -405,8 +415,8 @@ main#top.main
                                 var marker = new google.maps.Marker({
                                   position: new google.maps.LatLng(stat.lat, stat.lon),
                                   icon: {
-                                    url: 'https://www.metromadrid.es/sites/default/files/web/imagenes/Logomarca_azul.png',
-                                    scaledSize: new google.maps.Size(40,20)
+                                    url: 'assets/img/icons/metroIcon.png',
+                                    scaledSize: new google.maps.Size(33,33)
                                   },
                                   map: map,
                                   animation: google.maps.Animation.DROP
@@ -415,8 +425,58 @@ main#top.main
                               });
                             }
 
-                            function dropCercanias(){
+                            function dropSpecificLine(line){
+                              clearMarkers();
+                              transitLayer.setMap(map);
 
+                              dataMetro.forEach(function(stat){
+                                if(line == stat.linea){
+                                  var marker = new google.maps.Marker({
+                                    position: new google.maps.LatLng(stat.lat, stat.lon),
+                                    icon: {
+                                      url: 'assets/img/icons/metroIcon.png',
+                                      scaledSize: new google.maps.Size(33,33)
+                                    },
+                                    map: map,
+                                    animation: google.maps.Animation.DROP
+                                  });
+                                  markers.push(marker);
+                                }
+                              });
+                            }
+
+                            function dropCercanias(){
+                              clearMarkers();
+                              
+                              transitLayer.setMap(map);
+                              dataCercanias.forEach(function(stat){
+                                var contentString = '<center><h5 id="firstHeading" class="firstHeading">' + stat.nombre + '</h5>\n' + 
+                                  '<h6>Direccion: ' + stat.direccion + '</h6>' + 
+                                  '</br>' + 
+                                  '<h6>Lineas</h6>\n' +
+                                  '<p>' + stat.lineas + '</center></p>' + 
+                                  '<h6>Tarifa</h6>\n' + 
+                                  '<p>' + stat.tarifa + '</p>';
+
+                                var infowindow = new google.maps.InfoWindow({
+                                  content : contentString
+                                });
+
+                                var marker = new google.maps.Marker({
+                                  position: new google.maps.LatLng(stat.lat, stat.lon),
+                                  icon: {
+                                    url: 'http://www.comunidad.madrid/sites/default/files/styles/block_teaser_image/public/img/logos-simbolos/logo_cercanias_color_982x550.png',
+                                    scaledSize: new google.maps.Size(40,20)
+                                  },
+                                  map: map,
+                                  animation: google.maps.Animation.DROP
+                                });
+
+                                marker.addListener('click', function() {
+                                  infowindow.open(map, marker);
+                                });
+                                markers.push(marker);
+                              });
                             }
 
                             function dropAutobus() {
