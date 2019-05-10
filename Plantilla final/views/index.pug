@@ -202,7 +202,7 @@ main#top.main
                             th(scope='col') Destino
                             th(scope='col') Estado
                             th(scope='col') Terminal
-                            th(scope='col') Hora Salida
+                            th(scope='col') Hora
                         tbody
                           each flight in flightDepJsons
                             tr
@@ -222,7 +222,7 @@ main#top.main
                             th(scope='col') Origen
                             th(scope='col') Estado
                             th(scope='col') Terminal
-                            th(scope='col') Hora Llegada
+                            th(scope='col') Hora
                         tbody
                           each flight in flightArrJsons
                             tr
@@ -371,6 +371,8 @@ main#top.main
                       li.nav-item
                         button.btn.disabled(href='#Uber') Uber
                       li.nav-item
+                        button.btn(onClick='showTraffic()') Trafico
+                      li.nav-item
                         button.btn.btn-primary(onClick='clearMarkers()') Clear
                   .card-body
                     .map-canvas.min-vh-50(id='map')
@@ -379,6 +381,8 @@ main#top.main
                             var dataBicimad = !{JSON.stringify(bicimadStations)};
                             //var dataBicimadFormatted = JSON.parse(dataBicimad);
                             
+                            var trafficLayer;
+
                             var map;
                             var markers = [];
                             function initMap() {
@@ -386,6 +390,9 @@ main#top.main
                                 center: {lat: 40.4165000, lng: -3.7025600},
                                 zoom: 11
                               });
+
+                              trafficLayer = new google.maps.TrafficLayer();
+                              
                             }
                             
                             function dropMetro(){
@@ -437,11 +444,17 @@ main#top.main
                                   animation: google.maps.Animation.DROP
                                 });
                                 markers.push(marker);
-                                console.log('marker created')
                               });
                             }
 
+                            function showTraffic(){
+                              clearMarkers();
+                              
+                              trafficLayer.setMap(map);
+                            }
+
                             function clearMarkers() {
+                              trafficLayer.setMap(null);
                               setMapOnAll(null);
                               markers = [];
                             }
