@@ -66,19 +66,6 @@ app.get('/', async function(req, res){
   });
 });
 
-//Query de mongo que no se debe perder nunca jamas. Usar esta plantilla para renderizar todas las nuevas paginas que
-//requieran mongo.
-app.get('/mongo-test', function(req, res){
-  MongoClient.connect(url, {useNewUrlParser:true}).then(function (db) {
-    dbo = db.db('TPA')
-    dbo.collection("tiempoPorHora").findOne({}).then(function(data) {
-          //res.render('index', {par:JSON.stringify(data)});
-    }).catch(function (err) {//failure callback
-         console.log(err)
-    });
-  })
-});
-
 //Navegacion paginas y precarga de paginas
 app.get('/servicios/autobus', function(req, res){
   res.render('autobus');

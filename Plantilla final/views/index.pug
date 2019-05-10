@@ -372,7 +372,12 @@ main#top.main
                                 a.dropdown-item(id= line, onClick='dropSpecificLine(this.id)')= line
 
                       li.nav-item
-                       button.btn(onClick='dropCercanias()') Cercanias
+                        .btn-group
+                          button.btn(type='button', onClick='dropCercanias()') Cercanias
+                          button.btn.dropdown-toggle.dropdown-toggle-split(data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                          .dropdown-menu
+                            each line in ['C-1', 'C-2', 'C-3', 'C-4','C-5', 'C-7','C-8','C-9','C-10']
+                              a.dropdown-item(id= line, onClick='dropSpecificCercanias(this.id)')= line
                       li.nav-item
                         button.btn(onClick='dropdownCurrencySelector(this.id)') Autobus
                       li.nav-item
@@ -389,7 +394,6 @@ main#top.main
                             var dataMetro = !{JSON.stringify(metroStations)};
                             var dataBicimad = !{JSON.stringify(bicimadStations)};
                             var dataCercanias = !{JSON.stringify(cercaniasStations)};
-                            //var dataBicimadFormatted = JSON.parse(dataBicimad);
                             
                             var trafficLayer;
                             var transitLayer;
@@ -466,7 +470,7 @@ main#top.main
                                   position: new google.maps.LatLng(stat.lat, stat.lon),
                                   icon: {
                                     url: 'http://www.comunidad.madrid/sites/default/files/styles/block_teaser_image/public/img/logos-simbolos/logo_cercanias_color_982x550.png',
-                                    scaledSize: new google.maps.Size(40,20)
+                                    scaledSize: new google.maps.Size(45,33)
                                   },
                                   map: map,
                                   animation: google.maps.Animation.DROP
@@ -476,6 +480,26 @@ main#top.main
                                   infowindow.open(map, marker);
                                 });
                                 markers.push(marker);
+                              });
+                            }
+
+                            function dropSpecificCercanias(line){
+                              clearMarkers();
+                              transitLayer.setMap(map);
+
+                              dataCercanias.forEach(function(stat){
+                                if(stat.lineas.includes(line)){
+                                  var marker = new google.maps.Marker({
+                                    position: new google.maps.LatLng(stat.lat, stat.lon),
+                                    icon: {
+                                      url: 'http://www.comunidad.madrid/sites/default/files/styles/block_teaser_image/public/img/logos-simbolos/logo_cercanias_color_982x550.png',
+                                      scaledSize: new google.maps.Size(45,33)
+                                    },
+                                    map: map,
+                                    animation: google.maps.Animation.DROP
+                                  });
+                                  markers.push(marker);
+                                }
                               });
                             }
 
