@@ -382,6 +382,7 @@ main#top.main
                             //var dataBicimadFormatted = JSON.parse(dataBicimad);
                             
                             var trafficLayer;
+                            var transitLayer;
 
                             var map;
                             var markers = [];
@@ -392,18 +393,20 @@ main#top.main
                               });
 
                               trafficLayer = new google.maps.TrafficLayer();
+                              transitLayer = new google.maps.TransitLayer();
                               
                             }
                             
                             function dropMetro(){
                               clearMarkers();
                               
+                              transitLayer.setMap(map);
                               dataMetro.forEach(function(stat){
                                 var marker = new google.maps.Marker({
                                   position: new google.maps.LatLng(stat.lat, stat.lon),
                                   icon: {
                                     url: 'https://www.metromadrid.es/sites/default/files/web/imagenes/Logomarca_azul.png',
-                                    scaledSize: new google.maps.Size(50,50)
+                                    scaledSize: new google.maps.Size(40,20)
                                   },
                                   map: map,
                                   animation: google.maps.Animation.DROP
@@ -454,6 +457,7 @@ main#top.main
                             }
 
                             function clearMarkers() {
+                              transitLayer.setMap(null);
                               trafficLayer.setMap(null);
                               setMapOnAll(null);
                               markers = [];
