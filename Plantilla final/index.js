@@ -81,7 +81,21 @@ app.get('/servicios/autobus', function(req, res){
 });
 
 app.get('/servicios/bicimad', function(req, res){
-  res.render('bicimad');
+  MongoClient.connect(url, {useNewUrlParser:true}).then(async function (db) {
+    dbo = db.db('TPA')
+
+    //Lista general de insercion al index
+    var list = {};
+
+    list.bicimadStations = await dbo.collection('bicimad').find().toArray();
+
+
+    //Render final de la pagina con los datos
+    res.render('bicimad', list);
+    db.close();
+  }).catch(function(err){
+    console.log(err);
+  });
 });
 
 app.get('/servicios/cercanias', function(req, res){
