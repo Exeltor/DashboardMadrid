@@ -181,10 +181,10 @@ main#top.main
       // ===============================================
       div
         // Grid principal(Primera fila aeropuerto y tiempo)
-        .container-fluid-sm-12
+        .container-fluid
           .row
-            .col
-              .card.text-center(class='card text-center' style='max-height:18rem').py-3
+            .col-lg-9.py-3
+              .card.text-center(class='card text-center' style='max-height:18rem')
                 .card-header
                   ul.nav.nav-pills.card-header-pills(role='tablist')
                     li.nav-item
@@ -233,7 +233,7 @@ main#top.main
                               td= flight.terminal
                               td= flight.horaLlegada
             
-            .col
+            .col-lg-3.col-md-6.py-3
               .card.py-3
                 center
                   img.card.img.top(src= weatherIcon, height='100', width='100')
@@ -241,7 +241,7 @@ main#top.main
                   h6.card-title(align='center', style = 'font-size:200%')= weatherTemp + 'º'
                   h1.card-title(align='center')= weatherDesc
                   p.card-text(align='center')= 'actualizacion: ' + weatherHour
-            .col-md-4
+            .col-md-6.col-lg-4.py-3
               .card.py-3
                 .card-body
                   h5.card-title Conversor de Moneda
@@ -265,14 +265,14 @@ main#top.main
                     center
                       button.btn.btn-primary.mb-3(type='button', onClick='convertToEur()') Convertir
 
-          .row.pt-3
-            .col-md-6
-              .card.py-3
+
+            .col-md-12.col-lg-8.py-3
+              .card
                 img(src='https://www.metromadrid.es/sites/default/files/web/imagenes/Logomarca_azul.png', style='width:10%')
                 .card-body 
                   .container-fluid
                     .row
-                      .col
+                      .col.col-lg-3.col-md-3
                         table.table
                           thead
                             tr
@@ -293,7 +293,7 @@ main#top.main
                                         span.badge.bagge-pill.badge-danger(style='cursor:pointer;display:block',data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
                                       else
                                         span.badge.bagge-pill.badge-warning(style='cursor:pointer;display:block',data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
-                      .col
+                      .col.col-lg-3.col-md-3
                         table.table
                           thead
                             tr
@@ -314,7 +314,7 @@ main#top.main
                                         span.badge.bagge-pill.badge-danger(style='cursor:pointer;display:block',data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
                                       else
                                         span.badge.bagge-pill.badge-warning(style='cursor:pointer;display:block',data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
-                      .col
+                      .col.col-lg-3.col-md-3
                         table.table
                           thead
                             tr
@@ -335,7 +335,7 @@ main#top.main
                                         span.badge.bagge-pill.badge-danger(style='cursor:pointer;display:block',data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
                                       else
                                         span.badge.bagge-pill.badge-warning(style='cursor:pointer;display:block',data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado 
-                      .col
+                      .col.col-lg-3.col-md-3
                         table.table
                           thead
                             tr
@@ -356,12 +356,108 @@ main#top.main
                                         span.badge.bagge-pill.badge-danger(style='cursor:pointer;display:block',data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
                                       else
                                         span.badge.bagge-pill.badge-warning(style='cursor:pointer;display:block',data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
+          .col-lg-8.py-3
+                .card.text-center(class='card text-center')
+                  .card-header
+                    ul.nav.nav-pills.card-header-pills
+                      li.nav-item
+                        button.btn(onClick='dropMetro()') Metro
+                      li.nav-item
+                       button.btn(onClick='dropdownCurrencySelector(this.id)') Cercanias
+                      li.nav-item
+                        button.btn(onClick='dropdownCurrencySelector(this.id)') Autobus
+                      li.nav-item
+                       button.btn(onClick='dropBicimad()') Bicimad
+                      li.nav-item
+                        button.btn.disabled(href='#Uber') Uber
+                      li.nav-item
+                        button.btn.btn-primary(onClick='clearMarkers()') Clear
+                  .card-body
+                    .map-canvas.min-vh-50(id='map')
+                        script(type='text/javascript').
+                            var dataMetro = !{JSON.stringify(metroStations)};
+                            var dataBicimad = !{JSON.stringify(bicimadStations)};
+                            //var dataBicimadFormatted = JSON.parse(dataBicimad);
+                            
+                            var map;
+                            var markers = [];
+                            function initMap() {
+                              map = new google.maps.Map(document.getElementById('map'), {
+                                center: {lat: 40.4165000, lng: -3.7025600},
+                                zoom: 11
+                              });
+                            }
+                            
+                            function dropMetro(){
+                              clearMarkers();
+                              
+                              dataMetro.forEach(function(stat){
+                                var marker = new google.maps.Marker({
+                                  position: new google.maps.LatLng(stat.lat, stat.lon),
+                                  icon: {
+                                    url: 'https://www.metromadrid.es/sites/default/files/web/imagenes/Logomarca_azul.png',
+                                    scaledSize: new google.maps.Size(50,50)
+                                  },
+                                  map: map,
+                                  animation: google.maps.Animation.DROP
+                                });
+                                markers.push(marker);
+                              });
+                            }
+
+                            function dropCercanias(){
+
+                            }
+
+                            function dropAutobus() {
+
+                            }
+
+                            function dropBicimad() {
+                              clearMarkers();
+                              
+                              dataBicimad.forEach(function(statBici){
+                                var operativoState;
+                                var stateImageUrl;
+
+                                if(statBici.operativo == 'Si'){
+                                  operativoState = 'Operativa';
+                                  stateImageUrl = 'assets/img/icons/bicimadIconAvailable.png';
+                                } else {
+                                  operativoState = 'No Operativa';
+                                  stateImageUrl = 'assets/img/icons/bicimadIconUnavailable.png';
+                                }
+                                var marker = new google.maps.Marker({
+                                  position: new google.maps.LatLng(statBici.lat, statBici.lon),
+                                  icon: {
+                                    url: stateImageUrl,
+                                    scaledSize: new google.maps.Size(50,50)
+                                  },
+                                  map: map,
+                                  animation: google.maps.Animation.DROP
+                                });
+                                markers.push(marker);
+                                console.log('marker created')
+                              });
+                            }
+
+                            function clearMarkers() {
+                              setMapOnAll(null);
+                              markers = [];
+                            }
+
+                            function setMapOnAll(map) {
+                              for (var i = 0; i < markers.length; i++) {
+                                markers[i].setMap(map);
+                              }
+                            }
 
 
+                        script(async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQXpPnTkWE4KUpN8VjQ-uZ1jhsawzA59Q&callback=initMap")
+                        
                     
-                                
-
-                
+                      
+                  
       // ===============================================
       // Pie de pagina
       // ===============================================
@@ -383,7 +479,7 @@ script(src='assets/lib/chart.js/Chart.min.js')
 script(src='assets/lib/jqvmap/jquery.vmap.js')
 script(src='assets/lib/jqvmap/maps/jquery.vmap.world.js' charset='utf-8')
 script(src='assets/lib/jqvmap/maps/jquery.vmap.usa.js' charset='utf-8')
-script(src='assets/js/theme.js')
+script(src='assets/js/theme.js') 
 
 //Dropdown divisa origen
 script(type='text/javascript').
