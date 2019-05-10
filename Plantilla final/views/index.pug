@@ -379,7 +379,7 @@ main#top.main
                             each line in ['C-1', 'C-2', 'C-3', 'C-4','C-5', 'C-7','C-8','C-9','C-10']
                               a.dropdown-item(id= line, onClick='dropSpecificCercanias(this.id)')= line
                       li.nav-item
-                        button.btn(onClick='dropdownCurrencySelector(this.id)') Autobus
+                        button.btn(onClick='dropAutobus()') Autobus
                       li.nav-item
                        button.btn(onClick='dropBicimad()') Bicimad
                       li.nav-item
@@ -394,12 +394,15 @@ main#top.main
                             var dataMetro = !{JSON.stringify(metroStations)};
                             var dataBicimad = !{JSON.stringify(bicimadStations)};
                             var dataCercanias = !{JSON.stringify(cercaniasStations)};
+                            var dataBus = !{JSON.stringify(busStations)};
                             
                             var trafficLayer;
                             var transitLayer;
+                            var markerCluster;
 
                             var map;
                             var markers = [];
+                            var busMarkers = [];
                             function initMap() {
                               map = new google.maps.Map(document.getElementById('map'), {
                                 center: {lat: 40.4165000, lng: -3.7025600},
@@ -408,7 +411,20 @@ main#top.main
 
                               trafficLayer = new google.maps.TrafficLayer();
                               transitLayer = new google.maps.TransitLayer();
-                              
+                              markerCluster = new MarkerClusterer(map, markers,{imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+                              markerCluster.clearMarkers();
+
+                              dataBus.forEach(function(stat){
+                                var marker = new google.maps.Marker({
+                                  position: new google.maps.LatLng(stat.lat, stat.lon),
+                                  icon: {
+                                      url: 'assets/img/icons/metroIcon.png',
+                                      scaledSize: new google.maps.Size(0,0)
+                                  }
+                                });
+
+                                busMarkers.push(marker);
+                              });
                             }
                             
                             function dropMetro(){
@@ -504,7 +520,10 @@ main#top.main
                             }
 
                             function dropAutobus() {
-
+                              clearMarkers();
+                              
+                              markerCluster.addMarkers(busMarkers);
+                              markerCluster.redraw();
                             }
 
                             function dropBicimad() {
@@ -545,6 +564,7 @@ main#top.main
                               trafficLayer.setMap(null);
                               setMapOnAll(null);
                               markers = [];
+                              markerCluster.clearMarkers();
                             }
 
                             function setMapOnAll(map) {
@@ -555,6 +575,7 @@ main#top.main
 
 
                         script(async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQXpPnTkWE4KUpN8VjQ-uZ1jhsawzA59Q&callback=initMap")
+                        script(src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js")
                         
                     
                       

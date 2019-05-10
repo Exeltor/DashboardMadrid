@@ -48,6 +48,9 @@ app.get('/', async function(req, res){
     //Cercanias
     list.cercaniasStations = await dbo.collection('paradasCercanias').find().toArray();
 
+    //BUS
+    list.busStations = await dbo.collection('paradasEMT').find().toArray();
+
     //Bicimad Estaciones
     list.bicimadStations = await dbo.collection('bicimad').find().toArray();
 
