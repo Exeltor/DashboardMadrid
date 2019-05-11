@@ -272,27 +272,27 @@ main#top.main
                 .card-body 
                   .container-fluid
                     .row
-                      .col.col-lg-3.col-md-3.col-sm-3
-                        table.table-responsive
+                      .col-xs-.col-lg-3.col-md-6.col-sm-6
+                        table.table-borderless
                           thead
                             tr
-                              th(scope='col', width = '20%') Linea
+                              th.py-3(scope='col', width = '10%') Linea
                             
                           tbody
                             each line, index in metroLines
                               if index < 4
                                 tr
-                                  td
+                                  td.py-3
                                     if index < 4
                                       img(src=line.img, style='width:30px')
-                                  td(align='left')
+                                  td.py-3(align='left')
                                     if index < 4
                                       - var color = ''
                                       if line.desc == 'No hay incidencias'
                                         span.badge.bagge-pill.badge-success(style='cursor:pointer',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
                                         - color = 'background-color:#228B22';
                                       else if line.estado == 'Circulación interrumpida' || line.estado == 'circulación interrumpida'
-                                        span.badge.bagge-pill.badge-danger(style='cursor:pointer',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
+                                        span.badge.bagge-pill.badge-danger(style='cursor:pointer',data-toggle='modal', data-target='#infoModal' + line._id) Circul. interrumpida
                                         - color = 'background-color:#B22222'
                                       else
                                         span.badge.bagge-pill.badge-warning(style='cursor:pointer',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
@@ -306,27 +306,27 @@ main#top.main
                                             button.close(type='button', data-dismiss='modal', aria-label='close')
                                                 span.font-weight-light(aria-hidden='true') &times;
                                           .modal-body(style='white-space:pre-line;color:white')= line.desc
-                      .col.col-lg-3.col-md-3.col-sm-3
-                        table.table-responsive
+                      .col-xs-.col-lg-3.col-md-6.col-sm-6
+                        table.table-borderless
                           thead
                             tr
-                              th(scope='col', width='20%') Linea
+                              th.py-3(scope='col', width='10%') Linea
                             
                           tbody
                             each line, index in metroLines
                               if index >= 4 && index < 8
                                 tr
-                                  td
+                                  td.py-3
                                     if index >= 4 && index < 8
                                       img(src=line.img, style='width:30px')
-                                  td(align='left')
+                                  td.py-3(align='left')
                                     if index >= 4 && index < 8
                                       - var color = ''
                                       if line.desc == 'No hay incidencias'
                                         span.badge.bagge-pill.badge-success(style='cursor:pointer',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
                                         - color = 'background-color:#228B22';
                                       else if line.estado == 'Circulación interrumpida' || line.estado == 'circulación interrumpida'
-                                        span.badge.bagge-pill.badge-danger(style='cursor:pointer',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
+                                        span.badge.bagge-pill.badge-danger(style='cursor:pointer',data-toggle='modal', data-target='#infoModal' + line._id) Circul. interrumpida
                                         - color = 'background-color:#B22222'
                                       else
                                         span.badge.bagge-pill.badge-warning(style='cursor:pointer',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
@@ -339,27 +339,27 @@ main#top.main
                                             button.close(type='button', data-dismiss='modal', aria-label='close')
                                                 span.font-weight-light(aria-hidden='true') &times;
                                           .modal-body(style='white-space:pre-line;color:white')= line.desc
-                      .col.col-lg-3.col-md-3.col-sm-3
-                        table.table-responsive
+                      .col-xs-.col-lg-3.col-md-6.col-sm-6
+                        table.table-borderless
                           thead
                             tr
-                              th(scope='col', width='20%') Linea
+                              th.py-3(scope='col', width='10%') Linea
                             
                           tbody
                             each line, index in metroLines
                               if index >= 8 && index < 12
                                 tr
-                                  td
+                                  td.py-3
                                     if index >= 8 && index < 12
                                       img(src=line.img, style='width:30px')
-                                  td(align='left')
+                                  td.py-3(align='left')
                                     if index >= 8 && index < 12
                                     - var color = ''
                                       if line.desc == 'No hay incidencias'
                                         span.badge.bagge-pill.badge-success(style='cursor:pointer',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
                                         - color = 'background-color:#228B22';
                                       else if line.estado == 'Circulación interrumpida' || line.estado == 'circulación interrumpida'
-                                        span.badge.bagge-pill.badge-danger(style='cursor:pointer',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
+                                        span.badge.bagge-pill.badge-danger(style='cursor:pointer',data-toggle='modal', data-target='#infoModal' + line._id) Circul. interrumpida
                                         - color = 'background-color:#B22222'
                                       else
                                         span.badge.bagge-pill.badge-warning(style='cursor:pointer',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
@@ -373,27 +373,27 @@ main#top.main
                                             button.close(type='button', data-dismiss='modal', aria-label='close')
                                                 span.font-weight-light(aria-hidden='true') &times;
                                           .modal-body(style='white-space:pre-line;color:white')= line.desc
-                      .col.col-lg-3.col-md-3.col-sm-3
-                        table.table-responsive
+                      .col-xs-.col-lg-3.col-md-6.col-sm-6
+                        table.table-borderless
                           thead
                             tr
-                              th(scope='col', width='20%') Linea
+                              th.py-3(scope='col', width='10%') Linea
                             
                           tbody
                             each line, index in metroLines
                               if index >=12 && index< 16
                                 tr
-                                  td
+                                  td.py-3
                                     if index >=12 && index< 16
                                       img(src=line.img, style='width:30px')
-                                  td(align='left')
+                                  td.py-3(align='left')
                                     if index >=12 && index< 16
                                     - var color = ''
                                       if line.desc == 'No hay incidencias'
                                         span.badge.bagge-pill.badge-success(style='cursor:pointer',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
                                         - color = 'background-color:#228B22';
                                       else if line.estado == 'Circulación interrumpida' || line.estado == 'circulación interrumpida'
-                                        span.badge.bagge-pill.badge-danger(style='cursor:pointer',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
+                                        span.badge.bagge-pill.badge-danger(style='cursor:pointer',data-toggle='modal', data-target='#infoModal' + line._id) Circul. interrumpida
                                         - color = 'background-color:#B22222'
                                       else
                                         span.badge.bagge-pill.badge-warning(style='cursor:pointer',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
