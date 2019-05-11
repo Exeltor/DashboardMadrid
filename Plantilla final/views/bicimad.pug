@@ -66,9 +66,7 @@ main#top.main
                 span Servicios
             ul#servicios.nav.collapse.show(data-parent='#navbarVerticalCollapse')
               li.nav-item
-                a.nav-link(href='/servicios/metro') Metro
-              li.nav-item
-                a.nav-link(href='/servicios/cercanias') Cercanias
+                a.nav-link(href='/servicios/metro-cercanias') Metro/Cercanias
               li.nav-item
                 a.nav-link(href='/servicios/autobus') Autobus
               li.nav-item.active
@@ -183,19 +181,19 @@ main#top.main
       div
         .container-fluid-sm-12
           .row
-            .col-md-6
-              .card.text-center(class='card text-center').py-3
+            .col-md-6.py-3
+              .card.text-center
                 .card-header
                   h5.card-title Posiciones de Bicicletas
                 .card-body.min-vh-50(id='map', style='height:100%')
                   script.
                     var data = !{JSON.stringify(bicimadStations)};
-                    var formattedData = JSON.parse(data);
                     var map;
-                    function initMap(formattedData) {
+                    function initMap() {
                       map = new google.maps.Map(document.getElementById('map'), {
                         center: {lat: 40.4165000, lng: -3.7025600},
-                        zoom: 11
+                        zoom: 11,
+                        mapTypeControl: false
                       });
                       
                       data.forEach(function(stat){
@@ -239,6 +237,23 @@ main#top.main
 
                       });
                     }
+            .col-md-3.py-3
+              if bicimadStationsOff
+                .card.text-white.bg-danger.mb-3
+                  .card-body
+                    h5.card-title Estaciones no disponibles
+                    for station in bicimadStations
+                      if station.operativo == "No"
+                        p.card-text= station.nombre
+              else
+                .card.text-white.bg-success.mb-3
+                  .card-body
+                    h5.card-title Todas las estaciones estan operativas
+
+
+
+
+            
                   
 
 
@@ -255,16 +270,7 @@ main#top.main
       // Pie de pagina
       // ===============================================
       footer
-        .row.no-gutters.justify-content-between.fs--1.mt-4.mb-3
-          .col-12.col-sm-auto.text-center
-            p.mb-0.text-600
-              | Thank you for creating with Falcon 
-              span.d-none.d-sm-inline-block | 
-              br.d-sm-none
-              |  2019 &copy; 
-              a(href='../https://themewagon.com') Themewagon
-          .col-12.col-sm-auto.text-center
-            p.mb-0.text-600 v0.1.0
+        
 // ===============================================
 // fin del contenido
 // ===============================================

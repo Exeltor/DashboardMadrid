@@ -1,0 +1,463 @@
+head
+  meta(charset='utf-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  // ===============================================
+  // Document Title
+  // ===============================================
+  title Dashboard
+  // ===============================================
+  // Favicons
+  // ===============================================
+  link(rel='apple-touch-icon' sizes='180x180' href='../assets/img/illustrations/Dashboard-Icon.png')
+  link(rel='shortcut icon' type='image/x-icon' href='../assets/img/illustrations/Dashboard-Icon.png')
+  link(rel='manifest' href='../assets/img/favicons/manifest.json')
+  meta(name='msapplication-TileImage' content='../assets/img/favicons/mstile-150x150.png')
+  meta(name='theme-color' content='#ffffff')
+  // ===============================================
+  // Estilos de la plantilla
+  // ===============================================
+  link(href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700%7cPoppins:100,200,300,400,500,600,700,800,900' rel='stylesheet')
+  link(href='../assets/lib/jqvmap/jqvmap.min.css' rel='stylesheet')
+  link(href='../assets/css/theme.css' rel='stylesheet')
+  link(href='../assets/css/jquery.fancybox.min.css', rel='stylesheet')
+// ===============================================
+// Contenido
+// ===============================================
+main#top.main
+  // añadir -fluid a container para pantalla completa
+  .container-fluid
+    nav.navbar.navbar-vertical.navbar-expand-lg.navbar-light.navbar-glass
+      a.navbar-brand.text-left(href='/')
+        .d-flex.align-items-center.text-primary.py-3
+          .d-inline-flex.flex-center
+            img.mr-2(src='../assets/img/illustrations/Dashboard-Icon.png' alt='' width='40')
+            span.text-info Madrid
+      // ===============================================
+      // Menu lateral
+      // ===============================================
+      #navbarVerticalCollapse.collapse.navbar-collapse
+        ul.navbar-nav.flex-column
+          li.nav-item
+            a.nav-link.dropdown-indicator(href='#home' data-toggle='collapse' role='button' aria-expanded='true' aria-controls='home')
+              .d-flex.align-items-center
+                span.nav-link-icon
+                  span.fas.fa-chart-pie
+                span Inicio
+            // ===============================================
+            // Categorias
+            // ===============================================
+            ul#home.nav.collapse.show(data-parent='#navbarVerticalCollapse')
+              li.nav-item.active
+                a.nav-link(href='/')
+                  | Dashboard
+                  span.badge.badge-soft-success.badge-pill.ml-2 selected
+              li.nav-item
+                a.nav-link(href='') Noticias
+              li.nav-item
+                a.nav-link(href='/eventos') Eventos
+          // ===============================================
+          // Servicios
+          // ===============================================
+          li.nav-item
+            a.nav-link.dropdown-indicator(href='#servicios' data-toggle='collapse' role='button' aria-expanded='true' aria-controls='servicios')
+              .d-flex.align-items-center
+                span.nav-link-icon
+                  span.fas.fa-exchange-alt
+                span Servicios
+            ul#servicios.nav.collapse.show(data-parent='#navbarVerticalCollapse')
+              li.nav-item.active
+                a.nav-link(href='/servicios/metro-cercanias')
+                  | Metro/Cercanias
+                  span.badge.badge-soft-success.badge-pill.ml-2 selected
+              li.nav-item
+                a.nav-link(href='/servicios/autobus') Autobus
+              li.nav-item
+                a.nav-link(href='/servicios/bicimad') BiciMad
+              li.nav-item
+                a.nav-link(href='/servicios/vuelos') Vuelos
+              li.nav-item
+                a.nav-link(href='/servicios/uber') Uber
+          // ===============================================
+          // Fin Servicios
+          // ===============================================
+        hr.border-300.my-2
+        ul.navbar-nav.flex-column
+          li.nav-item
+            a.nav-link.dropdown-indicator(href='#documentation' data-toggle='collapse' role='button' aria-expanded='false' aria-controls='documentation')
+              .d-flex.align-items-center
+                span.nav-link-icon
+                  span.fas.fa-stream
+                span Ciudades
+                span.badge.badge-soft-warning.badge-pill.ml-2 W.I.P.
+            // ===============================================
+            // Ciudades
+            // ===============================================
+            ul#documentation.nav.collapse(data-parent='#navbarVerticalCollapse')
+              li.nav-item
+                a.nav-link(href='')
+                  | Madrid
+                  span.badge.badge-soft-success.badge-pill.ml-2 Selected
+              li.nav-item
+                a.nav-link(href='') Barcelona
+        a.btn.btn-primary.btn-sm.m-3(href='/' target='_blank') Dashboard
+    .content
+      nav.navbar.navbar-light.navbar-glass.fs--1.font-weight-semi-bold.row.navbar-top.sticky-kit.navbar-expand
+        button.navbar-toggler.collapsed(type='button' data-toggle='collapse' data-target='#navbarVerticalCollapse' aria-controls='navbarVerticalCollapse' aria-expanded='false' aria-label='Toggle navigation')
+          span.navbar-toggler-icon
+        a.navbar-brand.text-left.ml-3(href='/')
+          .d-flex.align-items-center.text-primary
+            .d-inline-flex.flex-center
+              img.mr-2(src='../assets/img/illustrations/Dashboard-Icon.png' alt='' width='40')
+              span.text-info Madrid
+        // ===============================================
+        // inicio
+        // ===============================================
+        #navbarNavDropdown1.collapse.navbar-collapse.py-3
+          ul.navbar-nav.align-items-center.d-none.d-lg-block
+            li.nav-item
+              // ===============================================
+              // Fecha formato pc
+              // ===============================================
+              h5
+                script(type='text/javascript').
+                  function makeArray() {
+                  for (i = 0; i<makeArray.arguments.length; i++)
+                  this[i + 1] = makeArray.arguments[i];}
+                  var months = new makeArray('Enero','Febrero','Marzo','Abril','Mayo',
+                  'Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre');
+                  function madeArray() {
+                  for (i = 0; i<madeArray.arguments.length; i++)
+                  this[i + 1] = madeArray.arguments[i];}
+                  var weekday = new Array(7);
+                  weekday[0] =  "Domingo";
+                  weekday[1] = "Lunes";
+                  weekday[2] = "Martes";
+                  weekday[3] = "Miércoles";
+                  weekday[4] = "Jueves";
+                  weekday[5] = "Viernes";
+                  weekday[6] = "Sábado";
+                  var date = new Date();
+                  var day = date.getDate();
+                  var month = date.getMonth() + 1;
+                  var days = date.getDay();
+                  var yy = date.getYear();
+                  var year = (yy < 1000) ? yy + 1900 : yy;
+                  document.write( weekday[days] + ", " + day + " de " + months[month] + " de " + year);
+          // ===============================================
+          // Fecha formato movil
+          // ===============================================
+          .mostrarmovil
+            ul.navbar-nav.align-items-center.ml-1.visible-xs
+              li.nav-item.dropdown
+                script(type='text/javascript').
+                  var date = new Date();
+                  var d  = date.getDate();
+                  var day = (d < 10) ? '0' + d : d;
+                  var m = date.getMonth() + 1;
+                  var month = (m < 10) ? '0' + m : m;
+                  var yy = date.getYear();
+                  var year = (yy < 1000) ? yy + 1900 : yy;
+                  document.write(day + "/" + month + "/" + year);
+          // ===============================================
+          // Reloj
+          // ===============================================
+          ul.navbar-nav.align-items-center.ml-auto
+            li.nav-item.dropdown
+              h5
+                script(type='text/javascript').
+                  function startTime(){
+                  today=new Date();
+                  h=today.getHours();
+                  m=today.getMinutes();
+                  s=today.getSeconds();
+                  m=checkTime(m);
+                  s=checkTime(s);
+                  document.getElementById('reloj').innerHTML=h+":"+m+":"+s;
+                  t=setTimeout('startTime()',500);}
+                  function checkTime(i)
+                  {if (i<10) {i="0" + i;}return i;}
+                  window.onload=function(){startTime();}
+                #reloj(style='font-size:20px;')
+      div
+        .container-fluid
+          .row
+            .col-lg-6.col-md-6.col-sm-6.py-3
+              .card.text-center.py-3
+                .card-header
+                  ul.nav
+                    li.nav-item
+                      .btn-group
+                        button.btn(type='button', onClick='dropMetro()') Metro
+                        button.btn.dropdown-toggle.dropdown-toggle-split(data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                        .dropdown-menu
+                          each line in distinctLines
+                            if line == 'Línea '
+                              a.dropdown-item(id= line, onClick='dropSpecificLine(this.id)') Ramal
+                            else
+                              a.dropdown-item(id= line, onClick='dropSpecificLine(this.id)')= line
+
+                    li.nav-item
+                      .btn-group
+                        button.btn(type='button', onClick='dropCercanias()') Cercanias
+                        button.btn.dropdown-toggle.dropdown-toggle-split(data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                        .dropdown-menu
+                          each line in ['C-1', 'C-2', 'C-3', 'C-4','C-5', 'C-7','C-8','C-9','C-10']
+                            a.dropdown-item(id= line, onClick='dropSpecificCercanias(this.id)')= line
+                    li.nav-item
+                      button.btn.btn-primary(onClick='clearMarkers()') Clear
+                .card-body
+                  .map-canvas.min-vh-50(id='map')
+                    script(type='text/javascript').
+                      var dataMetro = !{JSON.stringify(metroStations)};
+                      var dataCercanias = !{JSON.stringify(cercaniasStations)};
+                      
+                      var transitLayer;
+
+                      var map;
+                      var markers = [];
+                      function initMap() {
+                        map = new google.maps.Map(document.getElementById('map'), {
+                          center: {lat: 40.4165000, lng: -3.7025600},
+                          zoom: 11
+                        });
+
+                        transitLayer = new google.maps.TransitLayer();
+                      }
+                      
+                      function dropMetro(){
+                        clearMarkers();
+                        
+                        transitLayer.setMap(map);
+                        dataMetro.forEach(function(stat){
+                          var marker = new google.maps.Marker({
+                            position: new google.maps.LatLng(stat.lat, stat.lon),
+                            icon: {
+                              url: '/assets/img/icons/metroIcon.png',
+                              scaledSize: new google.maps.Size(33,33)
+                            },
+                            map: map,
+                            animation: google.maps.Animation.DROP
+                          });
+                          markers.push(marker);
+                        });
+                      }
+
+                      function dropSpecificLine(line){
+                        clearMarkers();
+                        transitLayer.setMap(map);
+
+                        dataMetro.forEach(function(stat){
+                          if(line == stat.linea){
+                            var marker = new google.maps.Marker({
+                              position: new google.maps.LatLng(stat.lat, stat.lon),
+                              icon: {
+                                url: '/assets/img/icons/metroIcon.png',
+                                scaledSize: new google.maps.Size(33,33)
+                              },
+                              map: map,
+                              animation: google.maps.Animation.DROP
+                            });
+                            markers.push(marker);
+                          }
+                        });
+                      }
+
+                      function dropCercanias(){
+                        clearMarkers();
+                        
+                        transitLayer.setMap(map);
+                        dataCercanias.forEach(function(stat){
+                          var contentString = '<center><h5 id="firstHeading" class="firstHeading">' + stat.nombre + '</h5>\n' + 
+                            '<h6>Direccion: ' + stat.direccion + '</h6>' + 
+                            '</br>' + 
+                            '<h6>Lineas</h6>\n' +
+                            '<p>' + stat.lineas + '</center></p>' + 
+                            '<h6>Tarifa</h6>\n' + 
+                            '<p>' + stat.tarifa + '</p>';
+
+                          var infowindow = new google.maps.InfoWindow({
+                            content : contentString
+                          });
+
+                          var marker = new google.maps.Marker({
+                            position: new google.maps.LatLng(stat.lat, stat.lon),
+                            icon: {
+                              url: 'http://www.comunidad.madrid/sites/default/files/styles/block_teaser_image/public/img/logos-simbolos/logo_cercanias_color_982x550.png',
+                              scaledSize: new google.maps.Size(45,33)
+                            },
+                            map: map,
+                            animation: google.maps.Animation.DROP
+                          });
+
+                          marker.addListener('click', function() {
+                            infowindow.open(map, marker);
+                          });
+                          markers.push(marker);
+                        });
+                      }
+
+                      function dropSpecificCercanias(line){
+                        clearMarkers();
+                        transitLayer.setMap(map);
+
+                        dataCercanias.forEach(function(stat){
+                          if(stat.lineas.includes(line)){
+                            var marker = new google.maps.Marker({
+                              position: new google.maps.LatLng(stat.lat, stat.lon),
+                              icon: {
+                                url: 'http://www.comunidad.madrid/sites/default/files/styles/block_teaser_image/public/img/logos-simbolos/logo_cercanias_color_982x550.png',
+                                scaledSize: new google.maps.Size(45,33)
+                              },
+                              map: map,
+                              animation: google.maps.Animation.DROP
+                            });
+                            markers.push(marker);
+                          }
+                        });
+                      }
+
+                      function clearMarkers() {
+                        transitLayer.setMap(null);
+                        setMapOnAll(null);
+                        markers = [];
+                      }
+
+                      function setMapOnAll(map) {
+                        for (var i = 0; i < markers.length; i++) {
+                          markers[i].setMap(map);
+                        }
+                      }
+                    
+                    
+                    script(async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQXpPnTkWE4KUpN8VjQ-uZ1jhsawzA59Q&callback=initMap")
+
+            .col-lg-3.col-sm-6.py-3
+              .card.py-3
+                .card-header Plano Metro
+                .card-body
+                  a(href='https://www.planometromadrid.org/mapas-metro/plano-metro-madrid-2019-01.png' , data-fancybox="", data-caption='Plano Metro')
+                    img.rounded.w-100(src='https://www.planometromadrid.org/mapas-metro/plano-metro-madrid-2019-01.png', alt='')
+
+            .col-lg-3.col-sm-6.py-3
+              .card
+                .card-header Plano Cercanias
+                .card-body
+                  a(href='https://www.redtransporte.com/img/transporte/madrid/cercanias-renfe/plano-cercanias-renfe.jpg', data-fancybox='', data-caption='Plano Cercanias')
+                    img.rounded.w-100(src='https://www.redtransporte.com/img/transporte/madrid/cercanias-renfe/plano-cercanias-renfe.jpg', alt='')
+
+            .col-lg-12.col-sm-6.py-3
+              .card
+                .card
+                img(src='https://www.metromadrid.es/sites/default/files/web/imagenes/Logomarca_azul.png', style='width:10%')
+                .card-body 
+                  .container-fluid
+                    .row
+                      .col.col-lg-3.col-md-3
+                        table.table
+                          thead
+                            tr
+                              th(scope='col', width = '10%') Linea
+                            
+                          tbody
+                            each line, index in metroLines
+                              if index < 4
+                                tr
+                                  td
+                                    if index < 4
+                                      img(src=line.img, style='width:30px')
+                                  td(align='left')
+                                    if index < 4
+                                      if line.desc == 'No hay incidencias'
+                                        span.badge.bagge-pill.badge-success(style='cursor:pointer;display:block',data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
+                                      else if line.estado == 'Circulación interrumpida' || line.estado == 'circulación interrumpida'
+                                        span.badge.bagge-pill.badge-danger(style='cursor:pointer;display:block',data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
+                                      else
+                                        span.badge.bagge-pill.badge-warning(style='cursor:pointer;display:block',data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
+                      .col.col-lg-3.col-md-3
+                        table.table
+                          thead
+                            tr
+                              th(scope='col', width='10%') Linea
+                            
+                          tbody
+                            each line, index in metroLines
+                              if index >= 4 && index < 8
+                                tr
+                                  td
+                                    if index >= 4 && index < 8
+                                      img(src=line.img, style='width:30px')
+                                  td(align='left')
+                                    if index >= 4 && index < 8
+                                      if line.desc == 'No hay incidencias'
+                                        span.badge.bagge-pill.badge-success(style='cursor:pointer;display:block',data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
+                                      else if line.estado == 'Circulación interrumpida' || line.estado == 'circulación interrumpida'
+                                        span.badge.bagge-pill.badge-danger(style='cursor:pointer;display:block',data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
+                                      else
+                                        span.badge.bagge-pill.badge-warning(style='cursor:pointer;display:block',data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
+                      .col.col-lg-3.col-md-3
+                        table.table
+                          thead
+                            tr
+                              th(scope='col', width='10%') Linea
+                            
+                          tbody
+                            each line, index in metroLines
+                              if index >= 8 && index < 12
+                                tr
+                                  td
+                                    if index >= 8 && index < 12
+                                      img(src=line.img, style='width:30px')
+                                  td(align='left')
+                                    if index >= 8 && index < 12
+                                      if line.desc == 'No hay incidencias'
+                                        span.badge.bagge-pill.badge-success(style='cursor:pointer;display:block', data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
+                                      else if line.estado == 'Circulación interrumpida' || line.estado == 'circulación interrumpida'
+                                        span.badge.bagge-pill.badge-danger(style='cursor:pointer;display:block',data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
+                                      else
+                                        span.badge.bagge-pill.badge-warning(style='cursor:pointer;display:block',data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado 
+                      .col.col-lg-3.col-md-3
+                        table.table
+                          thead
+                            tr
+                              th(scope='col', width='10%') Linea
+                            
+                          tbody
+                            each line, index in metroLines
+                              if index >=12 && index< 16
+                                tr
+                                  td
+                                    if index >=12 && index< 16
+                                      img(src=line.img, style='width:30px')
+                                  td(align='left')
+                                    if index >=12 && index< 16
+                                      if line.desc == 'No hay incidencias'
+                                        span.badge.bagge-pill.badge-success(style='cursor:pointer;display:block',data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
+                                      else if line.estado == 'Circulación interrumpida' || line.estado == 'circulación interrumpida'
+                                        span.badge.bagge-pill.badge-danger(style='cursor:pointer;display:block',data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
+                                      else
+                                        span.badge.bagge-pill.badge-warning(style='cursor:pointer;display:block',data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
+
+      // ===============================================
+      // Pie de pagina
+      // ===============================================
+      footer
+
+// ===============================================
+// fin del contenido
+// ===============================================
+// ===============================================
+// JavaScripts
+// ===============================================
+script(src='../assets/js/jquery.min.js')
+script(src='../assets/js/popper.min.js')
+script(src='../assets/js/bootstrap.js')
+script(src='../assets/js/plugins.js')
+script(src='../assets/js/jquery.fancybox.min.js')
+script(src='../assets/lib/stickyfilljs/stickyfill.min.js')
+script(src='../assets/lib/sticky-kit/sticky-kit.min.js')
+script(src='../assets/lib/chart.js/Chart.min.js')
+script(src='../assets/lib/jqvmap/jquery.vmap.js')
+script(src='../assets/lib/jqvmap/maps/jquery.vmap.world.js' charset='utf-8')
+script(src='../assets/js/theme.js')
+script(src='../assets/lib/jqvmap/maps/jquery.vmap.usa.js' charset='utf-8')

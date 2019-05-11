@@ -66,9 +66,7 @@ main#top.main
             // ===============================================
             ul#email.nav.collapse(data-parent='#navbarVerticalCollapse')
               li.nav-item
-                a.nav-link(href='servicios/metro') Metro
-              li.nav-item
-                a.nav-link(href='servicios/cercanias') Cercanias
+                a.nav-link(href='servicios/metro-cercanias') Metro/Cercanias
               li.nav-item
                 a.nav-link(href='servicios/autobus') Autobus
               li.nav-item
@@ -379,7 +377,9 @@ main#top.main
                             each line in ['C-1', 'C-2', 'C-3', 'C-4','C-5', 'C-7','C-8','C-9','C-10']
                               a.dropdown-item(id= line, onClick='dropSpecificCercanias(this.id)')= line
                       li.nav-item
-                        button.btn(onClick='dropAutobus()') Autobus
+                        button.btn(type='button', data-container='body', data-toggle='popover', 
+                          data-placement='top', data-html='true', 
+                          data-content='<a href="servicios/autobus">Para ver datos de Autobus, haga click aqui</a>') Autobus
                       li.nav-item
                        button.btn(onClick='dropBicimad()') Bicimad
                       li.nav-item
@@ -394,15 +394,12 @@ main#top.main
                             var dataMetro = !{JSON.stringify(metroStations)};
                             var dataBicimad = !{JSON.stringify(bicimadStations)};
                             var dataCercanias = !{JSON.stringify(cercaniasStations)};
-                            var dataBus = !{JSON.stringify(busStations)};
                             
                             var trafficLayer;
                             var transitLayer;
-                            var markerCluster;
 
                             var map;
                             var markers = [];
-                            var busMarkers = [];
                             function initMap() {
                               map = new google.maps.Map(document.getElementById('map'), {
                                 center: {lat: 40.4165000, lng: -3.7025600},
@@ -411,20 +408,6 @@ main#top.main
 
                               trafficLayer = new google.maps.TrafficLayer();
                               transitLayer = new google.maps.TransitLayer();
-                              markerCluster = new MarkerClusterer(map, markers,{imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
-                              markerCluster.clearMarkers();
-
-                              dataBus.forEach(function(stat){
-                                var marker = new google.maps.Marker({
-                                  position: new google.maps.LatLng(stat.lat, stat.lon),
-                                  icon: {
-                                      url: 'assets/img/icons/metroIcon.png',
-                                      scaledSize: new google.maps.Size(0,0)
-                                  }
-                                });
-
-                                busMarkers.push(marker);
-                              });
                             }
                             
                             function dropMetro(){
@@ -504,6 +487,18 @@ main#top.main
                               transitLayer.setMap(map);
 
                               dataCercanias.forEach(function(stat){
+                                var contentString = '<center><h5 id="firstHeading" class="firstHeading">' + stat.nombre + '</h5>\n' + 
+                                  '<h6>Direccion: ' + stat.direccion + '</h6>' + 
+                                  '</br>' + 
+                                  '<h6>Lineas</h6>\n' +
+                                  '<p>' + stat.lineas + '</center></p>' + 
+                                  '<h6>Tarifa</h6>\n' + 
+                                  '<p>' + stat.tarifa + '</p>';
+
+                                  var infowindow = new google.maps.InfoWindow({
+                                    content : contentString
+                                  });
+
                                 if(stat.lineas.includes(line)){
                                   var marker = new google.maps.Marker({
                                     position: new google.maps.LatLng(stat.lat, stat.lon),
@@ -514,16 +509,13 @@ main#top.main
                                     map: map,
                                     animation: google.maps.Animation.DROP
                                   });
+                                  marker.addListener('click', function() {
+                                    infowindow.open(map, marker);
+                                  });
+
                                   markers.push(marker);
                                 }
                               });
-                            }
-
-                            function dropAutobus() {
-                              clearMarkers();
-                              
-                              markerCluster.addMarkers(busMarkers);
-                              markerCluster.redraw();
                             }
 
                             function dropBicimad() {
@@ -540,6 +532,18 @@ main#top.main
                                   operativoState = 'No Operativa';
                                   stateImageUrl = 'assets/img/icons/bicimadIconUnavailable.png';
                                 }
+
+                                var contentString = '<h5 id="firstHeading" class="firstHeading">' + statBici.nombre + '</h5>\n' + 
+                                  '<h6>Direccion: ' + statBici.direccion + '</h6>' + 
+                                  '</br>' + 
+                                  '<p>Bicis disponibles: ' + statBici.ancladas + '</p>' +
+                                  '</br>' + 
+                                  '<h6>' + operativoState + '</h6>';
+
+                                var infowindow = new google.maps.InfoWindow({
+                                  content : contentString
+                                });
+                                
                                 var marker = new google.maps.Marker({
                                   position: new google.maps.LatLng(statBici.lat, statBici.lon),
                                   icon: {
@@ -548,6 +552,10 @@ main#top.main
                                   },
                                   map: map,
                                   animation: google.maps.Animation.DROP
+                                });
+
+                                marker.addListener('click', function() {
+                                  infowindow.open(map, marker);
                                 });
                                 markers.push(marker);
                               });
@@ -564,7 +572,6 @@ main#top.main
                               trafficLayer.setMap(null);
                               setMapOnAll(null);
                               markers = [];
-                              markerCluster.clearMarkers();
                             }
 
                             function setMapOnAll(map) {
@@ -575,7 +582,6 @@ main#top.main
 
 
                         script(async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQXpPnTkWE4KUpN8VjQ-uZ1jhsawzA59Q&callback=initMap")
-                        script(src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js")
                         
                     
                       

@@ -48,9 +48,6 @@ app.get('/', async function(req, res){
     //Cercanias
     list.cercaniasStations = await dbo.collection('paradasCercanias').find().toArray();
 
-    //BUS
-    list.busStations = await dbo.collection('paradasEMT').find().toArray();
-
     //Bicimad Estaciones
     list.bicimadStations = await dbo.collection('bicimad').find().toArray();
 
@@ -71,7 +68,19 @@ app.get('/', async function(req, res){
 
 //Navegacion paginas y precarga de paginas
 app.get('/servicios/autobus', function(req, res){
-  res.render('autobus');
+  MongoClient.connect(url, {useNewUrlParser:true}).then(async function (db) {
+    dbo = db.db('TPA')
+
+    //Lista general de insercion al index
+    var list = {};
+
+    list.busStations = await dbo.collection('paradasEMT').find().toArray();
+
+    res.render('autobus', list);
+    db.close();
+  }).catch(function(err){
+    console.log(err);
+  });
 });
 
 app.get('/servicios/bicimad', function(req, res){
@@ -83,6 +92,20 @@ app.get('/servicios/bicimad', function(req, res){
 
     list.bicimadStations = await dbo.collection('bicimad').find().toArray();
 
+    function contains(arr, key, val){
+      for(var i = 0; i < arr.length; i++){
+        if(arr[i][key] === val) return true;
+      }
+
+      return false;
+    }
+
+
+    if(contains(list.bicimadStations, "operativo", "No")){
+      list.bicimadStationsOff = true;
+    } else {
+      list.bicimadStationsOff = false;
+    }
 
     //Render final de la pagina con los datos
     res.render('bicimad', list);
@@ -92,12 +115,30 @@ app.get('/servicios/bicimad', function(req, res){
   });
 });
 
-app.get('/servicios/cercanias', function(req, res){
-  res.render('cercanias');
-});
+app.get('/servicios/metro-cercanias', function(req, res){
+  MongoClient.connect(url, {useNewUrlParser:true}).then(async function (db) {
+    dbo = db.db('TPA')
 
-app.get('/servicios/metro', function(req, res){
-  res.render('metro');
+    //Lista general de insercion al index
+    var list = {};
+
+    //Metro Lineas
+    metroLinesDb = await dbo.collection('lineasMetro').find().sort({'nombre': 1}).toArray();
+    list.metroLines = metroLinesDb;
+
+    //Metro Estaciones
+    list.metroStations = await dbo.collection('estacionesMetro').find().toArray();
+    list.distinctLines = await dbo.collection('estacionesMetro').distinct('linea');
+
+    //Cercanias
+    list.cercaniasStations = await dbo.collection('paradasCercanias').find().toArray();
+
+    //Render final de la pagina con los datos
+    res.render('metro-cercanias', list);
+    db.close();
+  }).catch(function(err){
+    console.log(err);
+  });
 });
 
 app.get('/servicios/uber', function(req, res){

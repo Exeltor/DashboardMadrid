@@ -66,9 +66,7 @@ main#top.main
                 span Servicios
             ul#servicios.nav.collapse.show(data-parent='#navbarVerticalCollapse')
               li.nav-item
-                a.nav-link(href='/servicios/metro') Metro
-              li.nav-item
-                a.nav-link(href='/servicios/cercanias') Cercanias
+                a.nav-link(href='/servicios/metro-cercanias') Metro/Cercanias
               li.nav-item.active
                 a.nav-link(href='/servicios/autobus')
                   | Autobus
@@ -181,26 +179,53 @@ main#top.main
                   window.onload=function(){startTime();}
                 #reloj(style='font-size:20px;')
       div
+        .container-fluid-sm-12
+          .row
+            .col-md-6
+              .card.text-center
+                .card-header
+                  h5.card-title Estaciones de Bus
+                .map-canvas.min-vh-50(id='map')
+                  script.
+                    var data = !{JSON.stringify(busStations)};
+                    var map;
+
+                    var markers = [];
+                    function initMap() {
+                      map = new google.maps.Map(document.getElementById('map'), {
+                        center: {lat: 40.4165000, lng: -3.7025600},
+                        zoom: 11,
+                        mapTypeControl: false
+                      });
+                      
+                      data.forEach(function(stat){
+                        var marker = new google.maps.Marker({
+                          position: new google.maps.LatLng(stat.lat, stat.lon),
+                          icon: {
+                            url: 'assets/img/icons/metroIcon.png',
+                            scaledSize: new google.maps.Size(0,0)
+                          },
+                          map: map,
+                          animation: google.maps.Animation.DROP
+                        });
+
+                        markers.push(marker);
+                      });
+
+                      var markerCluster = new MarkerClusterer(map, markers, {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+                    }
       // ===============================================
       // Pie de pagina
       // ===============================================
       footer
-        .row.no-gutters.justify-content-between.fs--1.mt-4.mb-3
-          .col-12.col-sm-auto.text-center
-            p.mb-0.text-600
-              | Thank you for creating with Falcon 
-              span.d-none.d-sm-inline-block | 
-              br.d-sm-none
-              |  2019 &copy; 
-              a(href='../https://themewagon.com') Themewagon
-          .col-12.col-sm-auto.text-center
-            p.mb-0.text-600 v0.1.0
 // ===============================================
 // fin del contenido
 // ===============================================
 // ===============================================
 // JavaScripts
 // ===============================================
+script(async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQXpPnTkWE4KUpN8VjQ-uZ1jhsawzA59Q&callback=initMap")
+script(src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js")
 script(src='../assets/js/jquery.min.js')
 script(src='../assets/js/popper.min.js')
 script(src='../assets/js/bootstrap.js')
