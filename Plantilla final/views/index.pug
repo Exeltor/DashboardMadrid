@@ -266,17 +266,17 @@ main#top.main
                       button.btn.btn-primary.mb-3(type='button', onClick='convertToEur()') Convertir
 
 
-            .col-md-12.col-lg-8.py-3
+            .col-md-12.col-lg-8.col-sm-10.py-3
               .card
                 img(src='https://www.metromadrid.es/sites/default/files/web/imagenes/Logomarca_azul.png', style='width:10%')
                 .card-body 
                   .container-fluid
                     .row
-                      .col.col-lg-3.col-md-3
-                        table.table
+                      .col.col-lg-3.col-md-3.col-sm-3
+                        table.table-responsive
                           thead
                             tr
-                              th(scope='col', width = '10%') Linea
+                              th(scope='col', width = '20%') Linea
                             
                           tbody
                             each line, index in metroLines
@@ -287,17 +287,30 @@ main#top.main
                                       img(src=line.img, style='width:30px')
                                   td(align='left')
                                     if index < 4
+                                      - var color = ''
                                       if line.desc == 'No hay incidencias'
-                                        span.badge.bagge-pill.badge-success(style='cursor:pointer;display:block',data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
+                                        span.badge.bagge-pill.badge-success(style='cursor:pointer',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
+                                        - color = 'background-color:#228B22';
                                       else if line.estado == 'Circulación interrumpida' || line.estado == 'circulación interrumpida'
-                                        span.badge.bagge-pill.badge-danger(style='cursor:pointer;display:block',data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
+                                        span.badge.bagge-pill.badge-danger(style='cursor:pointer',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
+                                        - color = 'background-color:#B22222'
                                       else
-                                        span.badge.bagge-pill.badge-warning(style='cursor:pointer;display:block',data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
-                      .col.col-lg-3.col-md-3
-                        table.table
+                                        span.badge.bagge-pill.badge-warning(style='cursor:pointer',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
+                                        - color = 'background-color:#FF8C00'
+
+                                    .modal.fade(id='infoModal' + line._id, tabindex='-1', role='dialog', aria-labelledby='infoModalLabel', aria-hidden='true')
+                                      .modal-dialog.modal-dialog-centered(role='document')
+                                        .modal-content(style=color)
+                                          .modal-header
+                                            h5.modal-title(id='infoModalLabel', style='color:white') Informacion sobre estado
+                                            button.close(type='button', data-dismiss='modal', aria-label='close')
+                                                span.font-weight-light(aria-hidden='true') &times;
+                                          .modal-body(style='white-space:pre-line;color:white')= line.desc
+                      .col.col-lg-3.col-md-3.col-sm-3
+                        table.table-responsive
                           thead
                             tr
-                              th(scope='col', width='10%') Linea
+                              th(scope='col', width='20%') Linea
                             
                           tbody
                             each line, index in metroLines
@@ -308,17 +321,29 @@ main#top.main
                                       img(src=line.img, style='width:30px')
                                   td(align='left')
                                     if index >= 4 && index < 8
+                                      - var color = ''
                                       if line.desc == 'No hay incidencias'
-                                        span.badge.bagge-pill.badge-success(style='cursor:pointer;display:block',data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
+                                        span.badge.bagge-pill.badge-success(style='cursor:pointer',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
+                                        - color = 'background-color:#228B22';
                                       else if line.estado == 'Circulación interrumpida' || line.estado == 'circulación interrumpida'
-                                        span.badge.bagge-pill.badge-danger(style='cursor:pointer;display:block',data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
+                                        span.badge.bagge-pill.badge-danger(style='cursor:pointer',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
+                                        - color = 'background-color:#B22222'
                                       else
-                                        span.badge.bagge-pill.badge-warning(style='cursor:pointer;display:block',data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
-                      .col.col-lg-3.col-md-3
-                        table.table
+                                        span.badge.bagge-pill.badge-warning(style='cursor:pointer',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
+                                        - color = 'background-color:#FF8C00'
+                                    .modal.fade(id='infoModal' + line._id, tabindex='-1', role='dialog', aria-labelledby='infoModalLabel', aria-hidden='true')
+                                      .modal-dialog.modal-dialog-centered(role='document')
+                                        .modal-content(style=color)
+                                          .modal-header
+                                            h5.modal-title(id='infoModalLabel', style='color:white') Informacion sobre estado
+                                            button.close(type='button', data-dismiss='modal', aria-label='close')
+                                                span.font-weight-light(aria-hidden='true') &times;
+                                          .modal-body(style='white-space:pre-line;color:white')= line.desc
+                      .col.col-lg-3.col-md-3.col-sm-3
+                        table.table-responsive
                           thead
                             tr
-                              th(scope='col', width='10%') Linea
+                              th(scope='col', width='20%') Linea
                             
                           tbody
                             each line, index in metroLines
@@ -329,17 +354,30 @@ main#top.main
                                       img(src=line.img, style='width:30px')
                                   td(align='left')
                                     if index >= 8 && index < 12
+                                    - var color = ''
                                       if line.desc == 'No hay incidencias'
-                                        span.badge.bagge-pill.badge-success(style='cursor:pointer;display:block', data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
+                                        span.badge.bagge-pill.badge-success(style='cursor:pointer',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
+                                        - color = 'background-color:#228B22';
                                       else if line.estado == 'Circulación interrumpida' || line.estado == 'circulación interrumpida'
-                                        span.badge.bagge-pill.badge-danger(style='cursor:pointer;display:block',data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
+                                        span.badge.bagge-pill.badge-danger(style='cursor:pointer',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
+                                        - color = 'background-color:#B22222'
                                       else
-                                        span.badge.bagge-pill.badge-warning(style='cursor:pointer;display:block',data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado 
-                      .col.col-lg-3.col-md-3
-                        table.table
+                                        span.badge.bagge-pill.badge-warning(style='cursor:pointer',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
+                                        - color = 'background-color:#FF8C00'
+
+                                    .modal.fade(id='infoModal' + line._id, tabindex='-1', role='dialog', aria-labelledby='infoModalLabel', aria-hidden='true')
+                                      .modal-dialog.modal-dialog-centered(role='document')
+                                        .modal-content(style=color)
+                                          .modal-header
+                                            h5.modal-title(id='infoModalLabel', style='color:white') Informacion sobre estado
+                                            button.close(type='button', data-dismiss='modal', aria-label='close')
+                                                span.font-weight-light(aria-hidden='true') &times;
+                                          .modal-body(style='white-space:pre-line;color:white')= line.desc
+                      .col.col-lg-3.col-md-3.col-sm-3
+                        table.table-responsive
                           thead
                             tr
-                              th(scope='col', width='10%') Linea
+                              th(scope='col', width='20%') Linea
                             
                           tbody
                             each line, index in metroLines
@@ -350,12 +388,25 @@ main#top.main
                                       img(src=line.img, style='width:30px')
                                   td(align='left')
                                     if index >=12 && index< 16
+                                    - var color = ''
                                       if line.desc == 'No hay incidencias'
-                                        span.badge.bagge-pill.badge-success(style='cursor:pointer;display:block',data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
+                                        span.badge.bagge-pill.badge-success(style='cursor:pointer',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
+                                        - color = 'background-color:#228B22';
                                       else if line.estado == 'Circulación interrumpida' || line.estado == 'circulación interrumpida'
-                                        span.badge.bagge-pill.badge-danger(style='cursor:pointer;display:block',data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
+                                        span.badge.bagge-pill.badge-danger(style='cursor:pointer',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
+                                        - color = 'background-color:#B22222'
                                       else
-                                        span.badge.bagge-pill.badge-warning(style='cursor:pointer;display:block',data-toggle='popover', data-placement='top', data-content= line.desc)= line.estado
+                                        span.badge.bagge-pill.badge-warning(style='cursor:pointer',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
+                                        - color = 'background-color:#FF8C00'
+
+                                    .modal.fade(id='infoModal' + line._id, tabindex='-1', role='dialog', aria-labelledby='infoModalLabel', aria-hidden='true')
+                                      .modal-dialog.modal-dialog-centered(role='document')
+                                        .modal-content(style=color)
+                                          .modal-header
+                                            h5.modal-title(id='infoModalLabel', style='color:white') Informacion sobre estado
+                                            button.close(type='button', data-dismiss='modal', aria-label='close')
+                                                span.font-weight-light(aria-hidden='true') &times;
+                                          .modal-body(style='white-space:pre-line;color:white')= line.desc
           .col-lg-8.py-3
                 .card.text-center(class='card text-center')
                   .card-header
@@ -405,7 +456,9 @@ main#top.main
                             function initMap() {
                               map = new google.maps.Map(document.getElementById('map'), {
                                 center: {lat: 40.4165000, lng: -3.7025600},
-                                zoom: 11
+                                zoom: 11,
+                                mapTypeControl: false,
+                                streetViewControl: false
                               });
 
                               trafficLayer = new google.maps.TrafficLayer();
