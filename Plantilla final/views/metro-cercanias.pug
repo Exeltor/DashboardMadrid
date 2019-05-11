@@ -193,9 +193,9 @@ main#top.main
                         .dropdown-menu
                           each line in distinctLines
                             if line == 'Línea '
-                              a.dropdown-item(id= line, onClick='dropSpecificLine(this.id)') Ramal
+                              a.dropdown-item(id= line, onClick='dropSpecificLine(this.id)', style='cursor:pointer') Ramal
                             else
-                              a.dropdown-item(id= line, onClick='dropSpecificLine(this.id)')= line
+                              a.dropdown-item(id= line, onClick='dropSpecificLine(this.id)', style='cursor:pointer')= line
 
                     li.nav-item
                       .btn-group
@@ -203,7 +203,7 @@ main#top.main
                         button.btn.dropdown-toggle.dropdown-toggle-split(data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
                         .dropdown-menu
                           each line in ['C-1', 'C-2', 'C-3', 'C-4','C-5', 'C-7','C-8','C-9','C-10']
-                            a.dropdown-item(id= line, onClick='dropSpecificCercanias(this.id)')= line
+                            a.dropdown-item(id= line, onClick='dropSpecificCercanias(this.id)', style='cursor:pointer')= line
                     li.nav-item
                       button.btn.btn-primary(onClick='clearMarkers()') Clear
                 .card-body
@@ -348,36 +348,36 @@ main#top.main
                   a(href='https://www.redtransporte.com/img/transporte/madrid/cercanias-renfe/plano-cercanias-renfe.jpg', data-fancybox='', data-caption='Plano Cercanias')
                     img.rounded.w-100(src='https://www.redtransporte.com/img/transporte/madrid/cercanias-renfe/plano-cercanias-renfe.jpg', alt='')
 
-            .col-md-12.col-lg-12.col-sm-10.py-3
+            .col-md-12.col-lg-8.col-sm-10.py-3
               .card
                 img(src='https://www.metromadrid.es/sites/default/files/web/imagenes/Logomarca_azul.png', style='width:10%')
                 .card-body 
                   .container-fluid
                     .row
-                      .col.col-lg-3.col-md-3.col-sm-3
-                        table.table-responsive
+                      .col-xs-.col-lg-3.col-md-6.col-sm-6
+                        table.table-borderless
                           thead
                             tr
-                              th(scope='col', width = '20%') Linea
+                              th.py-3(scope='col', width = '10%') Linea
                             
                           tbody
                             each line, index in metroLines
                               if index < 4
                                 tr
-                                  td
+                                  td.py-3
                                     if index < 4
                                       img(src=line.img, style='width:30px')
-                                  td(align='left')
+                                  td.py-3(align='left')
                                     if index < 4
                                       - var color = ''
                                       if line.desc == 'No hay incidencias'
-                                        span.badge.bagge-pill.badge-success(style='cursor:pointer',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
+                                        span.badge.bagge-pill.badge-success(style='cursor:pointer;display:block',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
                                         - color = 'background-color:#228B22';
                                       else if line.estado == 'Circulación interrumpida' || line.estado == 'circulación interrumpida'
-                                        span.badge.bagge-pill.badge-danger(style='cursor:pointer',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
+                                        span.badge.bagge-pill.badge-danger(style='cursor:pointer;display:block',data-toggle='modal', data-target='#infoModal' + line._id) Circul. interrumpida
                                         - color = 'background-color:#B22222'
                                       else
-                                        span.badge.bagge-pill.badge-warning(style='cursor:pointer',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
+                                        span.badge.bagge-pill.badge-warning(style='cursor:pointer;display:block',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
                                         - color = 'background-color:#FF8C00'
 
                                     .modal.fade(id='infoModal' + line._id, tabindex='-1', role='dialog', aria-labelledby='infoModalLabel', aria-hidden='true')
@@ -388,30 +388,30 @@ main#top.main
                                             button.close(type='button', data-dismiss='modal', aria-label='close')
                                                 span.font-weight-light(aria-hidden='true') &times;
                                           .modal-body(style='white-space:pre-line;color:white')= line.desc
-                      .col.col-lg-3.col-md-3.col-sm-3
-                        table.table-responsive
+                      .col-xs-.col-lg-3.col-md-6.col-sm-6
+                        table.table-borderless
                           thead
                             tr
-                              th(scope='col', width='20%') Linea
+                              th.py-3(scope='col', width='10%') Linea
                             
                           tbody
                             each line, index in metroLines
                               if index >= 4 && index < 8
                                 tr
-                                  td
+                                  td.py-3
                                     if index >= 4 && index < 8
                                       img(src=line.img, style='width:30px')
-                                  td(align='left')
+                                  td.py-3(align='left')
                                     if index >= 4 && index < 8
                                       - var color = ''
                                       if line.desc == 'No hay incidencias'
-                                        span.badge.bagge-pill.badge-success(style='cursor:pointer',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
+                                        span.badge.bagge-pill.badge-success(style='cursor:pointer;display:block',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
                                         - color = 'background-color:#228B22';
                                       else if line.estado == 'Circulación interrumpida' || line.estado == 'circulación interrumpida'
-                                        span.badge.bagge-pill.badge-danger(style='cursor:pointer',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
+                                        span.badge.bagge-pill.badge-danger(style='cursor:pointer;display:block',data-toggle='modal', data-target='#infoModal' + line._id) Circul. interrumpida
                                         - color = 'background-color:#B22222'
                                       else
-                                        span.badge.bagge-pill.badge-warning(style='cursor:pointer',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
+                                        span.badge.bagge-pill.badge-warning(style='cursor:pointer;display:block',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
                                         - color = 'background-color:#FF8C00'
                                     .modal.fade(id='infoModal' + line._id, tabindex='-1', role='dialog', aria-labelledby='infoModalLabel', aria-hidden='true')
                                       .modal-dialog.modal-dialog-centered(role='document')
@@ -421,30 +421,30 @@ main#top.main
                                             button.close(type='button', data-dismiss='modal', aria-label='close')
                                                 span.font-weight-light(aria-hidden='true') &times;
                                           .modal-body(style='white-space:pre-line;color:white')= line.desc
-                      .col.col-lg-3.col-md-3.col-sm-3
-                        table.table-responsive
+                      .col-xs-.col-lg-3.col-md-6.col-sm-6
+                        table.table-borderless
                           thead
                             tr
-                              th(scope='col', width='20%') Linea
+                              th.py-3(scope='col', width='10%') Linea
                             
                           tbody
                             each line, index in metroLines
                               if index >= 8 && index < 12
                                 tr
-                                  td
+                                  td.py-3
                                     if index >= 8 && index < 12
                                       img(src=line.img, style='width:30px')
-                                  td(align='left')
+                                  td.py-3(align='left')
                                     if index >= 8 && index < 12
                                     - var color = ''
                                       if line.desc == 'No hay incidencias'
-                                        span.badge.bagge-pill.badge-success(style='cursor:pointer',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
+                                        span.badge.bagge-pill.badge-success(style='cursor:pointer;display:block',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
                                         - color = 'background-color:#228B22';
                                       else if line.estado == 'Circulación interrumpida' || line.estado == 'circulación interrumpida'
-                                        span.badge.bagge-pill.badge-danger(style='cursor:pointer',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
+                                        span.badge.bagge-pill.badge-danger(style='cursor:pointer;display:block',data-toggle='modal', data-target='#infoModal' + line._id) Circul. interrumpida
                                         - color = 'background-color:#B22222'
                                       else
-                                        span.badge.bagge-pill.badge-warning(style='cursor:pointer',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
+                                        span.badge.bagge-pill.badge-warning(style='cursor:pointer;display:block',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
                                         - color = 'background-color:#FF8C00'
 
                                     .modal.fade(id='infoModal' + line._id, tabindex='-1', role='dialog', aria-labelledby='infoModalLabel', aria-hidden='true')
@@ -455,30 +455,30 @@ main#top.main
                                             button.close(type='button', data-dismiss='modal', aria-label='close')
                                                 span.font-weight-light(aria-hidden='true') &times;
                                           .modal-body(style='white-space:pre-line;color:white')= line.desc
-                      .col.col-lg-3.col-md-3.col-sm-3
-                        table.table-responsive
+                      .col-xs-.col-lg-3.col-md-6.col-sm-6
+                        table.table-borderless
                           thead
                             tr
-                              th(scope='col', width='20%') Linea
+                              th.py-3(scope='col', width='10%') Linea
                             
                           tbody
                             each line, index in metroLines
                               if index >=12 && index< 16
                                 tr
-                                  td
+                                  td.py-3
                                     if index >=12 && index< 16
                                       img(src=line.img, style='width:30px')
-                                  td(align='left')
+                                  td.py-3(align='left')
                                     if index >=12 && index< 16
                                     - var color = ''
                                       if line.desc == 'No hay incidencias'
-                                        span.badge.bagge-pill.badge-success(style='cursor:pointer',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
+                                        span.badge.bagge-pill.badge-success(style='cursor:pointer;display:block',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
                                         - color = 'background-color:#228B22';
                                       else if line.estado == 'Circulación interrumpida' || line.estado == 'circulación interrumpida'
-                                        span.badge.bagge-pill.badge-danger(style='cursor:pointer',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
+                                        span.badge.bagge-pill.badge-danger(style='cursor:pointer;display:block',data-toggle='modal', data-target='#infoModal' + line._id) Circul. interrumpida
                                         - color = 'background-color:#B22222'
                                       else
-                                        span.badge.bagge-pill.badge-warning(style='cursor:pointer',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
+                                        span.badge.bagge-pill.badge-warning(style='cursor:pointer;display:block',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
                                         - color = 'background-color:#FF8C00'
 
                                     .modal.fade(id='infoModal' + line._id, tabindex='-1', role='dialog', aria-labelledby='infoModalLabel', aria-hidden='true')

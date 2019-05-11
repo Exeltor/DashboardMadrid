@@ -195,7 +195,7 @@ main#top.main
                   .tab-content
                     .tab-pane.active(id='salidas', role='tabpanel')
                       table.table
-                        thead
+                        thead.thead-light
                           tr
                             th(scope='col') ID
                             th(scope='col') Aerolinea
@@ -205,17 +205,43 @@ main#top.main
                             th(scope='col') Hora
                         tbody
                           each flight in flightDepJsons
-                            tr
-                              th(scope='row')= flight.id
-                              td= flight.aerolinea
-                              td= flight.destino
-                              td= flight.estado
-                              td= flight.terminal
-                              td= flight.horaSalida
+                            if flight.estado == 'Cancelado'
+                              tr.table-danger
+                                th(scope='row')= flight.id
+                                td= flight.aerolinea
+                                td= flight.destino
+                                td= flight.estado
+                                td= flight.terminal
+                                td= flight.horaSalida
+                            else if flight.estado == 'Desconocido'
+                              tr.table-warning
+                                th(scope='row')= flight.id
+                                td= flight.aerolinea
+                                td= flight.destino
+                                td= flight.estado
+                                td= flight.terminal
+                                td= flight.horaSalida
+                            else if flight.estado == 'Programado'
+                              tr.table-primary
+                                th(scope='row')= flight.id
+                                td= flight.aerolinea
+                                td= flight.destino
+                                td= flight.estado
+                                td= flight.terminal
+                                td= flight.horaSalida
+                            else
+                              tr
+                                th(scope='row')= flight.id
+                                td= flight.aerolinea
+                                td= flight.destino
+                                td= flight.estado
+                                td= flight.terminal
+                                td= flight.horaSalida
+                            
 
                     .tab-pane(id='llegadas', role='tabpanel')
                       table.table
-                        thead
+                        thead.thead-light
                           tr
                             th(scope='col') ID
                             th(scope='col') Aerolinea
@@ -225,14 +251,31 @@ main#top.main
                             th(scope='col') Hora
                         tbody
                           each flight in flightArrJsons
-                            tr
-                              th(scope='row')= flight.id
-                              td= flight.aerolinea
-                              td= flight.origen
-                              td= flight.estado
-                              td= flight.terminal
-                              td= flight.horaLlegada
-            
+                            if flight.estado == 'Activo'
+                              tr.table-primary
+                                th(scope='row')= flight.id
+                                td= flight.aerolinea
+                                td= flight.origen
+                                td= flight.estado
+                                td= flight.terminal
+                                td= flight.horaLlegada
+                            else if flight.estado == 'Cancelado'
+                              tr.table-danger
+                                th(scope='row')= flight.id
+                                td= flight.aerolinea
+                                td= flight.origen
+                                td= flight.estado
+                                td= flight.terminal
+                                td= flight.horaLlegada
+                            else
+                              tr
+                                th(scope='row')= flight.id
+                                td= flight.aerolinea
+                                td= flight.origen
+                                td= flight.estado
+                                td= flight.terminal
+                                td= flight.horaLlegada
+                
             .col-lg-3.col-md-6.py-3
               .card.py-3
                 center
@@ -248,7 +291,7 @@ main#top.main
                   form(action='/convert', method='POST')
                     .input-group.mb-3
                       .input-group-prepend
-                        button.btn.btn-primary.dropdown-toggle.shadow-none(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Origen
+                        button.btn.btn-outline-primary.dropdown-toggle.shadow-none(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Origen
                         .dropdown-menu(style='max-height:10rem;overflow-y:auto')
                           for coinType in coinTypes
                             a.dropdown-item(id= coinType, onClick='dropdownCurrencySelector(this.id)')= coinType
@@ -263,7 +306,7 @@ main#top.main
                         span.input-group-text €
                     
                     center
-                      button.btn.btn-primary.mb-3(type='button', onClick='convertToEur()') Convertir
+                      button.btn.btn-falcon-success.mb-3(type='button', onClick='convertToEur()') Convertir
 
 
             .col-md-12.col-lg-8.col-sm-10.py-3
@@ -289,13 +332,13 @@ main#top.main
                                     if index < 4
                                       - var color = ''
                                       if line.desc == 'No hay incidencias'
-                                        span.badge.bagge-pill.badge-success(style='cursor:pointer',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
+                                        span.badge.bagge-pill.badge-success(style='cursor:pointer;display:block',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
                                         - color = 'background-color:#228B22';
                                       else if line.estado == 'Circulación interrumpida' || line.estado == 'circulación interrumpida'
-                                        span.badge.bagge-pill.badge-danger(style='cursor:pointer',data-toggle='modal', data-target='#infoModal' + line._id) Circul. interrumpida
+                                        span.badge.bagge-pill.badge-danger(style='cursor:pointer;display:block',data-toggle='modal', data-target='#infoModal' + line._id) Circul. interrumpida
                                         - color = 'background-color:#B22222'
                                       else
-                                        span.badge.bagge-pill.badge-warning(style='cursor:pointer',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
+                                        span.badge.bagge-pill.badge-warning(style='cursor:pointer;display:block',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
                                         - color = 'background-color:#FF8C00'
 
                                     .modal.fade(id='infoModal' + line._id, tabindex='-1', role='dialog', aria-labelledby='infoModalLabel', aria-hidden='true')
@@ -323,13 +366,13 @@ main#top.main
                                     if index >= 4 && index < 8
                                       - var color = ''
                                       if line.desc == 'No hay incidencias'
-                                        span.badge.bagge-pill.badge-success(style='cursor:pointer',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
+                                        span.badge.bagge-pill.badge-success(style='cursor:pointer;display:block',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
                                         - color = 'background-color:#228B22';
                                       else if line.estado == 'Circulación interrumpida' || line.estado == 'circulación interrumpida'
-                                        span.badge.bagge-pill.badge-danger(style='cursor:pointer',data-toggle='modal', data-target='#infoModal' + line._id) Circul. interrumpida
+                                        span.badge.bagge-pill.badge-danger(style='cursor:pointer;display:block',data-toggle='modal', data-target='#infoModal' + line._id) Circul. interrumpida
                                         - color = 'background-color:#B22222'
                                       else
-                                        span.badge.bagge-pill.badge-warning(style='cursor:pointer',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
+                                        span.badge.bagge-pill.badge-warning(style='cursor:pointer;display:block',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
                                         - color = 'background-color:#FF8C00'
                                     .modal.fade(id='infoModal' + line._id, tabindex='-1', role='dialog', aria-labelledby='infoModalLabel', aria-hidden='true')
                                       .modal-dialog.modal-dialog-centered(role='document')
@@ -356,13 +399,13 @@ main#top.main
                                     if index >= 8 && index < 12
                                     - var color = ''
                                       if line.desc == 'No hay incidencias'
-                                        span.badge.bagge-pill.badge-success(style='cursor:pointer',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
+                                        span.badge.bagge-pill.badge-success(style='cursor:pointer;display:block',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
                                         - color = 'background-color:#228B22';
                                       else if line.estado == 'Circulación interrumpida' || line.estado == 'circulación interrumpida'
-                                        span.badge.bagge-pill.badge-danger(style='cursor:pointer',data-toggle='modal', data-target='#infoModal' + line._id) Circul. interrumpida
+                                        span.badge.bagge-pill.badge-danger(style='cursor:pointer;display:block',data-toggle='modal', data-target='#infoModal' + line._id) Circul. interrumpida
                                         - color = 'background-color:#B22222'
                                       else
-                                        span.badge.bagge-pill.badge-warning(style='cursor:pointer',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
+                                        span.badge.bagge-pill.badge-warning(style='cursor:pointer;display:block',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
                                         - color = 'background-color:#FF8C00'
 
                                     .modal.fade(id='infoModal' + line._id, tabindex='-1', role='dialog', aria-labelledby='infoModalLabel', aria-hidden='true')
@@ -390,13 +433,13 @@ main#top.main
                                     if index >=12 && index< 16
                                     - var color = ''
                                       if line.desc == 'No hay incidencias'
-                                        span.badge.bagge-pill.badge-success(style='cursor:pointer',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
+                                        span.badge.bagge-pill.badge-success(style='cursor:pointer;display:block',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
                                         - color = 'background-color:#228B22';
                                       else if line.estado == 'Circulación interrumpida' || line.estado == 'circulación interrumpida'
-                                        span.badge.bagge-pill.badge-danger(style='cursor:pointer',data-toggle='modal', data-target='#infoModal' + line._id) Circul. interrumpida
+                                        span.badge.bagge-pill.badge-danger(style='cursor:pointer;display:block',data-toggle='modal', data-target='#infoModal' + line._id) Circul. interrumpida
                                         - color = 'background-color:#B22222'
                                       else
-                                        span.badge.bagge-pill.badge-warning(style='cursor:pointer',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
+                                        span.badge.bagge-pill.badge-warning(style='cursor:pointer;display:block',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
                                         - color = 'background-color:#FF8C00'
 
                                     .modal.fade(id='infoModal' + line._id, tabindex='-1', role='dialog', aria-labelledby='infoModalLabel', aria-hidden='true')
@@ -410,37 +453,37 @@ main#top.main
           .col-lg-8.py-3
                 .card.text-center(class='card text-center')
                   .card-header
-                    ul.nav.card-header
-                      li.nav-item
+                    ul.nav.nav-pills.card-header
+                      li.nav-item.px-1
                         .btn-group
-                          button.btn(type='button', onClick='dropMetro()') Metro
-                          button.btn.dropdown-toggle.dropdown-toggle-split(data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                          button.btn.btn-falcon-primary(type='button', onClick='dropMetro()') Metro
+                          button.btn.btn-falcon-primary.dropdown-toggle.dropdown-toggle-split(data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
                           .dropdown-menu
                             each line in distinctLines
                               if line == 'Línea '
-                                a.dropdown-item(id= line, onClick='dropSpecificLine(this.id)') Ramal
+                                a.dropdown-item(id= line, onClick='dropSpecificLine(this.id)', style='cursor:pointer') Ramal
                               else
-                                a.dropdown-item(id= line, onClick='dropSpecificLine(this.id)')= line
+                                a.dropdown-item(id= line, onClick='dropSpecificLine(this.id)', style='cursor:pointer')= line
 
-                      li.nav-item
+                      li.nav-item.px-1
                         .btn-group
-                          button.btn(type='button', onClick='dropCercanias()') Cercanias
-                          button.btn.dropdown-toggle.dropdown-toggle-split(data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                          button.btn.btn-falcon-primary(type='button', onClick='dropCercanias()') Cercanias
+                          button.btn.btn-falcon-primary.dropdown-toggle.dropdown-toggle-split(data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
                           .dropdown-menu
                             each line in ['C-1', 'C-2', 'C-3', 'C-4','C-5', 'C-7','C-8','C-9','C-10']
-                              a.dropdown-item(id= line, onClick='dropSpecificCercanias(this.id)')= line
-                      li.nav-item
-                        button.btn(type='button', data-container='body', data-toggle='popover', 
+                              a.dropdown-item(id= line, onClick='dropSpecificCercanias(this.id)', style='cursor:pointer')= line
+                      li.nav-item.px-1
+                        button.btn.btn-falcon-primary(type='button', data-container='body', data-toggle='popover', 
                           data-placement='top', data-html='true', 
                           data-content='<a href="servicios/autobus">Para ver datos de Autobus, haga click aqui</a>') Autobus
-                      li.nav-item
-                       button.btn(onClick='dropBicimad()') Bicimad
-                      li.nav-item
+                      li.nav-item.px-1
+                       button.btn.btn-falcon-primary(onClick='dropBicimad()') Bicimad
+                      li.nav-item.px-1
                         button.btn.disabled(href='#Uber') Uber
-                      li.nav-item
-                        button.btn(onClick='showTraffic()') Trafico
-                      li.nav-item
-                        button.btn.btn-primary(onClick='clearMarkers()') Clear
+                      li.nav-item.px-1
+                        button.btn.btn-falcon-primary(onClick='showTraffic()') Trafico
+                      li.nav-item.px-1
+                        button.btn.btn-falcon-primary(onClick='clearMarkers()') Clear
                   .card-body
                     .map-canvas.min-vh-50(id='map')
                         script(type='text/javascript').
