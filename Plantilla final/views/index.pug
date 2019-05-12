@@ -20,6 +20,9 @@ head
   link(href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700%7cPoppins:100,200,300,400,500,600,700,800,900' rel='stylesheet')
   link(href='assets/lib/jqvmap/jqvmap.min.css' rel='stylesheet')
   link(href='assets/css/theme.css' rel='stylesheet')
+  link(href='//cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap4.min.css', rel='stylesheet')
+  link(href='assets/cdd/dataTables.bootstrap4.min.css', rel='stylesheet')
+  link(href='//cdn.datatables.net/fixedheader/3.1.2/css/fixedHeader.dataTables.min.css', rel='stylesheet')
 // ===============================================
 // Contenido
 // ===============================================
@@ -187,15 +190,16 @@ main#top.main
               .card.text-center(class='card text-center' style='max-height:18rem')
                 .card-header
                   ul.nav.nav-pills.card-header-pills(role='tablist')
-                    li.nav-item
-                      a.nav-link.active(data-toggle='tab', href='#salidas') Salidas
-                    li.nav-item
-                      a.nav-link(data-toggle='tab', href='#llegadas') Llegadas
-                .card-body.col-xs-12(style='overflow:scroll; overflow-x:visible')
+                    li.nav-item.px-1
+                      a.nav-link.btn-falcon-primary.active(data-toggle='tab', href='#salidas') Salidas
+                    li.nav-item.px-1
+                      a.nav-link.btn-falcon-primary(data-toggle='tab', href='#llegadas') Llegadas
+                .card-body.col-xs-12(style='overflow-x:hidden')
                   .tab-content
                     .tab-pane.active(id='salidas', role='tabpanel')
-                      table.table
-                        thead.thead-light
+                      table.table.table-lg.table-dashboard.data-table.responsive.display(data-searching='false', data-paging='false',
+                       data-scrollY='200px', data-info='false', style='width:100%')
+                        thead.bg-200
                           tr
                             th(scope='col') ID
                             th(scope='col') Aerolinea
@@ -203,7 +207,7 @@ main#top.main
                             th(scope='col') Estado
                             th(scope='col') Terminal
                             th(scope='col') Hora
-                        tbody
+                        tbody.bg-white
                           each flight in flightDepJsons
                             if flight.estado == 'Cancelado'
                               tr.table-danger
@@ -240,8 +244,9 @@ main#top.main
                             
 
                     .tab-pane(id='llegadas', role='tabpanel')
-                      table.table
-                        thead.thead-light
+                      table.table.table-lg.table-dashboard.data-table.responsive.display(data-searching='false', data-paging='false',
+                       data-scrollY='200px', data-info='false', style='width:100%')
+                        thead.bg-200
                           tr
                             th(scope='col') ID
                             th(scope='col') Aerolinea
@@ -249,7 +254,7 @@ main#top.main
                             th(scope='col') Estado
                             th(scope='col') Terminal
                             th(scope='col') Hora
-                        tbody
+                        tbody.bg-white
                           each flight in flightArrJsons
                             if flight.estado == 'Activo'
                               tr.table-primary
@@ -706,6 +711,11 @@ script(src='assets/lib/jqvmap/jquery.vmap.js')
 script(src='assets/lib/jqvmap/maps/jquery.vmap.world.js' charset='utf-8')
 script(src='assets/lib/jqvmap/maps/jquery.vmap.usa.js' charset='utf-8')
 script(src='assets/js/theme.js') 
+script(src='//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js')
+script(src='//cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js')
+script(src='//cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js')
+script(src='//cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.js')
+script(src='//cdn.datatables.net/fixedheader/3.1.2/js/dataTables.fixedHeader.min.js')
 
 //Dropdown divisa origen
 script(type='text/javascript').
