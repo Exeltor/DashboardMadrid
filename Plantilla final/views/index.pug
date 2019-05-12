@@ -23,6 +23,7 @@ head
   link(href='//cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap4.min.css', rel='stylesheet')
   link(href='assets/css/dataTables.bootstrap4.min.css', rel='stylesheet')
   link(href='//cdn.datatables.net/fixedheader/3.1.2/css/fixedHeader.dataTables.min.css', rel='stylesheet')
+  link(href='https://use.fontawesome.com/releases/v5.8.2/css/solid.css', rel='stylesheet')
 // ===============================================
 // Contenido
 // ===============================================
@@ -188,98 +189,99 @@ main#top.main
           .row
             .col-lg-9.py-3
               .card.text-center(class='card text-center' style='max-height:18rem')
-                .card-header
-                  ul.nav.nav-pills.card-header-pills(role='tablist')
-                    li.nav-item.px-1
-                      a.nav-link.btn-falcon-primary.active(data-toggle='tab', href='#salidas') Salidas
-                    li.nav-item.px-1
-                      a.nav-link.btn-falcon-primary(data-toggle='tab', href='#llegadas') Llegadas
-                .card-body.col-xs-12(style='overflow-x:hidden')
-                  .tab-content
-                    .tab-pane.active(id='salidas', role='tabpanel')
-                      table.table.table-lg.table-dashboard.data-table.responsive.display(data-searching='false', data-paging='false',
-                       data-scrollY='200px', data-info='false', style='width:100%')
-                        thead.bg-200
-                          tr
-                            th(scope='col') ID
-                            th(scope='col') Aerolinea
-                            th(scope='col') Destino
-                            th(scope='col') Estado
-                            th(scope='col') Terminal
-                            th(scope='col') Hora
-                        tbody.bg-white
-                          each flight in flightDepJsons
-                            if flight.estado == 'Cancelado'
-                              tr.table-danger
-                                th(scope='row')= flight.id
-                                td= flight.aerolinea
-                                td= flight.destino
-                                td= flight.estado
-                                td= flight.terminal
-                                td= flight.horaSalida
-                            else if flight.estado == 'Desconocido'
-                              tr.table-warning
-                                th(scope='row')= flight.id
-                                td= flight.aerolinea
-                                td= flight.destino
-                                td= flight.estado
-                                td= flight.terminal
-                                td= flight.horaSalida
-                            else if flight.estado == 'Programado'
-                              tr.table-primary
-                                th(scope='row')= flight.id
-                                td= flight.aerolinea
-                                td= flight.destino
-                                td= flight.estado
-                                td= flight.terminal
-                                td= flight.horaSalida
-                            else
-                              tr
-                                th(scope='row')= flight.id
-                                td= flight.aerolinea
-                                td= flight.destino
-                                td= flight.estado
-                                td= flight.terminal
-                                td= flight.horaSalida
+                .card-body.col-xs-12(style='overflow:hidden')
+                  .fancy-tab 
+                    .nav-bar.nav-bar-center
+                      .nav-bar-item.px-3.px-sm-4.active
+                        span.fas.fa-plane-departure
+                        .mt-1 Salidas
+                      .nav-bar-item.px-3.px-sm-4
+                        span.fas.fa-plane-arrival
+                        .mt-1 Llegadas
+                    .tab-contents(style='overflow:scroll')
+                      .tab-content.active
+                        table.table.table-lg.table-dashboard.data-table.responsive.display(data-searching='false', data-paging='false',
+                          data-info='false', style='width:100%')
+                          thead.bg-200
+                            tr
+                              th(scope='col') ID
+                              th(scope='col') Aerolinea
+                              th(scope='col') Destino
+                              th(scope='col') Estado
+                              th(scope='col') Terminal
+                              th(scope='col') Hora
+                          tbody.bg-white
+                            each flight in flightDepJsons
+                              if flight.estado == 'Cancelado'
+                                tr.table-danger
+                                  th(scope='row')= flight.id
+                                  td= flight.aerolinea
+                                  td= flight.destino
+                                  td= flight.estado
+                                  td= flight.terminal
+                                  td= flight.horaSalida
+                              else if flight.estado == 'Desconocido'
+                                tr.table-warning
+                                  th(scope='row')= flight.id
+                                  td= flight.aerolinea
+                                  td= flight.destino
+                                  td= flight.estado
+                                  td= flight.terminal
+                                  td= flight.horaSalida
+                              else if flight.estado == 'Programado'
+                                tr.table-primary
+                                  th(scope='row')= flight.id
+                                  td= flight.aerolinea
+                                  td= flight.destino
+                                  td= flight.estado
+                                  td= flight.terminal
+                                  td= flight.horaSalida
+                              else
+                                tr
+                                  th(scope='row')= flight.id
+                                  td= flight.aerolinea
+                                  td= flight.destino
+                                  td= flight.estado
+                                  td= flight.terminal
+                                  td= flight.horaSalida
                             
-
-                    .tab-pane(id='llegadas', role='tabpanel')
-                      table.table.table-lg.table-dashboard.data-table.responsive.display(data-searching='false', data-paging='false',
-                       data-scrollY='200px', data-info='false', style='width:100%')
-                        thead.bg-200
-                          tr
-                            th(scope='col') ID
-                            th(scope='col') Aerolinea
-                            th(scope='col') Origen
-                            th(scope='col') Estado
-                            th(scope='col') Terminal
-                            th(scope='col') Hora
-                        tbody.bg-white
-                          each flight in flightArrJsons
-                            if flight.estado == 'Activo'
-                              tr.table-primary
-                                th(scope='row')= flight.id
-                                td= flight.aerolinea
-                                td= flight.origen
-                                td= flight.estado
-                                td= flight.terminal
-                                td= flight.horaLlegada
-                            else if flight.estado == 'Cancelado'
-                              tr.table-danger
-                                th(scope='row')= flight.id
-                                td= flight.aerolinea
-                                td= flight.origen
-                                td= flight.estado
-                                td= flight.terminal
-                                td= flight.horaLlegada
-                            else
-                              tr
-                                th(scope='row')= flight.id
-                                td= flight.aerolinea
-                                td= flight.origen
-                                td= flight.estado
-                                td= flight.terminal
-                                td= flight.horaLlegada
+                      .tab-content
+                        table.table.table-lg.table-dashboard.data-table.responsive.display(data-searching='false', data-paging='false',
+                          data-info='false', style='width:100%')
+                          thead.bg-200
+                            tr
+                              th(scope='col') ID
+                              th(scope='col') Aerolinea
+                              th(scope='col') Origen
+                              th(scope='col') Estado
+                              th(scope='col') Terminal
+                              th(scope='col') Hora
+                          tbody.bg-white
+                            each flight in flightArrJsons
+                              if flight.estado == 'Activo'
+                                tr.table-primary
+                                  th(scope='row')= flight.id
+                                  td= flight.aerolinea
+                                  td= flight.origen
+                                  td= flight.estado
+                                  td= flight.terminal
+                                  td= flight.horaLlegada
+                              else if flight.estado == 'Cancelado'
+                                tr.table-danger
+                                  th(scope='row')= flight.id
+                                  td= flight.aerolinea
+                                  td= flight.origen
+                                  td= flight.estado
+                                  td= flight.terminal
+                                  td= flight.horaLlegada
+                              else
+                                tr
+                                  th(scope='row')= flight.id
+                                  td= flight.aerolinea
+                                  td= flight.origen
+                                  td= flight.estado
+                                  td= flight.terminal
+                                  td= flight.horaLlegada
                 
             .col-lg-3.col-md-6.py-3
               .card.py-3
