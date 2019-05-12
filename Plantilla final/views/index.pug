@@ -187,9 +187,9 @@ main#top.main
         // Grid principal(Primera fila aeropuerto y tiempo)
         .container-fluid
           .row
-            .col-lg-9.py-3
+            .col-lg-5.py-3
               .card.text-center(class='card text-center' style='max-height:18rem')
-                .card-body.col-xs-12(style='overflow:hidden')
+                .card-body.col-xs-12(style='overflow-x:hidden')
                   .fancy-tab 
                     .nav-bar.nav-bar-center
                       .nav-bar-item.px-3.px-sm-4.active
@@ -198,10 +198,10 @@ main#top.main
                       .nav-bar-item.px-3.px-sm-4
                         span.fas.fa-plane-arrival
                         .mt-1 Llegadas
-                    .tab-contents(style='overflow:scroll')
+                    .tab-contents(style='overflow-y:hidden;overflow-x:hidden')
                       .tab-content.active
                         table.table.table-lg.table-dashboard.data-table.responsive.display(data-searching='false', data-paging='false',
-                          data-info='false', style='width:100%')
+                          data-info='false', style='width:100%;height:100%')
                           thead.bg-200
                             tr
                               th(scope='col') ID
@@ -243,8 +243,7 @@ main#top.main
                                   td= flight.destino
                                   td= flight.estado
                                   td= flight.terminal
-                                  td= flight.horaSalida
-                            
+                                  td= flight.horaSalida         
                       .tab-content
                         table.table.table-lg.table-dashboard.data-table.responsive.display(data-searching='false', data-paging='false',
                           data-info='false', style='width:100%')
@@ -461,7 +460,7 @@ main#top.main
                 .card.text-center(class='card text-center')
                   .card-header
                     ul.nav.nav-pills.card-header
-                      li.nav-item.px-1
+                      li.nav-item.px-1.py-1
                         .btn-group
                           button.btn.btn-falcon-primary(type='button', onClick='dropMetro()') Metro
                           button.btn.btn-falcon-primary.dropdown-toggle.dropdown-toggle-split(data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
@@ -472,24 +471,24 @@ main#top.main
                               else
                                 a.dropdown-item(id= line, onClick='dropSpecificLine(this.id)', style='cursor:pointer')= line
 
-                      li.nav-item.px-1
+                      li.nav-item.px-1.py-1
                         .btn-group
                           button.btn.btn-falcon-primary(type='button', onClick='dropCercanias()') Cercanias
                           button.btn.btn-falcon-primary.dropdown-toggle.dropdown-toggle-split(data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
                           .dropdown-menu
                             each line in ['C-1', 'C-2', 'C-3', 'C-4','C-5', 'C-7','C-8','C-9','C-10']
                               a.dropdown-item(id= line, onClick='dropSpecificCercanias(this.id)', style='cursor:pointer')= line
-                      li.nav-item.px-1
+                      li.nav-item.px-1.py-1
                         button.btn.btn-falcon-primary(type='button', data-container='body', data-toggle='popover', 
                           data-placement='top', data-html='true', 
                           data-content='<a href="servicios/autobus">Para ver datos de Autobus, haga click aqui</a>') Autobus
-                      li.nav-item.px-1
+                      li.nav-item.px-1.py-1
                        button.btn.btn-falcon-primary(onClick='dropBicimad()') Bicimad
-                      li.nav-item.px-1
+                      li.nav-item.px-1.py-1
                         button.btn.disabled(href='#Uber') Uber
-                      li.nav-item.px-1
+                      li.nav-item.px-1.py-1
                         button.btn.btn-falcon-primary(onClick='showTraffic()') Trafico
-                      li.nav-item.px-1
+                      li.nav-item.px-1.py-1
                         button.btn.btn-falcon-primary(onClick='clearMarkers()') Clear
                   .card-body
                     .map-canvas.min-vh-50(id='map')
