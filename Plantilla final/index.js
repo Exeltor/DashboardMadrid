@@ -19,7 +19,7 @@ app.use(express.static('public'));
 app.get('/', async function(req, res){
   //Aplicable para una coleccion entera
   MongoClient.connect(url, {useNewUrlParser:true}).then(async function (db) {
-    dbo = db.db('TPA')
+    dbo = db.db('TPA');
 
     //Lista general de insercion al index
     var list = {};
