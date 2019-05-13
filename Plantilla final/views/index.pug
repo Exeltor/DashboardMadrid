@@ -300,7 +300,7 @@ main#top.main
                         button.btn.btn-outline-primary.dropdown-toggle.shadow-none(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Origen
                         .dropdown-menu(style='max-height:10rem;overflow-y:auto')
                           for coinType in coinTypes
-                            a.dropdown-item(id= coinType, onClick='dropdownCurrencySelector(this.id)')= coinType
+                            a.dropdown-item(id= coinType, onClick='dropdownCurrencySelector(this.id)', style='cursor:pointer')= coinType
                           
                       input.form-control(type='number', aria-label='Cantidad', id='conversionQuantity')
                       .input-group-append
