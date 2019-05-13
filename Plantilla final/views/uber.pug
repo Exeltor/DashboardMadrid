@@ -113,7 +113,7 @@ main#top.main
         a.navbar-brand.text-left.ml-3(href='/')
           .d-flex.align-items-center.text-primary
             .d-inline-flex.flex-center
-              img.mr-2(src='../assets/img/illustrations/Dashboard-Icon.png' alt='' width='40')
+              img.mr-2(src='/assets/img/logos/madrid-logo-transparent.png' alt='' width='40')
               span.text-info Madrid
         // ===============================================
         // inicio
@@ -185,6 +185,98 @@ main#top.main
                   window.onload=function(){startTime();}
                 #reloj(style='font-size:20px;')
       div
+        .container-fluid
+          .row
+            .col
+              .card.text-center
+                .card-header
+                .card-body
+                  .map-canvas.min-vh-50(id='map')
+
+            .col
+              .card.text-center
+                .card-header
+                .card-body(id='right-panel')
+                  span(id='total')
+
+          .row
+            .col
+              .card.text-center
+                .card-header
+                  h5 Estimacion de precio Uber
+              
+                .card-body(id='uber-info')
+
+        script(type='text/javascript').
+          function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+              center: {lat: 40.4165000, lng: -3.7025600},
+              zoom: 11,
+              mapTypeControl: false,
+              streetViewControl: false
+            });
+
+            var directionsService = new google.maps.DirectionsService;
+            var directionsDisplay = new google.maps.DirectionsRenderer({
+              draggable: true,
+              map: map,
+              panel: document.getElementById('right-panel')
+            });
+
+            directionsDisplay.addListener('directions_changed', function(){
+              computeTotalDistance(directionsDisplay.getDirections());
+            });
+
+            displayRoute('40.4165000, -3.7025600', '40.4165000, -3.7025600', directionsService, directionsDisplay);
+          }
+
+          function displayRoute(origin, destination, service, display){
+            service.route({
+              origin: origin,
+              destination: destination,
+              travelMode: 'DRIVING'
+            }, function(response, status){
+              if(status === 'OK'){
+                display.setDirections(response);
+              } else {
+                alert('Could not display directions due to: ' + status);
+              }
+            });
+          }
+
+          function computeTotalDistance(result) {
+            var total = 0;
+            var myroute = result.routes[0];
+
+            var startLat = myroute.legs[0].start_location.lat();
+            var startLon = myroute.legs[0].start_location.lng();
+            var endLat = myroute.legs[0].end_location.lat();
+            var endLon = myroute.legs[0].end_location.lng();
+            
+            getUberEstimate(startLat, startLon, endLat, endLon);
+            for (var i = 0; i < myroute.legs.length; i++) {
+              total += myroute.legs[i].distance.value;
+            }
+            total = total / 1000;
+            document.getElementById('total').innerHTML = total + ' km';
+          }
+
+
+          function getUberEstimate(startLat, startLon, endLat, endLon){
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    //alert(this.responseText);
+                }
+            };
+            xhttp.open("GET", "https://api.uber.com/v1.2/estimates/price?start_latitude="+startLat+"&start_longitude="+startLon+"&end_latitude="+endLat+"&end_longitude="+endLon+"&server_token=pHSH-0aqsOGrkE5AlSVb_qXxM02PhaIiJgDiduT6", false);
+            xhttp.send();
+            var rawJson = JSON.parse(xhttp.responseText);
+            
+            document.getElementById('uber-info').innerHTML = JSON.stringify(rawJson);
+
+          }
+        script(async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQXpPnTkWE4KUpN8VjQ-uZ1jhsawzA59Q&callback=initMap")
       // ===============================================
       // Pie de pagina
       // ===============================================
