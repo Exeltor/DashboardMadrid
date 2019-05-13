@@ -20,6 +20,8 @@ head
   link(href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700%7cPoppins:100,200,300,400,500,600,700,800,900' rel='stylesheet')
   link(href='../assets/lib/jqvmap/jqvmap.min.css' rel='stylesheet')
   link(href='../assets/css/theme.css' rel='stylesheet')
+  link(href='../assets/lib/datatables-bs4/dataTables.bootstrap4.min.css' rel='stylesheet')
+  link(href='../assets/lib/datatables.net-responsive-bs4/responsive.bootstrap4.css' rel='stylesheet')
 // ===============================================
 // Contenido
 // ===============================================
@@ -179,20 +181,102 @@ main#top.main
                   window.onload=function(){startTime();}
                 #reloj(style='font-size:20px;')
       div
-      // ===============================================
-      // Pie de pagina
-      // ===============================================
-      footer
-        .row.no-gutters.justify-content-between.fs--1.mt-4.mb-3
-          .col-12.col-sm-auto.text-center
-            p.mb-0.text-600
-              | Thank you for creating with Falcon 
-              span.d-none.d-sm-inline-block | 
-              br.d-sm-none
-              |  2019 &copy; 
-              a(href='../https://themewagon.com') Themewagon
-          .col-12.col-sm-auto.text-center
-            p.mb-0.text-600 v0.1.0
+        // Grid principal(Primera fila aeropuerto y tiempo)
+        .container-fluid
+          .row
+            .col-sm-12.py-3
+              .card.text-center.min-vh-100(class='card text-center' style='max-height:15rem')
+                .card-body.col-xs-12(style='overflow-x:hidden')
+                  .fancy-tab 
+                    .nav-bar.nav-bar-center
+                      .nav-bar-item.px-3.px-sm-4.active
+                        span.fas.fa-plane-departure
+                        .mt-1 Salidas
+                      .nav-bar-item.px-3.px-sm-4
+                        span.fas.fa-plane-arrival
+                        .mt-1 Llegadas
+                    .tab-contents(style='overflow-y:hidden;overflow-x:hidden')
+                      .tab-content.active
+                        table.table.table-sm.table-dashboard.data-table.responsive.display(style='width:100%;height:100%')
+                          thead.bg-200
+                            tr
+                              th(scope='col') ID
+                              th(scope='col') Aerolinea
+                              th(scope='col') Destino
+                              th(scope='col') Estado
+                              th(scope='col') Terminal
+                              th(scope='col') Hora
+                          tbody.bg-white
+                            each flight in flightDepJsons
+                              if flight.estado == 'Cancelado'
+                                tr.table-danger
+                                  th(scope='row')= flight.id
+                                  td= flight.aerolinea
+                                  td= flight.destino
+                                  td= flight.estado
+                                  td= flight.terminal
+                                  td= flight.horaSalida
+                              else if flight.estado == 'Desconocido'
+                                tr.table-warning
+                                  th(scope='row')= flight.id
+                                  td= flight.aerolinea
+                                  td= flight.destino
+                                  td= flight.estado
+                                  td= flight.terminal
+                                  td= flight.horaSalida
+                              else if flight.estado == 'Programado'
+                                tr.table-primary
+                                  th(scope='row')= flight.id
+                                  td= flight.aerolinea
+                                  td= flight.destino
+                                  td= flight.estado
+                                  td= flight.terminal
+                                  td= flight.horaSalida
+                              else
+                                tr
+                                  th(scope='row')= flight.id
+                                  td= flight.aerolinea
+                                  td= flight.destino
+                                  td= flight.estado
+                                  td= flight.terminal
+                                  td= flight.horaSalida         
+                      .tab-content
+                        table.table.table-sm.table-dashboard.data-table.responsive.display(style='width:100%')
+                          thead.bg-200
+                            tr
+                              th(scope='col') ID
+                              th(scope='col') Aerolinea
+                              th(scope='col') Origen
+                              th(scope='col') Estado
+                              th(scope='col') Terminal
+                              th(scope='col') Hora
+                          tbody.bg-white
+                            each flight in flightArrJsons
+                              if flight.estado == 'Activo'
+                                tr.table-primary
+                                  th(scope='row')= flight.id
+                                  td= flight.aerolinea
+                                  td= flight.origen
+                                  td= flight.estado
+                                  td= flight.terminal
+                                  td= flight.horaLlegada
+                              else if flight.estado == 'Cancelado'
+                                tr.table-danger
+                                  th(scope='row')= flight.id
+                                  td= flight.aerolinea
+                                  td= flight.origen
+                                  td= flight.estado
+                                  td= flight.terminal
+                                  td= flight.horaLlegada
+                              else
+                                tr
+                                  th(scope='row')= flight.id
+                                  td= flight.aerolinea
+                                  td= flight.origen
+                                  td= flight.estado
+                                  td= flight.terminal
+                                  td= flight.horaLlegada
+
 // ===============================================
 // fin del contenido
 // ===============================================
@@ -210,3 +294,7 @@ script(src='../assets/lib/jqvmap/jquery.vmap.js')
 script(src='../assets/lib/jqvmap/maps/jquery.vmap.world.js' charset='utf-8')
 script(src='../assets/js/theme.js')
 script(src='../assets/lib/jqvmap/maps/jquery.vmap.usa.js' charset='utf-8')
+script(src='//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js')
+script(src='//cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js')
+script(src='//cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js')
+script(src='//cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.js')

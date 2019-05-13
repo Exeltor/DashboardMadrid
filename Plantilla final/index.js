@@ -146,7 +146,22 @@ app.get('/servicios/uber', function(req, res){
 });
 
 app.get('/servicios/vuelos', function(req, res){
-  res.render('vuelos');
+  MongoClient.connect(url, {useNewUrlParser:true}).then(async function (db) {
+    dbo = db.db('TPA')
+
+    //Lista general de insercion al index
+    var list = {};
+
+    //Llegadas/Salidast
+    list.flightDepJsons = await dbo.collection('salidasAeropuerto').find().toArray();
+    list.flightArrJsons = await dbo.collection('llegadasAeropuerto').find().toArray();
+
+    //Render final de la pagina con los datos
+    res.render('vuelos', list);
+    db.close();
+  }).catch(function(err){
+    console.log(err);
+  });
 });
 
 app.get('/eventos', function(req, res){
