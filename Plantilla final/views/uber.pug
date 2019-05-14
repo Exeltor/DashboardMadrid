@@ -200,12 +200,20 @@ main#top.main
                   span(id='total')
 
           .row
-            .col
+            .col-lg-3.col-sm-6.py-3
               .card.text-center
                 .card-header
-                  h5 Estimacion de precio Uber
+                  h5 UberX
               
-                .card-body(id='uber-info')
+                .card-body(id='uberX-info')
+
+            .col-lg-3.col-sm-6.py-3
+              .card.text-center
+                .card-header
+                  h5 Uber Black
+
+                .card-body(id='uber-black-info')
+
 
         script(type='text/javascript').
           function initMap() {
@@ -272,8 +280,35 @@ main#top.main
             xhttp.open("GET", "https://api.uber.com/v1.2/estimates/price?start_latitude="+startLat+"&start_longitude="+startLon+"&end_latitude="+endLat+"&end_longitude="+endLon+"&server_token=pHSH-0aqsOGrkE5AlSVb_qXxM02PhaIiJgDiduT6", false);
             xhttp.send();
             var rawJson = JSON.parse(xhttp.responseText);
+            var uberXhtml, uberBhtml;
+            //UberX
+            var distanceX = rawJson['prices'][0]['distance'];
+            var durationX = rawJson['prices'][0]['duration'] / 60;
+            var estimateX = rawJson['prices'][0]['estimate'];
+
+            uberXhtml = '<center><h6>Price</h6>\n' + 
+              '<h5>' + estimateX + '</h5>\n' + 
+              '<h6>Duration</h6>\n' + 
+              '<p>' + durationX + ' min<p>\n' + 
+              '<h6>Distance</h6>\n' +
+              '<p>' + distanceX + '</p>' 
+
+
+            //Uber Black
+            var distanceB = rawJson['prices'][1]['distance'];
+            var durationB = rawJson['prices'][1]['duration'] / 60;
+            var estimateB = rawJson['prices'][1]['estimate'];
+
+            uberBhtml = '<center><h6>Price</h6>\n' + 
+              '<h5>' + estimateB + '</h5>\n' + 
+              '<h6>Duration</h6>\n' + 
+              '<p>' + durationB + ' min<p>\n' + 
+              '<h6>Distance</h6>\n' +
+              '<p>' + distanceB + '</p>'  
+
             
-            document.getElementById('uber-info').innerHTML = JSON.stringify(rawJson);
+            document.getElementById('uberX-info').innerHTML = uberXhtml;
+            document.getElementById('uber-black-info').innerHTML = uberBhtml;
 
           }
         script(async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQXpPnTkWE4KUpN8VjQ-uZ1jhsawzA59Q&callback=initMap")
