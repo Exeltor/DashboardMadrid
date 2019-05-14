@@ -185,507 +185,527 @@ main#top.main
       // ===============================================
       div
         // Grid principal(Primera fila aeropuerto y tiempo)
+
+        //Mixins
+        mixin aeropuertoDashCard
+          .card.text-center(class='card text-center' style='max-height:18rem')
+            .card-body.col-xs-12(style='overflow-x:hidden')
+              .fancy-tab 
+                .nav-bar.nav-bar-center
+                  .nav-bar-item.px-3.px-sm-4.active
+                    span.fas.fa-plane-departure
+                    .mt-1 Salidas
+                  .nav-bar-item.px-3.px-sm-4
+                    span.fas.fa-plane-arrival
+                    .mt-1 Llegadas
+                .tab-contents(style='overflow-y:hidden;overflow-x:hidden')
+                  .tab-content.active
+                    table.table.table-lg.table-dashboard.data-table.responsive.display(data-searching='false', data-paging='false',
+                      data-info='false', style='width:100%;height:100%')
+                      thead.bg-200
+                        tr
+                          th(scope='col') ID
+                          th(scope='col') Aerolinea
+                          th(scope='col') Destino
+                          th(scope='col') Estado
+                          th(scope='col') Terminal
+                          th(scope='col') Hora
+                      tbody.bg-white
+                        each flight in flightDepJsons
+                          if flight.estado == 'Cancelado'
+                            tr.table-danger
+                              th(scope='row')= flight.id
+                              td= flight.aerolinea
+                              td= flight.destino
+                              td= flight.estado
+                              td= flight.terminal
+                              td= flight.horaSalida
+                          else if flight.estado == 'Desconocido'
+                            tr.table-warning
+                              th(scope='row')= flight.id
+                              td= flight.aerolinea
+                              td= flight.destino
+                              td= flight.estado
+                              td= flight.terminal
+                              td= flight.horaSalida
+                          else if flight.estado == 'Programado'
+                            tr.table-primary
+                              th(scope='row')= flight.id
+                              td= flight.aerolinea
+                              td= flight.destino
+                              td= flight.estado
+                              td= flight.terminal
+                              td= flight.horaSalida
+                          else
+                            tr
+                              th(scope='row')= flight.id
+                              td= flight.aerolinea
+                              td= flight.destino
+                              td= flight.estado
+                              td= flight.terminal
+                              td= flight.horaSalida         
+                  .tab-content
+                    table.table.table-lg.table-dashboard.data-table.responsive.display(data-searching='false', data-paging='false',
+                      data-info='false', style='width:100%')
+                      thead.bg-200
+                        tr
+                          th(scope='col') ID
+                          th(scope='col') Aerolinea
+                          th(scope='col') Origen
+                          th(scope='col') Estado
+                          th(scope='col') Terminal
+                          th(scope='col') Hora
+                      tbody.bg-white
+                        each flight in flightArrJsons
+                          if flight.estado == 'Activo'
+                            tr.table-primary
+                              th(scope='row')= flight.id
+                              td= flight.aerolinea
+                              td= flight.origen
+                              td= flight.estado
+                              td= flight.terminal
+                              td= flight.horaLlegada
+                          else if flight.estado == 'Cancelado'
+                            tr.table-danger
+                              th(scope='row')= flight.id
+                              td= flight.aerolinea
+                              td= flight.origen
+                              td= flight.estado
+                              td= flight.terminal
+                              td= flight.horaLlegada
+                          else
+                            tr
+                              th(scope='row')= flight.id
+                              td= flight.aerolinea
+                              td= flight.origen
+                              td= flight.estado
+                              td= flight.terminal
+                              td= flight.horaLlegada
+
+        mixin tiempoDashCard
+          .card.py-3
+            center
+              img.card.img.top(src= weatherIcon, height='100', width='100')
+            .card-body
+              h6.card-title(align='center', style = 'font-size:200%')= weatherTemp + 'º'
+              h1.card-title(align='center')= weatherDesc
+              p.card-text(align='center')= 'actualizacion: ' + weatherHour 
+
+        mixin conversorMonedaDashCard
+          .card.py-3
+            .card-body
+              h5.card-title Conversor de Moneda
+              form(action='/convert', method='POST')
+                .input-group.mb-3
+                  .input-group-prepend
+                    button.btn.btn-outline-primary.dropdown-toggle.shadow-none(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Origen
+                    .dropdown-menu(style='max-height:10rem;overflow-y:auto')
+                      for coinType in coinTypes
+                        a.dropdown-item(id= coinType, onClick='dropdownCurrencySelector(this.id)', style='cursor:pointer')= coinType
+                      
+                  input.form-control(type='number', aria-label='Cantidad', id='conversionQuantity')
+                  .input-group-append
+                    span.input-group-text(id='currencyTypeText')
+              
+                .input-group.mb-3
+                  input.form-control(id='readonlyCurrency', type='number', placeholder='Resultado', readonly='')
+                  .input-group-append
+                    span.input-group-text €
+                
+                center
+                  button.btn.btn-falcon-success.mb-3(type='button', onClick='convertToEur()') Convertir
+          
+        mixin metroDashCard
+          .card
+            img(src='https://www.metromadrid.es/sites/default/files/web/imagenes/Logomarca_azul.png', style='width:10%')
+            .card-body 
+              .container-fluid
+                .row
+                  .col-xs-.col-lg-3.col-md-6.col-sm-6
+                    table.table-borderless
+                      thead
+                        tr
+                          th.py-3(scope='col', width = '10%') Linea
+                        
+                      tbody
+                        each line, index in metroLines
+                          if index < 4
+                            tr
+                              td.py-3
+                                if index < 4
+                                  img(src=line.img, style='width:30px')
+                              td.py-3(align='left')
+                                if index < 4
+                                  - var color = ''
+                                  if line.desc == 'No hay incidencias'
+                                    span.badge.bagge-pill.badge-success(style='cursor:pointer;display:block',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
+                                    - color = 'background-color:#228B22';
+                                  else if line.estado == 'Circulación interrumpida' || line.estado == 'circulación interrumpida'
+                                    span.badge.bagge-pill.badge-danger(style='cursor:pointer;display:block',data-toggle='modal', data-target='#infoModal' + line._id) Circul. interrumpida
+                                    - color = 'background-color:#B22222'
+                                  else
+                                    span.badge.bagge-pill.badge-warning(style='cursor:pointer;display:block',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
+                                    - color = 'background-color:#FF8C00'
+
+                                .modal.fade(id='infoModal' + line._id, tabindex='-1', role='dialog', aria-labelledby='infoModalLabel', aria-hidden='true')
+                                  .modal-dialog.modal-dialog-centered(role='document')
+                                    .modal-content(style=color)
+                                      .modal-header
+                                        h5.modal-title(id='infoModalLabel', style='color:white') Informacion sobre estado
+                                        button.close(type='button', data-dismiss='modal', aria-label='close')
+                                            span.font-weight-light(aria-hidden='true') &times;
+                                      .modal-body(style='white-space:pre-line;color:white')= line.desc
+                  .col-xs-.col-lg-3.col-md-6.col-sm-6
+                    table.table-borderless
+                      thead
+                        tr
+                          th.py-3(scope='col', width='10%') Linea
+                        
+                      tbody
+                        each line, index in metroLines
+                          if index >= 4 && index < 8
+                            tr
+                              td.py-3
+                                if index >= 4 && index < 8
+                                  img(src=line.img, style='width:30px')
+                              td.py-3(align='left')
+                                if index >= 4 && index < 8
+                                  - var color = ''
+                                  if line.desc == 'No hay incidencias'
+                                    span.badge.bagge-pill.badge-success(style='cursor:pointer;display:block',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
+                                    - color = 'background-color:#228B22';
+                                  else if line.estado == 'Circulación interrumpida' || line.estado == 'circulación interrumpida'
+                                    span.badge.bagge-pill.badge-danger(style='cursor:pointer;display:block',data-toggle='modal', data-target='#infoModal' + line._id) Circul. interrumpida
+                                    - color = 'background-color:#B22222'
+                                  else
+                                    span.badge.bagge-pill.badge-warning(style='cursor:pointer;display:block',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
+                                    - color = 'background-color:#FF8C00'
+                                .modal.fade(id='infoModal' + line._id, tabindex='-1', role='dialog', aria-labelledby='infoModalLabel', aria-hidden='true')
+                                  .modal-dialog.modal-dialog-centered(role='document')
+                                    .modal-content(style=color)
+                                      .modal-header
+                                        h5.modal-title(id='infoModalLabel', style='color:white') Informacion sobre estado
+                                        button.close(type='button', data-dismiss='modal', aria-label='close')
+                                            span.font-weight-light(aria-hidden='true') &times;
+                                      .modal-body(style='white-space:pre-line;color:white')= line.desc
+                  .col-xs-.col-lg-3.col-md-6.col-sm-6
+                    table.table-borderless
+                      thead
+                        tr
+                          th.py-3(scope='col', width='10%') Linea
+                        
+                      tbody
+                        each line, index in metroLines
+                          if index >= 8 && index < 12
+                            tr
+                              td.py-3
+                                if index >= 8 && index < 12
+                                  img(src=line.img, style='width:30px')
+                              td.py-3(align='left')
+                                if index >= 8 && index < 12
+                                - var color = ''
+                                  if line.desc == 'No hay incidencias'
+                                    span.badge.bagge-pill.badge-success(style='cursor:pointer;display:block',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
+                                    - color = 'background-color:#228B22';
+                                  else if line.estado == 'Circulación interrumpida' || line.estado == 'circulación interrumpida'
+                                    span.badge.bagge-pill.badge-danger(style='cursor:pointer;display:block',data-toggle='modal', data-target='#infoModal' + line._id) Circul. interrumpida
+                                    - color = 'background-color:#B22222'
+                                  else
+                                    span.badge.bagge-pill.badge-warning(style='cursor:pointer;display:block',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
+                                    - color = 'background-color:#FF8C00'
+
+                                .modal.fade(id='infoModal' + line._id, tabindex='-1', role='dialog', aria-labelledby='infoModalLabel', aria-hidden='true')
+                                  .modal-dialog.modal-dialog-centered(role='document')
+                                    .modal-content(style=color)
+                                      .modal-header
+                                        h5.modal-title(id='infoModalLabel', style='color:white') Informacion sobre estado
+                                        button.close(type='button', data-dismiss='modal', aria-label='close')
+                                            span.font-weight-light(aria-hidden='true') &times;
+                                      .modal-body(style='white-space:pre-line;color:white')= line.desc
+                  .col-xs-.col-lg-3.col-md-6.col-sm-6
+                    table.table-borderless
+                      thead
+                        tr
+                          th.py-3(scope='col', width='10%') Linea
+                        
+                      tbody
+                        each line, index in metroLines
+                          if index >=12 && index< 16
+                            tr
+                              td.py-3
+                                if index >=12 && index< 16
+                                  img(src=line.img, style='width:30px')
+                              td.py-3(align='left')
+                                if index >=12 && index< 16
+                                - var color = ''
+                                  if line.desc == 'No hay incidencias'
+                                    span.badge.bagge-pill.badge-success(style='cursor:pointer;display:block',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
+                                    - color = 'background-color:#228B22';
+                                  else if line.estado == 'Circulación interrumpida' || line.estado == 'circulación interrumpida'
+                                    span.badge.bagge-pill.badge-danger(style='cursor:pointer;display:block',data-toggle='modal', data-target='#infoModal' + line._id) Circul. interrumpida
+                                    - color = 'background-color:#B22222'
+                                  else
+                                    span.badge.bagge-pill.badge-warning(style='cursor:pointer;display:block',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
+                                    - color = 'background-color:#FF8C00'
+
+                                .modal.fade(id='infoModal' + line._id, tabindex='-1', role='dialog', aria-labelledby='infoModalLabel', aria-hidden='true')
+                                  .modal-dialog.modal-dialog-centered(role='document')
+                                    .modal-content(style=color)
+                                      .modal-header
+                                        h5.modal-title(id='infoModalLabel', style='color:white') Informacion sobre estado
+                                        button.close(type='button', data-dismiss='modal', aria-label='close')
+                                            span.font-weight-light(aria-hidden='true') &times;
+                                      .modal-body(style='white-space:pre-line;color:white')= line.desc
+
+        mixin googleMapDashCard
+          .card.text-center(class='card text-center')
+            .card-header
+              ul.nav.nav-pills.card-header
+                li.nav-item.px-1.py-1
+                  .btn-group
+                    button.btn.btn-falcon-primary(type='button', onClick='dropMetro()') Metro
+                    button.btn.btn-falcon-primary.dropdown-toggle.dropdown-toggle-split(data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                    .dropdown-menu
+                      each line in distinctLines
+                        if line == 'Línea '
+                          a.dropdown-item(id= line, onClick='dropSpecificLine(this.id)', style='cursor:pointer') Ramal
+                        else
+                          a.dropdown-item(id= line, onClick='dropSpecificLine(this.id)', style='cursor:pointer')= line
+
+                li.nav-item.px-1.py-1
+                  .btn-group
+                    button.btn.btn-falcon-primary(type='button', onClick='dropCercanias()') Cercanias
+                    button.btn.btn-falcon-primary.dropdown-toggle.dropdown-toggle-split(data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                    .dropdown-menu
+                      each line in ['C-1', 'C-2', 'C-3', 'C-4','C-5', 'C-7','C-8','C-9','C-10']
+                        a.dropdown-item(id= line, onClick='dropSpecificCercanias(this.id)', style='cursor:pointer')= line
+                li.nav-item.px-1.py-1
+                  button.btn.btn-falcon-primary(type='button', data-container='body', data-toggle='popover', 
+                    data-placement='top', data-html='true', 
+                    data-content='<a href="servicios/autobus">Para ver datos de Autobus, haga click aqui</a>') Autobus
+                li.nav-item.px-1.py-1
+                  button.btn.btn-falcon-primary(onClick='dropBicimad()') Bicimad
+                li.nav-item.px-1.py-1
+                  button.btn.disabled(href='#Uber') Uber
+                li.nav-item.px-1.py-1
+                  button.btn.btn-falcon-primary(onClick='showTraffic()') Trafico
+                li.nav-item.px-1.py-1
+                  button.btn.btn-falcon-primary(onClick='clearMarkers()') Clear
+            .card-body
+              .map-canvas.min-vh-50(id='map')
+                  script(type='text/javascript').
+                      var dataMetro = !{JSON.stringify(metroStations)};
+                      var dataBicimad = !{JSON.stringify(bicimadStations)};
+                      var dataCercanias = !{JSON.stringify(cercaniasStations)};
+                      
+                      var trafficLayer;
+                      var transitLayer;
+
+                      var map;
+                      var markers = [];
+                      function initMap() {
+                        map = new google.maps.Map(document.getElementById('map'), {
+                          center: {lat: 40.4165000, lng: -3.7025600},
+                          zoom: 11,
+                          mapTypeControl: false,
+                          streetViewControl: false
+                        });
+
+                        trafficLayer = new google.maps.TrafficLayer();
+                        transitLayer = new google.maps.TransitLayer();
+                      }
+                      
+                      function dropMetro(){
+                        clearMarkers();
+                        
+                        transitLayer.setMap(map);
+                        dataMetro.forEach(function(stat){
+                          var marker = new google.maps.Marker({
+                            position: new google.maps.LatLng(stat.lat, stat.lon),
+                            icon: {
+                              url: 'assets/img/icons/metroIcon.png',
+                              scaledSize: new google.maps.Size(33,33)
+                            },
+                            map: map,
+                            animation: google.maps.Animation.DROP
+                          });
+                          markers.push(marker);
+                        });
+                      }
+
+                      function dropSpecificLine(line){
+                        clearMarkers();
+                        transitLayer.setMap(map);
+
+                        dataMetro.forEach(function(stat){
+                          if(line == stat.linea){
+                            var marker = new google.maps.Marker({
+                              position: new google.maps.LatLng(stat.lat, stat.lon),
+                              icon: {
+                                url: 'assets/img/icons/metroIcon.png',
+                                scaledSize: new google.maps.Size(33,33)
+                              },
+                              map: map,
+                              animation: google.maps.Animation.DROP
+                            });
+                            markers.push(marker);
+                          }
+                        });
+                      }
+
+                      function dropCercanias(){
+                        clearMarkers();
+                        
+                        transitLayer.setMap(map);
+                        dataCercanias.forEach(function(stat){
+                          var contentString = '<center><h5 id="firstHeading" class="firstHeading">' + stat.nombre + '</h5>\n' + 
+                            '<h6>Direccion: ' + stat.direccion + '</h6>' + 
+                            '</br>' + 
+                            '<h6>Lineas</h6>\n' +
+                            '<p>' + stat.lineas + '</center></p>' + 
+                            '<h6>Tarifa</h6>\n' + 
+                            '<p>' + stat.tarifa + '</p>';
+
+                          var infowindow = new google.maps.InfoWindow({
+                            content : contentString
+                          });
+
+                          var marker = new google.maps.Marker({
+                            position: new google.maps.LatLng(stat.lat, stat.lon),
+                            icon: {
+                              url: 'http://www.comunidad.madrid/sites/default/files/styles/block_teaser_image/public/img/logos-simbolos/logo_cercanias_color_982x550.png',
+                              scaledSize: new google.maps.Size(45,33)
+                            },
+                            map: map,
+                            animation: google.maps.Animation.DROP
+                          });
+
+                          marker.addListener('click', function() {
+                            infowindow.open(map, marker);
+                          });
+                          markers.push(marker);
+                        });
+                      }
+
+                      function dropSpecificCercanias(line){
+                        clearMarkers();
+                        transitLayer.setMap(map);
+
+                        dataCercanias.forEach(function(stat){
+                          var contentString = '<center><h5 id="firstHeading" class="firstHeading">' + stat.nombre + '</h5>\n' + 
+                            '<h6>Direccion: ' + stat.direccion + '</h6>' + 
+                            '</br>' + 
+                            '<h6>Lineas</h6>\n' +
+                            '<p>' + stat.lineas + '</center></p>' + 
+                            '<h6>Tarifa</h6>\n' + 
+                            '<p>' + stat.tarifa + '</p>';
+
+                            var infowindow = new google.maps.InfoWindow({
+                              content : contentString
+                            });
+
+                          if(stat.lineas.includes(line)){
+                            var marker = new google.maps.Marker({
+                              position: new google.maps.LatLng(stat.lat, stat.lon),
+                              icon: {
+                                url: 'http://www.comunidad.madrid/sites/default/files/styles/block_teaser_image/public/img/logos-simbolos/logo_cercanias_color_982x550.png',
+                                scaledSize: new google.maps.Size(45,33)
+                              },
+                              map: map,
+                              animation: google.maps.Animation.DROP
+                            });
+                            marker.addListener('click', function() {
+                              infowindow.open(map, marker);
+                            });
+
+                            markers.push(marker);
+                          }
+                        });
+                      }
+
+                      function dropBicimad() {
+                        clearMarkers();
+                        
+                        dataBicimad.forEach(function(statBici){
+                          var operativoState;
+                          var stateImageUrl;
+
+                          if(statBici.operativo == 'Si'){
+                            operativoState = 'Operativa';
+                            stateImageUrl = 'assets/img/icons/bicimadIconAvailable.png';
+                          } else {
+                            operativoState = 'No Operativa';
+                            stateImageUrl = 'assets/img/icons/bicimadIconUnavailable.png';
+                          }
+
+                          var contentString = '<h5 id="firstHeading" class="firstHeading">' + statBici.nombre + '</h5>\n' + 
+                            '<h6>Direccion: ' + statBici.direccion + '</h6>' + 
+                            '</br>' + 
+                            '<p>Bicis disponibles: ' + statBici.ancladas + '</p>' +
+                            '</br>' + 
+                            '<h6>' + operativoState + '</h6>';
+
+                          var infowindow = new google.maps.InfoWindow({
+                            content : contentString
+                          });
+                          
+                          var marker = new google.maps.Marker({
+                            position: new google.maps.LatLng(statBici.lat, statBici.lon),
+                            icon: {
+                              url: stateImageUrl,
+                              scaledSize: new google.maps.Size(50,50)
+                            },
+                            map: map,
+                            animation: google.maps.Animation.DROP
+                          });
+
+                          marker.addListener('click', function() {
+                            infowindow.open(map, marker);
+                          });
+                          markers.push(marker);
+                        });
+                      }
+
+                      function showTraffic(){
+                        clearMarkers();
+                        
+                        trafficLayer.setMap(map);
+                      }
+
+                      function clearMarkers() {
+                        transitLayer.setMap(null);
+                        trafficLayer.setMap(null);
+                        setMapOnAll(null);
+                        markers = [];
+                      }
+
+                      function setMapOnAll(map) {
+                        for (var i = 0; i < markers.length; i++) {
+                          markers[i].setMap(map);
+                        }
+                      }
+
+
+                  script(async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQXpPnTkWE4KUpN8VjQ-uZ1jhsawzA59Q&callback=initMap")
+
+
         .container-fluid
           .row
+            //Aeropuerto
             .col-lg-5.py-3
-              .card.text-center(class='card text-center' style='max-height:18rem')
-                .card-body.col-xs-12(style='overflow-x:hidden')
-                  .fancy-tab 
-                    .nav-bar.nav-bar-center
-                      .nav-bar-item.px-3.px-sm-4.active
-                        span.fas.fa-plane-departure
-                        .mt-1 Salidas
-                      .nav-bar-item.px-3.px-sm-4
-                        span.fas.fa-plane-arrival
-                        .mt-1 Llegadas
-                    .tab-contents(style='overflow-y:hidden;overflow-x:hidden')
-                      .tab-content.active
-                        table.table.table-lg.table-dashboard.data-table.responsive.display(data-searching='false', data-paging='false',
-                          data-info='false', style='width:100%;height:100%')
-                          thead.bg-200
-                            tr
-                              th(scope='col') ID
-                              th(scope='col') Aerolinea
-                              th(scope='col') Destino
-                              th(scope='col') Estado
-                              th(scope='col') Terminal
-                              th(scope='col') Hora
-                          tbody.bg-white
-                            each flight in flightDepJsons
-                              if flight.estado == 'Cancelado'
-                                tr.table-danger
-                                  th(scope='row')= flight.id
-                                  td= flight.aerolinea
-                                  td= flight.destino
-                                  td= flight.estado
-                                  td= flight.terminal
-                                  td= flight.horaSalida
-                              else if flight.estado == 'Desconocido'
-                                tr.table-warning
-                                  th(scope='row')= flight.id
-                                  td= flight.aerolinea
-                                  td= flight.destino
-                                  td= flight.estado
-                                  td= flight.terminal
-                                  td= flight.horaSalida
-                              else if flight.estado == 'Programado'
-                                tr.table-primary
-                                  th(scope='row')= flight.id
-                                  td= flight.aerolinea
-                                  td= flight.destino
-                                  td= flight.estado
-                                  td= flight.terminal
-                                  td= flight.horaSalida
-                              else
-                                tr
-                                  th(scope='row')= flight.id
-                                  td= flight.aerolinea
-                                  td= flight.destino
-                                  td= flight.estado
-                                  td= flight.terminal
-                                  td= flight.horaSalida         
-                      .tab-content
-                        table.table.table-lg.table-dashboard.data-table.responsive.display(data-searching='false', data-paging='false',
-                          data-info='false', style='width:100%')
-                          thead.bg-200
-                            tr
-                              th(scope='col') ID
-                              th(scope='col') Aerolinea
-                              th(scope='col') Origen
-                              th(scope='col') Estado
-                              th(scope='col') Terminal
-                              th(scope='col') Hora
-                          tbody.bg-white
-                            each flight in flightArrJsons
-                              if flight.estado == 'Activo'
-                                tr.table-primary
-                                  th(scope='row')= flight.id
-                                  td= flight.aerolinea
-                                  td= flight.origen
-                                  td= flight.estado
-                                  td= flight.terminal
-                                  td= flight.horaLlegada
-                              else if flight.estado == 'Cancelado'
-                                tr.table-danger
-                                  th(scope='row')= flight.id
-                                  td= flight.aerolinea
-                                  td= flight.origen
-                                  td= flight.estado
-                                  td= flight.terminal
-                                  td= flight.horaLlegada
-                              else
-                                tr
-                                  th(scope='row')= flight.id
-                                  td= flight.aerolinea
-                                  td= flight.origen
-                                  td= flight.estado
-                                  td= flight.terminal
-                                  td= flight.horaLlegada
-                
-            .col-lg-3.col-md-6.py-3
-              .card.py-3
-                center
-                  img.card.img.top(src= weatherIcon, height='100', width='100')
-                .card-body
-                  h6.card-title(align='center', style = 'font-size:200%')= weatherTemp + 'º'
-                  h1.card-title(align='center')= weatherDesc
-                  p.card-text(align='center')= 'actualizacion: ' + weatherHour
-            .col-md-6.col-lg-4.py-3
-              .card.py-3
-                .card-body
-                  h5.card-title Conversor de Moneda
-                  form(action='/convert', method='POST')
-                    .input-group.mb-3
-                      .input-group-prepend
-                        button.btn.btn-outline-primary.dropdown-toggle.shadow-none(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Origen
-                        .dropdown-menu(style='max-height:10rem;overflow-y:auto')
-                          for coinType in coinTypes
-                            a.dropdown-item(id= coinType, onClick='dropdownCurrencySelector(this.id)', style='cursor:pointer')= coinType
-                          
-                      input.form-control(type='number', aria-label='Cantidad', id='conversionQuantity')
-                      .input-group-append
-                        span.input-group-text(id='currencyTypeText')
-                  
-                    .input-group.mb-3
-                      input.form-control(id='readonlyCurrency', type='number', placeholder='Resultado', readonly='')
-                      .input-group-append
-                        span.input-group-text €
-                    
-                    center
-                      button.btn.btn-falcon-success.mb-3(type='button', onClick='convertToEur()') Convertir
+              +aeropuertoDashCard
 
+            .col-lg-3.col-md-6.py-3
+              +tiempoDashCard
+
+            .col-md-6.col-lg-4.py-3
+              +conversorMonedaDashCard
 
             .col-md-12.col-lg-8.col-sm-10.py-3
-              .card
-                img(src='https://www.metromadrid.es/sites/default/files/web/imagenes/Logomarca_azul.png', style='width:10%')
-                .card-body 
-                  .container-fluid
-                    .row
-                      .col-xs-.col-lg-3.col-md-6.col-sm-6
-                        table.table-borderless
-                          thead
-                            tr
-                              th.py-3(scope='col', width = '10%') Linea
-                            
-                          tbody
-                            each line, index in metroLines
-                              if index < 4
-                                tr
-                                  td.py-3
-                                    if index < 4
-                                      img(src=line.img, style='width:30px')
-                                  td.py-3(align='left')
-                                    if index < 4
-                                      - var color = ''
-                                      if line.desc == 'No hay incidencias'
-                                        span.badge.bagge-pill.badge-success(style='cursor:pointer;display:block',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
-                                        - color = 'background-color:#228B22';
-                                      else if line.estado == 'Circulación interrumpida' || line.estado == 'circulación interrumpida'
-                                        span.badge.bagge-pill.badge-danger(style='cursor:pointer;display:block',data-toggle='modal', data-target='#infoModal' + line._id) Circul. interrumpida
-                                        - color = 'background-color:#B22222'
-                                      else
-                                        span.badge.bagge-pill.badge-warning(style='cursor:pointer;display:block',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
-                                        - color = 'background-color:#FF8C00'
-
-                                    .modal.fade(id='infoModal' + line._id, tabindex='-1', role='dialog', aria-labelledby='infoModalLabel', aria-hidden='true')
-                                      .modal-dialog.modal-dialog-centered(role='document')
-                                        .modal-content(style=color)
-                                          .modal-header
-                                            h5.modal-title(id='infoModalLabel', style='color:white') Informacion sobre estado
-                                            button.close(type='button', data-dismiss='modal', aria-label='close')
-                                                span.font-weight-light(aria-hidden='true') &times;
-                                          .modal-body(style='white-space:pre-line;color:white')= line.desc
-                      .col-xs-.col-lg-3.col-md-6.col-sm-6
-                        table.table-borderless
-                          thead
-                            tr
-                              th.py-3(scope='col', width='10%') Linea
-                            
-                          tbody
-                            each line, index in metroLines
-                              if index >= 4 && index < 8
-                                tr
-                                  td.py-3
-                                    if index >= 4 && index < 8
-                                      img(src=line.img, style='width:30px')
-                                  td.py-3(align='left')
-                                    if index >= 4 && index < 8
-                                      - var color = ''
-                                      if line.desc == 'No hay incidencias'
-                                        span.badge.bagge-pill.badge-success(style='cursor:pointer;display:block',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
-                                        - color = 'background-color:#228B22';
-                                      else if line.estado == 'Circulación interrumpida' || line.estado == 'circulación interrumpida'
-                                        span.badge.bagge-pill.badge-danger(style='cursor:pointer;display:block',data-toggle='modal', data-target='#infoModal' + line._id) Circul. interrumpida
-                                        - color = 'background-color:#B22222'
-                                      else
-                                        span.badge.bagge-pill.badge-warning(style='cursor:pointer;display:block',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
-                                        - color = 'background-color:#FF8C00'
-                                    .modal.fade(id='infoModal' + line._id, tabindex='-1', role='dialog', aria-labelledby='infoModalLabel', aria-hidden='true')
-                                      .modal-dialog.modal-dialog-centered(role='document')
-                                        .modal-content(style=color)
-                                          .modal-header
-                                            h5.modal-title(id='infoModalLabel', style='color:white') Informacion sobre estado
-                                            button.close(type='button', data-dismiss='modal', aria-label='close')
-                                                span.font-weight-light(aria-hidden='true') &times;
-                                          .modal-body(style='white-space:pre-line;color:white')= line.desc
-                      .col-xs-.col-lg-3.col-md-6.col-sm-6
-                        table.table-borderless
-                          thead
-                            tr
-                              th.py-3(scope='col', width='10%') Linea
-                            
-                          tbody
-                            each line, index in metroLines
-                              if index >= 8 && index < 12
-                                tr
-                                  td.py-3
-                                    if index >= 8 && index < 12
-                                      img(src=line.img, style='width:30px')
-                                  td.py-3(align='left')
-                                    if index >= 8 && index < 12
-                                    - var color = ''
-                                      if line.desc == 'No hay incidencias'
-                                        span.badge.bagge-pill.badge-success(style='cursor:pointer;display:block',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
-                                        - color = 'background-color:#228B22';
-                                      else if line.estado == 'Circulación interrumpida' || line.estado == 'circulación interrumpida'
-                                        span.badge.bagge-pill.badge-danger(style='cursor:pointer;display:block',data-toggle='modal', data-target='#infoModal' + line._id) Circul. interrumpida
-                                        - color = 'background-color:#B22222'
-                                      else
-                                        span.badge.bagge-pill.badge-warning(style='cursor:pointer;display:block',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
-                                        - color = 'background-color:#FF8C00'
-
-                                    .modal.fade(id='infoModal' + line._id, tabindex='-1', role='dialog', aria-labelledby='infoModalLabel', aria-hidden='true')
-                                      .modal-dialog.modal-dialog-centered(role='document')
-                                        .modal-content(style=color)
-                                          .modal-header
-                                            h5.modal-title(id='infoModalLabel', style='color:white') Informacion sobre estado
-                                            button.close(type='button', data-dismiss='modal', aria-label='close')
-                                                span.font-weight-light(aria-hidden='true') &times;
-                                          .modal-body(style='white-space:pre-line;color:white')= line.desc
-                      .col-xs-.col-lg-3.col-md-6.col-sm-6
-                        table.table-borderless
-                          thead
-                            tr
-                              th.py-3(scope='col', width='10%') Linea
-                            
-                          tbody
-                            each line, index in metroLines
-                              if index >=12 && index< 16
-                                tr
-                                  td.py-3
-                                    if index >=12 && index< 16
-                                      img(src=line.img, style='width:30px')
-                                  td.py-3(align='left')
-                                    if index >=12 && index< 16
-                                    - var color = ''
-                                      if line.desc == 'No hay incidencias'
-                                        span.badge.bagge-pill.badge-success(style='cursor:pointer;display:block',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
-                                        - color = 'background-color:#228B22';
-                                      else if line.estado == 'Circulación interrumpida' || line.estado == 'circulación interrumpida'
-                                        span.badge.bagge-pill.badge-danger(style='cursor:pointer;display:block',data-toggle='modal', data-target='#infoModal' + line._id) Circul. interrumpida
-                                        - color = 'background-color:#B22222'
-                                      else
-                                        span.badge.bagge-pill.badge-warning(style='cursor:pointer;display:block',data-toggle='modal', data-target='#infoModal' + line._id)= line.estado
-                                        - color = 'background-color:#FF8C00'
-
-                                    .modal.fade(id='infoModal' + line._id, tabindex='-1', role='dialog', aria-labelledby='infoModalLabel', aria-hidden='true')
-                                      .modal-dialog.modal-dialog-centered(role='document')
-                                        .modal-content(style=color)
-                                          .modal-header
-                                            h5.modal-title(id='infoModalLabel', style='color:white') Informacion sobre estado
-                                            button.close(type='button', data-dismiss='modal', aria-label='close')
-                                                span.font-weight-light(aria-hidden='true') &times;
-                                          .modal-body(style='white-space:pre-line;color:white')= line.desc
+              +metroDashCard
+              
           .col-lg-8.py-3
-                .card.text-center(class='card text-center')
-                  .card-header
-                    ul.nav.nav-pills.card-header
-                      li.nav-item.px-1.py-1
-                        .btn-group
-                          button.btn.btn-falcon-primary(type='button', onClick='dropMetro()') Metro
-                          button.btn.btn-falcon-primary.dropdown-toggle.dropdown-toggle-split(data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
-                          .dropdown-menu
-                            each line in distinctLines
-                              if line == 'Línea '
-                                a.dropdown-item(id= line, onClick='dropSpecificLine(this.id)', style='cursor:pointer') Ramal
-                              else
-                                a.dropdown-item(id= line, onClick='dropSpecificLine(this.id)', style='cursor:pointer')= line
-
-                      li.nav-item.px-1.py-1
-                        .btn-group
-                          button.btn.btn-falcon-primary(type='button', onClick='dropCercanias()') Cercanias
-                          button.btn.btn-falcon-primary.dropdown-toggle.dropdown-toggle-split(data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
-                          .dropdown-menu
-                            each line in ['C-1', 'C-2', 'C-3', 'C-4','C-5', 'C-7','C-8','C-9','C-10']
-                              a.dropdown-item(id= line, onClick='dropSpecificCercanias(this.id)', style='cursor:pointer')= line
-                      li.nav-item.px-1.py-1
-                        button.btn.btn-falcon-primary(type='button', data-container='body', data-toggle='popover', 
-                          data-placement='top', data-html='true', 
-                          data-content='<a href="servicios/autobus">Para ver datos de Autobus, haga click aqui</a>') Autobus
-                      li.nav-item.px-1.py-1
-                       button.btn.btn-falcon-primary(onClick='dropBicimad()') Bicimad
-                      li.nav-item.px-1.py-1
-                        button.btn.disabled(href='#Uber') Uber
-                      li.nav-item.px-1.py-1
-                        button.btn.btn-falcon-primary(onClick='showTraffic()') Trafico
-                      li.nav-item.px-1.py-1
-                        button.btn.btn-falcon-primary(onClick='clearMarkers()') Clear
-                  .card-body
-                    .map-canvas.min-vh-50(id='map')
-                        script(type='text/javascript').
-                            var dataMetro = !{JSON.stringify(metroStations)};
-                            var dataBicimad = !{JSON.stringify(bicimadStations)};
-                            var dataCercanias = !{JSON.stringify(cercaniasStations)};
-                            
-                            var trafficLayer;
-                            var transitLayer;
-
-                            var map;
-                            var markers = [];
-                            function initMap() {
-                              map = new google.maps.Map(document.getElementById('map'), {
-                                center: {lat: 40.4165000, lng: -3.7025600},
-                                zoom: 11,
-                                mapTypeControl: false,
-                                streetViewControl: false
-                              });
-
-                              trafficLayer = new google.maps.TrafficLayer();
-                              transitLayer = new google.maps.TransitLayer();
-                            }
-                            
-                            function dropMetro(){
-                              clearMarkers();
-                              
-                              transitLayer.setMap(map);
-                              dataMetro.forEach(function(stat){
-                                var marker = new google.maps.Marker({
-                                  position: new google.maps.LatLng(stat.lat, stat.lon),
-                                  icon: {
-                                    url: 'assets/img/icons/metroIcon.png',
-                                    scaledSize: new google.maps.Size(33,33)
-                                  },
-                                  map: map,
-                                  animation: google.maps.Animation.DROP
-                                });
-                                markers.push(marker);
-                              });
-                            }
-
-                            function dropSpecificLine(line){
-                              clearMarkers();
-                              transitLayer.setMap(map);
-
-                              dataMetro.forEach(function(stat){
-                                if(line == stat.linea){
-                                  var marker = new google.maps.Marker({
-                                    position: new google.maps.LatLng(stat.lat, stat.lon),
-                                    icon: {
-                                      url: 'assets/img/icons/metroIcon.png',
-                                      scaledSize: new google.maps.Size(33,33)
-                                    },
-                                    map: map,
-                                    animation: google.maps.Animation.DROP
-                                  });
-                                  markers.push(marker);
-                                }
-                              });
-                            }
-
-                            function dropCercanias(){
-                              clearMarkers();
-                              
-                              transitLayer.setMap(map);
-                              dataCercanias.forEach(function(stat){
-                                var contentString = '<center><h5 id="firstHeading" class="firstHeading">' + stat.nombre + '</h5>\n' + 
-                                  '<h6>Direccion: ' + stat.direccion + '</h6>' + 
-                                  '</br>' + 
-                                  '<h6>Lineas</h6>\n' +
-                                  '<p>' + stat.lineas + '</center></p>' + 
-                                  '<h6>Tarifa</h6>\n' + 
-                                  '<p>' + stat.tarifa + '</p>';
-
-                                var infowindow = new google.maps.InfoWindow({
-                                  content : contentString
-                                });
-
-                                var marker = new google.maps.Marker({
-                                  position: new google.maps.LatLng(stat.lat, stat.lon),
-                                  icon: {
-                                    url: 'http://www.comunidad.madrid/sites/default/files/styles/block_teaser_image/public/img/logos-simbolos/logo_cercanias_color_982x550.png',
-                                    scaledSize: new google.maps.Size(45,33)
-                                  },
-                                  map: map,
-                                  animation: google.maps.Animation.DROP
-                                });
-
-                                marker.addListener('click', function() {
-                                  infowindow.open(map, marker);
-                                });
-                                markers.push(marker);
-                              });
-                            }
-
-                            function dropSpecificCercanias(line){
-                              clearMarkers();
-                              transitLayer.setMap(map);
-
-                              dataCercanias.forEach(function(stat){
-                                var contentString = '<center><h5 id="firstHeading" class="firstHeading">' + stat.nombre + '</h5>\n' + 
-                                  '<h6>Direccion: ' + stat.direccion + '</h6>' + 
-                                  '</br>' + 
-                                  '<h6>Lineas</h6>\n' +
-                                  '<p>' + stat.lineas + '</center></p>' + 
-                                  '<h6>Tarifa</h6>\n' + 
-                                  '<p>' + stat.tarifa + '</p>';
-
-                                  var infowindow = new google.maps.InfoWindow({
-                                    content : contentString
-                                  });
-
-                                if(stat.lineas.includes(line)){
-                                  var marker = new google.maps.Marker({
-                                    position: new google.maps.LatLng(stat.lat, stat.lon),
-                                    icon: {
-                                      url: 'http://www.comunidad.madrid/sites/default/files/styles/block_teaser_image/public/img/logos-simbolos/logo_cercanias_color_982x550.png',
-                                      scaledSize: new google.maps.Size(45,33)
-                                    },
-                                    map: map,
-                                    animation: google.maps.Animation.DROP
-                                  });
-                                  marker.addListener('click', function() {
-                                    infowindow.open(map, marker);
-                                  });
-
-                                  markers.push(marker);
-                                }
-                              });
-                            }
-
-                            function dropBicimad() {
-                              clearMarkers();
-                              
-                              dataBicimad.forEach(function(statBici){
-                                var operativoState;
-                                var stateImageUrl;
-
-                                if(statBici.operativo == 'Si'){
-                                  operativoState = 'Operativa';
-                                  stateImageUrl = 'assets/img/icons/bicimadIconAvailable.png';
-                                } else {
-                                  operativoState = 'No Operativa';
-                                  stateImageUrl = 'assets/img/icons/bicimadIconUnavailable.png';
-                                }
-
-                                var contentString = '<h5 id="firstHeading" class="firstHeading">' + statBici.nombre + '</h5>\n' + 
-                                  '<h6>Direccion: ' + statBici.direccion + '</h6>' + 
-                                  '</br>' + 
-                                  '<p>Bicis disponibles: ' + statBici.ancladas + '</p>' +
-                                  '</br>' + 
-                                  '<h6>' + operativoState + '</h6>';
-
-                                var infowindow = new google.maps.InfoWindow({
-                                  content : contentString
-                                });
-                                
-                                var marker = new google.maps.Marker({
-                                  position: new google.maps.LatLng(statBici.lat, statBici.lon),
-                                  icon: {
-                                    url: stateImageUrl,
-                                    scaledSize: new google.maps.Size(50,50)
-                                  },
-                                  map: map,
-                                  animation: google.maps.Animation.DROP
-                                });
-
-                                marker.addListener('click', function() {
-                                  infowindow.open(map, marker);
-                                });
-                                markers.push(marker);
-                              });
-                            }
-
-                            function showTraffic(){
-                              clearMarkers();
-                              
-                              trafficLayer.setMap(map);
-                            }
-
-                            function clearMarkers() {
-                              transitLayer.setMap(null);
-                              trafficLayer.setMap(null);
-                              setMapOnAll(null);
-                              markers = [];
-                            }
-
-                            function setMapOnAll(map) {
-                              for (var i = 0; i < markers.length; i++) {
-                                markers[i].setMap(map);
-                              }
-                            }
-
-
-                        script(async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQXpPnTkWE4KUpN8VjQ-uZ1jhsawzA59Q&callback=initMap")
+            +googleMapDashCard
                         
                     
                       

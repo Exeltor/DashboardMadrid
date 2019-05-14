@@ -38,7 +38,7 @@ app.get('/', async function(req, res){
     list.weatherHour = weatherCallbacks[0]['dia/hora'];
 
     //Metro Lineas
-    metroLinesDb = await dbo.collection('lineasMetro').find().sort({'nombre': 1}).toArray();
+    metroLinesDb = await dbo.collection('lineasMetro').find().sort({'_id': 1}).toArray();
     list.metroLines = metroLinesDb;
 
     //Metro Estaciones
