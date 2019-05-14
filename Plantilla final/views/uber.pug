@@ -20,6 +20,7 @@ head
   link(href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700%7cPoppins:100,200,300,400,500,600,700,800,900' rel='stylesheet')
   link(href='../assets/lib/jqvmap/jqvmap.min.css' rel='stylesheet')
   link(href='../assets/css/theme.css' rel='stylesheet')
+  link(href='https://use.fontawesome.com/releases/v5.8.2/css/solid.css', rel='stylesheet')
 // ===============================================
 // Contenido
 // ===============================================
@@ -187,32 +188,34 @@ main#top.main
       div
         .container-fluid
           .row
-            .col
+            .col.py-3
               .card.text-center
                 .card-header
+                  h4 Traza tu trayecto
+                  span(style='font-size:48px')
+                    i.fab.fa-uber.icon-large(width='100px')
                 .card-body
                   .map-canvas.min-vh-50(id='map')
 
-            .col
-              .card.text-center
-                .card-header
-                .card-body(id='right-panel')
-                  span(id='total')
-
-          .row
             .col-lg-3.col-sm-6.py-3
-              .card.text-center
-                .card-header
-                  h5 UberX
-              
-                .card-body(id='uberX-info')
+              .card
+                .card-img-top
+                  center
+                    img.img-fluid(src='https://www.uber-assets.com/image/upload/f_auto,q_auto:eco/v1554506931/navigation/UberX.png', alt='Card Image UberX', style='max-height:8rem')
+                .card-body
+                  center
+                    h4 UberX
+                  div(id='uberX-info')
 
             .col-lg-3.col-sm-6.py-3
-              .card.text-center
-                .card-header
-                  h5 Uber Black
-
-                .card-body(id='uber-black-info')
+              .card
+                .card-img-top
+                  center
+                    img.img-fluid(src='https://www.uber-assets.com/image/upload/f_auto,q_auto:eco/v1554506930/navigation/UberBlack.png', alt='Card Image UberBlack', style='max-height:8rem')
+                .card-body
+                  center
+                    h4 Uber Black
+                  div(id='uber-black-info')
 
 
         script(type='text/javascript').
@@ -227,8 +230,7 @@ main#top.main
             var directionsService = new google.maps.DirectionsService;
             var directionsDisplay = new google.maps.DirectionsRenderer({
               draggable: true,
-              map: map,
-              panel: document.getElementById('right-panel')
+              map: map
             });
 
             directionsDisplay.addListener('directions_changed', function(){
@@ -291,7 +293,7 @@ main#top.main
               '<h6>Duration</h6>\n' + 
               '<p>' + durationX + ' min<p>\n' + 
               '<h6>Distance</h6>\n' +
-              '<p>' + distanceX + '</p>' 
+              '<p>' + distanceX + ' km</p>' 
 
 
             //Uber Black
