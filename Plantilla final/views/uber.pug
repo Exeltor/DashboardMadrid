@@ -186,36 +186,44 @@ main#top.main
                   window.onload=function(){startTime();}
                 #reloj(style='font-size:20px;')
       div
+
+        //Mixins
+        mixin uberGoogleMap
+          .card.text-center
+            .card-header
+              h4 Traza tu trayecto
+              span(style='font-size:48px')
+                i.fab.fa-uber.icon-large(width='100px')
+            .card-body
+              .map-canvas.min-vh-50(id='map')
+
+        mixin uberCard(idType)
+          .card
+            .card-img-top
+              center
+                if idType == 'uberX-info'
+                  img.img-fluid(src='https://www.uber-assets.com/image/upload/f_auto,q_auto:eco/v1554506931/navigation/UberX.png', alt='Card Image UberX', style='max-height:8rem')
+                else
+                  img.img-fluid(src='https://www.uber-assets.com/image/upload/f_auto,q_auto:eco/v1554506930/navigation/UberBlack.png', alt='Card Image UberBlack', style='max-height:8rem')
+            .card-body
+              center
+                if idType == 'uberX-info'
+                  h4 UberX
+                else
+                  h4 Uber Black
+              div(id= idType)
+
         .container-fluid
           .row
             .col.py-3
-              .card.text-center
-                .card-header
-                  h4 Traza tu trayecto
-                  span(style='font-size:48px')
-                    i.fab.fa-uber.icon-large(width='100px')
-                .card-body
-                  .map-canvas.min-vh-50(id='map')
+              +uberGoogleMap
+              
 
             .col-lg-3.col-sm-6.py-3
-              .card
-                .card-img-top
-                  center
-                    img.img-fluid(src='https://www.uber-assets.com/image/upload/f_auto,q_auto:eco/v1554506931/navigation/UberX.png', alt='Card Image UberX', style='max-height:8rem')
-                .card-body
-                  center
-                    h4 UberX
-                  div(id='uberX-info')
+              +uberCard('uberX-info')
 
             .col-lg-3.col-sm-6.py-3
-              .card
-                .card-img-top
-                  center
-                    img.img-fluid(src='https://www.uber-assets.com/image/upload/f_auto,q_auto:eco/v1554506930/navigation/UberBlack.png', alt='Card Image UberBlack', style='max-height:8rem')
-                .card-body
-                  center
-                    h4 Uber Black
-                  div(id='uber-black-info')
+              +uberCard('uber-black-info')
 
 
         script(type='text/javascript').
@@ -318,16 +326,6 @@ main#top.main
       // Pie de pagina
       // ===============================================
       footer
-        .row.no-gutters.justify-content-between.fs--1.mt-4.mb-3
-          .col-12.col-sm-auto.text-center
-            p.mb-0.text-600
-              | Thank you for creating with Falcon 
-              span.d-none.d-sm-inline-block | 
-              br.d-sm-none
-              |  2019 &copy; 
-              a(href='../https://themewagon.com') Themewagon
-          .col-12.col-sm-auto.text-center
-            p.mb-0.text-600 v0.1.0
 // ===============================================
 // fin del contenido
 // ===============================================
