@@ -44,6 +44,7 @@ app.get('/', async function(req, res){
     //Metro Estaciones
     list.metroStations = await dbo.collection('estacionesMetro').find().toArray();
     list.distinctLines = await dbo.collection('estacionesMetro').distinct('linea');
+    list.distinctLines.sort();
 
     //Cercanias
     list.cercaniasStations = await dbo.collection('paradasCercanias').find().toArray();
@@ -56,7 +57,6 @@ app.get('/', async function(req, res){
     var coinTypeBase= JSON.parse(response.getBody('utf8'));
     list.coinTypes = Object.keys(coinTypeBase.rates);
     list.conversionRatesJson = coinTypeBase.rates;
-
 
     //Render final de la pagina con los datos
     res.render('index', list);
