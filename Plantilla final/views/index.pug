@@ -24,6 +24,9 @@ head
   link(href='assets/css/dataTables.bootstrap4.min.css', rel='stylesheet')
   link(href='//cdn.datatables.net/fixedheader/3.1.2/css/fixedHeader.dataTables.min.css', rel='stylesheet')
   link(href='https://use.fontawesome.com/releases/v5.8.2/css/solid.css', rel='stylesheet')
+  link(href='assets/css/jquery-ui.min.css', rel='stylesheet')
+  link(href='assets/css/jquery-ui.structure.min.css', rel='stylesheet')
+  link(href='assets/css/jquery-ui.theme.min.css', rel='stylesheet')
 // ===============================================
 // Contenido
 // ===============================================
@@ -703,7 +706,7 @@ main#top.main
 
             .col-md-12.col-lg-8.col-sm-10.py-3
               +metroDashCard
-              
+                
           .col-lg-8.py-3
             +googleMapDashCard
                         
@@ -736,6 +739,11 @@ script(src='//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js')
 script(src='//cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js')
 script(src='//cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js')
 script(src='//cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.js')
+script(src='assets/js/jquery-ui.min.js')
+script.
+  $(function(){
+    $("#draggable").draggable();
+  });
 
 
 //Dropdown divisa origen
