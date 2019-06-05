@@ -560,43 +560,64 @@ pre code {
   margin-left: auto;
 }
 
-@media (min-width: 576px) {
-  .container {
-    max-width: 540px;
+@media (min-width: 360px) {
+  .container-fluid {
+    width: 100%;
+    padding-right: 1px;
+    padding-left: 1px;
+    margin-right: auto;
+    margin-left: auto;
+    overflow: hidden;
   }
 }
 
 @media (min-width: 768px) {
-  .container {
-    max-width: 720px;
+  .container-fluid {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
   }
 }
 
 @media (min-width: 992px) {
-  .container {
-    max-width: 960px;
+  .container-fluid {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
   }
 }
 
 @media (min-width: 1200px) {
-  .container {
-    max-width: 1140px;
+  .container-fluid {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
   }
 }
 
 @media (min-width: 1540px) {
-  .container {
-    max-width: 1480px;
+  .container-fluid {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
   }
 }
 
-.container-fluid {
+/*.container-fluid {
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
-}
+}*/
 
 .row {
   display: -webkit-box;

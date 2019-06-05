@@ -204,92 +204,101 @@ main#top.main
                       data-info='false', style='width:100%;height:100%')
                       thead.bg-200
                         tr
-                          th(scope='col') ID
                           th(scope='col') Aerolinea
                           th(scope='col') Destino
                           th(scope='col') Estado
                           th(scope='col') Terminal
                           th(scope='col') Hora
+                          th(scope='col') ID
                       tbody.bg-white
                         each flight in flightDepJsons
                           if flight.estado == 'Cancelado'
                             tr.table-danger
-                              th(scope='row')= flight.id
-                              td= flight.aerolinea
+                              th(scope='row')
+                                img(src="assets/img/logos/logosAerolineas/" + flight.FS + ".png")
                               td= flight.destino
                               td= flight.estado
                               td= flight.terminal
                               td= flight.horaSalida
+                              td= flight.id
                           else if flight.estado == 'Desconocido'
                             tr.table-warning
-                              th(scope='row')= flight.id
-                              td= flight.aerolinea
+                              th(scope='row')
+                                img(src="assets/img/logos/logosAerolineas/" + flight.FS + ".png")
                               td= flight.destino
                               td= flight.estado
                               td= flight.terminal
                               td= flight.horaSalida
+                              td= flight.id
                           else if flight.estado == 'Programado'
                             tr.table-primary
-                              th(scope='row')= flight.id
-                              td= flight.aerolinea
+                              th(scope='row')
+                                img(src="assets/img/logos/logosAerolineas/" + flight.FS + ".png")
                               td= flight.destino
                               td= flight.estado
                               td= flight.terminal
                               td= flight.horaSalida
+                              td= flight.id
                           else
                             tr
-                              th(scope='row')= flight.id
-                              td= flight.aerolinea
+                              th(scope='row')
+                                img(src="assets/img/logos/logosAerolineas/" + flight.FS + ".png")
                               td= flight.destino
                               td= flight.estado
                               td= flight.terminal
-                              td= flight.horaSalida         
+                              td= flight.horaSalida
+                              td= flight.id    
                   .tab-content
                     table.table.table-lg.table-dashboard.data-table.responsive.display(data-searching='false', data-paging='false',
-                      data-info='false', style='width:100%')
+                      data-info='false', style='width:100%;height:100%')
                       thead.bg-200
                         tr
-                          th(scope='col') ID
                           th(scope='col') Aerolinea
                           th(scope='col') Origen
                           th(scope='col') Estado
                           th(scope='col') Terminal
                           th(scope='col') Hora
+                          th(scope='col') ID
                       tbody.bg-white
                         each flight in flightArrJsons
                           if flight.estado == 'Activo'
                             tr.table-primary
-                              th(scope='row')= flight.id
-                              td= flight.aerolinea
+                              th(scope='row')
+                                img(src="assets/img/logos/logosAerolineas/" + flight.FS + ".png")
                               td= flight.origen
                               td= flight.estado
                               td= flight.terminal
                               td= flight.horaLlegada
+                              td= flight.id
                           else if flight.estado == 'Cancelado'
                             tr.table-danger
-                              th(scope='row')= flight.id
-                              td= flight.aerolinea
+                              th(scope='row')
+                                img(src="assets/img/logos/logosAerolineas/" + flight.FS + ".png")
                               td= flight.origen
                               td= flight.estado
                               td= flight.terminal
                               td= flight.horaLlegada
+                              td= flight.id
                           else
                             tr
-                              th(scope='row')= flight.id
-                              td= flight.aerolinea
+                              th(scope='row')
+                                img(src="assets/img/logos/logosAerolineas/" + flight.FS + ".png")
                               td= flight.origen
                               td= flight.estado
                               td= flight.terminal
                               td= flight.horaLlegada
+                              td= flight.id
 
         mixin tiempoDashCard
           .card.py-3
-            center
-              img.card.img.top(src= weatherIcon, height='100', width='100')
             .card-body
-              h6.card-title(align='center', style = 'font-size:200%')= weatherTemp + 'º'
-              h1.card-title(align='center')= weatherDesc
-              p.card-text(align='center')= 'actualizacion: ' + weatherHour 
+              div(style='float:left')
+                img.pr-3(src= weatherIcon, height='150', width='150')
+              div
+                h6.card-title(style='font-size:350%;vertical-align:right')= weatherTemp + 'º'
+                h5.card-title(style='vertical-align:middle')= weatherDesc
+
+            
 
         mixin conversorMonedaDashCard
           .card.py-3
@@ -317,7 +326,8 @@ main#top.main
           
         mixin metroDashCard
           .card
-            img(src='https://www.metromadrid.es/sites/default/files/web/imagenes/Logomarca_azul.png', style='width:10%')
+            center
+              h2.pt-2 Metro de Madrid
             .card-body 
               .container-fluid
                 .row
@@ -460,37 +470,27 @@ main#top.main
         mixin googleMapDashCard
           .card.text-center(class='card text-center')
             .card-header
-              ul.nav.nav-pills.card-header
-                li.nav-item.px-1.py-1
-                  .btn-group
-                    button.btn.btn-falcon-primary(type='button', onClick='dropMetro()') Metro
-                    button.btn.btn-falcon-primary.dropdown-toggle.dropdown-toggle-split(data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+              .fancy-tab 
+                .nav-bar.nav-bar-center
+                  .nav-bar-item.px-3.px-sm-4
+                    span.fas.fa-subway(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
                     .dropdown-menu
                       each line in distinctLines
                         if line == 'Línea '
                           a.dropdown-item(id= line, onClick='dropSpecificLine(this.id)', style='cursor:pointer') Ramal
                         else
                           a.dropdown-item(id= line, onClick='dropSpecificLine(this.id)', style='cursor:pointer')= line
-
-                li.nav-item.px-1.py-1
-                  .btn-group
-                    button.btn.btn-falcon-primary(type='button', onClick='dropCercanias()') Cercanias
-                    button.btn.btn-falcon-primary.dropdown-toggle.dropdown-toggle-split(data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                  .nav-bar-item.px-3.px-sm-4
+                    span.fas.fa-plane-arrival(data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
                     .dropdown-menu
                       each line in ['C-1', 'C-2', 'C-3', 'C-4','C-5', 'C-7','C-8','C-9','C-10']
                         a.dropdown-item(id= line, onClick='dropSpecificCercanias(this.id)', style='cursor:pointer')= line
-                li.nav-item.px-1.py-1
-                  button.btn.btn-falcon-primary(type='button', data-container='body', data-toggle='popover', 
-                    data-placement='top', data-html='true', 
-                    data-content='<a href="servicios/autobus">Para ver datos de Autobus, haga click aqui</a>') Autobus
-                li.nav-item.px-1.py-1
-                  button.btn.btn-falcon-primary(onClick='dropBicimad()') Bicimad
-                li.nav-item.px-1.py-1
-                  button.btn.disabled(href='#Uber') Uber
-                li.nav-item.px-1.py-1
-                  button.btn.btn-falcon-primary(onClick='showTraffic()') Trafico
-                li.nav-item.px-1.py-1
-                  button.btn.btn-falcon-primary(onClick='clearMarkers()') Clear
+                  .nav-bar-item.px-3.px-sm-4
+                    span.fas.fa-bicycle(onClick='dropBicimad()')
+                  .nav-bar-item.px-3.px-sm-4
+                    span.fas.fa-traffic-light(onClick='showTraffic()')
+                  .nav-bar-item.px-3.px-sm-4.active
+                    span.fas.fa-times-circle(onClick='clearMarkers()')
             .card-body
               .map-canvas.min-vh-50(id='map')
                   script(type='text/javascript').
@@ -695,17 +695,17 @@ main#top.main
             .col-lg-5.py-3
               +aeropuertoDashCard
 
-            .col-lg-3.col-md-6.py-3
+            .col-lg-4.col-md-5.py-3
               +tiempoDashCard
 
-            .col-md-6.col-lg-4.py-3
+            .col-md-6.col-lg-3.py-3
               +conversorMonedaDashCard
 
             .col-md-12.col-lg-8.col-sm-10.py-3
               +metroDashCard
               
-          .col-lg-8.py-3
-            +googleMapDashCard
+            .col-lg-8.col-xs-12.py-3
+              +googleMapDashCard
                         
                     
                       

@@ -1,8 +1,8 @@
 import requests, json, datetime
 
 #Formateo del GET
-appID = '041718fe'
-appKey = 'e59974c8cfedf8945fecc291da4e04ab'
+appID = '30726749'
+appKey = 'cb77115d95d6ccee237b2c51e9a6df05'
 airportID = 'MAD'
 restProtocol = 'rest'
 frmt = 'json'
@@ -15,7 +15,6 @@ year = now.year
 month = now.month
 day = now.day
 hour = now.hour
-
 
 getParams = {
 	'appId' : appID, 
@@ -52,6 +51,7 @@ def getData(isDeparture):
 	requestJson = requestToJson(domainDep if isDeparture else domainArr, getParams)
 
 	for flight in requestJson['flightStatuses']:
+		flightFs = flight['carrierFsCode']
 		flightId = flight['carrierFsCode'] + flight['flightNumber']
 		otherFs = flight['arrivalAirportFsCode'] if isDeparture else flight['departureAirportFsCode']
 		status = statusDict[flight['status']]
@@ -69,6 +69,11 @@ def getData(isDeparture):
 		for airport in requestJson['appendix']['airports']:
 			if airport['fs'] == otherFs:
 					otherName = airport['name']
+					noInt = otherName.replace('International', '')
+					noint = noInt.replace('international', '')
+					noAir = noint.replace('Airport', '')
+					noair = noAir.replace('airport', '')
+
 
 		#Asignacion de terminal
 		try:
@@ -79,8 +84,9 @@ def getData(isDeparture):
 
 		flightF = {
 			'id' : flightId,
+			'FS' : flightFs,
 			'aerolinea' : airlineName,
-			'destino' if isDeparture else 'origen' : otherName,
+			'destino' if isDeparture else 'origen' : noair,
 			'estado': status,
 			'terminal' : terminal,
 			'horaSalida' if isDeparture else 'horaLlegada' : time
