@@ -68,6 +68,7 @@ main#top.main
                 a.nav-link(href='servicios/vuelos') Vuelos
               li.nav-item
                 a.nav-link(href='servicios/uber') Uber
+
     .content
       nav.navbar.navbar-light.navbar-glass.fs--1.font-weight-semi-bold.row.navbar-top.sticky-kit.navbar-expand
         button.navbar-toggler.collapsed(type='button' data-toggle='collapse' data-target='#navbarVerticalCollapse' aria-controls='navbarVerticalCollapse' aria-expanded='false' aria-label='Toggle navigation')
@@ -156,7 +157,7 @@ main#top.main
 
         //Mixins
         mixin aeropuertoDashCard
-          .card.text-center(class='card text-center' style='max-height:18rem')
+          .card.text-center(class='card text-center' style='max-height:29rem')
             .card-body.col-xs-12(style='overflow-x:hidden')
               .fancy-tab 
                 .nav-bar.nav-bar-center
@@ -260,11 +261,12 @@ main#top.main
         mixin tiempoDashCard
           .card.py-3
             .card-body
-              div(style='float:left')
-                img.pr-3(src= weatherIcon, height='150', width='150')
-              div
-                h6.card-title(style='font-size:350%;vertical-align:right')= weatherTemp + 'º'
-                h5.card-title(style='vertical-align:middle')= weatherDesc
+              .row
+                .col-6
+                  img(src= weatherIcon, height='150', width='150')
+                .col-6.pt-3
+                  h6.card-title(style='font-size:350%')= weatherTemp + 'º'
+                  h5.card-title= weatherDesc
 
             
 
@@ -295,7 +297,7 @@ main#top.main
         mixin metroDashCard
           .card
             center
-              h2.pt-2 Metro de Madrid
+              h2.pt-2.span.text-info Metro de Madrid
             .card-body 
               .container-fluid
                 .row
@@ -659,23 +661,20 @@ main#top.main
 
         .container-fluid
           .row
-            //Aeropuerto
-            .col-lg-5.py-3
-              +aeropuertoDashCard
-
-            .col-lg-4.col-md-5.py-3
+            .col-lg-6.py-3
               +tiempoDashCard
-
-            .col-md-6.col-lg-3.py-3
+            .col-lg-6.py-3
               +conversorMonedaDashCard
-
-            .col-md-12.col-lg-8.col-sm-10.py-3
-              +metroDashCard
+            .col-md-12.col-lg-12.col-sm-10.py-3
+              +metroDashCard 
+            //Aeropuerto
+            .col-lg-6.py-3
+              +aeropuertoDashCard
+            
               
-            .col-lg-8.col-xs-12.py-3
+            .col-lg-6.col-xs-12.py-3
               +googleMapDashCard
-                        
-                    
+                               
                       
                   
       // ===============================================
