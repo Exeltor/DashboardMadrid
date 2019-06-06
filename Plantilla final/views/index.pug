@@ -268,14 +268,36 @@ main#top.main
                   h6.card-title(style='font-size:350%')= weatherTemp + 'º'
                   h5.card-title= weatherDesc
 
-            
+        
+        mixin carouselCard
+          .carousel.slide(id='carouselPhotos', data-ride='carousel')
+            ol.carousel-indicators
+              li.active(data-target='#carouselPhotos', data-slide-to='0')
+              li(data-target='#carouselPhotos', data-slide-to='1')
+              li(data-target='#carouselPhotos', data-slide-to='2')
+              li(data-target='#carouselPhotos', data-slide-to='3')
+            .carousel-inner.rounded
+              .carousel-item.active
+                img.d-block.w-100(src='assets/img/Carrousel/1.jpg', alt='First Slide')
+              .carousel-item
+                img.d-block.w-100(src='assets/img/Carrousel/2.jpg', alt='Second Slide')
+              .carousel-item
+                img.d-block.w-100(src='assets/img/Carrousel/3.jpg', alt='Third Slide')
+              .carousel-item
+                img.d-block.w-100(src='assets/img/Carrousel/4.jpg', alt='Fourth Slide')
+            .carousel-control-prev(href='#carouselPhotos', role='button', data-slide='prev')
+              span.carousel-control-prev-icon(aria-hidden='true')
+              span.sr-only Previous
+            .carousel-control-next(href='#carouselPhotos', role='button', data-slide='next')
+              span.carousel-control-next-icon(aria-hidden='true')
+              span.sr-only Next
 
         mixin conversorMonedaDashCard
           .card.py-3
             .card-body
               h5.card-title Conversor de Moneda
               form(action='/convert', method='POST')
-                .input-group.mb-3
+                .input-group
                   .input-group-prepend
                     button.btn.btn-outline-primary.dropdown-toggle.shadow-none(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Origen
                     .dropdown-menu(style='max-height:10rem;overflow-y:auto')
@@ -286,13 +308,12 @@ main#top.main
                   .input-group-append
                     span.input-group-text(id='currencyTypeText')
               
-                .input-group.mb-3
+                .input-group.py-2
                   input.form-control(id='readonlyCurrency', type='number', placeholder='Resultado', readonly='')
                   .input-group-append
                     span.input-group-text €
-                
-                center
-                  button.btn.btn-falcon-success.mb-3(type='button', onClick='convertToEur()') Convertir
+              center
+                span.fas.fa-sync-alt(onClick='convertToEur()', style='font-size:30')
           
         mixin metroDashCard
           .card
@@ -661,10 +682,12 @@ main#top.main
 
         .container-fluid
           .row
-            .col-lg-6.py-3
+            .col-lg-4.py-3
               +tiempoDashCard
-            .col-lg-6.py-3
+            .col-lg-4.py-3
               +conversorMonedaDashCard
+            .col-lg-4.py-3
+              +carouselCard
             .col-md-12.col-lg-12.col-sm-10.py-3
               +metroDashCard 
             //Aeropuerto
