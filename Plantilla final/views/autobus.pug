@@ -37,69 +37,49 @@ main#top.main
       // ===============================================
       #navbarVerticalCollapse.collapse.navbar-collapse
         ul.navbar-nav.flex-column
+          li.nav-item.active
+            a.nav-link(href='/')
+              span.nav-link-icon
+                span.fas.fa-chart-line
+              span  Dashboard
+              span.badge.badge-soft-success.badge-pill.ml-2 Selected
           li.nav-item
-            a.nav-link.dropdown-indicator(href='#home' data-toggle='collapse' role='button' aria-expanded='true' aria-controls='home')
-              .d-flex.align-items-center
-                span.nav-link-icon
-                  span.fas.fa-chart-pie
-                span Inicio
-            // ===============================================
-            // Categorias
-            // ===============================================
-            ul#home.nav.collapse.show(data-parent='#navbarVerticalCollapse')
-              li.nav-item.active
-                a.nav-link(href='/')
-                  | Dashboard
-                  span.badge.badge-soft-success.badge-pill.ml-2 selected
-              li.nav-item
-                a.nav-link(href='') Noticias
-              li.nav-item
-                a.nav-link(href='/eventos') Eventos
-          // ===============================================
-          // Servicios
-          // ===============================================
-          li.nav-item
-            a.nav-link.dropdown-indicator(href='#servicios' data-toggle='collapse' role='button' aria-expanded='true' aria-controls='servicios')
+            a.nav-link.dropdown-indicator(href='#email' data-toggle='collapse' role='button' aria-expanded='false' aria-controls='email')
               .d-flex.align-items-center
                 span.nav-link-icon
                   span.fas.fa-exchange-alt
                 span Servicios
-            ul#servicios.nav.collapse.show(data-parent='#navbarVerticalCollapse')
-              li.nav-item
-                a.nav-link(href='/servicios/metro-cercanias') Metro/Cercanias
-              li.nav-item.active
-                a.nav-link(href='/servicios/autobus')
-                  | Autobus
-                  span.badge.badge-soft-success.badge-pill.ml-2 selected
-              li.nav-item
-                a.nav-link(href='/servicios/bicimad') BiciMad
-              li.nav-item
-                a.nav-link(href='/servicios/vuelos') Vuelos
-              li.nav-item
-                a.nav-link(href='/servicios/uber') Uber
-          // ===============================================
-          // Fin Servicios
-          // ===============================================
-        hr.border-300.my-2
+            // ===============================================
+            // Servicios
+            // ===============================================
+      #navbarVerticalCollapse.collapse.navbar-collapse
         ul.navbar-nav.flex-column
+          li.nav-item.active
+            a.nav-link(href='/')
+              span.nav-link-icon
+                span.fas.fa-chart-line
+              span  Dashboard
+              span.badge.badge-soft-success.badge-pill.ml-2 Selected
           li.nav-item
-            a.nav-link.dropdown-indicator(href='#documentation' data-toggle='collapse' role='button' aria-expanded='false' aria-controls='documentation')
+            a.nav-link.dropdown-indicator(href='#email' data-toggle='collapse' role='button' aria-expanded='false' aria-controls='email')
               .d-flex.align-items-center
                 span.nav-link-icon
-                  span.fas.fa-stream
-                span Ciudades
-                span.badge.badge-soft-warning.badge-pill.ml-2 W.I.P.
+                  span.fas.fa-exchange-alt
+                span Servicios
             // ===============================================
-            // Ciudades
+            // Servicios
             // ===============================================
-            ul#documentation.nav.collapse(data-parent='#navbarVerticalCollapse')
+            ul#email.nav(data-parent='#navbarVerticalCollapse')
               li.nav-item
-                a.nav-link(href='')
-                  | Madrid
-                  span.badge.badge-soft-success.badge-pill.ml-2 Selected
+                a.nav-link(href='metro-cercanias') Metro/Cercanias
               li.nav-item
-                a.nav-link(href='') Barcelona
-        a.btn.btn-primary.btn-sm.m-3(href='/' target='_blank') Dashboard
+                a.nav-link(href='autobus') Autobus
+              li.nav-item
+                a.nav-link(href='bicimad') BiciMad
+              li.nav-item
+                a.nav-link(href='vuelos') Vuelos
+              li.nav-item
+                a.nav-link(href='uber') Uber
     .content
       nav.navbar.navbar-light.navbar-glass.fs--1.font-weight-semi-bold.row.navbar-top.sticky-kit.navbar-expand
         button.navbar-toggler.collapsed(type='button' data-toggle='collapse' data-target='#navbarVerticalCollapse' aria-controls='navbarVerticalCollapse' aria-expanded='false' aria-label='Toggle navigation')
@@ -107,7 +87,8 @@ main#top.main
         a.navbar-brand.text-left.ml-3(href='/')
           .d-flex.align-items-center.text-primary
             .d-inline-flex.flex-center
-              img.mr-2(src='../assets/img/illustrations/Dashboard-Icon.png' alt='' width='40')
+              div.d-none.d-sm-none.d-md-block
+                img.mr-2(src='assets/img/logos/madrid-logo-transparent.png' alt='' width='50')
               span.text-info Madrid
         // ===============================================
         // inicio

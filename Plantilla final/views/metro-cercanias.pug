@@ -38,69 +38,32 @@ main#top.main
       // ===============================================
       #navbarVerticalCollapse.collapse.navbar-collapse
         ul.navbar-nav.flex-column
+          li.nav-item.active
+            a.nav-link(href='/')
+              span.nav-link-icon
+                span.fas.fa-chart-line
+              span  Dashboard
+              span.badge.badge-soft-success.badge-pill.ml-2 Selected
           li.nav-item
-            a.nav-link.dropdown-indicator(href='#home' data-toggle='collapse' role='button' aria-expanded='true' aria-controls='home')
-              .d-flex.align-items-center
-                span.nav-link-icon
-                  span.fas.fa-chart-pie
-                span Inicio
-            // ===============================================
-            // Categorias
-            // ===============================================
-            ul#home.nav.collapse.show(data-parent='#navbarVerticalCollapse')
-              li.nav-item.active
-                a.nav-link(href='/')
-                  | Dashboard
-                  span.badge.badge-soft-success.badge-pill.ml-2 selected
-              li.nav-item
-                a.nav-link(href='') Noticias
-              li.nav-item
-                a.nav-link(href='/eventos') Eventos
-          // ===============================================
-          // Servicios
-          // ===============================================
-          li.nav-item
-            a.nav-link.dropdown-indicator(href='#servicios' data-toggle='collapse' role='button' aria-expanded='true' aria-controls='servicios')
+            a.nav-link.dropdown-indicator(href='#email' data-toggle='collapse' role='button' aria-expanded='false' aria-controls='email')
               .d-flex.align-items-center
                 span.nav-link-icon
                   span.fas.fa-exchange-alt
                 span Servicios
-            ul#servicios.nav.collapse.show(data-parent='#navbarVerticalCollapse')
-              li.nav-item.active
-                a.nav-link(href='/servicios/metro-cercanias')
-                  | Metro/Cercanias
-                  span.badge.badge-soft-success.badge-pill.ml-2 selected
-              li.nav-item
-                a.nav-link(href='/servicios/autobus') Autobus
-              li.nav-item
-                a.nav-link(href='/servicios/bicimad') BiciMad
-              li.nav-item
-                a.nav-link(href='/servicios/vuelos') Vuelos
-              li.nav-item
-                a.nav-link(href='/servicios/uber') Uber
-          // ===============================================
-          // Fin Servicios
-          // ===============================================
-        hr.border-300.my-2
-        ul.navbar-nav.flex-column
-          li.nav-item
-            a.nav-link.dropdown-indicator(href='#documentation' data-toggle='collapse' role='button' aria-expanded='false' aria-controls='documentation')
-              .d-flex.align-items-center
-                span.nav-link-icon
-                  span.fas.fa-stream
-                span Ciudades
-                span.badge.badge-soft-warning.badge-pill.ml-2 W.I.P.
             // ===============================================
-            // Ciudades
+            // Servicios
             // ===============================================
-            ul#documentation.nav.collapse(data-parent='#navbarVerticalCollapse')
+            ul#email.nav(data-parent='#navbarVerticalCollapse')
               li.nav-item
-                a.nav-link(href='')
-                  | Madrid
-                  span.badge.badge-soft-success.badge-pill.ml-2 Selected
+                a.nav-link(href='metro-cercanias') Metro/Cercanias
               li.nav-item
-                a.nav-link(href='') Barcelona
-        a.btn.btn-primary.btn-sm.m-3(href='/' target='_blank') Dashboard
+                a.nav-link(href='autobus') Autobus
+              li.nav-item
+                a.nav-link(href='bicimad') BiciMad
+              li.nav-item
+                a.nav-link(href='vuelos') Vuelos
+              li.nav-item
+                a.nav-link(href='uber') Uber
     .content
       nav.navbar.navbar-light.navbar-glass.fs--1.font-weight-semi-bold.row.navbar-top.sticky-kit.navbar-expand
         button.navbar-toggler.collapsed(type='button' data-toggle='collapse' data-target='#navbarVerticalCollapse' aria-controls='navbarVerticalCollapse' aria-expanded='false' aria-label='Toggle navigation')
@@ -108,7 +71,8 @@ main#top.main
         a.navbar-brand.text-left.ml-3(href='/')
           .d-flex.align-items-center.text-primary
             .d-inline-flex.flex-center
-              img.mr-2(src='../assets/img/illustrations/Dashboard-Icon.png' alt='' width='40')
+              div.d-none.d-sm-none.d-md-block
+                img.mr-2(src='assets/img/logos/madrid-logo-transparent.png' alt='' width='50')
               span.text-info Madrid
         // ===============================================
         // inicio
@@ -183,35 +147,32 @@ main#top.main
         .container-fluid
           .row
             .col-lg-6.col-md-6.col-sm-6.py-3
-              .card.text-center.py-3
+              .card.text-center(class='card text-center')
                 .card-header
-                  ul.nav
-                    li.nav-item
-                      .btn-group
-                        button.btn(type='button', onClick='dropMetro()') Metro
-                        button.btn.dropdown-toggle.dropdown-toggle-split(data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                  .fancy-tab 
+                    .nav-bar.nav-bar-center
+                      .nav-bar-item.px-3.px-sm-4
+                        span.fas.fa-subway(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
                         .dropdown-menu
                           each line in distinctLines
                             if line == 'Línea '
                               a.dropdown-item(id= line, onClick='dropSpecificLine(this.id)', style='cursor:pointer') Ramal
                             else
                               a.dropdown-item(id= line, onClick='dropSpecificLine(this.id)', style='cursor:pointer')= line
-
-                    li.nav-item
-                      .btn-group
-                        button.btn(type='button', onClick='dropCercanias()') Cercanias
-                        button.btn.dropdown-toggle.dropdown-toggle-split(data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                      .nav-bar-item.px-3.px-sm-4
+                        span.fas.fa-plane-arrival(data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
                         .dropdown-menu
                           each line in ['C-1', 'C-2', 'C-3', 'C-4','C-5', 'C-7','C-8','C-9','C-10']
                             a.dropdown-item(id= line, onClick='dropSpecificCercanias(this.id)', style='cursor:pointer')= line
-                    li.nav-item
-                      button.btn.btn-primary(onClick='clearMarkers()') Clear
+                      .nav-bar-item.px-3.px-sm-4.active
+                        span.fas.fa-times-circle(onClick='clearMarkers()')
                 .card-body
                   .map-canvas.min-vh-50(id='map')
                     script(type='text/javascript').
                       var dataMetro = !{JSON.stringify(metroStations)};
                       var dataCercanias = !{JSON.stringify(cercaniasStations)};
                       
+                      var trafficLayer;
                       var transitLayer;
 
                       var map;
@@ -224,6 +185,7 @@ main#top.main
                           streetViewControl: false
                         });
 
+                        trafficLayer = new google.maps.TrafficLayer();
                         transitLayer = new google.maps.TransitLayer();
                       }
                       
@@ -304,6 +266,18 @@ main#top.main
                         transitLayer.setMap(map);
 
                         dataCercanias.forEach(function(stat){
+                          var contentString = '<center><h5 id="firstHeading" class="firstHeading">' + stat.nombre + '</h5>\n' + 
+                            '<h6>Direccion: ' + stat.direccion + '</h6>' + 
+                            '</br>' + 
+                            '<h6>Lineas</h6>\n' +
+                            '<p>' + stat.lineas + '</center></p>' + 
+                            '<h6>Tarifa</h6>\n' + 
+                            '<p>' + stat.tarifa + '</p>';
+
+                            var infowindow = new google.maps.InfoWindow({
+                              content : contentString
+                            });
+
                           if(stat.lineas.includes(line)){
                             var marker = new google.maps.Marker({
                               position: new google.maps.LatLng(stat.lat, stat.lon),
@@ -314,13 +288,67 @@ main#top.main
                               map: map,
                               animation: google.maps.Animation.DROP
                             });
+                            marker.addListener('click', function() {
+                              infowindow.open(map, marker);
+                            });
+
                             markers.push(marker);
                           }
                         });
                       }
 
+                      function dropBicimad() {
+                        clearMarkers();
+                        
+                        dataBicimad.forEach(function(statBici){
+                          var operativoState;
+                          var stateImageUrl;
+
+                          if(statBici.operativo == 'Si'){
+                            operativoState = 'Operativa';
+                            stateImageUrl = 'assets/img/icons/bicimadIconAvailable.png';
+                          } else {
+                            operativoState = 'No Operativa';
+                            stateImageUrl = 'assets/img/icons/bicimadIconUnavailable.png';
+                          }
+
+                          var contentString = '<h5 id="firstHeading" class="firstHeading">' + statBici.nombre + '</h5>\n' + 
+                            '<h6>Direccion: ' + statBici.direccion + '</h6>' + 
+                            '</br>' + 
+                            '<p>Bicis disponibles: ' + statBici.ancladas + '</p>' +
+                            '</br>' + 
+                            '<h6>' + operativoState + '</h6>';
+
+                          var infowindow = new google.maps.InfoWindow({
+                            content : contentString
+                          });
+                          
+                          var marker = new google.maps.Marker({
+                            position: new google.maps.LatLng(statBici.lat, statBici.lon),
+                            icon: {
+                              url: stateImageUrl,
+                              scaledSize: new google.maps.Size(50,50)
+                            },
+                            map: map,
+                            animation: google.maps.Animation.DROP
+                          });
+
+                          marker.addListener('click', function() {
+                            infowindow.open(map, marker);
+                          });
+                          markers.push(marker);
+                        });
+                      }
+
+                      function showTraffic(){
+                        clearMarkers();
+                        
+                        trafficLayer.setMap(map);
+                      }
+
                       function clearMarkers() {
                         transitLayer.setMap(null);
+                        trafficLayer.setMap(null);
                         setMapOnAll(null);
                         markers = [];
                       }
@@ -330,8 +358,8 @@ main#top.main
                           markers[i].setMap(map);
                         }
                       }
-                    
-                    
+
+
                     script(async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQXpPnTkWE4KUpN8VjQ-uZ1jhsawzA59Q&callback=initMap")
 
             .col-lg-3.col-sm-6.py-3
@@ -350,7 +378,8 @@ main#top.main
 
             .col-md-12.col-lg-8.col-sm-10.py-3
               .card
-                img(src='https://www.metromadrid.es/sites/default/files/web/imagenes/Logomarca_azul.png', style='width:10%')
+                center
+                  h2.pt-2 Metro de Madrid
                 .card-body 
                   .container-fluid
                     .row

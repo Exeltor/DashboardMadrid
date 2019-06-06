@@ -560,7 +560,7 @@ pre code {
   margin-left: auto;
 }
 
-@media (min-width: 360px) {
+@media (min-width: 320px) {
   .container-fluid {
     width: 100%;
     padding-right: 1px;
